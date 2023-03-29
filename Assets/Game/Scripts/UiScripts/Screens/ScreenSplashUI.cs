@@ -22,7 +22,7 @@ namespace Master.UI
             //Debug.Log("moveright");
             if (splashTime == 0)
             {
-                UIController.instance.ShowNextScreen(ScreenType.Preferences);
+                UIController.instance.ShowNextScreen(ScreenType.PrepareForLaunch);
             }
         }
         

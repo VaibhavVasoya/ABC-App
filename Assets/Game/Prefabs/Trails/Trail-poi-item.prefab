@@ -572,7 +572,6 @@ MonoBehaviour:
     website: 
     pin_id: 
     intro_id: 
-    texture2D: {fileID: 0}
     poi_images: []
     questions: []
   bg: {fileID: 2624946001409922923}
