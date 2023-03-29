@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Game/Scenes/Splash.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Game/Scenes/App.unity
+    guid: 5c82a08204bb94dff9084c42c447a4f9
+  - enabled: 1
+    path: Assets/Game/Scenes/DeviceCamera.unity
+    guid: 7c3d64c749ccd4759b441df108e34b6e
+  - enabled: 1
+    path: Assets/Game/Scenes/Map.unity
+    guid: e37d3af7047e3458c803ebfb0953c3ea
+  - enabled: 1
+    path: Assets/Game/Scenes/Map 1.unity
+    guid: dfa0ca221d9a04aec8f1725a68368f58
+  - enabled: 1
+    path: Assets/Game/Scenes/App pareshgiri.unity
+    guid: 7edb705a55644401fa3abfb6f8f80b8c
+  m_configObjects:
+    UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: a77d2d099f17e4373a168ec9f9227b72, type: 2}
+    UnityEditor.XR.ARKit.ARKitSettings: {fileID: 11400000, guid: 52c2f7e42ca8d4e8999431a29d042d49, type: 2}
+    com.unity.addressableassets: {fileID: 11400000, guid: c034d22fcd8914e49ba65de3985c9fdf, type: 2}
+    com.unity.localization.settings: {fileID: 11400000, guid: ec8b08794c205478f9adcb632442070d, type: 2}
+    com.unity.xr.magicleap.magic_leap_settings: {fileID: 11400000, guid: df6af544cccff492ab06133d3b9a8cf2, type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 9d40357032ec74367823f88f87141344, type: 2}
+    com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 05a3e593fcaf44ffc85bcfa0d337d871, type: 2}

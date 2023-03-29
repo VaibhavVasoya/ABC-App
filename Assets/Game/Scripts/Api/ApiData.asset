@@ -1,0 +1,2359 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b7897991554f43ed80a30bbef430814, type: 3}
+  m_Name: ApiData
+  m_EditorClassIdentifier: 
+  multiLanguages:
+  - num: 1
+    name: English
+    isocode: en
+    icon: https://portadown.touristwise.co.uk/uploads/icon/england.png
+    status: active
+    texture2D: {fileID: 0}
+  walkThroughs:
+  - num: 4
+    title: BE IN THE KNOW
+    description: Always know whats around you and how to get there.
+    image: http://hillsborough.touristwise.co.uk/uploads/events/2H.jpg
+  - num: 5
+    title: EXPLORE
+    description: Explore the forest and Hillsborough Village in an entertaining and
+      fun way.
+    image: http://hillsborough.touristwise.co.uk/uploads/events/3H.jpg
+  menuList:
+  - num: 1
+    title: Home
+  - num: 2
+    title: Events
+  - num: 3
+    title: Discounts
+  - num: 4
+    title: About Us
+  trailCats:
+  - num: 13
+    lang_id: 1
+    user_id: 1
+    title: Standard
+    sub_title: 
+    image: 
+    sort_order: 2
+  - num: 29
+    lang_id: 1
+    user_id: 1
+    title: Physical
+    sub_title: 
+    image: 
+    sort_order: 1
+  - num: 30
+    lang_id: 1
+    user_id: 1
+    title: Informational
+    sub_title: 
+    image: 
+    sort_order: 1
+  trails:
+  - num: 95
+    category_id: 29
+    category_name: Physical
+    location_id: 11
+    title: Seagoe Graves
+    sub_title: Seagoe Graves
+    summary: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua.
+    description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+      eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    cover_image: http://portadown.touristwise.co.uk/uploads/intro/95Seagoe_Graves_intro.jpg
+    estimated_duration: 1:10
+    topic_id: 
+    user_id: 1
+    type: 1
+  - num: 101
+    category_id: 29
+    category_name: Physical
+    location_id: 11
+    title: Seagoe Churchyard
+    sub_title: Seagoe Churchyard
+    summary: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua.
+    description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+      eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor
+      sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+      labore et dolore magna aliqua.
+    cover_image: http://portadown.touristwise.co.uk/uploads/intro/94Seagoe_Churchyard_intro.jpg
+    estimated_duration: 1:10
+    topic_id: 
+    user_id: 1
+    type: 1
+  - num: 107
+    category_id: 30
+    category_name: Physical
+    location_id: 11
+    title: Drumcree Cemetery
+    sub_title: Drumcree Cemetery
+    summary: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua.
+    description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+      eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor
+      sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+      labore et dolore magna aliqua.
+    cover_image: http://portadown.touristwise.co.uk/uploads/intro/29Drumcree_Cemetery_intro.jpg
+    estimated_duration: 1:40
+    topic_id: 
+    user_id: 1
+    type: 2
+  trailPois:
+  - num: 507
+    user_id: 1
+    Name: 'Peter Kane '
+    sub_title: 
+    short_desc: Peter was the son of William and Hanna Kane of Seagoe.  Peter was
+      married to Letitia Stanfield, who also originated from Seagoe.  They were married
+      in St Marks Church on 14th June 1895.
+    description: '<b>UVF Nominal Role:</b> 3453
+
+      <b>Age:</b> 42
+
+      <b>Address:</b>
+      Park Road
+
+      
+
+      Peter was the son of William and Hanna Kane of Seagoe.
+      Peter was married to Letitia Stanfield, who also originated from Seagoe. They
+      were married in St Marks Church on 14<sup>th</sup> June 1895.
+
+      
+
+      In
+      1901 they lived at 6 Joseph Street and had two children William and Thomas.
+      Peter was a Linen Weaver.
+
+      
+
+      By 1911, the family were living
+      at 1 Park Road. They had 7 children in total but only 6 were still living:
+      William, Thomas, Hannah, John, Evelyn and James Henry. Their baby Daughter
+      Margaret Jane died in 1900. Peters occupation then was an oiler. They went
+      on to have another son, Vincent.
+
+      
+
+      Peter signed the Ulster Covenant
+      at Portadown Town Hall. He went on to join the 4<sup>th</sup> Portadown Battalion
+      Ulster Volunteer Force.  Peter&rsquo;s eldest sons, William and Thomas, served
+      with the 9<sup>th</sup> Battalion Royal Irish Fusiliers during the First World
+      War. Both were also members of Parkmount Flute Band.  His youngest son, Vincent,
+      served with the Royal Artillery during the 2<sup>nd</sup> World War.
+
+      
+
+      Peter
+      passed away on 10<sup>th</sup> April 1936 and was laid to rest with his baby
+      daughter in Seagoe Cemetery. Their youngest son, Sergeant Vincent Kane, survived
+      the 2<sup>nd</sup> World War but died of pneumonia on 18<sup>th</sup> March
+      1946. He was laid to rest with his Father. Letitia passed away on 24<sup>th</sup>
+      April 1954 and was also laid to rest in the family grave.
+
+      
+
+      Their
+      son Thomas and his wife had emigrated to Manchester, USA around 1925. He was
+      married to Edie Richardson, originally from Jervis Street in the town. Thomas
+      had worked for Acheson&rsquo;s LTD Linen manufacturer of Portadown before he
+      emigrated. Thomas passed away in the USA in 1955.'
+    thumbnail: http://portadown.touristwise.co.uk/uploads/poi/37Seagoe_Graves_poi.jpg
+    place_address: 
+    audio_file: http://portadown.touristwise.co.uk/uploads/poi/audio/welcome.mp3
+    standard_video_file_url: 
+    standard_video_stream_url: https://www.youtube.com/watch?v=8xhHS6MyZRc
+    image_360_url: https://xibitrs.com/tourismdemo//index.htm?media-index=2
+    image_360_file: 
+    video_360_url: https://www.brillianttrails.com/lab/index.htm?media-index=2
+    video_360_file: 
+    transparent_video: http://portadown.touristwise.co.uk/uploads/poi/-Synthesiavideo-e23bd6.mp4
+    latitude: 54.8566988
+    longitude: -6.3160218
+    booking_url: 
+    radius: 0
+    n_message: 
+    tel: 
+    email: 
+    website: 
+    pin_id: 1
+    intro_id: 95
+    poi_images: []
+    questions:
+    - poi_id: 507
+      question: How high is the Riverside church tower?
+      type: textbox
+      answers:
+      - num: 8
+        question_id: 3
+        answer: 100ft
+        is_correct: 0
+      - num: 9
+        question_id: 3
+        answer: 80ft
+        is_correct: 0
+      - num: 10
+        question_id: 3
+        answer: 90ft
+        is_correct: 1
+  - num: 513
+    user_id: 1
+    Name: James McDowell
+    sub_title: 
+    short_desc: James married Sarah Brimmage from King Street on 14th December 1921
+      at St Marks Church.
+    description: '<b>UVF Nominal Role:</b> 3459
+
+      <b>Age:</b> 30
+
+      <b>Address:</b>
+      Annagh
+
+      
+
+      James married Sarah Brimmage from King Street on 14<sup>th</sup>
+      December 1921 at St Marks Church.
+
+      
+
+      They had three daughters;
+      Rachel, Margaret and Sadie and Six Sons; Henry, Thomas, James, George, David
+      and Robert. His Daughter Sadie and sons Henry and Thomas emigrated to Canada.
+      His Son George moved to Worthing, England and his other son David moved to
+      London. His youngest son Robert served with the RAF and split his time between
+      living in England and Portadown. All six of his sons served within the British
+      Armed Forces at one time or another.
+
+      
+
+      James originated from
+      Glenanne, South Armagh. He was employed with Portadown Weaving Company. James
+      signed the Ulster Covenant at Portadown Town Hall. He went on to join the 4<sup>th</sup>
+      Portadown Battalion Ulster Volunteer Force.
+
+      
+
+      On the outbreak
+      of the First World War James joined the Royal Irish Fusiliers and later transferred
+      to the Machine-gun Corps. During the partition of Ireland years, he served
+      with the Royal Ulster Special Constabulary.
+
+      
+
+      James attended
+      St Mark&rsquo;s Parish Church and was a member of Portadown Ex Servicemen&rsquo;s
+      LOL 413 (now LOL 608). He was also a member of the local branch of the Royal
+      British Legion.
+
+      James passed away in September 1951 after a short illness
+      at the age of 68. His wife Sarah passed away in September 1955. They are buried
+      at Seagoe Cemetery.'
+    thumbnail: 
+    place_address: 
+    audio_file: http://portadown.touristwise.co.uk/uploads/poi/audio/welcome.mp3
+    standard_video_file_url: http://hillsborough.touristwise.co.uk/uploads/Hare-r.mp4
+    standard_video_stream_url: 
+    image_360_url: 
+    image_360_file: https://touristwise.co.uk/portadown/uploads/poi/Kinbane-Castle.jpg
+    video_360_url: 
+    video_360_file: https://touristwise.co.uk/portadown/uploads/poi/Cernunnos_b_001.mp4
+    transparent_video: http://portadown.touristwise.co.uk/uploads/poi/-Synthesiavideo-e23bd6.mp4
+    latitude: 54.8685123
+    longitude: -6.3629884
+    booking_url: 
+    radius: 0
+    n_message: 
+    tel: 
+    email: 
+    website: 
+    pin_id: 1
+    intro_id: 95
+    poi_images: []
+    questions:
+    - poi_id: 507
+      question: How high is the Riverside church tower?
+      type: textbox
+      answers:
+      - num: 8
+        question_id: 3
+        answer: 100ft
+        is_correct: 0
+      - num: 9
+        question_id: 3
+        answer: 80ft
+        is_correct: 0
+      - num: 10
+        question_id: 3
+        answer: 90ft
+        is_correct: 1
+  - num: 519
+    user_id: 1
+    Name: James Allen
+    sub_title: 
+    short_desc: James was married to Susannah Cranston. They were married at Seagoe
+      Parish Church on 24th December 1886.  They both originated from the Edenderry
+      area.
+    description: '<b>UVF Nominal Role:</b> 3547
+
+      <b>Age:</b> 54
+
+      <b>Address:</b>
+      Joseph Street
+
+      
+
+      James was married to Susannah Cranston. They
+      were married at Seagoe Parish Church on 24<sup>th</sup> December 1886. They
+      both originated from the Edenderry area. In 1901 the family lived at 13 Florence
+      Court. By 1911 the family had moved to 11 Joseph Street. They had 10 children;
+      William James, Susan, Margaret, Jemima, Mary Ann, Joseph, Arthur, Elizabeth,
+      Georgina and Florence.  In 1911 James&rsquo; occupation was a Power Loom Tenter.
+
+      
+
+      James
+      signed the Ulster Covenant at Seagoe Churchyard. He went on to join the 4<sup>th</sup>
+      Portadown Battalion Ulster Volunteer Force.  During the First World War James
+      and Susannah&rsquo;s eldest son William James was killed in action on 1<sup>st</sup>
+      July 1916 aged 29. He is commemorated on pier and face 15A, Thiepval Memorial,
+      France. A letter was sent to James from Sergeant James Sheppard on 2<sup>nd</sup>
+      September 1916.
+
+      
+
+      <i>Letter from Sgt James Sheppard, 9th R.I.F.,
+      to Mr James Allen, Joseph Street: 2nd September 1916:</i>
+
+      
+
+      <i>&ldquo;I
+      am sorry to say that your son William James has passed the &ldquo;border line&rdquo;
+      I have made enquiries from the boys of his company, and they state that Wm.
+      James was lying out in &ldquo;No Man&rsquo;s Land&rdquo; &ndash; dead. Of course,
+      one doesn&rsquo;t know whether to take this statement as correct or otherwise.
+      However, seeing that you have</i> <i>not had any word of his being alive or
+      a prisoner, I am afraid that there is little or no hope. When your son was
+      alive, I saw him almost daily, and he was always the same, a happy, bright
+      and cheery soldier. No doubt the news of his death has brought sadness to many
+      of his chums. How much more must you and Mrs Allen, as well as his poor wife
+      and children suffer. The NCO&rsquo;s and the men of his platoon, all the boys
+      who knew him in B Company, join me in sending you their heart-felt sympathy.
+      Sergeant Johnston also wishes to say how sorry he is that Wm. James has made
+      the supreme sacrifice, and hopes that God in His goodness will, in your great
+      hour of sorrow be gracious to you, his dear mother, wife and children.&rdquo;
+      </i>
+
+      
+
+      James was well known in the community for his kind, Sympathetic
+      and Christian nature. He was a member of Dr Crane&rsquo;s Crimson Star LOL
+      417 for over 50 years and was a member of Allen&rsquo;s Chosen Few RBP No 25
+      since 1922. He was also a member of The Apprentice Boys of Derry Portadown
+      Branch for over half a century.
+
+      
+
+      He had been employed as a
+      tenter in the old Armstrong Linen Factory for about 30 years, up until his
+      retirement. He regularly attended Services at Seagoe Parish Church. James died
+      on 19<sup>th</sup> December 1943 at over 80 years of age. By 1943 two of his
+      daughters; Georgina and Susannah had emigrated to America. His son Joseph had
+      died 22 years previously. James&rsquo; wife Susannah died on 9<sup>th</sup>
+      August 1947. They are buried in Seagoe Cemetery.'
+    thumbnail: 
+    place_address: 
+    audio_file: http://portadown.touristwise.co.uk/uploads/poi/audio/welcome.mp3
+    standard_video_file_url: 
+    standard_video_stream_url: https://www.youtube.com/watch?v=8xhHS6MyZRc
+    image_360_url: https://xibitrs.com/tourismdemo//index.htm?media-index=2
+    image_360_file: 
+    video_360_url: https://www.brillianttrails.com/lab/index.htm?media-index=2
+    video_360_file: 
+    transparent_video: http://portadown.touristwise.co.uk/uploads/poi/-Synthesiavideo-e23bd6.mp4
+    latitude: 
+    longitude: 
+    booking_url: 
+    radius: 0
+    n_message: 
+    tel: 
+    email: 
+    website: 
+    pin_id: 1
+    intro_id: 95
+    poi_images: []
+    questions:
+    - poi_id: 507
+      question: How high is the Riverside church tower?
+      type: textbox
+      answers:
+      - num: 8
+        question_id: 3
+        answer: 100ft
+        is_correct: 0
+      - num: 9
+        question_id: 3
+        answer: 80ft
+        is_correct: 0
+      - num: 10
+        question_id: 3
+        answer: 90ft
+        is_correct: 1
+  - num: 525
+    user_id: 1
+    Name: 'John Sydney Bright '
+    sub_title: 
+    short_desc: John was the second son of William Henry and Hanna Bright (Nee Atkinson).
+    description: '<b>UVF Nominal Role:</b> 3552
+
+      <b>Age:</b> 40
+
+      <b>Address:</b>
+      Church Place
+
+      
+
+      John was the second son of William Henry and
+      Hanna Bright (Nee Atkinson). In 1901 he lived at 70 Bridge Street at his uncle&rsquo;s
+      residence with his mother and siblings; James, William, Nora, Eona and Victor.
+      He also had a brother, David. His father had died by 1901. John&rsquo;s occupation
+      was a Solicitor. By 1911, John was still living at the same residence.
+
+      
+
+      John
+      joined the 4<sup>th</sup> Portadown Battalion Ulster Volunteer Force. He had
+      studied Law at Galway University and qualified as a Solicitor in 1898. John
+      served his apprenticeship with local firm Carleton, Atkinson and Sloan. John
+      went on to build up in own practice which was based in Church Place in Portadown.
+      He was a Senior member of the legal profession in Portadown.  John had married
+      Margaret Swinstead of Sarisbury, England on 17<sup>th</sup> December 1912,
+      they had two Daughters.
+
+      
+
+      As a young man, John was a leading
+      figure in the rowing world. He was part of the team that won the Blue Riband
+      of Irish Rowing for the Grand Metropolitan Challenge Cup in 1904. John was
+      a staunch Unionist. He held office in Portadown Unionist Association for a
+      number of years. He was also a member of Prince of Wales LOL No. 56.
+
+      
+
+      John
+      was also attached to the Masonic Order in Portadown and was a member of Wellington
+      Lodge No 82. He was also a dedicated member of the Presbyterian Church, worshipping
+      at First Portadown Presbyterian. He served for a number of years on the Church
+      Committee.
+
+      
+
+      Three of John&rsquo;s brothers served during the
+      First World War; David, served with the Royal Canadian Engineers and had an
+      extensive military career reaching the rank of Major, William, was a Doctor
+      and served as Lieutenant with the Royal Army Medical Corps and his other brother
+      James also served.  John&rsquo;s first wife Margaret died, and John went on
+      to marry again and have two more children.
+
+      
+
+      John died suddenly
+      of a seizure at home at Dunavon (Carrickblacker area), Portadown in July 1950.
+      He is buried at Seagoe Cemetery.'
+    thumbnail: 
+    place_address: 
+    audio_file: http://portadown.touristwise.co.uk/uploads/poi/audio/welcome.mp3
+    standard_video_file_url: http://hillsborough.touristwise.co.uk/uploads/Hare-r.mp4
+    standard_video_stream_url: 
+    image_360_url: 
+    image_360_file: https://touristwise.co.uk/portadown/uploads/poi/Kinbane-Castle.jpg
+    video_360_url: 
+    video_360_file: https://touristwise.co.uk/portadown/uploads/poi/Cernunnos_b_001.mp4
+    transparent_video: http://portadown.touristwise.co.uk/uploads/poi/-Synthesiavideo-e23bd6.mp4
+    latitude: 
+    longitude: 
+    booking_url: 
+    radius: 0
+    n_message: 
+    tel: 
+    email: 
+    website: 
+    pin_id: 1
+    intro_id: 95
+    poi_images: []
+    questions:
+    - poi_id: 507
+      question: How high is the Riverside church tower?
+      type: textbox
+      answers:
+      - num: 8
+        question_id: 3
+        answer: 100ft
+        is_correct: 0
+      - num: 9
+        question_id: 3
+        answer: 80ft
+        is_correct: 0
+      - num: 10
+        question_id: 3
+        answer: 90ft
+        is_correct: 1
+  - num: 531
+    user_id: 1
+    Name: Edward Barr
+    sub_title: 
+    short_desc: Edward was the son of James and Elizabeth Barr (nee Boland) and the
+      brother of William, Arthur, Robert, Charles, John George, Annie, Joseph, Andrew
+      and Fredrick.
+    description: "<b>UVF Nominal Role:</b> 3554\r\n<b>Age:</b> 20\r\n<b>Address:</b>
+      67 Henry Street\r\n\r\nEdward was the son of James and Elizabeth Barr (nee
+      Boland) and the brother of William, Arthur, Robert, Charles, John George, Annie,
+      Joseph, Andrew and Fredrick. In 1901 the family lived in Obins Street; Edward&rsquo;s
+      father James worked on the railways. By 1911 the family were living in Henry
+      Street where they settled for many years. Edward&rsquo;s occupation was a Linen
+      Weaver.\r\n\r\nEdward joined the 4<sup>th</sup> Portadown Battalion Ulster
+      Volunteer Force. During the 1<sup>st</sup> World War he served with the 9<sup>th</sup>
+      Battalion Royal Irish Fusiliers (13990). His rank was Lance Corporal. Edward
+      was severely wounded at on 1<sup>st</sup> July 1916 at the Battle of the Somme.
+      He recovered in hospital for over a year and returned home in 1917. His brothers
+      Arthur, John and Joseph also served. Edward also served with the Royal Engineers
+      and Royal Signals. Edward went on to work for Portadown Urban District Council.
+      He also served as Superintendent with the old Fire Brigade in Portadown and
+      was also on the National Fire Service.\r\n\r\nEdward was an active member of
+      the First Presbyterian Church in Portadown. He also worked to better local
+      services available to Ex Servicemen in the area as dedicated member of Portadown
+      British Legion.  The Barr family were well known within the Unionist Community.
+      The family were staunch Unionist&rsquo;s and Edward along with his brothers
+      were members of W H Wright Memorial LOL 40 (now Herbert Whitten Memorial LOL
+      40). He served for a time as Worshipful Master of the Lodge. District Master,
+      Dr G Dougan, paid tribute to Edward when he presented him with his Past Masters
+      Certificate stating he had a <i>&ldquo;fine record of useful service to the
+      Loyalist Cause, and no man was more worthy to receive the certificate&rdquo;.
+      </i>Edward was also a member of Allen&rsquo;s Chosen Few RBP 25 and served
+      as Worshipful Master from 1933-1934.\r\n\r\nEdward was also a keen footballer.
+      In his younger years before the First World War Edward played for Portadown.
+      He had been honoured by the Irish Football Association with a Junior International
+      Cap in the season 1913-1914. In 1925 he was again signed by Portadown and assisted
+      with Portadown Olympic.\r\n In later years Edward remained an active member
+      of Portadown Football Supporters Club. He retired from Portadown Borough Council
+      in 1959 at the age of 65 having served as the Foreman for 33 years. By 1959
+      he was living in Fitzroy Street."
+    thumbnail: 
+    place_address: 
+    audio_file: http://portadown.touristwise.co.uk/uploads/poi/audio/welcome.mp3
+    standard_video_file_url: 
+    standard_video_stream_url: https://www.youtube.com/watch?v=8xhHS6MyZRc
+    image_360_url: https://www.youtube.com/watch?v=8xhHS6MyZRc
+    image_360_file: 
+    video_360_url: https://www.brillianttrails.com/lab/index.htm?media-index=2
+    video_360_file: 
+    transparent_video: http://portadown.touristwise.co.uk/uploads/poi/-Synthesiavideo-e23bd6.mp4
+    latitude: 
+    longitude: 
+    booking_url: 
+    radius: 0
+    n_message: 
+    tel: 
+    email: 
+    website: 
+    pin_id: 1
+    intro_id: 95
+    poi_images: []
+    questions:
+    - poi_id: 507
+      question: How high is the Riverside church tower?
+      type: textbox
+      answers:
+      - num: 8
+        question_id: 3
+        answer: 100ft
+        is_correct: 0
+      - num: 9
+        question_id: 3
+        answer: 80ft
+        is_correct: 0
+      - num: 10
+        question_id: 3
+        answer: 90ft
+        is_correct: 1
+  - num: 537
+    user_id: 1
+    Name: James Holmes
+    sub_title: 
+    short_desc: 'James was the third son of David and Martha Jane (nee Blakeley). 
+      They were a farming family from the Killicomaine. '
+    description: '<b>UVF Nominal Roll:</b> 3576
+
+      <b>Age:</b> 22
+
+      <b>Address:</b>
+      Killycomaine
+
+      
+
+      James was the third son of David and Martha Jane
+      (nee Blakeley). They were a farming family from the Killicomaine.
+
+      
+
+      James
+      worked in the offices of Robb&rsquo;s Factory. He signed the Ulster Covenant
+      and went on to join the 4<sup>th</sup> Portadown Battalion Ulster Volunteer
+      Force.
+
+      
+
+      James emigrated to Cape town, South Africa for the
+      benefit of his health. He died a short time after emigrating in 1914 aged 24.
+
+      
+
+      &ldquo;He
+      gained the confidence of his management and workers, by whom he was held in
+      highest esteem, and his popularity was not confined to that particular place.
+      Of a bright and cheery disposition, he bore his internal affliction with resignation
+      and courage&rdquo;.
+
+      
+
+      David&rsquo;s older brother Wilson died
+      on 12<sup>th</sup> May 1909 aged 23, his sister Miriam died 11<sup>th</sup>
+      July 1914 aged 22, two of his brothers were killed in action in France during
+      the 1<sup>st</sup> World War; Thomas Henry on 1<sup>st</sup> July 1916 aged
+      28 and Norman Sydney on 30<sup>th</sup> March 1918 aged 23. His fathe, David
+      died on 17<sup>th</sup> November 1927 aged 73. The family are buried in Seagoe
+      Cemetery. James is buried in Maitland Cemetery in Cape town South Africa but
+      is commemorated on the family headstone in Seagoe.'
+    thumbnail: 
+    place_address: 
+    audio_file: http://portadown.touristwise.co.uk/uploads/poi/audio/welcome.mp3
+    standard_video_file_url: http://portadown.touristwise.co.uk/uploads/poi/audio/welcome.mp3
+    standard_video_stream_url: 
+    image_360_url: 
+    image_360_file: https://touristwise.co.uk/portadown/uploads/poi/Kinbane-Castle.jpg
+    video_360_url: 
+    video_360_file: https://touristwise.co.uk/portadown/uploads/poi/Cernunnos_b_001.mp4
+    transparent_video: http://portadown.touristwise.co.uk/uploads/poi/-Synthesiavideo-e23bd6.mp4
+    latitude: 
+    longitude: 
+    booking_url: 
+    radius: 0
+    n_message: 
+    tel: 
+    email: 
+    website: 
+    pin_id: 1
+    intro_id: 95
+    poi_images: []
+    questions:
+    - poi_id: 507
+      question: How high is the Riverside church tower?
+      type: textbox
+      answers:
+      - num: 8
+        question_id: 3
+        answer: 100ft
+        is_correct: 0
+      - num: 9
+        question_id: 3
+        answer: 80ft
+        is_correct: 0
+      - num: 10
+        question_id: 3
+        answer: 90ft
+        is_correct: 1
+  - num: 543
+    user_id: 1
+    Name: Thomas Joyce Atkinson
+    sub_title: 
+    short_desc: "Thomas Joyce Atkinson was a member of the well-known Atkinson family
+      of Eden Villa, Bachelor\u2019s Walk, Portadown."
+    description: 'UVF Nominal Role: 3731
+
+      Age: 35
+
+      Address: Edenvilla
+
+      
+
+      Thomas
+      Joyce Atkinson was a member of the well-known Atkinson family of Eden Villa,
+      Bachelor&rsquo;s Walk, Portadown. His Father Wolsey Richard had been banking
+      manager with 40 years&rsquo; service who had become a Gentleman and a Farmer.
+      He was instrumental in the formation of Portadown Agricultural Society and
+      inaugurated Portadown Show.
+
+      
+
+      Wolsey Richard was treasurer of
+      the Ulster Fruit Growers Association and an office bearer in Portadown Rowing
+      Club.
+
+      
+
+      Wolsey Richard was closely associated with Seagoe Parish
+      Church and had held a number of positions in the Church such as Churchwarden,
+      treasurer and Secretary of the select vestry and representative at the General
+      Synod.
+
+      
+
+      Wolsey Richard and his wife Alice had five children;
+      Wolsey Arthur born 1876 and died 1899 as a result of an accident, Thomas Joyce
+      Atkinson born 1878, Charlotte Elizabeth Buckby born 1880 and died April 1906,
+      Alice Isobel born 1883 and Georgina Eleanor born 1885.
+
+      
+
+      Thomas
+      graduated from Trinity College Dublin in 1898 and subsequently took an MA.
+      He was called to the bar and then became a partner in the firm Carleton, Atkinson
+      and Sloan Solicitors, Church Place, Portadown.
+
+      
+
+      He was a prominent
+      member of Seagoe Parish Church and was Churchwarden and also represented the
+      Parish at the Diocesan Synod. He was on the committee of Portadown Unionist
+      Club and a member of Portadown Rowing Club.
+
+      
+
+      Thomas organised
+      the signing of the Ulster Covenant in Seagoe Parish Church on Ulster Day 28<sup>th</sup>
+      September 1912. He also played a prominent role in the Ulster Volunteer Force
+      and was second in command to Major Stewart Blacker, Commanding Officer, of
+      the Portadown Battalion, UVF.
+
+      
+
+      On the outbreak of war, he gained
+      a commission in the 9<sup>th</sup> Battalion Royal Irish Fusiliers rising to
+      the rank of Major. He was Adjutant to Lieutenant Colonel Stewart Blacker. In
+      the attack of the 36<sup>th</sup> Ulster Division on 1<sup>st</sup> July 1916
+      Major Thomas Joyce Atkinson was in command of &lsquo;B&rsquo; Company 9<sup>th</sup>
+      Battalion Royal Irish Fusiliers which was positioned on the centre of the battalion
+      advance. Major Atkinson&rsquo;s company penetrated three German lines and a
+      small body of men reached Beaucourt Station but were unable to hold the position
+      due to a lack of support.
+
+      
+
+      Thomas is buried in Ancre British
+      Cemetery, Beaumont Hamel, Somme, France. His head stone reads &ldquo;A Son
+      of Ulster Your Memory Hallowed in the Land You Loved&rdquo;. He is buried in
+      the same grave as Corporal E Turkington from Brownlow Terrace, Lurgan.
+
+      <b>(All
+      Information from Portadown Heroes by James S Kane) </b>'
+    thumbnail: 
+    place_address: 
+    audio_file: http://portadown.touristwise.co.uk/uploads/poi/audio/welcome.mp3
+    standard_video_file_url: 
+    standard_video_stream_url: https://www.youtube.com/watch?v=8xhHS6MyZRc
+    image_360_url: https://www.youtube.com/watch?v=8xhHS6MyZRc
+    image_360_file: 
+    video_360_url: https://www.brillianttrails.com/lab/index.htm?media-index=2
+    video_360_file: 
+    transparent_video: http://portadown.touristwise.co.uk/uploads/poi/-Synthesiavideo-e23bd6.mp4
+    latitude: 
+    longitude: 
+    booking_url: 
+    radius: 0
+    n_message: 
+    tel: 
+    email: 
+    website: 
+    pin_id: 1
+    intro_id: 95
+    poi_images: []
+    questions:
+    - poi_id: 507
+      question: How high is the Riverside church tower?
+      type: textbox
+      answers:
+      - num: 8
+        question_id: 3
+        answer: 100ft
+        is_correct: 0
+      - num: 9
+        question_id: 3
+        answer: 80ft
+        is_correct: 0
+      - num: 10
+        question_id: 3
+        answer: 90ft
+        is_correct: 1
+  - num: 549
+    user_id: 1
+    Name: Moses Hewitt
+    sub_title: 
+    short_desc: Moses was born at 1893 at Tamnificarbet.  He was the son of Moses
+      and Alice (nee Ruddell) and the brother of Minnie, Joseph, Samuel, William,
+      Herbert, Thomas and Florence.
+    description: '<b>UVF Nominal Role:</b> 3741
+
+      <b>Age:</b> 20
+
+      <b>Address:</b>
+      47 Bridge Street
+
+      
+
+      Moses was born at 1893 at Tamnificarbet.
+      He was the son of Moses and Alice (nee Ruddell) and the brother of Minnie,
+      Joseph, Samuel, William, Herbert, Thomas and Florence.  In 1901 the family
+      lived at 10 Joseph Street, Portadown. Moses was attending School.
+
+      
+
+      By
+      1911, the family were living at 47 Bridge Street. Moses&rsquo; occupation was
+      a Linen Weaver.
+
+      
+
+      Moses signed the Ulster Covenant at Portadown
+      Town Hall and went on to join the 4<sup>th</sup> Portadown Battalion Ulster
+      Volunteer Force.
+
+      
+
+      During the 1<sup>st</sup> World War, Moses
+      served with the Royal Army Medical Corps (53865). His brother; William served
+      as a Private with 2<sup>nd</sup> Battalion Royal Irish Fusiliers (9424) and
+      his brother; Thomas served as a Private with 9<sup>th</sup> Battalion Royal
+      Irish Fusiliers (22755), Thomas was killed in action on 1<sup>st</sup> July
+      1916 aged 24. He has no known grave and is commemorated on Thiepval Memorial,
+      France.
+
+      
+
+      In 1917, Moses married Rachel Matchett from James
+      Street, Portadown. They had four children; Mary Elizabeth (May), Thomas, Ray
+      and Mildred.
+
+      
+
+      Moses also served with H.M Forces during the
+      2<sup>nd</sup> World War. Fusilier Hewitt took the role of a cook at training
+      camps in Co Down.
+
+      
+
+      Moses was a member of LOL 22, Bocombra True
+      Blues. He also was a founding member of Eden Cricket Club and served as Chairman.
+      Moses also held office in the Portadown Branch of the Royal Irish Fusiliers
+      Old Comrades Association.'
+    thumbnail: 
+    place_address: 
+    audio_file: http://portadown.touristwise.co.uk/uploads/poi/audio/welcome.mp3
+    standard_video_file_url: http://portadown.touristwise.co.uk/uploads/poi/audio/welcome.mp3
+    standard_video_stream_url: 
+    image_360_url: 
+    image_360_file: https://touristwise.co.uk/portadown/uploads/poi/Kinbane-Castle.jpg
+    video_360_url: 
+    video_360_file: https://touristwise.co.uk/portadown/uploads/poi/Cernunnos_b_001.mp4
+    transparent_video: http://portadown.touristwise.co.uk/uploads/poi/-Synthesiavideo-e23bd6.mp4
+    latitude: 
+    longitude: 
+    booking_url: 
+    radius: 0
+    n_message: 
+    tel: 
+    email: 
+    website: 
+    pin_id: 1
+    intro_id: 95
+    poi_images: []
+    questions:
+    - poi_id: 507
+      question: How high is the Riverside church tower?
+      type: textbox
+      answers:
+      - num: 8
+        question_id: 3
+        answer: 100ft
+        is_correct: 0
+      - num: 9
+        question_id: 3
+        answer: 80ft
+        is_correct: 0
+      - num: 10
+        question_id: 3
+        answer: 90ft
+        is_correct: 1
+  - num: 555
+    user_id: 1
+    Name: Samuel George Gracey
+    sub_title: 
+    short_desc: Samuel was born at Balteagh in 1880. He was the son of Abraham and
+      Mary (nee Redmond).
+    description: '<b>UVF Nominal Role:</b> 3806
+
+      <b>Age:</b> 32
+
+      <b>Address:</b>
+      32 Castle Avenue
+
+      
+
+      Samuel was born at Balteagh in 1880. He was
+      the son of Abraham and Mary (nee Redmond).
+
+      
+
+      Samuel married
+      Jane Cush from Silverwood at Shankill Parish Church, Lurgan in December 1900.
+
+      
+
+      In
+      1911, Samuel and Jane lived at 20 Park Road. The had four children; Allen,
+      Samuel, Harold and Norman. They also went on to have two daughters; Emma and
+      Jeanette (neta).
+
+      
+
+      Samuel sighed the Ulster Covenant at Portadown
+      Town Hall and went on to join the 4<sup>th</sup> Portadown Battalion Ulster
+      Volunteer Force.
+
+      
+
+      During the First World War, Samuel served
+      as a Private with the 9<sup>th</sup> Battalion Royal Irish Fusiliers (14230).
+      He also served with the Royal Army Service Corps (M/403183).
+
+      
+
+      Samuel
+      was employed as foreman mechanic in the hemstitching department of Spence,
+      Bryson and Co and while there he invented modifications to the machinery which
+      greatly improved the efficiency of the department. He and the firm jointly
+      held the patent for the modifications.
+
+      
+
+      Samuel was a member
+      of Corcrain Band for 25 years and was the bass drummer for a number of years.
+      Samuel&rsquo;s wife, Jane died on 29<sup>th</sup> January 1950 and Samuel died
+      on 7<sup>th</sup> March 1954.
+
+      
+
+      Samuel&rsquo;s son Allen emigrated
+      to the U.S. His other son Samuel Junior, married Lily Whiteside. Lily was the
+      first Chaplin of Co Armagh Junior Women&rsquo;s LOL and also served as Chaplin
+      of Portadown District Women&rsquo;s LOL. Lily was a member of Jessie Collen
+      Memorial WLOL 101 and served as Worshipful Mistress of the Lodge. Their son,
+      Harold Gracey served as District Master of Portadown District LOL No.1 from
+      1986 until his death in 2005 and led the Institution through the Siege of Drumcree.'
+    thumbnail: 
+    place_address: 
+    audio_file: http://portadown.touristwise.co.uk/uploads/poi/audio/welcome.mp3
+    standard_video_file_url: 
+    standard_video_stream_url: https://www.youtube.com/watch?v=8xhHS6MyZRc
+    image_360_url: https://www.youtube.com/watch?v=8xhHS6MyZRc
+    image_360_file: 
+    video_360_url: https://www.brillianttrails.com/lab/index.htm?media-index=2
+    video_360_file: 
+    transparent_video: http://portadown.touristwise.co.uk/uploads/poi/-Synthesiavideo-e23bd6.mp4
+    latitude: 
+    longitude: 
+    booking_url: 
+    radius: 0
+    n_message: 
+    tel: 
+    email: 
+    website: 
+    pin_id: 1
+    intro_id: 95
+    poi_images: []
+    questions:
+    - poi_id: 507
+      question: How high is the Riverside church tower?
+      type: textbox
+      answers:
+      - num: 8
+        question_id: 3
+        answer: 100ft
+        is_correct: 0
+      - num: 9
+        question_id: 3
+        answer: 80ft
+        is_correct: 0
+      - num: 10
+        question_id: 3
+        answer: 90ft
+        is_correct: 1
+  - num: 561
+    user_id: 1
+    Name: George Walker
+    sub_title: 
+    short_desc: 'George Henry Walker married Essie Boyd from Portadown at 2nd Presbyterian
+      Church, Portadown in February 1884. Essie was born in Co Monaghan. '
+    description: '<b>UVF Nominal Role:</b> 3807
+
+      <b>Age:</b> 47
+
+      <b>Address:</b>
+      111 Parkmount Terrace
+
+      
+
+      George Henry Walker married Essie Boyd
+      from Portadown at 2<sup>nd</sup> Presbyterian Church, Portadown in February
+      1884. Essie was born in Co Monaghan.
+
+      
+
+      In 1901, the family lived
+      at 55 Garvaghy Road.  They had eight children; Fredrick, Elizabeth (Lizzie),
+      George, Hannah, Anne, John, Evaline and Herbert. By 1911 they were living at
+      57 Garvaghy Road. They had one more child; Sarah Jane. Their Daughter, Lizzie
+      was married to William Gordon and they lived with the family. They had one
+      child; George Henry Gordon.
+
+      
+
+      George signed the Ulster Covenant
+      at Portadown Town Hall and went on to join the 4<sup>th</sup> Portadown Battalion
+      Ulster Volunteer Force.
+
+      
+
+      During the First World War, George&rsquo;s
+      eldest son, Fredrick served with 9<sup>th</sup> Battalion Royal Irish Fusiliers
+      (14793). Fredrick was discharged due to sickness 0n 16<sup>th</sup> March 1919.
+      He was awarded the Silver War Badge B:162032.
+
+      
+
+      George was well
+      known and well liked within the local community. He was employed for many years
+      with Portadown Foundry before he started his own business as a Blacksmith.
+      George was a dedicated member of First Presbyterian, Portadown. He regularly
+      attended the Services and Bible Classes.
+
+      
+
+      George enjoyed walking
+      and would regularly have walked to Lurgan. Sadly, at the age of 80, George
+      was knocked down by a car in a hit and run accident at Kernan. He was taken
+      to hospital after he was found but died a while later. George died of his injuries
+      in December 1939. His wife, Essie, died less than a year later on 30<sup>th</sup>
+      August 1940. Essie was described as a lady with &lsquo;a friendly disposition
+      and a kindly nature&rsquo;. Essie was highly respected and well known in the
+      local Parkmount Community. Much like her husband, Essie was a dedicated member
+      of First Presbyterian Church.
+
+      
+
+      George and Essie are buried
+      at Seagoe Cemetery. Their son, Fredrick, a 1<sup>st</sup> World War Veteran
+      is buried with them. Fredrick died on 24<sup>th</sup> December 1970 aged 83.
+
+      
+
+      Their
+      daughter, Sarah Jane married Samuel Johnston and emigrated to Connecticut,
+      USA in 1926.
+
+      
+
+      A Grandson, George Walker, served with the RAF
+      during the 2<sup>nd</sup> World War.'
+    thumbnail: 
+    place_address: 
+    audio_file: http://portadown.touristwise.co.uk/uploads/poi/audio/welcome.mp3
+    standard_video_file_url: http://portadown.touristwise.co.uk/uploads/poi/audio/welcome.mp3
+    standard_video_stream_url: 
+    image_360_url: 
+    image_360_file: https://touristwise.co.uk/portadown/uploads/poi/Kinbane-Castle.jpg
+    video_360_url: 
+    video_360_file: https://touristwise.co.uk/portadown/uploads/poi/Cernunnos_b_001.mp4
+    transparent_video: http://portadown.touristwise.co.uk/uploads/poi/-Synthesiavideo-e23bd6.mp4
+    latitude: 
+    longitude: 
+    booking_url: 
+    radius: 0
+    n_message: 
+    tel: 
+    email: 
+    website: 
+    pin_id: 1
+    intro_id: 95
+    poi_images: []
+    questions:
+    - poi_id: 507
+      question: How high is the Riverside church tower?
+      type: textbox
+      answers:
+      - num: 8
+        question_id: 3
+        answer: 100ft
+        is_correct: 0
+      - num: 9
+        question_id: 3
+        answer: 80ft
+        is_correct: 0
+      - num: 10
+        question_id: 3
+        answer: 90ft
+        is_correct: 1
+  - num: 567
+    user_id: 1
+    Name: Richard John Pentland
+    sub_title: 
+    short_desc: Richard John Pentland originated from the Portadown area.
+    description: 'Richard John Pentland originated from the Portadown area. In 1901
+      he lived in the family home at 8 Meadow Lane, he was the son of Richard and
+      Sarah. He had 6 siblings; William James, Mary Jane, Sarah, Alexander, Thomas
+      and Elizabeth. In 1911, Richard lived at 20 Meadow Lane with his wife Sarah
+      Jane and their daughter Mary Jane. Richard was employed as a Linen Weaver.
+      The family where Church of Ireland denomination.
+
+      
+
+      Richard signed
+      the Ulster Covenant at Portadown Town Hall. He went on to join the 4<sup>th</sup>
+      Portadown Battalion Ulster volunteer Force.
+
+      
+
+      Richard went on
+      to serve with the 9<sup>th</sup> Battalion Royal Irish Fusiliers (14615). He
+      was a Private. Richard was wounded on 1<sup>st</sup> July 1916 during the Battle
+      of the Somme. He was wounded again 16<sup>th</sup> August 1917 during the Battle
+      of Langemarck. Richard was discharged due to wounds on 24<sup>th</sup> July
+      1918.
+
+      
+
+      Richard died as a result of his wounds on 30<sup>th</sup>
+      March 1923 aged 33. He is buried in Seagoe Cemetery.'
+    thumbnail: 
+    place_address: 
+    audio_file: http://portadown.touristwise.co.uk/uploads/poi/audio/welcome.mp3
+    standard_video_file_url: 
+    standard_video_stream_url: https://www.youtube.com/watch?v=8xhHS6MyZRc
+    image_360_url: https://www.youtube.com/watch?v=8xhHS6MyZRc
+    image_360_file: 
+    video_360_url: https://www.brillianttrails.com/lab/index.htm?media-index=2
+    video_360_file: 
+    transparent_video: http://portadown.touristwise.co.uk/uploads/poi/-Synthesiavideo-e23bd6.mp4
+    latitude: 
+    longitude: 
+    booking_url: 
+    radius: 0
+    n_message: 
+    tel: 
+    email: 
+    website: 
+    pin_id: 1
+    intro_id: 95
+    poi_images: []
+    questions:
+    - poi_id: 507
+      question: How high is the Riverside church tower?
+      type: textbox
+      answers:
+      - num: 8
+        question_id: 3
+        answer: 100ft
+        is_correct: 0
+      - num: 9
+        question_id: 3
+        answer: 80ft
+        is_correct: 0
+      - num: 10
+        question_id: 3
+        answer: 90ft
+        is_correct: 1
+  - num: 573
+    user_id: 1
+    Name: Surgeon Lieutenant Charles D Bell, Royal Navy
+    sub_title: 
+    short_desc: 'Lived at Cooleen, Armagh Road, Portadown. He was the son of Mr David
+      Bell J.P Portadown. '
+    description: 'Surgeon Lieutenant Charles D Bell, Royal Navy
+
+      
+
+      Lived
+      at Cooleen, Armagh Road, Portadown. He was the son of Mr David Bell J.P Portadown.
+
+      
+
+      He
+      served in the Navy for 11 years.
+
+      
+
+      He was present at the battle
+      of Jutland on HMS Broke and suffered such severe hardships that he never quite
+      recovered from the effects.
+
+      
+
+      After the war he was appointed
+      by the Government to examine wounded ex-soldiers in the Portadown, Armagh and
+      Dungannon area.
+
+      
+
+      He had a wife who was the daughter of the
+      late Mr James A McIlveen, Portadown.
+
+      
+
+      Charles died on 30<sup>th</sup>
+      December 1927 aged 45.'
+    thumbnail: 
+    place_address: 
+    audio_file: http://portadown.touristwise.co.uk/uploads/poi/audio/welcome.mp3
+    standard_video_file_url: http://portadown.touristwise.co.uk/uploads/poi/audio/welcome.mp3
+    standard_video_stream_url: 
+    image_360_url: 
+    image_360_file: https://touristwise.co.uk/portadown/uploads/poi/Kinbane-Castle.jpg
+    video_360_url: 
+    video_360_file: https://touristwise.co.uk/portadown/uploads/poi/Cernunnos_b_001.mp4
+    transparent_video: http://portadown.touristwise.co.uk/uploads/poi/-Synthesiavideo-e23bd6.mp4
+    latitude: 
+    longitude: 
+    booking_url: 
+    radius: 0
+    n_message: 
+    tel: 
+    email: 
+    website: 
+    pin_id: 1
+    intro_id: 95
+    poi_images: []
+    questions:
+    - poi_id: 507
+      question: How high is the Riverside church tower?
+      type: textbox
+      answers:
+      - num: 8
+        question_id: 3
+        answer: 100ft
+        is_correct: 0
+      - num: 9
+        question_id: 3
+        answer: 80ft
+        is_correct: 0
+      - num: 10
+        question_id: 3
+        answer: 90ft
+        is_correct: 1
+  - num: 579
+    user_id: 1
+    Name: John (Devlon) Devlin
+    sub_title: 
+    short_desc: 'John was born at Selshion, Portadown in 1888.  He was the son of
+      Robert and Susanna (nee McCoo) and the brother of Rebecca, Lena, Sarah, Robert
+      and William. '
+    description: '<b>UVF Nominal Role:</b> 3811
+
+      <b>Age:</b> 25
+
+      <b>Address:</b>
+      8 Water Street
+
+      
+
+      John was born at Selshion, Portadown in 1888.
+      He was the son of Robert and Susanna (nee McCoo) and the brother of Rebecca,
+      Lena, Sarah, Robert and William.
+
+      
+
+      In 1901, the family lived
+      at Charles Street, Portadown. John was working as a Linen Weaver at age 13.
+      By 1911, the family were living at 8 Water Street.
+
+      
+
+      John signed
+      the Ulster Covenant at Portadown Town Hall and went on to join the 4<sup>th</sup>
+      Portadown Battalion Ulster Volunteer Force.
+
+      
+
+      During the First
+      World War, John served as a Private with 9<sup>th</sup> Battalion Royal Irish
+      Fusiliers (14145). John was wounded during the attack on Hamel on 1<sup>st</sup>
+      July 1916. After he recovered, he went on to serve with the Labour Corps (545501).
+
+      
+
+      In
+      September 1914, he married Mary Ellen Malcomson from Edenderry, Portadown at
+      Seagoe Parish Church. John and Mary lived at Joseph Street.
+
+      
+
+      During
+      the 2<sup>nd</sup> World War, John was on the Committee of The Portadown Committee
+      Food Control which controlled rations.
+
+      
+
+      John died in May 1951.
+      He is buried in Seagoe Churchyard.'
+    thumbnail: http://portadown.touristwise.co.uk/uploads/poi/22Seagoe_Churchyard_poi.jpg
+    place_address: 
+    audio_file: http://portadown.touristwise.co.uk/uploads/poi/audio/welcome.mp3
+    standard_video_file_url: 
+    standard_video_stream_url: https://www.youtube.com/watch?v=8xhHS6MyZRc
+    image_360_url: https://www.youtube.com/watch?v=8xhHS6MyZRc
+    image_360_file: 
+    video_360_url: https://www.brillianttrails.com/lab/index.htm?media-index=2
+    video_360_file: 
+    transparent_video: http://portadown.touristwise.co.uk/uploads/poi/-Synthesiavideo-e23bd6.mp4
+    latitude: 
+    longitude: 
+    booking_url: 
+    radius: 0
+    n_message: 
+    tel: 
+    email: 
+    website: 
+    pin_id: 1
+    intro_id: 101
+    poi_images: []
+    questions:
+    - poi_id: 507
+      question: How high is the Riverside church tower?
+      type: textbox
+      answers:
+      - num: 8
+        question_id: 3
+        answer: 100ft
+        is_correct: 0
+      - num: 9
+        question_id: 3
+        answer: 80ft
+        is_correct: 0
+      - num: 10
+        question_id: 3
+        answer: 90ft
+        is_correct: 1
+  - num: 585
+    user_id: 1
+    Name: James Bryars
+    sub_title: 
+    short_desc: 'James was the son of John and Annie and the brother of Mary.  The
+      family originated from Ballynacroy, Co Tyrone.  James married Matilda McReynolds
+      at Aghavilly Parish Church, Armagh on 18th August 1893. '
+    description: '<b>UVF Nominal Role:</b> 3614
+
+      <b>Age:</b> 42
+
+      <b>Address:</b>
+      West Street
+
+      
+
+      James was the son of John and Annie and the brother
+      of Mary. The family originated from Ballynacroy, Co Tyrone. James married Matilda
+      McReynolds at Aghavilly Parish Church, Armagh on 18<sup>th</sup> August 1893.
+
+      
+
+      In
+      1911 they were living at 78 Montague Street. They had seven children; John
+      George, Eliza Jane, Charlotte Letitia, Hannah Matilda, Wingfield, James and
+      William Thomas. James&rsquo; occupation was a Blacksmith.
+
+      
+
+      James
+      signed the Ulster Covenant and went on to join the 4<sup>th</sup> Portadown
+      Battalion Ulster Volunteer Force. Previously at the age of 19, James had served
+      with the Royal Artillery. During the First World War James served as a Rifleman
+      with the 3<sup>rd</sup> Royal Irish Rifles (16/523).
+
+      
+
+      James
+      died in 1941 and his wife Matilda in 1944. They are buried in Seagoe Cemetery.
+      Their last residence was 67 Jervis Street.'
+    thumbnail: 
+    place_address: 
+    audio_file: http://portadown.touristwise.co.uk/uploads/poi/audio/welcome.mp3
+    standard_video_file_url: http://portadown.touristwise.co.uk/uploads/poi/audio/welcome.mp3
+    standard_video_stream_url: 
+    image_360_url: 
+    image_360_file: https://touristwise.co.uk/portadown/uploads/poi/Kinbane-Castle.jpg
+    video_360_url: 
+    video_360_file: https://touristwise.co.uk/portadown/uploads/poi/Cernunnos_b_001.mp4
+    transparent_video: http://portadown.touristwise.co.uk/uploads/poi/-Synthesiavideo-e23bd6.mp4
+    latitude: 
+    longitude: 
+    booking_url: 
+    radius: 0
+    n_message: 
+    tel: 
+    email: 
+    website: 
+    pin_id: 1
+    intro_id: 101
+    poi_images: []
+    questions:
+    - poi_id: 507
+      question: How high is the Riverside church tower?
+      type: textbox
+      answers:
+      - num: 8
+        question_id: 3
+        answer: 100ft
+        is_correct: 0
+      - num: 9
+        question_id: 3
+        answer: 80ft
+        is_correct: 0
+      - num: 10
+        question_id: 3
+        answer: 90ft
+        is_correct: 1
+  - num: 591
+    user_id: 1
+    Name: '(Thomas) George Fleming '
+    sub_title: 
+    short_desc: (Thomas) George originated from Carrickblacker Road in Portadown.
+    description: '(Thomas) George originated from Carrickblacker Road in Portadown.
+      George was the son of William and Mary Ann Fleming. He was also the brother
+      of Mary Jane, Elizabeth, William. Joseph and James.
+
+      
+
+      In 1911
+      the family lived at 34 Carrickblacker Road.
+
+      
+
+      George signed
+      the Ulster Covenant at Portadown Town Hall and went on to join the 4<sup>th</sup>
+      Portadown Battalion Ulster Volunteer Force (3439) at age 19.
+
+      
+
+      George
+      served during the 1<sup>st</sup> World War with the 5<sup>th</sup> Royal Irish
+      Fusiliers (11630). His rank was Private. His father William served with the
+      9<sup>th</sup> Battalion Royal Irish Fusiliers and his brother Joseph served
+      with the Royal Air Force.
+
+      
+
+      George married Margaret (Maggie)
+      Hull and had a family. George passed away on 1<sup>st</sup> September 1982
+      and Maggie passed away on 30<sup>th</sup> September 1991. They are buried at
+      Seagoe Churchyard.'
+    thumbnail: 
+    place_address: 
+    audio_file: http://portadown.touristwise.co.uk/uploads/poi/audio/welcome.mp3
+    standard_video_file_url: 
+    standard_video_stream_url: https://www.youtube.com/watch?v=8xhHS6MyZRc
+    image_360_url: https://www.youtube.com/watch?v=8xhHS6MyZRc
+    image_360_file: 
+    video_360_url: https://www.brillianttrails.com/lab/index.htm?media-index=2
+    video_360_file: 
+    transparent_video: http://portadown.touristwise.co.uk/uploads/poi/-Synthesiavideo-e23bd6.mp4
+    latitude: 
+    longitude: 
+    booking_url: 
+    radius: 0
+    n_message: 
+    tel: 
+    email: 
+    website: 
+    pin_id: 1
+    intro_id: 107
+    poi_images: []
+    questions:
+    - poi_id: 507
+      question: How high is the Riverside church tower?
+      type: textbox
+      answers:
+      - num: 8
+        question_id: 3
+        answer: 100ft
+        is_correct: 0
+      - num: 9
+        question_id: 3
+        answer: 80ft
+        is_correct: 0
+      - num: 10
+        question_id: 3
+        answer: 90ft
+        is_correct: 1
+  - num: 597
+    user_id: 1
+    Name: John Rowland
+    sub_title: 
+    short_desc: John was the husband of Mary Jane and the father of Sarah Jane, Thomas
+      George, John, Florrie, David William, Robert and Hannah Jane.
+    description: '<b>UVF Nominal Role:</b> 3463
+
+      <b>Age:</b> 42
+
+      <b>Address:</b>
+      24 South Street
+
+      
+
+      John was the husband of Mary Jane and the
+      father of Sarah Jane, Thomas George, John, Florrie, David William, Robert and
+      Hannah Jane. In 1901 the family lived at 4 Meadow Lane. The family were Church
+      of Ireland denomination.
+
+      
+
+      In 1907 the family lived in Fowlers
+      Entry. Their son John was tragically killed in June 1907 when he was knocked
+      down by a car returning from the Show Grounds in the town.
+
+      
+
+      By
+      1911 the family were living in South Street. John was a Linen Weaver and worked
+      for Spence Bryson &amp; Co Ltd.
+
+      
+
+      John was a member of LOL 58
+      and served as Secretary for a period of time, he also was a member of RBP 199
+      and served as Registrar.
+
+      
+
+      John signed the Ulster Covenant at
+      Portadown Town Hall. He went on to join the 4<sup>th</sup> Portadown Battalion
+      Ulster Volunteer Force.
+
+      
+
+      During the First World War John served
+      with the 9<sup>th</sup> Battalion Royal Irish Fusiliers (14628).
+
+      
+
+      John&rsquo;s
+      wife, Mary Jane, was a member of the Portadown Branch of the Ulster Women&rsquo;s
+      Unionist Association.
+
+      
+
+      John passed away on 1<sup>st</sup> July
+      1923 and is buried at Drumcree Cemetery'
+    thumbnail: 
+    place_address: 
+    audio_file: http://portadown.touristwise.co.uk/uploads/poi/audio/welcome.mp3
+    standard_video_file_url: http://portadown.touristwise.co.uk/uploads/poi/audio/welcome.mp3
+    standard_video_stream_url: 
+    image_360_url: 
+    image_360_file: https://touristwise.co.uk/portadown/uploads/poi/Kinbane-Castle.jpg
+    video_360_url: 
+    video_360_file: https://touristwise.co.uk/portadown/uploads/poi/Cernunnos_b_001.mp4
+    transparent_video: http://portadown.touristwise.co.uk/uploads/poi/-Synthesiavideo-e23bd6.mp4
+    latitude: 
+    longitude: 
+    booking_url: 
+    radius: 0
+    n_message: 
+    tel: 
+    email: 
+    website: 
+    pin_id: 1
+    intro_id: 107
+    poi_images: []
+    questions:
+    - poi_id: 507
+      question: How high is the Riverside church tower?
+      type: textbox
+      answers:
+      - num: 8
+        question_id: 3
+        answer: 100ft
+        is_correct: 0
+      - num: 9
+        question_id: 3
+        answer: 80ft
+        is_correct: 0
+      - num: 10
+        question_id: 3
+        answer: 90ft
+        is_correct: 1
+  - num: 603
+    user_id: 1
+    Name: Dr George Dougan (Junior)
+    sub_title: 
+    short_desc: George was the eldest son of Dr George and Martha Dougan (nee Atkinson).
+    description: '<b>UVF Nominal Role:</b> 3567
+
+      <b>Age:</b> 32
+
+      <b>Address:</b>
+      Millicent Terrace
+
+      
+
+      George was the eldest son of Dr George and
+      Martha Dougan (nee Atkinson). He was the brother of Margaret, Harriet, Martha
+      and Fredrick.
+
+      
+
+      George studied medicine at Dublin University
+      and after his graduation he joined his father&rsquo;s medical practice at Millicent
+      Terrace, Portadown (now Church Street).
+
+      
+
+      George married Mary
+      Louisa McDonald in June 1914 at St Marks Church, Portadown. They had three
+      sons; George (Junior Junior), Donald and Hampton.
+
+      
+
+      He signed
+      the Ulster Covenant at Portadown Town Hall and went on to join the 4<sup>th</sup>
+      Portadown Battalion Ulster Volunteer Force.
+
+      
+
+      In his younger
+      years&rsquo; Dr Dougan was a noted oarsman. He was Captain of the Portadown
+      Boat Club and then for many years was President. He had also rowed for his
+      University Team. He was also an enthusiastic golfer and was a former Captain
+      of Portadown Golf Club.
+
+      
+
+      During the First World War Doctor
+      Dougan served with the Royal Army Medical Corps. His rank was Lieutenant. His
+      brother Fredrick also served with Royal Army Medical Corps, in the rank of
+      Captain.
+
+      
+
+      In politics, he was one of the leading Unionists
+      in Co Armagh and served his local association in several capacities. In 1941
+      he took over from Major Shillington as a member of Parliament for Central Armagh. 
+      In the Orange Order he held several high offices. He succeeded Major Shillington
+      as the District Master of Portadown in 1944 and was a member of Prince of Wales
+      LOL 56. He was also a Deputy Grand Master of Ireland and a member of the Royal
+      Black Institution.
+
+      
+
+      Dr Dougan was also an active member of
+      the Masonic and was a Past Master of Abercorn Lodge No.219. He was a founding
+      member of Portadown Rotary Club formed in 1936 and had served as President
+      for two years.
+
+      
+
+      George took a keen interest in Church affairs.
+      He worshipped at St Mark&rsquo;s Church and was senior member of the select
+      vestry for Portadown Parish, also a member of the Armagh Diocesan Synod and
+      a member of the General Synod.
+
+      
+
+      During the 2<sup>nd</sup> World
+      War George was closely involved with the St John Ambulance Brigade. His son
+      Major Hampton Dougan died on 20<sup>th</sup> October 1944 while on active service
+      with the Royal Army Medical Corps. He is buried in Ranchi Military Cemetery,
+      Binar, India. Their middle son; Donald emigrated to Canada. Their eldest son;
+      George remained in Portadown and carried on the family medical practice.
+
+      
+
+      Also,
+      during the 2<sup>nd</sup> World War British and American Troops had control
+      of Carleton Street Orange Hall on different occasions. Dr Dougan made a room
+      in his home at Church Street available for the Orange Lodges of Carleton Street
+      to hold their meetings during this time.
+
+      
+
+      George&rsquo;s wife,
+      Mary Louisa, was also well known within the community. Mary was an active member
+      of the local Women&rsquo;s Loyal Orange Order. She also served in different
+      capacities for Portadown Women&rsquo;s Unionist Association. In 1958 Mary received
+      an M.B.E for political and public services in County Armagh.
+
+      
+
+      Dr
+      Dougan died at the family residence in Kilmoriarty, Portadown, aged 73 on 7<sup>th</sup>
+      April 1955 after being ill for several months. Mary Louisa died on 30<sup>th</sup>
+      April 1977. Their eldest son; George, served as a doctor in the town for many
+      years. He died on 29<sup>th</sup> April 1987. They are buried at Drumcree Cemetery.'
+    thumbnail: 
+    place_address: 
+    audio_file: http://portadown.touristwise.co.uk/uploads/poi/audio/welcome.mp3
+    standard_video_file_url: 
+    standard_video_stream_url: https://www.youtube.com/watch?v=8xhHS6MyZRc
+    image_360_url: https://www.youtube.com/watch?v=8xhHS6MyZRc
+    image_360_file: 
+    video_360_url: https://www.brillianttrails.com/lab/index.htm?media-index=2
+    video_360_file: 
+    transparent_video: http://portadown.touristwise.co.uk/uploads/poi/-Synthesiavideo-e23bd6.mp4
+    latitude: 
+    longitude: 
+    booking_url: 
+    radius: 0
+    n_message: 
+    tel: 
+    email: 
+    website: 
+    pin_id: 1
+    intro_id: 107
+    poi_images: []
+    questions:
+    - poi_id: 507
+      question: How high is the Riverside church tower?
+      type: textbox
+      answers:
+      - num: 8
+        question_id: 3
+        answer: 100ft
+        is_correct: 0
+      - num: 9
+        question_id: 3
+        answer: 80ft
+        is_correct: 0
+      - num: 10
+        question_id: 3
+        answer: 90ft
+        is_correct: 1
+  - num: 609
+    user_id: 1
+    Name: James Mighton
+    sub_title: 
+    short_desc: James was born in Lurgan in 1855.
+    description: "<b>UVF Nominal Role:</b> 3584\r\n<b>Age:</b> 49\r\n<b>Address:</b>
+      10 Irwin Street\r\n\r\nJames was born in Lurgan in 1855. James&rsquo; Father
+      Thomas Mighton was a famous Fifer, who on one occasion had fifed five Lambeg&rsquo;s
+      from Maralin to Dromore.\r\n\r\nJames earned the medal and clasp of the 88<sup>th</sup>
+      Foot Regiment, 1877-79. James enlisted in the Connaught Rangers on 17<sup>th</sup>
+      October 1874. During his service he spent time at Colchester, Aldershot, Sligo,
+      Athlone, South Africa and finishing up at Galway in 1880. In all he had six
+      years active service and six years reserve service.\r\n\r\nLeaving Colchester
+      for Mauritius Island, he took part in the campaign to subdue the Kaffir outbreak
+      of 1878-79, and later fought against the Zulus in Zululand, South Africa. 
+      The hardships experienced in these campaigns undermined his health and after
+      a period in Natal Hospital he was invalided home.\r\n\r\n<i>&ldquo;Mr Mighton
+      who holds the 1878-79 medal, recalled forced marches of 23 miles laden with
+      100 rounds of ammunition, with full equipment, through rivers, swamps and forests
+      and said that very often the sole means of subsistence of himself and comrades
+      was 1IB of raw flour from which they mad pancakes. He was in Durban he said
+      when the Prince Imperial arrived. The Prince, a fine man, was killed shortly
+      afterwards by the Zulus. Speaking generally, he remarked that people now had
+      a much more pleasant life than when he was young&rdquo;.</i>\r\n<b><i>Interview
+      with the Portadown Times, August 1938</i></b>\r\n\r\nJames signed the Ulster
+      Covenant at Portadown Town Hall and went on to join the 4<sup>th</sup> Portadown
+      Battalion Ulster Volunteer Force.\r\n\r\nFor many years, James was employed
+      as a Weaver with Spence Bryson and Co Ltd. He wove the first sheer cut of cloth
+      ever manufactured by them. James also had experience in the printing trade
+      as a compositor with the &lsquo;Protestant Watchman&rsquo;s Gazette, Lurgan&rdquo;.\r\n\r\nJames
+      was one of the original Catch-My-Pal Committee members in Portadown and often
+      spoke of the early days when the committee held meetings in an upper room in
+      Bridge Street. James collected the first &pound;5 for the Catch-My-Pal Hall
+      Building fund- the &lsquo;fiver&rsquo; being the outcome of an appeal made
+      by him at a committee meeting of the Portadown and Banbridge Textile Society.
+      He was also a member of the British Order Ancient Free Gardiners.\r\n\r\nJames
+      was a widower, but he remarried on 6<sup>th</sup> September 1913 in St Mark&rsquo;s
+      Church, Portadown to Martha Duke, daughter of William John Duke and sister
+      of Teresa, Abby (Abigail) and Maggie (Margaret) of Irwin Street.\r\n\r\nThey
+      had one daughter, Martha, who later married Herbert Loney and had a family.
+      Private Herbert Loney served with the Reconnaissance Regiment during the 2<sup>nd</sup>
+      World War.  \r\n\r\nJames&rsquo; wife Martha died on 10<sup>th</sup> November
+      1930 at their home, 39 Jervis Street. James died in September 1941 at the age
+      of 86. He was the oldest soldier In Portadown. Their Daughter Martha died on
+      10<sup>th</sup> January 1943 at her home in 7 Joseph Street. They are buried
+      in Drumcree Cemetery."
+    thumbnail: 
+    place_address: 
+    audio_file: http://portadown.touristwise.co.uk/uploads/poi/audio/welcome.mp3
+    standard_video_file_url: http://portadown.touristwise.co.uk/uploads/poi/audio/welcome.mp3
+    standard_video_stream_url: 
+    image_360_url: 
+    image_360_file: https://touristwise.co.uk/portadown/uploads/poi/Kinbane-Castle.jpg
+    video_360_url: 
+    video_360_file: https://touristwise.co.uk/portadown/uploads/poi/Cernunnos_b_001.mp4
+    transparent_video: http://portadown.touristwise.co.uk/uploads/poi/-Synthesiavideo-e23bd6.mp4
+    latitude: 
+    longitude: 
+    booking_url: 
+    radius: 0
+    n_message: 
+    tel: 
+    email: 
+    website: 
+    pin_id: 1
+    intro_id: 107
+    poi_images: []
+    questions:
+    - poi_id: 507
+      question: How high is the Riverside church tower?
+      type: textbox
+      answers:
+      - num: 8
+        question_id: 3
+        answer: 100ft
+        is_correct: 0
+      - num: 9
+        question_id: 3
+        answer: 80ft
+        is_correct: 0
+      - num: 10
+        question_id: 3
+        answer: 90ft
+        is_correct: 1
+  - num: 615
+    user_id: 1
+    Name: Thomas Vennard
+    sub_title: 
+    short_desc: Thomas was the son of Teressa and John Vennard and the brother of
+      John Joseph, Lizzie, James, Mary and Martha.
+    description: '<b>UVF Nominal Role:</b> 3606
+
+      <b>Age:</b> 28
+
+      <b>Address:</b>
+      8 Park Road
+
+      
+
+      Thomas was the son of Teressa and John Vennard
+      and the brother of John Joseph, Lizzie, James, Mary and Martha. In 1901 the
+      family lived at 16 Margaret Street, Portadown. Thomas&rsquo; occupation was
+      a Linen Weaver. The family were Church of Ireland denomination.
+
+      
+
+      Thomas
+      married Elizabeth Hoole from Victoria Terrace in St Marks Parish Church, Portadown
+      on 5<sup>th</sup> August 1905.
+
+      
+
+      By 1911, Thomas and Elizabeth
+      were living at 8 Park Road. They went on to have three daughters; Maud, Margaret
+      and May.
+
+      
+
+      Thomas signed the Ulster Covenant at Portadown Town
+      Hall and went on to join the 4<sup>th</sup> Portadown Battalion Ulster Volunteer
+      Force.
+
+      
+
+      During the 1<sup>st</sup> World War, Thomas served
+      as a Sergeant Major with B Company, 9<sup>th</sup> Battalion Royal Irish Fusiliers.
+      (14746). Thomas was awarded the Distinguished Conduct Medal on 23<sup>rd</sup>
+      November 1918 for his actions at Moeuvres; he was wounded in March 1918 during
+      the retreat from St Quentin.
+
+      
+
+      After the 1<sup>st</sup> World
+      War, Thomas saw service in Egypt and India with the Royal Inniskilling Fusiliers.
+      He returned to Ulster in 1931. He was stationed at Holywood, Co Down, later
+      being posted as Regimental Quartermaster Sergeant (RQMS) at Omagh, Co Tyrone.
+      He remained there until 1939 when he received a clerical appointment under
+      the War Office.
+
+      
+
+      In 1941, Thomas and his family were bombed
+      out in one of the Belfast Air Raids. This led to a quick decline in his health.
+      One of his daughters served as a Corporal in the Auxiliary Territorial Service
+      (A.T.S) during the 2<sup>nd</sup> World War.
+
+      
+
+      Thomas was also
+      a member of the British Order of Ancient Free Gardiners and Masonic Lodge 497
+      Social Friendship Lodge, 2<sup>nd</sup> Battalion Royal Irish Fusiliers.
+
+      
+
+      Thomas
+      died in April 1942 due to his declining health. He was given a full military
+      funeral in Portadown with detachments of the Royal Irish Fusiliers and Royal
+      Inniskilling Fusiliers, under Major Solly, acting as pallbearers at the funeral.
+      Thomas is buried at Drumcree Cemetery.'
+    thumbnail: 
+    place_address: 
+    audio_file: http://portadown.touristwise.co.uk/uploads/poi/audio/welcome.mp3
+    standard_video_file_url: 
+    standard_video_stream_url: https://www.youtube.com/watch?v=8xhHS6MyZRc
+    image_360_url: https://www.youtube.com/watch?v=8xhHS6MyZRc
+    image_360_file: 
+    video_360_url: https://www.brillianttrails.com/lab/index.htm?media-index=2
+    video_360_file: 
+    transparent_video: http://portadown.touristwise.co.uk/uploads/poi/-Synthesiavideo-e23bd6.mp4
+    latitude: 
+    longitude: 
+    booking_url: 
+    radius: 0
+    n_message: 
+    tel: 
+    email: 
+    website: 
+    pin_id: 1
+    intro_id: 107
+    poi_images: []
+    questions:
+    - poi_id: 507
+      question: How high is the Riverside church tower?
+      type: textbox
+      answers:
+      - num: 8
+        question_id: 3
+        answer: 100ft
+        is_correct: 0
+      - num: 9
+        question_id: 3
+        answer: 80ft
+        is_correct: 0
+      - num: 10
+        question_id: 3
+        answer: 90ft
+        is_correct: 1
+  - num: 621
+    user_id: 1
+    Name: Victor Albert Watson
+    sub_title: 
+    short_desc: Victor was the son of James and Harriet (nee Graydon).
+    description: '<b>UVF Nominal Role:</b> 3608
+
+      <b>Age:</b> 19
+
+      <b>Address:</b>
+      Park Road
+
+      
+
+      Victor was the son of James and Harriet (nee Graydon).
+      His father, James originated from County Down and his Mother, Harriet from
+      County Wicklow. James was the brother of Joseph, Fred, James and Louis. In
+      1901, the family lived at 78 Bridge Street and Victor was at school.
+
+      
+
+      By
+      1911, Victor was living as a boarder in 5 Sandy Row with Margaret and William
+      Cordy after the death of his Father in May 1908 and his Mother in December
+      1908. Victor&rsquo;s occupation was a Linen Weaver.
+
+      
+
+      Victor
+      signed the Ulster Covenant at Portadown Town Hall and went on to join the 4<sup>th</sup>
+      Portadown Battalion Ulster Volunteer Force.
+
+      
+
+      In 1913, Victor
+      married Sarah Hull from Victoria Terrace, at St Marks Parish Church, Portadown.
+      They went on to have three children; William James, Thomas Victor and Sarah
+      (Sally).
+
+      
+
+      During the First World War, Victor served as a Private
+      with the 9<sup>th</sup> Battalion Royal Irish Fusiliers (2298). He signed up
+      on 25<sup>th</sup> October 1915 at Lurgan.
+
+      
+
+      Victor&rsquo;s
+      sons were members of Parkmount Flute Band and he was also involved with the
+      Salvation Army throughout his later life.
+
+      
+
+      Victor died on 18<sup>th</sup>
+      June 1961and is buried at Drumcree Cemetery.'
+    thumbnail: 
+    place_address: 
+    audio_file: http://portadown.touristwise.co.uk/uploads/poi/audio/welcome.mp3
+    standard_video_file_url: http://portadown.touristwise.co.uk/uploads/poi/audio/welcome.mp3
+    standard_video_stream_url: 
+    image_360_url: 
+    image_360_file: https://touristwise.co.uk/portadown/uploads/poi/Kinbane-Castle.jpg
+    video_360_url: 
+    video_360_file: https://touristwise.co.uk/portadown/uploads/poi/Cernunnos_b_001.mp4
+    transparent_video: http://portadown.touristwise.co.uk/uploads/poi/-Synthesiavideo-e23bd6.mp4
+    latitude: 
+    longitude: 
+    booking_url: 
+    radius: 0
+    n_message: 
+    tel: 
+    email: 
+    website: 
+    pin_id: 1
+    intro_id: 107
+    poi_images: []
+    questions:
+    - poi_id: 507
+      question: How high is the Riverside church tower?
+      type: textbox
+      answers:
+      - num: 8
+        question_id: 3
+        answer: 100ft
+        is_correct: 0
+      - num: 9
+        question_id: 3
+        answer: 80ft
+        is_correct: 0
+      - num: 10
+        question_id: 3
+        answer: 90ft
+        is_correct: 1
+  - num: 627
+    user_id: 1
+    Name: 'Robert Todd '
+    sub_title: 
+    short_desc: Robert originated from Belfast. In 1911, he was living with his wife,
+      Mary Anne (nee Dawson) at Sandy Row.
+    description: '<b>UVF Nominal Role:</b> 3814
+
+      <b>Age:</b> 30
+
+      <b>Address:</b>
+      9 Sandy Row
+
+      
+
+      Robert originated from Belfast. In 1911, he was
+      living with his wife, Mary Anne (nee Dawson) at Sandy Row. They had 2 children;
+      William Francis and Agnes. Robert also lived with his brother; William Francis,
+      his sister; Mary Florence Sergeant and two nieces; Elsie and Sarah Jane Sergeant.
+      Robert&rsquo;s occupation was a Van driver. Robert and Mary had two further
+      children; Frank and David.
+
+      
+
+      Robert signed the Ulster Covenant
+      at Portadown Town Hall and went on to join the 4<sup>th</sup> Portadown Battalion
+      Ulster Volunteer Force.
+
+      
+
+      Robert served with the 2<sup>nd</sup>
+      Battalion Royal Irish Fusiliers throughout the Boer War and the 1<sup>st</sup>
+      World War.
+
+      
+
+      Robert&rsquo;s brother, William Francis, also served
+      with the Royal Irish Fusiliers. The brothers were fighting together during
+      the 1<sup>st</sup> World War. Robert had the melancholy experience of seeing
+      his brother, William Francis, killed in action on 22<sup>nd</sup> October 1914.
+      William Francis is buried at Houplines Communal Cemetery Extension, France.
+      Robert came home to Portadown on leave in early November 1914, after his brother&rsquo;s
+      death.
+
+      
+
+      Robert was an esteemed and valued member of Bocombra
+      LOL 22 and the Apprentice Boys of Derry, Portadown Branch Club.
+
+      
+
+      At
+      age 50, Robert suffered a seizure attending a Portadown V Glentoran Match at
+      Shamrock Park. Robert died the next day at Lurgan Hospital on 31<sup>st</sup>
+      August 1930.
+
+      
+
+      Robert was described as &lsquo;a quiet and unassuming
+      disposition&rsquo;. His funeral was attended by members of the Orange Order
+      and Apprentice Boys of Derry. A detachment of the Royal Ulster Rifles, from
+      Armagh, gave full military honours at his funeral. Robert is buried at Drumcree
+      Cemetery.
+
+      
+
+      (Relative of Budgie Todd)'
+    thumbnail: 
+    place_address: 
+    audio_file: http://portadown.touristwise.co.uk/uploads/poi/audio/welcome.mp3
+    standard_video_file_url: 
+    standard_video_stream_url: https://www.youtube.com/watch?v=8xhHS6MyZRc
+    image_360_url: https://www.youtube.com/watch?v=8xhHS6MyZRc
+    image_360_file: 
+    video_360_url: https://www.brillianttrails.com/lab/index.htm?media-index=2
+    video_360_file: 
+    transparent_video: http://portadown.touristwise.co.uk/uploads/poi/-Synthesiavideo-e23bd6.mp4
+    latitude: 
+    longitude: 
+    booking_url: 
+    radius: 0
+    n_message: 
+    tel: 
+    email: 
+    website: 
+    pin_id: 1
+    intro_id: 107
+    poi_images: []
+    questions:
+    - poi_id: 507
+      question: How high is the Riverside church tower?
+      type: textbox
+      answers:
+      - num: 8
+        question_id: 3
+        answer: 100ft
+        is_correct: 0
+      - num: 9
+        question_id: 3
+        answer: 80ft
+        is_correct: 0
+      - num: 10
+        question_id: 3
+        answer: 90ft
+        is_correct: 1
+  - num: 633
+    user_id: 1
+    Name: Valentine Wilson
+    sub_title: 
+    short_desc: Valentine Wilson originated from the Portadown area.
+    description: '<b>UVF Nominal Role:</b> 3477
+
+      <b>Age:</b> 33
+
+      <b>Address:</b>
+      Church Street
+
+      
+
+      Valentine Wilson originated from the Portadown
+      area. Valentine was married twice first to Nellie on 12<sup>th</sup> August
+      1914, they had two children Valentine Robertson Wilson and Ronald McElroy Wilson.
+      Nellie died on 8<sup>th</sup> July 1927 and Valentine later married Christine
+      Stewart. He was a solicitor in the town for over 30 years. They family were
+      Church of Ireland denomination and members of St Marks Church where Valentine
+      served on the Select Vestry and the General Synod of the Church of Ireland.
+
+      
+
+      Valentine
+      was the District Secretary of Portadown District LOL No 1. He was also a member
+      of the Freemasons.
+
+      
+
+      Valentine served three years 1908-1911
+      on Portadown Urban Council. Valentine was appointed under Sheriff for County
+      Armagh. Valentine had been the Captain of Portadown Golf Club and was director
+      of Portadown football Club.
+
+      
+
+      Valentine signed the Ulster Covenant
+      at Portadown Town Hall and went on to join the 4<sup>th</sup> Portadown Battalion
+      Ulster Volunteer Force.
+
+      
+
+      Valentine&rsquo;s oldest son Valentine
+      Robertson (13889001) enlisted in the Raf and was posted to 115 Squadron of
+      Bomber Command. Sadly he died on 11<sup>th</sup> April 1943 and is remembered
+      with honour Le Thour Communal Cemetery Joint Grave 4-5.
+
+      
+
+      Valentine&rsquo;s
+      other son Ronald followed in his footsteps and became a Solicitor. On 15<sup>th</sup>
+      August 1940 he received commission from a cadet training college as a Second
+      Lieutenant in the 1<sup>st</sup> Battalion Royal Irish Rifles. He took part
+      in the airborne assault on D-Day on 6<sup>th</sup> June 1945 and was soon promoted
+      to Major.
+
+      
+
+      The family burial ground is at Drumcree.'
+    thumbnail: 
+    place_address: 
+    audio_file: http://portadown.touristwise.co.uk/uploads/poi/audio/welcome.mp3
+    standard_video_file_url: http://portadown.touristwise.co.uk/uploads/poi/audio/welcome.mp3
+    standard_video_stream_url: 
+    image_360_url: 
+    image_360_file: https://touristwise.co.uk/portadown/uploads/poi/Kinbane-Castle.jpg
+    video_360_url: 
+    video_360_file: https://touristwise.co.uk/portadown/uploads/poi/Cernunnos_b_001.mp4
+    transparent_video: http://portadown.touristwise.co.uk/uploads/poi/-Synthesiavideo-e23bd6.mp4
+    latitude: 
+    longitude: 
+    booking_url: 
+    radius: 0
+    n_message: 
+    tel: 
+    email: 
+    website: 
+    pin_id: 1
+    intro_id: 107
+    poi_images: []
+    questions:
+    - poi_id: 507
+      question: How high is the Riverside church tower?
+      type: textbox
+      answers:
+      - num: 8
+        question_id: 3
+        answer: 100ft
+        is_correct: 0
+      - num: 9
+        question_id: 3
+        answer: 80ft
+        is_correct: 0
+      - num: 10
+        question_id: 3
+        answer: 90ft
+        is_correct: 1
+  sculptureEvents:
+  - num: 3
+    name: An after dark illuminated trail through festive gardens
+    category_id: 2
+    short_desc: Following a hugely successful first year, the magic is back at Hillsborough
+      Castle and Gardens close to Belfast.
+    description: "<p>Following a hugely successful first year, the magic is back
+      at Hillsborough Castle and Gardens close to Belfast. Over a million twinkling
+      lights and seasonal sounds will fill the air with festive fun.</p>\r\n<p>Look
+      forward to some time together with friends and family as you discover sparkling
+      tunnels of light, then walk under giant baubles and beneath glistening trees
+      drenched in jewel-like colour.</p>\r\n<p>For a moment of reflection pause at
+      mesmerising flickering flames in the fire garden, gaze at the larger-than-life
+      illuminations and, to make a moment to remember, don\u2019t forget to glimpse
+      Father Christmas along the way.</p>\r\n<p>Our crew of talented independent
+      street food vendors bring a delicious twist to tempting treats on offer. Complete
+      your walk under the stars with a perfectly festive *spiced winter warmer, *hot
+      chocolate or *toasted marshmallows shared with someone special.</p>\r\n<p><strong>Your
+      very merriest Christmas starts here. Limited capacity with timed entry. Plan
+      now to secure the date and time of your choice.</strong></p>"
+    main_image: http://hillsborough.touristwise.co.uk/uploads/events/3xmas.jpg
+    audio_url: https://touristwise.co.uk/benburb/uploads/poi/audio/chopin-nocturne-op9-no2.mp3
+    vieo_url: 
+    video_360_url: 
+    video_360_image: 
+    start_date: 15-02-2023
+    end_date: 21-07-2023
+    address: Hillsborough Castle and Gardens, The Square, Hillsborough, UK
+    latitude: 54.4613613
+    logitude: -6.0849684
+    tel: 1234567890
+    email: attendee@gmail.com
+    booking_url: https://christmasathillsborough.seetickets.com/raymondgubbay/christmas-at-hillsborough?_ga=2.74936849.28966014.1655971180-228323400.1655971180
+    multiple_images:
+    - num: 32
+      lang_id: 1
+      event_id: 3
+      image: http://portadown.touristwise.co.uk/uploads/info/multiple/a1.jpg
+    - num: 33
+      lang_id: 1
+      event_id: 3
+      image: http://portadown.touristwise.co.uk/uploads/info/multiple/b1.jpg
+  - num: 4
+    name: he hates it or hates it
+    category_id: 2
+    short_desc: I will explain what was said to the architect of a happy life. For
+      no one despises or hates or runs away from pleasure because it is pleasure,
+      but because great pains follow them
+    description: I will explain what was said to the architect of a happy life. For
+      no one despises or hates or runs away from pleasure because it is pleasure,
+      but because it results in great pains. For no one despises or hates or runs
+      away from pleasure because it is pleasure, but because it results in great
+      pains. For no one despises or hates or runs away from pleasure because it is
+      pleasure, but because it results in great pains. For no one despises or hates
+      or runs away from pleasure because it is pleasure, but because it results in
+      great pains. For no one despises or hates or runs away from pleasure because
+      it is pleasure, but because it results in great pains. For no one despises
+      or hates or runs away from pleasure because it is pleasure, but because great
+      pains follow them
+    main_image: http://hillsborough.touristwise.co.uk/uploads/events/4t5.jpg
+    audio_url: https://touristwise.co.uk/benburb/uploads/poi/audio/chopin-nocturne-op9-no2.mp3
+    vieo_url: 
+    video_360_url: 
+    video_360_image: 
+    start_date: 15-02-2023
+    end_date: 21-07-2023
+    address: Hillsborough Castle and Gardens, The Square, Hillsborough, UK
+    latitude: 54.4613613
+    logitude: -6.0849684
+    tel: 1234567890
+    email: attendee@gmail.com
+    booking_url: NA
+    multiple_images:
+    - num: 1
+      lang_id: 1
+      event_id: 4
+      image: http://www.brillianttrails.com/appv2/uploads/poi/58Wellbeing_poi.jpeg
+  villageDiscounts:
+  - num: 1
+    business_name: The Parsons Nose
+    short_description: 10% off all meals from our lunchtime menu
+    full_description: 'Thats right!
+
+      We have 12 delicious Italian pizzas ready
+      and waiting for you, including 3 vegan options. The offer applies each lunchtime
+      Monday to Friday, from 12pm to 3pm.
+
+      Simply show this offer when ordering
+      and enjoy your 2nd pizza half price.
+
+      What''s not to like!'
+    image: http://hillsborough.touristwise.co.uk/uploads/events/v1.jpg
+    address: 48 Lisburn St, Hillsborough BT26 6AB
+    latitude: 54.4643501
+    longitude: 
+    tel: 028 926 83009
+    email: info@theparsonsnose.co.uk
+    end_date: 21-01-2023
+  - num: 2
+    business_name: architecto beatae
+    short_description: 25% off all meals from our dinnertime menu
+    full_description: architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam
+      voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur
+      magni dolores eosarchitecto beatae vitae dicta sunt explicabo. Nemo enim ipsam
+      voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur
+      magni dolores eosarchitecto beatae vitae dicta sunt explicabo. Nemo enim ipsam
+      voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur
+      magni dolores eos
+    image: http://hillsborough.touristwise.co.uk/uploads/events/t9.jpg
+    address: Hillsborough Castle and Gardens, The Square, Hillsborough, UK
+    latitude: 54.4613613
+    longitude: 
+    tel: 1234567890
+    email: email
+    end_date: 21-01-2023
+  shareWithOther:
+    share_text: 
+    share_link: 
+  AboutUs: 
+  AboutThisApp: 

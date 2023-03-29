@@ -1,0 +1,95 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a8a87430080648ccb459498c0461e32, type: 3}
+  m_Name: TextSetup
+  m_EditorClassIdentifier: 
+  textProperties:
+  - type: 0
+    font: {fileID: 12800000, guid: 0411478e7e0084c58ac0def071320174, type: 3}
+    fontStyle: 1
+    lineSpacing: 1
+    textAnchor: 4
+    textAlignment: 1
+    size: 60
+    isBestFit: 1
+    minSize: 6
+    maxSize: 60
+  - type: 1
+    font: {fileID: 12800000, guid: 0411478e7e0084c58ac0def071320174, type: 3}
+    fontStyle: 1
+    lineSpacing: 1
+    textAnchor: 4
+    textAlignment: 1
+    size: 50
+    isBestFit: 1
+    minSize: 5
+    maxSize: 50
+  - type: 2
+    font: {fileID: 12800000, guid: 6f62bda6e7d5a46a09a637d74b3960ee, type: 3}
+    fontStyle: 0
+    lineSpacing: 0
+    textAnchor: 0
+    textAlignment: 0
+    size: 32
+    isBestFit: 0
+    minSize: 0
+    maxSize: 0
+  - type: 3
+    font: {fileID: 12800000, guid: 6f62bda6e7d5a46a09a637d74b3960ee, type: 3}
+    fontStyle: 0
+    lineSpacing: 0
+    textAnchor: 0
+    textAlignment: 0
+    size: 60
+    isBestFit: 0
+    minSize: 0
+    maxSize: 0
+  - type: 4
+    font: {fileID: 12800000, guid: 6f62bda6e7d5a46a09a637d74b3960ee, type: 3}
+    fontStyle: 0
+    lineSpacing: 0
+    textAnchor: 0
+    textAlignment: 0
+    size: 45
+    isBestFit: 0
+    minSize: 0
+    maxSize: 0
+  - type: 5
+    font: {fileID: 12800000, guid: 3294bdf7279b84c77a677fc323cd62a3, type: 3}
+    fontStyle: 0
+    lineSpacing: 0
+    textAnchor: 0
+    textAlignment: 0
+    size: 65
+    isBestFit: 0
+    minSize: 0
+    maxSize: 0
+  - type: 6
+    font: {fileID: 12800000, guid: cf3073aea646d4a95bfc8f7263e1af5c, type: 3}
+    fontStyle: 0
+    lineSpacing: 0
+    textAnchor: 0
+    textAlignment: 0
+    size: 152
+    isBestFit: 0
+    minSize: 0
+    maxSize: 0
+  - type: 7
+    font: {fileID: 12800000, guid: cf3073aea646d4a95bfc8f7263e1af5c, type: 3}
+    fontStyle: 0
+    lineSpacing: 0
+    textAnchor: 0
+    textAlignment: 0
+    size: 95
+    isBestFit: 0
+    minSize: 0
+    maxSize: 0

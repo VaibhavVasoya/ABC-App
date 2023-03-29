@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: b360fc2215377479f8fccdcfaaee31bd
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Figtree
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 603fc3e410541438ba9b67abe0894c1c, type: 3}
+  - {fileID: 12800000, guid: 3324c6649f1774d899634ff0556514c0, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
