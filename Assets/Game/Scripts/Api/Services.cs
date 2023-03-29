@@ -243,9 +243,12 @@ public class Services : Singleton<Services>
        bool withTimeOut = false, bool isToBeAddedToScheduler = true, bool isFromScheduler = false, bool isOnlyEnglish = false)
     {
         getURL = GameData.GetUrl(getURL);
+        //Debug.Log("getUrl 1 : "+getURL);
         if (!getURL.Contains("lang_id") && !isOnlyEnglish)
         {
+            //Debug.Log("getUrl 2 : " + getURL);
             getURL += (getURL.Contains("&")) ? "lang_id=" : "?lang_id=" + ApiHandler.instance.currentLanguage.num;
+            //Debug.Log("getUrl 3 : " + getURL);
         }
         if (isToBeAddedToScheduler && isSchedulerImplemented)
         {
