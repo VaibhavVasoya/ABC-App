@@ -11,48 +11,72 @@ namespace Master.UI
 {
     public class ScreenAboutThisAppUI : UIScreenView
     {
-        //[SerializeField] TextMeshProUGUI txtDetails;
+        [SerializeField] Text txtTitle;
+        [SerializeField] TextMeshProUGUI txtDetails;
         //[SerializeField] ContentSizeFitter contentSizeFitter;
-        //[SerializeField] ScrollRect scrollRect;
+        [SerializeField] ScrollRect scrollRect;
 
-        //private void OnEnable()
-        //{
-        //    Events.WebRequestCompleted += AboutThisAppCallBack;
-        //}
-        //private void OnDisable()
-        //{
-        //    Events.WebRequestCompleted -= AboutThisAppCallBack;
-        //}
+        public ContentSizeFitter[] contentSizeFitters;
 
-        //public override void OnScreenShowCalled()
-        //{
-        //    TextUpdate();
-        //    base.OnScreenShowCalled();
-        //}
-        //public override void OnBack()
-        //{
-        //    base.OnBack();
-        //    BackToTrails();
-        //}
-        //public void BackToTrails()
-        //{
-        //    UIController.instance.ShowNextScreen(ScreenType.TrailList);
-        //}
+        private void OnEnable()
+        {
+            Events.WebRequestCompleted += AboutUsCallBack;
+        }
+        private void OnDisable()
+        {
+            Events.WebRequestCompleted -= AboutUsCallBack;
+        }
 
-        //void AboutThisAppCallBack(API_TYPE aPI_TYPE, string obj)
-        //{
-        //    if (aPI_TYPE != API_TYPE.API_ABOUT_THIS_APP) return;
-        //    TextUpdate();
-        //}
+        private void Start()
+        {
+            contentSizeFitters = transform.GetComponentsInChildren<ContentSizeFitter>();
+            Array.Reverse(contentSizeFitters);
+        }
 
-        //async void TextUpdate()
-        //{
-        //    contentSizeFitter.enabled = false;
-        //    txtDetails.text = ApiHandler.instance.data.AboutThisApp;
-        //    await Task.Delay(TimeSpan.FromSeconds(Time.deltaTime));
-        //    contentSizeFitter.enabled = true;
-        //    await Task.Delay(TimeSpan.FromSeconds(Time.deltaTime));
-        //    scrollRect.verticalNormalizedPosition = 1f;
-        //}
+        public override void OnScreenShowCalled()
+        {
+            base.OnScreenShowCalled();
+            TextUpdate();
+            Refresh();
+            //txtTitle.text = ApiHandler.instance.data.menuList[3].title;
+        }
+        public override void OnBack()
+        {
+            base.OnBack();
+            BackToTrails();
+        }
+        public void BackToTrails()
+        {
+            UIController.instance.ShowNextScreen(ScreenType.TrailCat);
+        }
+
+        void AboutUsCallBack(API_TYPE aPI_TYPE, string obj)
+        {
+            if (aPI_TYPE != API_TYPE.API_ABOUT_THIS_APP) return;
+
+            TextUpdate();
+        }
+
+        async void TextUpdate()
+        {
+            if (ApiHandler.instance.data.aboutTheApp == null)
+            {
+                UIController.instance.ShowPopupMsg("", "Data not found.");
+                return;
+            }
+            //txtTitle.text = ApiHandler.instance.data.AboutUs;
+            //contentSizeFitter.enabled = false;
+            txtDetails.text = UIController.instance.HtmlToStringParse(ApiHandler.instance.data.aboutTheApp.about_app_text);
+            Refresh();
+        }
+
+        async void Refresh()
+        {
+            //contentSizeFitters = transform.GetComponentsInChildren<ContentSizeFitter>();
+            //Array.Reverse(contentSizeFitters);
+            await UIController.instance.RefreshContent(contentSizeFitters);
+            scrollRect.verticalNormalizedPosition = 1f;
+        }
     }
 }
+//}

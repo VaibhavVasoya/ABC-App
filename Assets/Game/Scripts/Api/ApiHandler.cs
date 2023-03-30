@@ -67,8 +67,8 @@ public class ApiHandler : Singleton<ApiHandler>
         data.trailPois.Clear();
         data.sculptureEvents.Clear();
         data.villageDiscounts.Clear();
-        data.AboutUs = "";
-        data.AboutThisApp = "";
+        data.aboutUs =null;
+        data.aboutTheApp = null;
         data.shareWithOther = null;
         isWalkthroughLoaded = isTrailsLoaded = isPoisLoaded = isEventsLoaded = isDiscountLoded = isTrailCatLoaded = false;
     }
@@ -86,6 +86,7 @@ public class ApiHandler : Singleton<ApiHandler>
         GetSculptureEvetns(false);
         GetVillageDiscount(false);
         GetAboutUsDetails(false);
+        GetAboutThisApp(false);
         Debug.Log("Load init data..");
         PrepareForDownloding();
     }
@@ -617,7 +618,7 @@ public class ApiHandler : Singleton<ApiHandler>
     public void GetAboutUsDetails(bool showLoading = true)
     {
         if (showLoading) LoadingUI.instance.OnScreenShow();
-
+       
         Services.Get(GameData.API_ABOUT_US, AboutUsCallBack, false, false);
     }
     void AboutUsCallBack(string obj)
@@ -633,10 +634,15 @@ public class ApiHandler : Singleton<ApiHandler>
                 LoadingUI.instance.OnScreenHide();
                 return;
             }
+            if (string.IsNullOrEmpty(res["data"].ToString()) || res["data"].ToString() == "null")
+                UIController.instance.ShowPopupMsg("Opps!", "Something went wrong, Unable to fetch app link.");
+            else
+            {
+                data.aboutUs = new AboutUs();
+                data.aboutUs = JsonUtility.FromJson<AboutUs>(res["data"].ToString());
 
-            data.AboutUs = res["data"];
-
-            Events.OnWebRequestComplete(API_TYPE.API_ABOUT_US, obj);
+                Events.OnWebRequestComplete(API_TYPE.API_ABOUT_US, obj);
+            }
         }
         else
         {
@@ -657,6 +663,7 @@ public class ApiHandler : Singleton<ApiHandler>
     }
     void AboutThisAppCallBack(string obj)
     {
+
         if (obj != null)
         {
             var res = JSON.Parse(obj);
@@ -668,10 +675,15 @@ public class ApiHandler : Singleton<ApiHandler>
                 LoadingUI.instance.OnScreenHide();
                 return;
             }
+            if (string.IsNullOrEmpty(res["data"].ToString()) || res["data"].ToString() == "null")
+                UIController.instance.ShowPopupMsg("Opps!", "Something went wrong, Unable to fetch app link.");
+            else
+            {
+                data.aboutTheApp = new AboutTheApp();
+                data.aboutTheApp = JsonUtility.FromJson<AboutTheApp>(res["data"].ToString());
 
-            data.AboutThisApp = res["data"];
-
-            Events.OnWebRequestComplete(API_TYPE.API_ABOUT_THIS_APP, obj);
+                Events.OnWebRequestComplete(API_TYPE.API_ABOUT_THIS_APP, obj);
+            }
         }
         else
         {

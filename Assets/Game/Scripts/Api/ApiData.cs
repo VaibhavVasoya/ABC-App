@@ -20,9 +20,11 @@ public class ApiData : ScriptableObject
 
     public ShareWithOther shareWithOther = null;
 
-    public string AboutUs = null;
-    public string AboutThisApp = null;
+    //public string AboutUs = null;
+    //public string AboutThisApp = null;
 
+    public AboutUs aboutUs;
+    public AboutTheApp aboutTheApp;
 
     [EasyButtons.Button]
     void ClearAllData()
@@ -241,9 +243,24 @@ public class MultiLanguage
 }
 
 //Feedback API integration
-[SerializeField]
+[Serializable]
 public class Feedback
 {
     public string num;
     public string comment;
+}
+
+//about us
+[Serializable]
+public class AboutUs
+{
+    public string about_text;
+    public string about_image;
+}
+
+[Serializable]
+public class AboutTheApp
+{
+    public string about_app_text;
+    public string about_app_image;
 }

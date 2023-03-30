@@ -14,6 +14,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Game/Scenes/Map.unity
     guid: e37d3af7047e3458c803ebfb0953c3ea
+  - enabled: 1
+    path: Assets/Game/Scenes/App pareshgiri.unity
+    guid: 2f6d4428693f84e0e9f68eb37582fa31
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: a77d2d099f17e4373a168ec9f9227b72, type: 2}
     UnityEditor.XR.ARKit.ARKitSettings: {fileID: 11400000, guid: 52c2f7e42ca8d4e8999431a29d042d49, type: 2}

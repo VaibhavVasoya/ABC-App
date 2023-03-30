@@ -107,7 +107,7 @@ namespace Master.UI
             CloseMenu();
             if (UIController.instance.getCurrentScreen() == ScreenType.AboutUs) return;
             //call api when u need.
-            if (string.IsNullOrEmpty(ApiHandler.instance.data.AboutUs))
+            if (ApiHandler.instance.data.aboutUs == null)
             {
                 ApiHandler.instance.GetAboutUsDetails();
             }
@@ -119,7 +119,7 @@ namespace Master.UI
             CloseMenu();
             if (UIController.instance.getCurrentScreen() == ScreenType.AboutThisApp) return;
             //call api when u need.
-            if (string.IsNullOrEmpty(ApiHandler.instance.data.AboutThisApp))
+            if (ApiHandler.instance.data.aboutTheApp == null)
             {
                 ApiHandler.instance.GetAboutThisApp();
             }
