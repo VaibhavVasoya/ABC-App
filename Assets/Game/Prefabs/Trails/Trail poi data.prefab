@@ -81,7 +81,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Read/See more\u2026"
+  m_Text: "read/see more\u2026"
 --- !u!114 &7189019015565230163
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -373,7 +373,7 @@ MonoBehaviour:
     m_Left: 0
     m_Right: 0
     m_Top: 20
-    m_Bottom: 15
+    m_Bottom: 50
   m_ChildAlignment: 0
   m_Spacing: 20
   m_ChildForceExpandWidth: 1
@@ -558,9 +558,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: dafe4f96d4c03485a92d421f8cc94bf0, type: 3}
+    m_Font: {fileID: 12800000, guid: b360fc2215377479f8fccdcfaaee31bd, type: 3}
     m_FontSize: 65
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
     m_MaxSize: 65
@@ -674,8 +674,8 @@ GameObject:
   - component: {fileID: 5109380854357722519}
   - component: {fileID: 2050534042}
   - component: {fileID: 2050534041}
-  - component: {fileID: 3553361527134424097}
   - component: {fileID: 8010584936924381061}
+  - component: {fileID: 5117993456486889599}
   m_Layer: 5
   m_Name: Trail poi data
   m_TagString: Untagged
@@ -783,40 +783,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &3553361527134424097
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5109380854357722517}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f93f0a0b80c494b97986d92a5b16c684, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  trail:
-    num: 
-    category_id: 
-    category_name: 
-    location_id: 
-    title: 
-    sub_title: 
-    summary: 
-    description: 
-    cover_image: 
-    estimated_duration: 
-    topic_id: 
-    user_id: 
-    type: 0
-  bg: {fileID: 5109380853372147359}
-  txtname: {fileID: 5109380853600101752}
-  txtShortDesc: {fileID: 5109380852601354353}
-  txtPoiCount: {fileID: 0}
-  txtPoiTime: {fileID: 0}
-  imgStopsPointIcon: {fileID: 0}
-  spStops: {fileID: 21300000, guid: 45e866f17c2e94d0087935cb5ebee9c6, type: 3}
-  spPoints: {fileID: 21300000, guid: 0930021f10b4b4f94a9a652f8a5a0b23, type: 3}
 --- !u!114 &8010584936924381061
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -861,7 +827,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3553361527134424097}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SculptureTrail, Assembly-CSharp
         m_MethodName: OnClickTrail
         m_Mode: 1
@@ -873,6 +839,50 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &5117993456486889599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5109380854357722517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b9b583e2adaf42dea9c7368bf75e6db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poi:
+    num: 
+    user_id: 
+    Name: 
+    sub_title: 
+    short_desc: 
+    description: 
+    thumbnail: 
+    place_address: 
+    audio_file: 
+    standard_video_file_url: 
+    standard_video_stream_url: 
+    image_360_url: 
+    image_360_file: 
+    video_360_url: 
+    video_360_file: 
+    transparent_video: 
+    latitude: 
+    longitude: 
+    booking_url: 
+    radius: 
+    n_message: 
+    tel: 
+    email: 
+    website: 
+    pin_id: 
+    intro_id: 
+    poi_images: []
+    questions: []
+  bg: {fileID: 5109380853372147359}
+  txtname: {fileID: 5109380853600101752}
+  txtShortDesc: {fileID: 5109380852601354353}
 --- !u!1 &8894616968768654093
 GameObject:
   m_ObjectHideFlags: 0

@@ -42,11 +42,11 @@ public class ScreenTrailPois : UIScreenView
 
     public override void OnScreenShowCalled()
     {
-        txtpoiTitle.text = TrailsHandler.instance.CurrentTrail.title;
+        base.OnScreenShowCalled();
+        TrailsHandler.instance.CurrentTrailPoi = null;
         poiListToggle.isOn = true;
         OpenTab(poiMapToggle.isOn);
-        base.OnScreenShowCalled();
-
+        SculptureTrailPoisCallBack(API_TYPE.API_TRAIL_POIS, "");
     }
     public override void OnScreenHideCalled()
     {
@@ -79,7 +79,7 @@ public class ScreenTrailPois : UIScreenView
     async void SculptureTrailPoisCallBack(API_TYPE aPI_TYPE, string obj)
     {
         if (aPI_TYPE != API_TYPE.API_TRAIL_POIS) return;
-        if (TrailsHandler.instance.CurrentTrail == null || TrailsHandler.instance.CurrentTrail.type != TRAIL_TYPE.PHYSICAL) return;
+        if (TrailsHandler.instance.CurrentTrail == null) return;
         for (int i = contentParent.childCount - 1; i >= 0; i--)
         {
             DestroyImmediate(contentParent.GetChild(i).gameObject);
@@ -88,11 +88,10 @@ public class ScreenTrailPois : UIScreenView
         await Task.Delay(TimeSpan.FromSeconds(Time.deltaTime));
         foreach (var poi in ApiHandler.instance.data.trailPois)
         {
-            //Debug.Log($"POI : {poi.intro_id} || Current Trail : {TrailsHandler.instance.CurrentTrail.num}");
             if (poi.intro_id != TrailsHandler.instance.CurrentTrail.num) continue;
             GameObject go = Instantiate(trail_poi_Prefab, contentParent);
-            SculpTrailPoi sculpPoi = go.GetComponent<SculpTrailPoi>();
-            sculpPoi.SetTrail(poi);
+            PoiCeil Poi = go.GetComponent<PoiCeil>();
+            Poi.SetTrail(poi);
         }
         await Task.Delay(TimeSpan.FromSeconds(0.4f));
         Refresh();
@@ -149,6 +148,7 @@ public class ScreenTrailPois : UIScreenView
         txtpoiName.text = pois[index].Name;
         txtpoiSubDesc.text = pois[index].short_desc;
     }
+
     /*public void OnClickShowPoiDetailsScreen()
     //{
     //    TrailsHandler.instance.CurrentTrailPoi = pois[currentSelectedPoiPin];

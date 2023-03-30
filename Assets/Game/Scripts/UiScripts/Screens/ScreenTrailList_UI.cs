@@ -30,8 +30,12 @@ namespace Master.UI
             SculptureTrailsCallBack(API_TYPE.API_TRAILS, "");
             Refresh();
         }
-       
-       
+
+        public override void OnBack()
+        {
+            base.OnBack();
+            UIController.instance.ShowNextScreen(ScreenType.TrailCat);
+        }
 
         void SculptureTrailsCallBack(API_TYPE aPI_TYPE, string obj)
         {
