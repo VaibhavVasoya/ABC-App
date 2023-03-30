@@ -193,7 +193,7 @@ public class MapController : Singleton<MapController>
             {
                 Marker.scale = 1;
                 SelectedMarker = Marker;
-                //UIController.instance.getScreen(ScreenType.Poi).GetComponent<ScreenPhysicalTrailsListUI>().OnClickMarkerSetPoiDetails(i);
+                UIController.instance.getScreen(ScreenType.Poi).GetComponent<ScreenTrailPois>().OnClickMarkerSetPoiDetails(i);
                 break;
             }
         }

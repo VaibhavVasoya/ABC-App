@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7505070325710798741}
   - component: {fileID: 2596611100496901342}
   - component: {fileID: 787048836111668192}
-  - component: {fileID: 8473370483322846503}
+  - component: {fileID: 2072734066127119973}
   m_Layer: 5
   m_Name: Other-poi
   m_TagString: Untagged
@@ -124,7 +124,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8473370483322846503}
+      - m_Target: {fileID: 2072734066127119973}
         m_TargetAssemblyTypeName: PoiItemPreview, Assembly-CSharp
         m_MethodName: ShowPoiDetail
         m_Mode: 1
@@ -136,7 +136,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &8473370483322846503
+--- !u!114 &2072734066127119973
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -145,7 +145,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5441972472551226200}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2391d42f41e844b88197aef4c3ef07a, type: 3}
+  m_Script: {fileID: 11500000, guid: fefb8dfbc5e3b488e9a60614b1fa4e4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   bg: {fileID: 3034941112818790492}

@@ -16,18 +16,17 @@ public class ImageLoader : MonoBehaviour
 
     private void Awake()
     {
-        if(img == null)
+        if (img == null)
             img = GetComponent<Image>();
         if (spiner == null)
             spiner = transform.GetChild(0);
-        //spiner.gameObject.SetActive(false);
     }
 
-    public async void Downloading(string prefix, string url)
+    public async void Downloading(string prefix,string url)
     {
         spiner.gameObject.SetActive(true);
+        img.sprite = null;
         if (string.IsNullOrEmpty(url)) return;
-
         await Services.Download(prefix,url, (texture) =>
         {
             SetNull();
@@ -38,6 +37,6 @@ public class ImageLoader : MonoBehaviour
 
     public void SetNull()
     {
-        if(img.sprite!=null) DestroyImmediate(img.sprite.texture, true);
+        if (img.sprite != null) DestroyImmediate(img.sprite.texture);
     }
 }

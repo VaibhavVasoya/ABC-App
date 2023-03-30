@@ -143,7 +143,9 @@ public class ScreenTrailPois : UIScreenView
     }
     public void OnClickMarkerSetPoiDetails(int index)
     {
+        Debug.Log("marker click");
         currentSelectedPoiPin = index;
+        
         poiImg.Downloading(pois[index].num, pois[index].thumbnail);
         txtpoiName.text = pois[index].Name;
         txtpoiSubDesc.text = pois[index].short_desc;

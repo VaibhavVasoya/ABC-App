@@ -20,7 +20,14 @@ public class PoiCeil : MonoBehaviour
         txtname.text = _poi.Name;
         if (string.IsNullOrEmpty(_poi.short_desc)) txtShortDesc.gameObject.SetActive(false);
         txtShortDesc.text = _poi.short_desc;
-
         bg.Downloading(_poi.num, _poi.thumbnail);
+    }
+
+    public void OnOpenDetailsScreen()
+    {
+        TrailsHandler.instance.CurrentTrailPoi = poi;
+        // trail_id 1 for Physical Trail and 2 for Informational Trail.
+        UIController.instance.ShowNextScreen(ScreenType.PoiDetails);
+        //UIController.instance.ShowNextScreen(ScreenType.InformationalPoiDetails);
     }
 }

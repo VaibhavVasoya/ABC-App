@@ -491,7 +491,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _items: []
   defaultScale: 1
-  defaultTexture: {fileID: 2800000, guid: d6aef7bbb392d44d1b60e8dd0e3dda39, type: 3}
+  defaultTexture: {fileID: 2800000, guid: 047a70a7c11cb4c34881dcc66bd2a75e, type: 3}
   defaultAlign: 7
   allowAddMarkerByM: 1
 --- !u!114 &1960253370
