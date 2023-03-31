@@ -51,7 +51,7 @@ namespace Master.UIKit
                     break;
             }
 
-            gameObject.SetActive(false);
+            //gameObject.SetActive(false);
 
         }
 
@@ -168,7 +168,7 @@ namespace Master.UIKit
                     callback();
                 }
 
-                gameObject.SetActive(false);
+                //gameObject.SetActive(false);
 
 
             };
