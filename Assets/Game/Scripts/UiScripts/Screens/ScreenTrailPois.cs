@@ -39,7 +39,6 @@ public class ScreenTrailPois : UIScreenView
     {
         Events.WebRequestCompleted -= SculptureTrailPoisCallBack;
     }
-
     public override void OnScreenShowCalled()
     {
         base.OnScreenShowCalled();
@@ -74,8 +73,46 @@ public class ScreenTrailPois : UIScreenView
         {
             Destroy(contentParent.GetChild(i).gameObject);
         }
-    }
 
+        CheckPoiVisited();
+    }
+    async void CheckPoiVisited()
+    {
+        if (!string.IsNullOrEmpty(TrailsHandler.instance.CurrentTrail.num))
+        {
+            Debug.Log("123 if");
+            bool allVisited = true;
+            //TrailsHandler.instance.isAllPoiVisited();
+            foreach (var item in SavedDataHandler.instance._saveData.mySculptures)
+            {
+                if (item.IntroId == TrailsHandler.instance.CurrentTrail.num)
+                {
+                    if (!item.IsVisited)
+                    {
+                        Debug.Log("123 item name " + item.Title);
+                        allVisited = false;
+                        break;
+                    }
+                }
+            }
+            await Task.Delay(TimeSpan.FromSeconds(2));
+            if (allVisited)
+            {
+                Debug.Log("123 all poi visited");
+            }
+            else
+            {
+                Debug.Log("123");
+                CheckPoiVisited();
+            }
+        }
+        else
+        {
+            Debug.Log("123 else");
+            await Task.Delay(TimeSpan.FromSeconds(2));
+            CheckPoiVisited();
+        }
+    }
     async void SculptureTrailPoisCallBack(API_TYPE aPI_TYPE, string obj)
     {
         if (aPI_TYPE != API_TYPE.API_TRAIL_POIS) return;
@@ -145,7 +182,7 @@ public class ScreenTrailPois : UIScreenView
     {
         Debug.Log("marker click");
         currentSelectedPoiPin = index;
-        
+
         poiImg.Downloading(pois[index].num, pois[index].thumbnail);
         txtpoiName.text = pois[index].Name;
         txtpoiSubDesc.text = pois[index].short_desc;

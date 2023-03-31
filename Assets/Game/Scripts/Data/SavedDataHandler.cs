@@ -49,9 +49,9 @@ public class SavedDataHandler : Singleton<SavedDataHandler>
             _saveData.isFirstLaunch = true;
     }
 
-    public void AddSculp(string num, string title)
+    public void AddSculp(string num, string title , string introId)
     {
-        _saveData.mySculptures.Add(new MySculpture(num,title));
+        _saveData.mySculptures.Add(new MySculpture(num,title, introId));
     }
 }
 
@@ -76,11 +76,13 @@ public class MySculpture
 {
     public string Num;
     public string Title;
+    public string IntroId;
     public bool IsVisited;
-    public MySculpture(string num,string title)
+    public MySculpture(string num,string title,string introId)
     {
         Num = num;
         Title = title;
+        IntroId = introId;
         IsVisited = false;
     }
 }

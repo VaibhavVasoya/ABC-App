@@ -2,7 +2,7 @@ using UnityEngine;
 
 public static class GameData
 {
-    public static string BaseURL = "https://master.touristwise.co.uk/webservices/";
+    public static string BaseURL = "https://abc.touristwise.co.uk/webservices/";
     public static string ImagesDirectoryPath = "Images";
 
     public const string API_MULTI_LANGUAGE = "language.php";
