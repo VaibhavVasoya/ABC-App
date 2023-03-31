@@ -50,7 +50,7 @@ namespace Master.UI
         }
         public void BackToSculpture()
         {
-            UIController.instance.ShowNextScreen(ScreenType.TrailList);
+            UIController.instance.ShowNextScreen(ScreenType.TrailCat);
         }
 
         void SculptureEventsCallBack(API_TYPE aPI_TYPE, string obj)
