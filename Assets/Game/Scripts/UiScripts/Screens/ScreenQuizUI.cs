@@ -94,7 +94,7 @@ namespace Master.UI
             if (qaCount < totalNumberOfQa)
             {
                 currentQa = TrailsHandler.instance.CurrentTrailPoi.questions[qaCount];
-                txtQuestionNumber.text = (qaCount + 1).ToString();
+                txtQuestionNumber.text = "Question "+(qaCount + 1).ToString();
                 LoadQuestions();
                 qaCount++;
             }

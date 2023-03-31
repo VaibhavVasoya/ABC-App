@@ -21,11 +21,8 @@ namespace Master.UI
 
         private void Start()
         {
-            Debug.Log("About Us: pre ");
-            Debug.LogError("About iS enable ===>> " + (scrollRect.transform.GetChild(0).GetChild(0).gameObject.activeInHierarchy));
             contentSizeFitters = transform.GetComponentsInChildren<ContentSizeFitter>();
             Array.Reverse(contentSizeFitters);
-            Debug.Log("length of CSF About US: "+contentSizeFitters.Length);
         }
 
         public override void OnScreenShowCalled()
