@@ -141,6 +141,14 @@ public class ScreenTrailPois : UIScreenView
         poiMapToggle.isOn = IsMap;
         MapController.instance.MapInteractable(IsMap);
         if (IsMap) LoadMapScean();
+        if(IsMap)
+        {
+            txtpoiTitle.text = "Point of Interest";
+        }
+        else
+        {
+            txtpoiTitle.text = "Trails";
+        }
     }
 
     async void Refresh()

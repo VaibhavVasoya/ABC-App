@@ -44,11 +44,15 @@ namespace Master.UIKit
         Image360 = 24,
         Feedback = 25
     }
+
+    
+
     public class UIController : Singleton<UIController>
     {
         public GenralText GenralText;
         public ScreenType StartScreen;
         public List<UIScreen> Screens;
+        [SerializeField] Image bottomImage;
 
         [SerializeField]
         List<ScreenType> currentScreens;
@@ -61,6 +65,11 @@ namespace Master.UIKit
         //    base.OnAwake();
         //    AspectRatio = Screen.width / (Screen.height * 1f);
         //}
+
+        public void IsBottomImageEnable(bool isOn)
+        {
+            bottomImage.gameObject.SetActive(isOn);
+        }
 
         private IEnumerator Start()
         {

@@ -43,10 +43,12 @@ namespace Master.UI
             base.OnScreenShowCalled();
             SetSelectedScreen();
             upcomingEvetns.gameObject.SetActive(ApiHandler.instance.data.sculptureEvents.Count != 0);
+            UIController.instance.IsBottomImageEnable(false);
         }
         public override void OnScreenShowAnimationCompleted()
         {
             base.OnScreenShowAnimationCompleted();
+            UIController.instance.IsBottomImageEnable(true);
         }
         public override void OnBack()
         {

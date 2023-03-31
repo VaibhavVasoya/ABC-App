@@ -21,6 +21,7 @@ namespace Master.UI
         public override void OnScreenShowCalled()
         {
             base.OnScreenShowCalled();
+            UIController.instance.IsBottomImageEnable(false);
             SpawnScreen();
         }
 
@@ -28,6 +29,7 @@ namespace Master.UI
         {
             base.OnScreenHideCalled();
             swipeControl.canSwipe = false;
+            UIController.instance.IsBottomImageEnable(true);
         }
 
         //[EasyButtons.Button]
