@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
 using System.IO;
 using System;
 using Master.UI;
-using UnityEngine.Localization.Settings;
+//using UnityEngine.Localization.Settings;
 
 public class ApiHandler : Singleton<ApiHandler>
 {
@@ -173,7 +173,8 @@ public class ApiHandler : Singleton<ApiHandler>
         {
             AddFileForDownlod(new ItemType(FileType.IMAGE, item.num, item.image));
         }
-
+        AddFileForDownlod(new ItemType(FileType.IMAGE, "1", data.aboutUs.about_image));
+        AddFileForDownlod(new ItemType(FileType.IMAGE, "2", data.aboutTheApp.about_app_image));
         Debug.Log("<color=green>Start Downloding data..</color> " + DownloadFiles.Count + "</color>");
         
         UIController.instance.getScreen(ScreenType.PrepareForLaunch).GetComponent<ScreenPrepareForLaunch>().StartDownloading(DownloadFiles.Count);
@@ -202,8 +203,8 @@ public class ApiHandler : Singleton<ApiHandler>
             {
                 isEnableMsg = true;
 
-                UIController.instance.ShowPopupMsg(LocalizationSettings.StringDatabase.GetLocalizedString("UI_Text", "InternetError_title"), LocalizationSettings.StringDatabase.GetLocalizedString("UI_Text", "InternetError"));
-                //UIController.instance.ShowPopupMsg("Internet Connection", "Please check your connection and try again!!");
+                //UIController.instance.ShowPopupMsg(LocalizationSettings.StringDatabase.GetLocalizedString("UI_Text", "InternetError_title"), LocalizationSettings.StringDatabase.GetLocalizedString("UI_Text", "InternetError"));
+                UIController.instance.ShowPopupMsg("Internet Connection", "Please check your connection and try again!!");
             }
             else
                 isEnter = isEnableMsg = (_canvas == null) ? false : _canvas.enabled;

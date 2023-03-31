@@ -254,13 +254,16 @@ public class Feedback
 [Serializable]
 public class AboutUs
 {
+    public string about_title;
     public string about_text;
     public string about_image;
+
 }
 
 [Serializable]
 public class AboutTheApp
 {
+    public string about_app_title;
     public string about_app_text;
     public string about_app_image;
 }

@@ -13,19 +13,11 @@ namespace Master.UI
     {
         [SerializeField] Text txtTitle;
         [SerializeField] TextMeshProUGUI txtDetails;
+        [SerializeField] ImageLoader img;
         //[SerializeField] ContentSizeFitter contentSizeFitter;
         [SerializeField] ScrollRect scrollRect;
 
         public ContentSizeFitter[] contentSizeFitters;
-
-        private void OnEnable()
-        {
-            Events.WebRequestCompleted += AboutUsCallBack;
-        }
-        private void OnDisable()
-        {
-            Events.WebRequestCompleted -= AboutUsCallBack;
-        }
 
         private void Start()
         {
@@ -38,7 +30,6 @@ namespace Master.UI
             base.OnScreenShowCalled();
             TextUpdate();
             Refresh();
-            //txtTitle.text = ApiHandler.instance.data.menuList[3].title;
         }
         public override void OnBack()
         {
@@ -50,12 +41,12 @@ namespace Master.UI
             UIController.instance.ShowNextScreen(ScreenType.TrailCat);
         }
 
-        void AboutUsCallBack(API_TYPE aPI_TYPE, string obj)
-        {
-            if (aPI_TYPE != API_TYPE.API_ABOUT_THIS_APP) return;
+        //void AboutUsCallBack(API_TYPE aPI_TYPE, string obj)
+        //{
+        //    if (aPI_TYPE != API_TYPE.API_ABOUT_THIS_APP) return;
 
-            TextUpdate();
-        }
+        //    TextUpdate();
+        //}
 
         async void TextUpdate()
         {
@@ -64,8 +55,8 @@ namespace Master.UI
                 UIController.instance.ShowPopupMsg("", "Data not found.");
                 return;
             }
-            //txtTitle.text = ApiHandler.instance.data.AboutUs;
-            //contentSizeFitter.enabled = false;
+            img.Downloading("2", ApiHandler.instance.data.aboutTheApp.about_app_image);
+            txtTitle.text = ApiHandler.instance.data.aboutTheApp.about_app_title;
             txtDetails.text = UIController.instance.HtmlToStringParse(ApiHandler.instance.data.aboutTheApp.about_app_text);
             Refresh();
         }
@@ -79,4 +70,3 @@ namespace Master.UI
         }
     }
 }
-//}

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Master.UIKit;
 using UnityEngine;
 using UnityEngine.Video;
-using LightShaft.Scripts;
+//using LightShaft.Scripts;
 using System;
 
 public class UnityVideoController : MonoBehaviour
