@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Master.UIKit;
 using UnityEngine;
-using UnityEngine.Localization.Settings;
+
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
@@ -110,7 +110,7 @@ namespace Master.UI
         public async void OnClickAnswer(int index)
         {
             SetInteraction(false);
-            txtContinueBtnText.text = (qaCount < totalNumberOfQa) ? LocalizationSettings.StringDatabase.GetLocalizedString("UI_Text", "CONTINUE") : LocalizationSettings.StringDatabase.GetLocalizedString("UI_Text", "COMPLETED_QUIZ");
+            //txtContinueBtnText.text = (qaCount < totalNumberOfQa) ? LocalizationSettings.StringDatabase.GetLocalizedString("UI_Text", "CONTINUE") : LocalizationSettings.StringDatabase.GetLocalizedString("UI_Text", "COMPLETED_QUIZ");
             StartCoroutine(Result = ShowResult(index));
         }
         IEnumerator Result;
