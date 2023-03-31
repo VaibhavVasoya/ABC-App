@@ -5,21 +5,26 @@ using System.Threading.Tasks;
 using Master.UIKit;
 using UnityEngine;
 using UnityEngine.Localization.Settings;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace Master.UI
 {
     public class ScreenQuizUI : UIScreenView
     {
-        [SerializeField] Text txtQuestions;
+        [FormerlySerializedAs("txtQuestions")]
+        [SerializeField] Text txtQuestionText;
+        [SerializeField] Text txtQuestionNumber;
         [SerializeField] AnswerCeil[] answersCeils;
 
-        [SerializeField] ScaleUpDownAnimate objResult;
+        //[SerializeField] ScaleUpDownAnimate objResult;
 
         [SerializeField] Text txtResultTitle;
         [SerializeField] Text txtResultMsg;
         //[SerializeField] ParticleSystem winEffect;
         [SerializeField] CanvasGroup loadQaTilt;
+
+        [SerializeField] MovePanelAnimate resultPanel;
 
         //[SerializeField] Color rightColor;
         //[SerializeField] Color wrongColor;
@@ -65,6 +70,7 @@ namespace Master.UI
             base.OnScreenHideCalled();
             qaCount = 0;
             totalNumberOfQa = 0;
+            resultPanel.HideAnimation();
         }
         public override void OnBack()
         {
@@ -73,12 +79,12 @@ namespace Master.UI
         }
         public async void BackToTrailPoisDetails()
         {
-            if (objResult.transform.parent.gameObject.activeInHierarchy)
-            {
-                objResult.HideAnimation();
-                Helper.Execute(this, () => objResult.transform.parent.gameObject.SetActive(false), 0.5f);
-                await Task.Delay(TimeSpan.FromSeconds(0.4f));
-            }
+            //if (objResult.transform.parent.gameObject.activeInHierarchy)
+            //{
+            //    //objResult.HideAnimation();
+            //    //Helper.Execute(this, () => objResult.transform.parent.gameObject.SetActive(false), 0.5f);
+            //    await Task.Delay(TimeSpan.FromSeconds(0.4f));
+            //}
             if (Result != null) StopCoroutine(Result);
             UIController.instance.ShowNextScreen(ScreenType.PoiDetails);
         }
@@ -88,6 +94,7 @@ namespace Master.UI
             if (qaCount < totalNumberOfQa)
             {
                 currentQa = TrailsHandler.instance.CurrentTrailPoi.questions[qaCount];
+                txtQuestionNumber.text = (qaCount + 1).ToString();
                 LoadQuestions();
                 qaCount++;
             }
@@ -116,7 +123,7 @@ namespace Master.UI
                 resultImage.sprite = winSprite;
                 //answersCeils[index].SetResult(true);
                 //answersCeils[index].SelectAnswer(ansCorrectColor);
-                yield return new WaitForSeconds(2);
+                //yield return new WaitForSeconds(2);
                 //txtResultMsg.text = LocalizationSettings.StringDatabase.GetLocalizedString("UI_Text", "Correct");// winMsg;
                 //objResult.transform.parent.gameObject.SetActive(true);
                 //objResult.ShowAnimation();
@@ -138,17 +145,20 @@ namespace Master.UI
                 //    }
                 //}
                 //AudioManager.inst.Play(Sounds.QaIncorrect);
-                yield return new WaitForSeconds(2);
+                //yield return new WaitForSeconds(2);
                 //txtResultMsg.text = LocalizationSettings.StringDatabase.GetLocalizedString("UI_Text", "Wrong"); //lossMsg;
                 //objResult.transform.parent.gameObject.SetActive(true);
                 //objResult.ShowAnimation();
             }
             Result = null;
+            yield return new WaitForSeconds(2);
+            resultPanel.ShowAnimation();
+            
         }
         public void OnClickNextQuesions()
         {
-            objResult.HideAnimation();
-            Helper.Execute(this, () => objResult.transform.parent.gameObject.SetActive(false), 0.5f);
+            //objResult.HideAnimation();
+            //Helper.Execute(this, () => objResult.transform.parent.gameObject.SetActive(false), 0.5f);
             LoadNextQuestion();
         }
         void SetInteraction(bool isEnable)
@@ -171,7 +181,7 @@ namespace Master.UI
                 item.ReSet();
                 item.gameObject.SetActive(false);
             }
-            txtQuestions.text = currentQa.question;
+            txtQuestionText.text = currentQa.question;
             for (int i = 0; i < currentQa.answers.Count; i++)
             {
                 answersCeils[i].gameObject.SetActive(true);
