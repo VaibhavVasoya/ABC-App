@@ -115,6 +115,11 @@ public class ScreenPoiDetail : UIScreenView
         }
         Refresh();
     }
+
+    public void OpenQuiz()
+    {
+        UIController.instance.ShowNextScreen(ScreenType.Quiz);
+    }
     //public void OnClickMoreInfo()
     //{
     //    if (!string.IsNullOrEmpty(webSite) && bookingUrl.ToLower() != "na")
