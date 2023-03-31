@@ -32,6 +32,7 @@ public class ScreenPoiDetail : UIScreenView
 
     public ContentSizeFitter[] contentSizeFitters;
 
+    [SerializeField] PhysicalTrailAudioPlayer ourAudioPlayer;
     
     string details = "";
 
@@ -60,7 +61,15 @@ public class ScreenPoiDetail : UIScreenView
         SetPoiDetails();
         base.OnScreenShowCalled();
         swipeControl.canSwipe = true;
+        ourAudioPlayer.AssignAudioClip();
     }
+
+    public override void OnScreenShowAnimationCompleted()
+    {
+        base.OnScreenShowAnimationCompleted();
+       
+    }
+
     public override void OnScreenHideCalled()
     {
         swipeControl.canSwipe = false;

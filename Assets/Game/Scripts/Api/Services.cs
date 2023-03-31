@@ -476,26 +476,26 @@ public class Services : Singleton<Services>
 
         if (File.Exists(pathAV + filename))
         {
-            //Debug.Log("Audio File Found.");
+            Debug.Log("Audio File Found.");
             audioExists = true;
             url = "file://" + pathAV + filename;
         }
         else
         {
-            //Debug.Log("Audio File NOT Found.");
+            Debug.Log("Audio File NOT Found.");
         }
         //if(!audioExists) UIController.instance.ShowDownlodingPopup("360 Audio");
         UnityWebRequest webRequest = UnityWebRequestMultimedia.GetAudioClip(url, AudioType.MPEG);
 
         ((DownloadHandlerAudioClip)webRequest.downloadHandler).streamAudio = false;
 
-        webRequest.SendWebRequest();
-        progress?.Invoke(1);
+         webRequest.SendWebRequest();
         while (!webRequest.isDone && webRequest.error == null && !isStop)
         {
             await Task.Delay(TimeSpan.FromSeconds(Time.deltaTime));
         }
-        progress(1);
+        progress?.Invoke(1);
+        //progress(1);
         if (!audioExists) await Task.Delay(TimeSpan.FromSeconds(0.8f));
         if (webRequest.result != UnityWebRequest.Result.Success)
         {

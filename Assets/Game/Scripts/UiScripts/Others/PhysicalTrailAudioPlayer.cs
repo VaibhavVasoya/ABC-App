@@ -11,8 +11,7 @@ public class PhysicalTrailAudioPlayer : MonoBehaviour
 
     //[SerializeField] string longAudioUrl;
 
-    AudioClip longClip;
-    AudioClip shortClip;
+   
 
     bool isPlaying;
 
@@ -48,33 +47,33 @@ public class PhysicalTrailAudioPlayer : MonoBehaviour
 
     IEnumerator temp;
 
-    public async void PlayAudio(bool isLongAudio)
+    public async void PlayAudio()
     {
         //AudioClip clip;
 
         //audioPlayer.PlayOneShot(isLongAudio ? longClip : shortClip);
         StopAudio();
 
-        StopCoroutine(nameof(AudioPlayerFadeInOut));
+//        StopCoroutine(nameof(AudioPlayerFadeInOut));
 
-        if (temp == null)
-        {
-            StartCoroutine(temp = AudioPlayerFadeInOut(true));
-        }
+        //if (temp == null)
+        //{
+        //    StartCoroutine(temp = AudioPlayerFadeInOut(true));
+        //}
 
 
 
-        if (isLongAudio)
-        {
-            //await Services.DownloadAudio(TrailsHandler.instance.CurrentTrailPoi.long_audio, (x) => audioPlayer.clip = x);
-            //audioPlayer.clip = longClip;
+        //if (isLongAudio)
+        //{
+        //    //await Services.DownloadAudio(TrailsHandler.instance.CurrentTrailPoi.long_audio, (x) => audioPlayer.clip = x);
+        //    //audioPlayer.clip = longClip;
 
-        }
-        else
-        {
-            //await Services.DownloadAudio(TrailsHandler.instance.CurrentTrailPoi.short_audio, (x) => audioPlayer.clip = x);
-            //audioPlayer.clip = shortClip;
-        }
+        //}
+        //else
+        //{
+        //    //await Services.DownloadAudio(TrailsHandler.instance.CurrentTrailPoi.short_audio, (x) => audioPlayer.clip = x);
+        //    //audioPlayer.clip = shortClip;
+        //}
 
         TogglePlayPauseState();
     }
@@ -94,47 +93,53 @@ public class PhysicalTrailAudioPlayer : MonoBehaviour
         //StartCoroutine(nameof(AudioPlayerFadeInOut), false);
     }
 
-    public void StopCoroutineFadeAudio()
-    {
-        if (temp != null)
-            StartCoroutine(AudioPlayerFadeInOut(false));
-        temp = null;
-        //if (temp==null)
-        //{
+    //public void StopCoroutineFadeAudio()
+    //{
+    //    if (temp != null)
+    //        StartCoroutine(AudioPlayerFadeInOut(false));
+    //    temp = null;
+    //    //if (temp==null)
+    //    //{
 
-        //    //StopCoroutine(temp);
-        //    //temp = null;
-        //}
-    }
+    //    //    //StopCoroutine(temp);
+    //    //    //temp = null;
+    //    //}
+    //}
     public void Alpha0()
     {
         audioPlayerCanvasGroup.alpha = 0;
     }
-    public IEnumerator AudioPlayerFadeInOut(bool fadeIn)
-    {
-        if (!fadeIn)
-        {
-            float timeCounter = 0.5f;
-            while (timeCounter > 0f)
-            {
-                timeCounter -= Time.deltaTime;
-                audioPlayerCanvasGroup.alpha = timeCounter * 2;
-                yield return null;
-            }
-            audioPlayerCanvasGroup.alpha = 0;
-        }
-        else
-        {
-            float timeCounter = 0f;
-            while (timeCounter < 0.5f)
-            {
-                timeCounter += Time.deltaTime;
-                audioPlayerCanvasGroup.alpha = timeCounter * 2;
-                yield return null;
-            }
-            audioPlayerCanvasGroup.alpha = 1;
-        }
+    //public IEnumerator AudioPlayerFadeInOut(bool fadeIn)
+    //{
+    //    if (!fadeIn)
+    //    {
+    //        float timeCounter = 0.5f;
+    //        while (timeCounter > 0f)
+    //        {
+    //            timeCounter -= Time.deltaTime;
+    //            audioPlayerCanvasGroup.alpha = timeCounter * 2;
+    //            yield return null;
+    //        }
+    //        audioPlayerCanvasGroup.alpha = 0;
+    //    }
+    //    else
+    //    {
+    //        float timeCounter = 0f;
+    //        while (timeCounter < 0.5f)
+    //        {
+    //            timeCounter += Time.deltaTime;
+    //            audioPlayerCanvasGroup.alpha = timeCounter * 2;
+    //            yield return null;
+    //        }
+    //        audioPlayerCanvasGroup.alpha = 1;
+    //    }
+    //}
 
+
+    public  void AssignAudioClip()
+    {
+        Debug.LogError("num : "+TrailsHandler.instance.CurrentTrailPoi.num + " || File : " + TrailsHandler.instance.CurrentTrailPoi.audio_file);
+     Services.DownloadAudio(TrailsHandler.instance.CurrentTrailPoi.num, TrailsHandler.instance.CurrentTrailPoi.audio_file, (x)=> { audioPlayer.clip = x; Debug.LogError(x==null); }); 
     }
     //public async void SetPlayData(bool isLongAudio)
     //{

@@ -123,8 +123,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioPlayer: {fileID: 5694041544249778732}
-  playSprite: {fileID: 21300000, guid: 84a47a6dd26b1474cbb92e4204a9f2d9, type: 3}
-  pauseSprite: {fileID: 21300000, guid: 3b22faf5a8f1e714dafc1c15433edc77, type: 3}
+  playSprite: {fileID: 21300000, guid: 04806c2b7cc9c42068b9744f862a7a92, type: 3}
+  pauseSprite: {fileID: 21300000, guid: 342f157c464eb41d7925945389ab72c0, type: 3}
   playPauseButton: {fileID: 5694041545096318376}
   soundWaveAnimateList: []
   audioNameText: {fileID: 0}
