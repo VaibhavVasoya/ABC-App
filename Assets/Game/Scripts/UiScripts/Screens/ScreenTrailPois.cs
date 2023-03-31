@@ -144,11 +144,12 @@ public class ScreenTrailPois : UIScreenView
         if (IsMap) LoadMapScean();
         if(IsMap)
         {
-            txtpoiTitle.text = "Point of Interest";
+            txtpoiTitle.text = "Trails";
         }
         else
         {
-            txtpoiTitle.text = "Trails";
+            txtpoiTitle.text = "Point of Interest";
+
         }
     }
 
