@@ -74,7 +74,7 @@ namespace Master.UI
         async void LoadApp()
         {
             //loader.SetActive(false);
-            AsyncOperation asyncOperation = SceneManager.LoadSceneAsync("App smit");
+            AsyncOperation asyncOperation = SceneManager.LoadSceneAsync("App");
             asyncOperation.allowSceneActivation = false;
             while (!asyncOperation.isDone)
             {
