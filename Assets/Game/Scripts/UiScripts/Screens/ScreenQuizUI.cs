@@ -56,6 +56,7 @@ namespace Master.UI
 
         public override void OnScreenShowCalled()
         {
+            base.OnScreenShowCalled();
             loadQaTilt.alpha = 0;
             totalNumberOfQa = TrailsHandler.instance.CurrentTrailPoi.questions.Count;
             //foreach (var answerCeil in answersCeils)
@@ -63,7 +64,6 @@ namespace Master.UI
             //    answerCeil.SetColors(rightColor, wrongColor, normalColor, rightBgColor, wrongBgColor, normalBgColor, textColor);
             //}
             LoadNextQuestion();
-            base.OnScreenShowCalled();
         }
         public override void OnScreenHideCalled()
         {
@@ -121,8 +121,10 @@ namespace Master.UI
                 txtResultTitle.text = winTitle;
                 txtResultMsg.text = winMsg;
                 resultImage.sprite = winSprite;
-                //answersCeils[index].SetResult(true);
-                //answersCeils[index].SelectAnswer(ansCorrectColor);
+
+
+                answersCeils[index].SetResult(true);
+                answersCeils[index].SelectAnswer(Color.green);
                 //yield return new WaitForSeconds(2);
                 //txtResultMsg.text = LocalizationSettings.StringDatabase.GetLocalizedString("UI_Text", "Correct");// winMsg;
                 //objResult.transform.parent.gameObject.SetActive(true);
@@ -135,15 +137,17 @@ namespace Master.UI
                 txtResultTitle.text = loseTitle;
                 txtResultMsg.text = lossMsg;
                 resultImage.sprite = loseSprite;
-                //answersCeils[index].SetResult(false);
-                //foreach (var ans in answersCeils)
-                //{
-                //    if (ans.IsCorrect())
-                //    {
-                //        ans.SetResult(true);
-                //        break;
-                //    }
-                //}
+
+
+                answersCeils[index].SetResult(false);
+                foreach (var ans in answersCeils)
+                {
+                    if (ans.IsCorrect())
+                    {
+                        ans.SetResult(true);
+                        break;
+                    }
+                }
                 //AudioManager.inst.Play(Sounds.QaIncorrect);
                 //yield return new WaitForSeconds(2);
                 //txtResultMsg.text = LocalizationSettings.StringDatabase.GetLocalizedString("UI_Text", "Wrong"); //lossMsg;
@@ -178,7 +182,7 @@ namespace Master.UI
             SetInteraction(true);
             foreach (var item in answersCeils)
             {
-                item.ReSet();
+                //item.ReSet();
                 item.gameObject.SetActive(false);
             }
             txtQuestionText.text = currentQa.question;
