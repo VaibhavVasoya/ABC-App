@@ -124,7 +124,7 @@ namespace Master.UI
 
 
                 answersCeils[index].SetResult(true);
-                answersCeils[index].SelectAnswer(Color.green);
+                //answersCeils[index].SelectAnswer(Color.green);
                 //yield return new WaitForSeconds(2);
                 //txtResultMsg.text = LocalizationSettings.StringDatabase.GetLocalizedString("UI_Text", "Correct");// winMsg;
                 //objResult.transform.parent.gameObject.SetActive(true);
@@ -182,7 +182,7 @@ namespace Master.UI
             SetInteraction(true);
             foreach (var item in answersCeils)
             {
-                //item.ReSet();
+                item.ReSet();
                 item.gameObject.SetActive(false);
             }
             txtQuestionText.text = currentQa.question;

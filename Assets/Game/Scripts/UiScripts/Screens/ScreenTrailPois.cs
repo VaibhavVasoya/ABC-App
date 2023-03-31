@@ -78,6 +78,7 @@ public class ScreenTrailPois : UIScreenView
     }
     async void CheckPoiVisited()
     {
+        return;
         if (!string.IsNullOrEmpty(TrailsHandler.instance.CurrentTrail.num))
         {
             Debug.Log("123 if");

@@ -37,11 +37,11 @@ public class AnswerCeil : MonoBehaviour
     public void ReSet()
     {
         txtAnswer.text = "";
-        txtAnswer.color = textColor;
+        //txtAnswer.color = textColor;
         rightObj.SetActive(false);
         wrongObj.SetActive(false);
-        answerBG.color = normalBgColor;
-        outline.color = normalColor;
+        //answerBG.color = normalBgColor;
+        //outline.color = normalColor;
         rightObj.transform.parent.gameObject.SetActive(false);
     }
 
@@ -56,18 +56,18 @@ public class AnswerCeil : MonoBehaviour
         //answerBG.color = (isCorrect) ? rightBgColor : wrongBgColor;
         //outline.color = (isCorrect) ? rightColor : wrongColor;
         //txtAnswer.color = (isCorrect) ? rightColor : wrongColor;
-        //rightObj.transform.parent.gameObject.SetActive(true);
-        //rightObj.SetActive(isCorrect);
-        //wrongObj.SetActive(!isCorrect);
+        rightObj.transform.parent.gameObject.SetActive(true);
+        rightObj.SetActive(isCorrect);
+        wrongObj.SetActive(!isCorrect);
     }
 
     public void SelectAnswer(Color _color)
     {
-        //if (IsCorrect())
-        //{
-        //    answerBG.color = _color;
-        //    rightObj.transform.parent.gameObject.SetActive(false);
-        //}
+        if (IsCorrect())
+        {
+            answerBG.color = _color;
+            rightObj.transform.parent.gameObject.SetActive(true);
+        }
     }
     public bool IsCorrect()
     {
