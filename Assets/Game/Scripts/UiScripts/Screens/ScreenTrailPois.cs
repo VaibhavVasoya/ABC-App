@@ -84,6 +84,7 @@ public class ScreenTrailPois : UIScreenView
         {
             await Task.Delay(TimeSpan.FromSeconds(2));
             CheckPoiVisited();
+            return;
         }
         else if (!string.IsNullOrEmpty(TrailsHandler.instance.CurrentTrail.num))
         {
@@ -113,18 +114,23 @@ public class ScreenTrailPois : UIScreenView
                     {
                         SavedDataHandler.instance._saveData.myTrails.Find(x => x.Num == TrailsHandler.instance.CurrentTrail.num).IsVisited = true;
                         UIController.instance.ShowNextScreen(ScreenType.Feedback);
+                        CheckPoiVisited();
+                        return;
                     }
                 }
                 await Task.Delay(TimeSpan.FromSeconds(2));
                 CheckPoiVisited();
+                return;
             }
             await Task.Delay(TimeSpan.FromSeconds(2));
             CheckPoiVisited();
+            return;
         }
         else
         {
             await Task.Delay(TimeSpan.FromSeconds(2));
             CheckPoiVisited();
+            return;
         }
     }
     async void SculptureTrailPoisCallBack(API_TYPE aPI_TYPE, string obj)
