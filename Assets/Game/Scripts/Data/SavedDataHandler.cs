@@ -53,6 +53,10 @@ public class SavedDataHandler : Singleton<SavedDataHandler>
     {
         _saveData.mySculptures.Add(new MySculpture(num,title, introId));
     }
+    public void AddTrail(string num, string title, string introId)
+    {
+        _saveData.myTrails.Add(new MyTrail(num, title, introId));
+    }
 }
 
 [Serializable]
@@ -69,6 +73,7 @@ public class SaveData
     public SaveData()
     {
         mySculptures = new List<MySculpture>();
+        myTrails = new List<MyTrail>();
     }
 }
 

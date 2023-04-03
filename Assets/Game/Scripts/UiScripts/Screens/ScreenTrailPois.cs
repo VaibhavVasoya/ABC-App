@@ -103,10 +103,24 @@ public class ScreenTrailPois : UIScreenView
                 }
             }
             await Task.Delay(TimeSpan.FromSeconds(2));
-            if (allVisited)
+            if (!SavedDataHandler.instance._saveData.myTrails.Find(x => x.Num == TrailsHandler.instance.CurrentTrail.num).IsVisited)
             {
-                UIController.instance.ShowNextScreen(ScreenType.Feedback);
+                if (allVisited)
+                {
+                    if (SavedDataHandler.instance._saveData.myTrails.Exists(x => x.Num == TrailsHandler.instance.CurrentTrail.num))
+                    {
+                        Debug.Log("in ");
+                        if (!SavedDataHandler.instance._saveData.myTrails.Find(x => x.Num == TrailsHandler.instance.CurrentTrail.num).IsVisited)
+                        {
+                            //notificationPopup.Show("You are approaching the " + sculp.title + " sculpture");
+                            SavedDataHandler.instance._saveData.myTrails.Find(x => x.Num == TrailsHandler.instance.CurrentTrail.num).IsVisited = true;
+                        }
+                    }
+                    //SavedDataHandler.instance._saveData.myTrails.Find(x => x.Num );
+                    UIController.instance.ShowNextScreen(ScreenType.Feedback);
+                }
             }
+           
             else
             {
                 Debug.Log("123");

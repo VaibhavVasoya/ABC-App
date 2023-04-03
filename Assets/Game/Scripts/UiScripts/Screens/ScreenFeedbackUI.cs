@@ -8,21 +8,21 @@ using UnityEngine;
 public class ScreenFeedbackUI : UIScreenView
 {
 
-    //[SerializeField] MovePanelAnimate feedbackPanel;
+    [SerializeField] MovePanelAnimate feedbackPanel;
 
-    //public override void OnScreenShowCalled()
-    //{
-    //    base.OnScreenShowCalled();
-    //    ShowFeedbackPanel();
-    //}
+    public override void OnScreenShowCalled()
+    {
+        base.OnScreenShowCalled();
+        ShowFeedbackPanel();
+    }
 
-    //async void ShowFeedbackPanel()
-    //{
-    //    await Task.Delay(TimeSpan.FromSeconds(0.8f));
-    //    feedbackPanel.ShowAnimation();
-    //}
+    async void ShowFeedbackPanel()
+    {
+        await Task.Delay(TimeSpan.FromSeconds(0.8f));
+        feedbackPanel.ShowAnimation();
+    }
 
-   public void OnClickFeedBack()
+    public void OnClickFeedBack()
     {
         UIController.instance.ShowNextScreen(ScreenType.TrailList);
     }
