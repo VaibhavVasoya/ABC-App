@@ -33,7 +33,7 @@ public class ScreenPoiDetail : UIScreenView
     public ContentSizeFitter[] contentSizeFitters;
 
     [SerializeField] PhysicalTrailAudioPlayer ourAudioPlayer;
-    
+
     string details = "";
 
     List<Transform> imgs;
@@ -49,6 +49,7 @@ public class ScreenPoiDetail : UIScreenView
     }
     public override void OnScreenShowCalled()
     {
+        base.OnScreenShowCalled();
         if (otherPoisParent.childCount == 0 && ApiHandler.instance.data.trailPois.Count != 0)
         {
             foreach (var item in ApiHandler.instance.data.trailPois)
@@ -59,21 +60,22 @@ public class ScreenPoiDetail : UIScreenView
             }
         }
         SetPoiDetails();
-        base.OnScreenShowCalled();
         swipeControl.canSwipe = true;
         ourAudioPlayer.AssignAudioClip();
+        ResetNextLocation();
+        isVisited();
     }
 
     public override void OnScreenShowAnimationCompleted()
     {
         base.OnScreenShowAnimationCompleted();
-       
+
     }
 
     public override void OnScreenHideCalled()
     {
-        swipeControl.canSwipe = false;
         base.OnScreenHideCalled();
+        swipeControl.canSwipe = false;
     }
     public override void OnScreenHideAnimationCompleted()
     {
@@ -105,7 +107,7 @@ public class ScreenPoiDetail : UIScreenView
     public void SetPoiDetails()
     {
         poi = TrailsHandler.instance.CurrentTrailPoi;
-        bg.Downloading(poi.num,poi.thumbnail);
+        bg.Downloading(poi.num, poi.thumbnail);
         txtname.text = poi.Name;
         txtDescription.text = details = poi.description;
         //bookingUrl = poi.booking_url;
@@ -128,6 +130,24 @@ public class ScreenPoiDetail : UIScreenView
     public void OpenQuiz()
     {
         UIController.instance.ShowNextScreen(ScreenType.Quiz);
+    }
+
+    void isVisited()
+    {
+        //foreach (var item in SavedDataHandler.instance._saveData.mySculptures)
+        //{
+        if (SavedDataHandler.instance._saveData.mySculptures.Exists(x => x.Num == TrailsHandler.instance.CurrentTrailPoi.num))
+        {
+            Debug.Log("in ");
+            if (!SavedDataHandler.instance._saveData.mySculptures.Find(x => x.Num == TrailsHandler.instance.CurrentTrailPoi.num).IsVisited)
+            {
+                //notificationPopup.Show("You are approaching the " + sculp.title + " sculpture");
+                SavedDataHandler.instance._saveData.mySculptures.Find(x => x.Num == TrailsHandler.instance.CurrentTrailPoi.num).IsVisited = true;
+            }
+
+        }
+        //}
+
     }
     //public void OnClickMoreInfo()
     //{
@@ -203,6 +223,11 @@ public class ScreenPoiDetail : UIScreenView
     //    else
     //        UIController.instance.ShowNextScreen(ScreenType.VideoPlayerCamera);
     //}
+    [SerializeField] ScrollRect nextLocationScrollRect;
+    void ResetNextLocation()
+    {
+        nextLocationScrollRect.horizontalNormalizedPosition = 1f;
+    }
     async void Refresh()
     {
         contentSizeFitters = transform.GetComponentsInChildren<ContentSizeFitter>();

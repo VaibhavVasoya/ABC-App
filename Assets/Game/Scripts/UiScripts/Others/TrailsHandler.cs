@@ -36,6 +36,8 @@ public class TrailsHandler : Singleton<TrailsHandler>
         Debug.Log("All Visited");
     }
 
+
+
     public async void CheckSculpNearestMe()
     {
         Vector2 currentLocation = await MapController.instance.GetCurrentLocation();

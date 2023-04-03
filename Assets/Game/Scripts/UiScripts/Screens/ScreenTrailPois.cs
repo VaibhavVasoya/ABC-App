@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Master.UIKit;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class ScreenTrailPois : UIScreenView
 {
@@ -26,7 +27,7 @@ public class ScreenTrailPois : UIScreenView
 
     [SerializeField] ImageLoader poiImg;
     [SerializeField] Text txtpoiName;
-    [SerializeField] Text txtpoiSubDesc;
+    [SerializeField] TextMeshProUGUI txtpoiSubDesc;
     [SerializeField] MovePanelAnimate poiPanelAnimate;
 
     int currentSelectedPoiPin = 0;
@@ -78,8 +79,12 @@ public class ScreenTrailPois : UIScreenView
     }
     async void CheckPoiVisited()
     {
-        return;
-        if (!string.IsNullOrEmpty(TrailsHandler.instance.CurrentTrail.num))
+        //return;
+        if (TrailsHandler.instance.CurrentTrail == null)
+        {
+            CheckPoiVisited();
+        }
+        else if (!string.IsNullOrEmpty(TrailsHandler.instance.CurrentTrail.num))
         {
             Debug.Log("123 if");
             bool allVisited = true;
@@ -99,7 +104,7 @@ public class ScreenTrailPois : UIScreenView
             await Task.Delay(TimeSpan.FromSeconds(2));
             if (allVisited)
             {
-                Debug.Log("123 all poi visited");
+                UIController.instance.ShowNextScreen(ScreenType.Feedback);
             }
             else
             {
@@ -142,7 +147,7 @@ public class ScreenTrailPois : UIScreenView
         poiMapToggle.isOn = IsMap;
         MapController.instance.MapInteractable(IsMap);
         if (IsMap) LoadMapScean();
-        if(IsMap)
+        if (IsMap)
         {
             txtpoiTitle.text = "Trails";
         }

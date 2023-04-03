@@ -23,8 +23,8 @@ public class ScreenTrailsCat : UIScreenView
     }
     public override void OnScreenShowCalled()
     {
-        TrailsHandler.instance.currentTrailCat = null;
         base.OnScreenShowCalled();
+        TrailsHandler.instance.currentTrailCat = null;
         Refresh();
     }
    

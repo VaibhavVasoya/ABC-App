@@ -29,7 +29,7 @@ public class SculptureTrail : MonoBehaviour
         poiCount = ApiHandler.instance.data.trailPois.FindAll(x => x.intro_id == trail.num).Count;
         txtPoiCount.text = poiCount.ToString();
         //if (string.IsNullOrEmpty(txtPoiCount.text) || txtPoiCount.text == "0") txtPoiCount.gameObject.SetActive(false);
-        txtPoiTime.gameObject.SetActive(trail.type == TRAIL_TYPE.PHYSICAL);
+        txtPoiTime.gameObject.SetActive(true);
         //if (string.IsNullOrEmpty(_trail.estimated_duration)) txtPoiTime.gameObject.SetActive(false);
         txtPoiTime.text = _trail.estimated_duration;// + " " + LocalizationSettings.StringDatabase.GetLocalizedString("UI_Text", "Hours");
         bg.Downloading(_trail.num, _trail.cover_image);

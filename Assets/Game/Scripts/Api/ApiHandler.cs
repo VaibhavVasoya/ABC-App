@@ -67,7 +67,7 @@ public class ApiHandler : Singleton<ApiHandler>
         data.trailPois.Clear();
         data.sculptureEvents.Clear();
         data.villageDiscounts.Clear();
-        data.aboutUs =null;
+        data.aboutUs  =null;
         data.aboutTheApp = null;
         data.shareWithOther = null;
         isWalkthroughLoaded = isTrailsLoaded = isPoisLoaded = isEventsLoaded = isDiscountLoded = isTrailCatLoaded = false;
@@ -619,7 +619,6 @@ public class ApiHandler : Singleton<ApiHandler>
     public void GetAboutUsDetails(bool showLoading = true)
     {
         if (showLoading) LoadingUI.instance.OnScreenShow();
-       
         Services.Get(GameData.API_ABOUT_US, AboutUsCallBack, false, false);
     }
     void AboutUsCallBack(string obj)
