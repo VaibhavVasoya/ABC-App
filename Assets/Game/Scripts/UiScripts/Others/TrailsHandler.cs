@@ -23,7 +23,7 @@ public class TrailsHandler : Singleton<TrailsHandler>
         }
         foreach (var item in ApiHandler.instance.data.trails)
         {
-            if (SavedDataHandler.instance._saveData.mySculptures.Exists(x => x.Num == item.num)) continue;
+            if (SavedDataHandler.instance._saveData.myTrails.Exists(x => x.Num == item.num)) continue;
             SavedDataHandler.instance.AddTrail(item.num, item.title, item.category_id);
         }
         //CheckSculpNearestMe();

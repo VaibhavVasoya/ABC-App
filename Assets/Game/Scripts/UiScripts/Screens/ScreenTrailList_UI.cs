@@ -26,7 +26,7 @@ namespace Master.UI
         public override void OnScreenShowCalled()
         {
             base.OnScreenShowCalled();
-            TrailsHandler.instance.CurrentTrail = null;
+            //TrailsHandler.instance.CurrentTrail = null;
             SculptureTrailsCallBack(API_TYPE.API_TRAILS, "");
             Refresh();
         }

@@ -96,40 +96,33 @@ public class ScreenTrailPois : UIScreenView
                 {
                     if (!item.IsVisited)
                     {
-                        Debug.Log("123 item name " + item.Title);
                         allVisited = false;
                         break;
                     }
                 }
             }
             await Task.Delay(TimeSpan.FromSeconds(2));
-            if (!SavedDataHandler.instance._saveData.myTrails.Find(x => x.Num == TrailsHandler.instance.CurrentTrail.num).IsVisited)
+            //if (!SavedDataHandler.instance._saveData.myTrails.Find(x => x.Num == TrailsHandler.instance.CurrentTrail.num).IsVisited)
+            //{
+            if (allVisited)
             {
-                if (allVisited)
+                if (SavedDataHandler.instance._saveData.myTrails.Exists(x => x.Num == TrailsHandler.instance.CurrentTrail.num))
                 {
-                    if (SavedDataHandler.instance._saveData.myTrails.Exists(x => x.Num == TrailsHandler.instance.CurrentTrail.num))
+                    Debug.Log("in ");
+                    if (!SavedDataHandler.instance._saveData.myTrails.Find(x => x.Num == TrailsHandler.instance.CurrentTrail.num).IsVisited)
                     {
-                        Debug.Log("in ");
-                        if (!SavedDataHandler.instance._saveData.myTrails.Find(x => x.Num == TrailsHandler.instance.CurrentTrail.num).IsVisited)
-                        {
-                            //notificationPopup.Show("You are approaching the " + sculp.title + " sculpture");
-                            SavedDataHandler.instance._saveData.myTrails.Find(x => x.Num == TrailsHandler.instance.CurrentTrail.num).IsVisited = true;
-                        }
+                        SavedDataHandler.instance._saveData.myTrails.Find(x => x.Num == TrailsHandler.instance.CurrentTrail.num).IsVisited = true;
+                        UIController.instance.ShowNextScreen(ScreenType.Feedback);
                     }
-                    //SavedDataHandler.instance._saveData.myTrails.Find(x => x.Num );
-                    UIController.instance.ShowNextScreen(ScreenType.Feedback);
                 }
-            }
-           
-            else
-            {
-                Debug.Log("123");
+                await Task.Delay(TimeSpan.FromSeconds(2));
                 CheckPoiVisited();
             }
+            await Task.Delay(TimeSpan.FromSeconds(2));
+            CheckPoiVisited();
         }
         else
         {
-            Debug.Log("123 else");
             await Task.Delay(TimeSpan.FromSeconds(2));
             CheckPoiVisited();
         }
