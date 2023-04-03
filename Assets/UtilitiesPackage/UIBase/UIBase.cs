@@ -58,7 +58,7 @@ namespace Master.UIKit
         {
 
             State = hasToEnable ? CanvasState.Active : CanvasState.Inactive;
-            NotifyStateChanged(State);
+            //NotifyStateChanged(State);
         }
 
         void ResetCanvas()
