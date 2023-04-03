@@ -32,13 +32,18 @@ public class ScreenTrailPois : UIScreenView
 
     int currentSelectedPoiPin = 0;
     [SerializeField] List<Poi> pois;
+
+    bool isCheckFeedBack;
+
     private void OnEnable()
     {
         Events.WebRequestCompleted += SculptureTrailPoisCallBack;
+        isCheckFeedBack = true;
     }
     private void OnDisable()
     {
         Events.WebRequestCompleted -= SculptureTrailPoisCallBack;
+        isCheckFeedBack = false;
     }
     public override void OnScreenShowCalled()
     {
@@ -80,6 +85,7 @@ public class ScreenTrailPois : UIScreenView
     async void CheckPoiVisited()
     {
         //return;
+        if (!isCheckFeedBack) return;
         if (TrailsHandler.instance.CurrentTrail == null)
         {
             await Task.Delay(TimeSpan.FromSeconds(2));
