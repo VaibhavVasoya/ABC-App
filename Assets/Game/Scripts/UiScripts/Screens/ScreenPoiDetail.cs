@@ -28,6 +28,9 @@ public class ScreenPoiDetail : UIScreenView
     [SerializeField] ScrollControl scrollControl;
     SwipeControl swipeControl;
 
+    [SerializeField] Button listenHereBtn;
+    [SerializeField] GameObject AudioPlayerParent;
+
     //[SerializeField] UnityVideoController unityVideoController;
 
     public ContentSizeFitter[] contentSizeFitters;
@@ -76,6 +79,7 @@ public class ScreenPoiDetail : UIScreenView
     {
         base.OnScreenHideCalled();
         swipeControl.canSwipe = false;
+        ListenHereDefaultState();
     }
     public override void OnScreenHideAnimationCompleted()
     {
@@ -148,6 +152,19 @@ public class ScreenPoiDetail : UIScreenView
         }
         //}
 
+    }
+
+    public void OnListenHereClick()
+    {
+        AudioPlayerParent.SetActive(true);
+        listenHereBtn.interactable = false;
+    }
+
+    public void ListenHereDefaultState()
+    {
+        ourAudioPlayer.StopAudio();
+        AudioPlayerParent.SetActive(false);
+        listenHereBtn.interactable = true;
     }
     //public void OnClickMoreInfo()
     //{
