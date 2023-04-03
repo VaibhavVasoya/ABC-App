@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,7 +12,7 @@ public class PhysicalTrailAudioPlayer : MonoBehaviour
 
     //[SerializeField] string longAudioUrl;
 
-   
+
 
     bool isPlaying;
 
@@ -25,7 +26,7 @@ public class PhysicalTrailAudioPlayer : MonoBehaviour
     [SerializeField] Text audioNameText;
     [SerializeField] CanvasGroup audioPlayerCanvasGroup;
 
-    public void TogglePlayPauseState()
+    public async void TogglePlayPauseState()
     {
         if (isPlaying)
         {
@@ -38,7 +39,10 @@ public class PhysicalTrailAudioPlayer : MonoBehaviour
         {
             if (audioPlayer.clip == null) return;
             playPauseButton.sprite = pauseSprite;
+            Debug.Log("pre play");
+            await Task.Delay(500);
             audioPlayer.Play();
+            Debug.Log("post play");
             ToggleSoundWaveAnimation(true);
         }
 
@@ -47,14 +51,15 @@ public class PhysicalTrailAudioPlayer : MonoBehaviour
 
     IEnumerator temp;
 
-    public async void PlayAudio()
+    public void PlayAudio()
     {
         //AudioClip clip;
 
         //audioPlayer.PlayOneShot(isLongAudio ? longClip : shortClip);
-        StopAudio();
 
-//        StopCoroutine(nameof(AudioPlayerFadeInOut));
+        StopAudio();
+        //await Task.Delay(1000);
+        //        StopCoroutine(nameof(AudioPlayerFadeInOut));
 
         //if (temp == null)
         //{
@@ -78,12 +83,19 @@ public class PhysicalTrailAudioPlayer : MonoBehaviour
         TogglePlayPauseState();
     }
 
+    private void Update()
+    {
+        if( isPlaying && !audioPlayer.isPlaying)
+        {
+            StopAudio();
+        }
+    }
 
 
     public void StopAudio()
     {
         audioPlayer.Stop();
-        audioPlayer.clip = null;
+        //audioPlayer.clip = null;
         ToggleSoundWaveAnimation(false);
         playPauseButton.sprite = playSprite;
         isPlaying = false;
@@ -136,10 +148,10 @@ public class PhysicalTrailAudioPlayer : MonoBehaviour
     //}
 
 
-    public  void AssignAudioClip()
+    public void AssignAudioClip()
     {
-        Debug.LogError("num : "+TrailsHandler.instance.CurrentTrailPoi.num + " || File : " + TrailsHandler.instance.CurrentTrailPoi.audio_file);
-     Services.DownloadAudio(TrailsHandler.instance.CurrentTrailPoi.num, TrailsHandler.instance.CurrentTrailPoi.audio_file, (x)=> { audioPlayer.clip = x; Debug.LogError(x==null); }); 
+        Debug.LogError("num : " + TrailsHandler.instance.CurrentTrailPoi.num + " || File : " + TrailsHandler.instance.CurrentTrailPoi.audio_file);
+        Services.DownloadAudio(TrailsHandler.instance.CurrentTrailPoi.num, TrailsHandler.instance.CurrentTrailPoi.audio_file, (x) => { audioPlayer.clip = x; Debug.LogError(x == null); });
     }
     //public async void SetPlayData(bool isLongAudio)
     //{

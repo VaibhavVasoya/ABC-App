@@ -20,6 +20,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Game/Scenes/App smit.unity
     guid: 686bda91cd1cf48de8c7317fcf411f83
+  - enabled: 1
+    path: Assets/Game/Scenes/App smit audio.unity
+    guid: 612a9b0b2494d489f9331548d2ec4f6c
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: a77d2d099f17e4373a168ec9f9227b72, type: 2}
     UnityEditor.XR.ARKit.ARKitSettings: {fileID: 11400000, guid: 52c2f7e42ca8d4e8999431a29d042d49, type: 2}
