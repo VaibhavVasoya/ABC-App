@@ -64,6 +64,7 @@ public class SaveData
     public int currentLanguage;
     public string currentLanguageId;
     public List<MySculpture> mySculptures;
+    public List<MyTrail> myTrails;
 
     public SaveData()
     {
@@ -79,6 +80,22 @@ public class MySculpture
     public string IntroId;
     public bool IsVisited;
     public MySculpture(string num,string title,string introId)
+    {
+        Num = num;
+        Title = title;
+        IntroId = introId;
+        IsVisited = false;
+    }
+}
+
+[Serializable]
+public class MyTrail
+{
+    public string Num;
+    public string Title;
+    public string IntroId;
+    public bool IsVisited;
+    public MyTrail(string num, string title, string introId)
     {
         Num = num;
         Title = title;
