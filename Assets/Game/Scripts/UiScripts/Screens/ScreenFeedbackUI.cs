@@ -22,8 +22,21 @@ public class ScreenFeedbackUI : UIScreenView
         feedbackPanel.ShowAnimation();
     }
 
-    public void OnClickFeedBack()
+    public void OnClickFeedBack0()
     {
+        ApiHandler.instance.PostFeedback("1",TrailsHandler.instance.CurrentTrail.num,ApiHandler.instance.data.feedBackOptions[0].comment);
+        UIController.instance.ShowNextScreen(ScreenType.TrailList);
+    }
+
+    public void OnClickFeedBack1()
+    {
+        ApiHandler.instance.PostFeedback("1", TrailsHandler.instance.CurrentTrail.num, ApiHandler.instance.data.feedBackOptions[1].comment);
+        UIController.instance.ShowNextScreen(ScreenType.TrailList);
+    }
+
+    public void OnClickFeedBack2()
+    {
+        ApiHandler.instance.PostFeedback("1", TrailsHandler.instance.CurrentTrail.num, ApiHandler.instance.data.feedBackOptions[2].comment);
         UIController.instance.ShowNextScreen(ScreenType.TrailList);
     }
 }

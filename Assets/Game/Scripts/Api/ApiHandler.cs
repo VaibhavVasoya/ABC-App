@@ -87,6 +87,7 @@ public class ApiHandler : Singleton<ApiHandler>
         GetVillageDiscount(false);
         GetAboutUsDetails(false);
         GetAboutThisApp(false);
+        GetFeedback();
         Debug.Log("Load init data..");
         PrepareForDownloding();
     }
@@ -735,37 +736,82 @@ public class ApiHandler : Singleton<ApiHandler>
 
     public void GetFeedback()
     {
+        Debug.Log("call");
         Services.Get(GameData.API_Feedback, FeedbackOptionsCallback, false, false);
     }
 
 
     void FeedbackOptionsCallback(string obj)
     {
-        if(obj!=null)
+        if (obj != null)
         {
             var res = JSON.Parse(obj);
 
-            if(res["status"]!= "success")
+            if (res["status"] != "success")
             {
-                Debug.LogError("Invalid API response for Feedback");
+                Debug.LogError("Invalid API Response.");
                 UIController.instance.ShowPopupMsg("Error", res["message"].ToString());
-                LoadingUI.instance.OnScreenHide();
-                return;
-            }
-
-            if(string.IsNullOrEmpty(res["data"].ToString()) || res["data"].ToString()==null)
-            {
-                UIController.instance.ShowPopupMsg("Opps!", "Something went wrong, Unable to fetch feedback link.");
             }
             else
             {
-                data.feedBackOptions = new List<Feedback>();
-                data.feedBackOptions = JsonUtility.FromJson<List<Feedback>>(res["data"].ToString());
+                Debug.LogError("Event : " + res.ToString());
+                //Data.loginData = JsonUtility.FromJson<LoginData>(res.ToString());
+                if (data.feedBackOptions == null)
+                    data.feedBackOptions = new List<Feedback>();
+                data.feedBackOptions.Clear();
+                for (int i = 0; i < res["data"].Count; i++)
+                {
+                    Feedback feedback = new Feedback();
+                    //Debug.LogError(res["data"][i].ToString());
+                    feedback = JsonUtility.FromJson<Feedback>(res["data"][i].ToString());
+                    data.feedBackOptions.Add(feedback);
+                }
+                //foreach (var item in data.sculptureEvents)
+                //{
+                //    item.DonwloadAssets();
+                //}
+                Debug.Log("<color=green>Fetched Events</color>");
                 Events.OnWebRequestComplete(API_TYPE.API_Feedback, obj);
             }
-        }
+        } 
     }
-
+    /// <summary>
+    /// Feedback post
+    /// Scupture trial details like: name, short description, banner, etc..
+    /// </summary>
+    public void PostFeedback(string lang_id,string trail_id , string comment_id)
+    {
+        KVPList<string, string> list = new KVPList<string, string>();
+        list.Add("lang_id", lang_id);
+        list.Add("trail_id", trail_id);
+        list.Add("comment_id", comment_id);
+        Services.Post(GameData.API_FeedbackPost, list, (var) => { Debug.Log("Feedback submit : " + var); }, false, false);
+    }
+    //void TrailsListCallBack(string obj)
+    //{
+    //    var res = ParseResponse(obj);
+    //    if (res != null)
+    //    {
+    //        if (data.trails == null)
+    //            data.trails = new List<Trail>();
+    //        data.trails.Clear();
+    //        for (int i = 0; i < res["data"].Count; i++)
+    //        {
+    //            Trail trails = new Trail();
+    //            //Debug.LogError(res["data"][i].ToString());
+    //            trails = JsonUtility.FromJson<Trail>(res["data"][i].ToString());
+    //            data.trails.Add(trails);
+    //        }
+    //        foreach (var item in data.trails)
+    //        {
+    //            item.Parse();
+    //            //item.DonwloadAssets();
+    //        }
+    //    }
+    //    Events.OnWebRequestComplete(API_TYPE.API_TRAILS, obj);
+    //    LoadingUI.instance.OnScreenHide();
+    //    isTrailsLoaded = true;
+    //}
 }
 
 public enum VariableName

@@ -14,6 +14,7 @@ public static class GameData
     public const string API_TRAILS = "trails.php";
     public const string API_POIS = "pois.php";
     public const string API_Feedback = "comments.php";
+    public const string API_FeedbackPost = "trail_feedback.php";
 
     public const string API_ABOUT_US = "master.php?api=about_us&";
     public const string API_ABOUT_THIS_APP = "master.php?api=about_app&";
@@ -48,7 +49,8 @@ public enum API_TYPE
     API_SHARE_WITH_OTHER,
     API_MENU,
     API_MULTI_LANGUAGE,
-    API_Feedback
+    API_Feedback,
+    API_FEEDBACKPOST
 }
 
 public enum TRAIL_TYPE

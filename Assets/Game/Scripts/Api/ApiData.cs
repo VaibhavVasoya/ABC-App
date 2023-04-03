@@ -247,7 +247,10 @@ public class MultiLanguage
 public class Feedback
 {
     public string num;
+    public string lang_id;
     public string comment;
+    public string icons;
+
 }
 
 //about us
