@@ -82,6 +82,7 @@ public class ScreenTrailPois : UIScreenView
         //return;
         if (TrailsHandler.instance.CurrentTrail == null)
         {
+            await Task.Delay(TimeSpan.FromSeconds(2));
             CheckPoiVisited();
         }
         else if (!string.IsNullOrEmpty(TrailsHandler.instance.CurrentTrail.num))

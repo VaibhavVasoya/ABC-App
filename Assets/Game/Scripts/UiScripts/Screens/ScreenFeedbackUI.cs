@@ -21,4 +21,9 @@ public class ScreenFeedbackUI : UIScreenView
     //    await Task.Delay(TimeSpan.FromSeconds(0.8f));
     //    feedbackPanel.ShowAnimation();
     //}
+
+   public void OnClickFeedBack()
+    {
+        UIController.instance.ShowNextScreen(ScreenType.TrailList);
+    }
 }
