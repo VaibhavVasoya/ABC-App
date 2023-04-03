@@ -14,7 +14,7 @@ public class ScreenPoiDetail : UIScreenView
     Poi poi;
     [SerializeField] ImageLoader bg;
     [SerializeField] Text txtname;
-    [SerializeField] Text txtDescription;
+    [SerializeField] TextMeshProUGUI txtDescription;
 
     [SerializeField] Transform otherPoisParent;
     [SerializeField] GameObject otherPoi;
