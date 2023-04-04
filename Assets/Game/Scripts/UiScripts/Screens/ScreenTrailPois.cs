@@ -223,9 +223,9 @@ public class ScreenTrailPois : UIScreenView
         txtpoiSubDesc.text = pois[index].short_desc;
     }
 
-    /*public void OnClickShowPoiDetailsScreen()
-    //{
-    //    TrailsHandler.instance.CurrentTrailPoi = pois[currentSelectedPoiPin];
-    //    UIController.instance.ShowNextScreen(ScreenType.PhysicalPoiDetails);
-    //}*/
+    public void OnClickShowPoiDetailsScreen()
+    {
+        TrailsHandler.instance.CurrentTrailPoi = pois[currentSelectedPoiPin];
+        UIController.instance.ShowNextScreen(ScreenType.PoiDetails);
+    }
 }

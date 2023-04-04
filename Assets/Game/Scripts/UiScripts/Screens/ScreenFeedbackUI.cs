@@ -19,6 +19,7 @@ public class ScreenFeedbackUI : UIScreenView
     {
         base.OnScreenShowCalled();
         ShowFeedbackPanel();
+        SetImage();
     }
 
     public async void SetImage()
