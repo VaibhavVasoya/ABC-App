@@ -34,10 +34,10 @@ public class ScreenPoiDetail : UIScreenView
     //[SerializeField] UnityVideoController unityVideoController;
 
     public ContentSizeFitter[] contentSizeFitters;
-
+    bool isCheckFeedBack;
     [SerializeField] PhysicalTrailAudioPlayer ourAudioPlayer;
 
-    string details = "";
+    //string details = "";
 
     List<Transform> imgs;
     List<Toggle> dots;
@@ -49,6 +49,64 @@ public class ScreenPoiDetail : UIScreenView
         contentSizeFitters = transform.GetComponentsInChildren<ContentSizeFitter>();
         Array.Reverse(contentSizeFitters);
         swipeControl = ObjCarousel.GetComponent<SwipeControl>();
+    }
+
+    async void CheckPoiVisited()
+    {
+        //return;
+        if (!isCheckFeedBack) return;
+        if (TrailsHandler.instance.CurrentTrail == null)
+        {
+            await Task.Delay(TimeSpan.FromSeconds(2));
+            CheckPoiVisited();
+            return;
+        }
+        else if (!string.IsNullOrEmpty(TrailsHandler.instance.CurrentTrail.num))
+        {
+            Debug.Log("123 if");
+            bool allVisited = true;
+            //TrailsHandler.instance.isAllPoiVisited();
+            foreach (var item in SavedDataHandler.instance._saveData.mySculptures)
+            {
+                if (item.IntroId == TrailsHandler.instance.CurrentTrail.num)
+                {
+                    if (!item.IsVisited)
+                    {
+                        allVisited = false;
+                        break;
+                    }
+                }
+            }
+            await Task.Delay(TimeSpan.FromSeconds(2));
+            //if (!SavedDataHandler.instance._saveData.myTrails.Find(x => x.Num == TrailsHandler.instance.CurrentTrail.num).IsVisited)
+            //{
+            if (allVisited)
+            {
+                if (SavedDataHandler.instance._saveData.myTrails.Exists(x => x.Num == TrailsHandler.instance.CurrentTrail.num))
+                {
+                    Debug.Log("in ");
+                    if (!SavedDataHandler.instance._saveData.myTrails.Find(x => x.Num == TrailsHandler.instance.CurrentTrail.num).IsVisited)
+                    {
+                        SavedDataHandler.instance._saveData.myTrails.Find(x => x.Num == TrailsHandler.instance.CurrentTrail.num).IsVisited = true;
+                        UIController.instance.ShowNextScreen(ScreenType.Feedback);
+                        CheckPoiVisited();
+                        return;
+                    }
+                }
+                await Task.Delay(TimeSpan.FromSeconds(2));
+                CheckPoiVisited();
+                return;
+            }
+            await Task.Delay(TimeSpan.FromSeconds(2));
+            CheckPoiVisited();
+            return;
+        }
+        else
+        {
+            await Task.Delay(TimeSpan.FromSeconds(2));
+            CheckPoiVisited();
+            return;
+        }
     }
     public override void OnScreenShowCalled()
     {
@@ -63,10 +121,12 @@ public class ScreenPoiDetail : UIScreenView
             }
         }
         SetPoiDetails();
+        isCheckFeedBack = true;
         swipeControl.canSwipe = true;
         ourAudioPlayer.AssignAudioClip();
         ResetNextLocation();
         isVisited();
+        CheckPoiVisited();
     }
 
     public override void OnScreenShowAnimationCompleted()
@@ -80,6 +140,7 @@ public class ScreenPoiDetail : UIScreenView
         base.OnScreenHideCalled();
         swipeControl.canSwipe = false;
         ListenHereDefaultState();
+        isCheckFeedBack = false;
     }
     public override void OnScreenHideAnimationCompleted()
     {
@@ -113,7 +174,7 @@ public class ScreenPoiDetail : UIScreenView
         poi = TrailsHandler.instance.CurrentTrailPoi;
         bg.Downloading(poi.num, poi.thumbnail);
         txtname.text = poi.Name;
-        txtDescription.text = details = poi.description;
+        txtDescription.text = poi.description;
         //bookingUrl = poi.booking_url;
         if (poi.poi_images.Count > 1)
         {

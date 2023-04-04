@@ -40,7 +40,7 @@ public class MapController : Singleton<MapController>
         sculpMapsMarkers = new List<OnlineMapsMarker>();
 
 #if UNITY_EDITOR
-        LatLong = new Vector2(-1.500600f, 53.411400f);
+        LatLong = new Vector2(-6.3160218f, 54.8566988f);
         return;
 #endif
         if (!Permission.HasUserAuthorizedPermission(Permission.FineLocation))

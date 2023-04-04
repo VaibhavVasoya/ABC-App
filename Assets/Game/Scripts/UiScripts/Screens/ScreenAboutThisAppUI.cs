@@ -26,7 +26,7 @@ namespace Master.UI
             //Debug.LogError("===>> "+ (scrollRect.transform.GetChild(0).GetChild(0).gameObject.activeInHierarchy));
             contentSizeFitters = transform.GetComponentsInChildren<ContentSizeFitter>();
             Array.Reverse(contentSizeFitters);
-            Debug.Log("length of CSF About The App : " + contentSizeFitters.Length);
+            //Debug.Log("length of CSF About The App : " + contentSizeFitters.Length);
             //Debug.Log("123 about the app start end");
         }
 

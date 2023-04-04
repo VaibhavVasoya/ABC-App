@@ -84,12 +84,14 @@ public class MySculpture
     public string Title;
     public string IntroId;
     public bool IsVisited;
+    public bool popUpShow;
     public MySculpture(string num,string title,string introId)
     {
         Num = num;
         Title = title;
         IntroId = introId;
         IsVisited = false;
+        popUpShow = false;
     }
 }
 

@@ -28,6 +28,7 @@ namespace Master.UI
             base.OnScreenShowCalled();
             //TrailsHandler.instance.CurrentTrail = null;
             SculptureTrailsCallBack(API_TYPE.API_TRAILS, "");
+            TrailsHandler.instance.CheckSculpNearestMe();
             Refresh();
         }
 
