@@ -6,7 +6,6 @@ using Master.UIKit;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using UnityEngine.XR.ARFoundation;
 using UnityEngine.Video;
 
 namespace Master.UI

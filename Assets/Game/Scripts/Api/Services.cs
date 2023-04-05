@@ -627,5 +627,84 @@ public class Services : Singleton<Services>
             }
         }
     }
+
+
+
+    #region Data Download Size
+
+    public static int totalDataSize;
+    static int numberOfBundles;
+    public static long totalSizeInByte = 0;
+
+    public static async Task GetDataSize(List<ItemType> downloadFiles)
+    {
+        if (downloadFiles.Count == 0)
+        {
+            numberOfBundles = 0;
+        }
+        else if (downloadFiles.Count < 3)
+        {
+            numberOfBundles = 1;
+        }
+        else
+        {
+            numberOfBundles = downloadFiles.Count / 3;
+        }
+        //Debug.Log("count fhusj;hfjahsfj " + downloadFiles.Count);
+        var totalBlocks = downloadFiles.Count / numberOfBundles;
+        int bundlesInLastBlock = downloadFiles.Count % numberOfBundles;
+        if (bundlesInLastBlock != 0)
+            totalBlocks++;
+        else
+            bundlesInLastBlock = numberOfBundles;
+        List<Task> allBlockTasks = new List<Task>();
+        int totalLoadedDataSize = 0;
+        for (int index = 0; index < totalBlocks; index++)
+        {
+            int bundlesInThisBlock = numberOfBundles;
+            if (index == totalBlocks - 1)
+            {
+                bundlesInThisBlock = bundlesInLastBlock;
+            }
+            allBlockTasks.Add(GetSize(downloadFiles.GetRange(index * numberOfBundle, bundlesInThisBlock), (value) =>
+            {
+                totalSizeInByte += value;
+            }));
+        }
+        allBlockTasks.FindAll(x => x.IsCompleted);
+        await Task.WhenAll(allBlockTasks);
+        totalDataSize = (int)totalSizeInByte / 1000000;
+        Debug.LogError("Total Size in Byte: " + (totalSizeInByte));
+        Debug.LogError("Total Size in MB: " + (totalSizeInByte) / 1000000);
+    }
+
+    public static async Task GetSize(List<ItemType> bundlesList, Action<long> filesize)
+    {
+        for (int i = 0; i < bundlesList.Count; i++)
+        {
+            filesize(await GetFileSize(bundlesList[i].url));
+
+        }
+    }
+
+    public static async Task<long> GetFileSize(string url)
+    {
+        // if (!File.Exists(url)) return 0;
+        var headRequest = UnityWebRequest.Head(url);
+
+        await headRequest.SendWebRequest();
+        if (headRequest.result != UnityWebRequest.Result.Success) return 0;
+        string length = headRequest.GetResponseHeader("Content-Length");
+        Debug.Log(Path.GetFileNameWithoutExtension(url) + "  File Legth : " + length);
+        if (string.IsNullOrEmpty(length)) return 0;
+        return long.Parse(length);
+    }
+
+    static double ConvertBytesToMegabytes(long bytes)
+    {
+        return bytes / Math.Pow(1024, 2);
+    }
+
+    #endregion
 }
 #endregion

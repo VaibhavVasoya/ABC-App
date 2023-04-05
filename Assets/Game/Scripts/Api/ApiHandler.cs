@@ -183,7 +183,9 @@ public class ApiHandler : Singleton<ApiHandler>
         if (DownloadFiles.Count > 0)
         {
             Debug.Log("load bundle ");
-            Services.LoadBundlesParellel(DownloadFiles);
+            //Services.LoadBundlesParellel(DownloadFiles);
+            await Services.GetDataSize(DownloadFiles);
+            UIController.instance.ShowPopUpDownloadSize("", "We need to download further content (" + Services.totalDataSize.ToString("n2") + "MB) to complete your journey.");
         }
         //AllDataFetched = true;
         //await Task.Delay(TimeSpan.FromSeconds(3));

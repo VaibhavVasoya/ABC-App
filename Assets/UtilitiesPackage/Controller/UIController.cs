@@ -42,7 +42,8 @@ namespace Master.UIKit
         PoiMap = 22,
         Video360 = 23,
         Image360 = 24,
-        Feedback = 25
+        Feedback = 25,
+        PopUpDownloadSize = 26
     }
 
     
@@ -225,6 +226,17 @@ namespace Master.UIKit
             mainStr = mainStr.Replace("</strong>", "</b>");
             mainStr = mainStr.Replace("&nbsp;", " ");
             return mainStr;
+        }
+
+        public void ShowPopUpDownloadSize(string title, string msg)
+        {
+            getScreen(ScreenType.PopUpDownloadSize).GetComponent<ScreenPopDownloadSize>().SetMsg(title, msg);
+            ShowScreen(ScreenType.PopUpDownloadSize);
+        }
+        public void ShowPopUpDownloadSize(string title, string msg, Action callback)
+        {
+            getScreen(ScreenType.PopUpDownloadSize).GetComponent<ScreenPopDownloadSize>().SetMsg(title, msg, callback);
+            ShowScreen(ScreenType.PopUpDownloadSize);
         }
     }
 
