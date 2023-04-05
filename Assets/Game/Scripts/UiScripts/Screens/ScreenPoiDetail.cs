@@ -126,7 +126,7 @@ public class ScreenPoiDetail : UIScreenView
         ourAudioPlayer.AssignAudioClip();
         ResetNextLocation();
         isVisited();
-        CheckPoiVisited();
+        //CheckPoiVisited();
     }
 
     public override void OnScreenShowAnimationCompleted()
@@ -189,6 +189,7 @@ public class ScreenPoiDetail : UIScreenView
             bg.Downloading(poi.num, poi.thumbnail);
             ObjCarousel.SetActive(false);
         }
+        CheckPoiVisited();
         Refresh();
     }
 
