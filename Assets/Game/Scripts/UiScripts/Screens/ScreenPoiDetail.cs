@@ -78,8 +78,6 @@ public class ScreenPoiDetail : UIScreenView
                 }
             }
             await Task.Delay(TimeSpan.FromSeconds(2));
-            //if (!SavedDataHandler.instance._saveData.myTrails.Find(x => x.Num == TrailsHandler.instance.CurrentTrail.num).IsVisited)
-            //{
             if (allVisited)
             {
                 if (SavedDataHandler.instance._saveData.myTrails.Exists(x => x.Num == TrailsHandler.instance.CurrentTrail.num))
