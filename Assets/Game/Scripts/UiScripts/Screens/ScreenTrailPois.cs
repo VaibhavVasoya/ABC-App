@@ -72,6 +72,7 @@ public class ScreenTrailPois : UIScreenView
     public void BackToTrailList()
     {
         UIController.instance.ShowNextScreen(ScreenType.TrailList);
+        TrailsHandler.instance.isInvokeNearestSculp = false;
         Helper.Execute(this, () => OpenTab(false), 0.4f);
         currentSelectedPoiPin = 0;
     }
