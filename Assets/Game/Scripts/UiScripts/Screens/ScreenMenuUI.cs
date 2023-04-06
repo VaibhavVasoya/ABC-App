@@ -85,6 +85,7 @@ namespace Master.UI
             if (UIController.instance.getCurrentScreen() == ScreenType.TrailCat) return;
             UIController.instance.ShowNextScreen(ScreenType.TrailCat);
             ApiHandler.instance.GetTrailCat();
+            TrailsHandler.instance.isInvokeNearestSculp = false;
         }
 
         public async void OpenUpcomingEvents()
