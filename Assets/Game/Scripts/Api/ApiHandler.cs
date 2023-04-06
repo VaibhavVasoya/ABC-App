@@ -39,22 +39,22 @@ public class ApiHandler : Singleton<ApiHandler>
     /// <summary>
     /// static data
     /// </summary>
-    public string GetStaticVariableValue(VariableName variableName, string defaultVal)
-    {
-        StaticLanguageData staticLangData = data.staticData.staticLangData.Find(x => x.lang_id == currentLanguage.num);
-        if (staticLangData != null)
-        {
-            StaticData staticData = staticLangData.data.Find(x => x.meta == variableName.ToString().ToLower());
-            if (staticData != null)
-                return staticData.value;
-            else
-                Debug.Log("<color=red> Static variable is not match. </color>");
-        }
-        else
-            Debug.Log("<color=red> Static language data is empty. </color>");
+    //public string GetStaticVariableValue(VariableName variableName, string defaultVal)
+    //{
+    //    StaticLanguageData staticLangData = data.staticData.staticLangData.Find(x => x.lang_id == currentLanguage.num);
+    //    if (staticLangData != null)
+    //    {
+    //        StaticData staticData = staticLangData.data.Find(x => x.meta == variableName.ToString().ToLower());
+    //        if (staticData != null)
+    //            return staticData.value;
+    //        else
+    //            Debug.Log("<color=red> Static variable is not match. </color>");
+    //    }
+    //    else
+    //        Debug.Log("<color=red> Static language data is empty. </color>");
 
-        return defaultVal;
-    }
+    //    return defaultVal;
+    //}
 
 
     public void ClearData()
