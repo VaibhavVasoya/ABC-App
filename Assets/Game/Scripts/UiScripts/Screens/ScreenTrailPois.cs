@@ -161,7 +161,7 @@ public class ScreenTrailPois : UIScreenView
             PoiCeil Poi = go.GetComponent<PoiCeil>();
             Poi.SetTrail(poi);
         }
-        await Task.Delay(TimeSpan.FromSeconds(0.4f));
+        await Task.Delay(TimeSpan.FromSeconds(Time.deltaTime));
         Refresh();
     }
     public void OpenTab(bool IsMap)
@@ -185,10 +185,10 @@ public class ScreenTrailPois : UIScreenView
 
     async void Refresh()
     {
+        scrollRect.verticalNormalizedPosition = 1f;
         contentSizeFitters = transform.GetComponentsInChildren<ContentSizeFitter>();
         Array.Reverse(contentSizeFitters);
-        await UIController.instance.RefreshContent(contentSizeFitters);
-        scrollRect.verticalNormalizedPosition = 1f;
+        UIController.instance.RefreshContent(contentSizeFitters);
     }
 
     async void LoadMapScean()
