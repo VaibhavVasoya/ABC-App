@@ -13,7 +13,7 @@ public class TrailsHandler : Singleton<TrailsHandler>
     public SculptureEvent sculptureEvent = null;
     public VillageDiscount villageDiscount = null;
     int sculptureFindUnderMeters = 20;
-    public bool isInvokeNearestSculp;
+    public bool isInvokeNearestSculp = true;
     [SerializeField] NotificationPopup notificationPopup ;
     //private void OnEnable()
     //{
