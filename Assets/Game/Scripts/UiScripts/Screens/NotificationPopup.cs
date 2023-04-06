@@ -37,6 +37,7 @@ public class NotificationPopup : MonoBehaviour
 
     public void OnClickOk()
     {
+        UIController.instance.getScreen(UIController.instance.getCurrentScreen()).isBackWorking = true;
         if (UIController.instance.getCurrentScreen() == ScreenType.PoiDetails)
         {
             UIController.instance.getScreen(ScreenType.PoiDetails).GetComponent<ScreenPoiDetail>().SetPoiDetails();

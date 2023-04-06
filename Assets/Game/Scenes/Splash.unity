@@ -1733,6 +1733,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Background: {fileID: 0}
   Parent: {fileID: 0}
+  isBackWorking: 1
 --- !u!114 &789673621
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2535,6 +2536,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Background: {fileID: 0}
   Parent: {fileID: 0}
+  isBackWorking: 1
   LanguageDropdown: {fileID: 2091098357}
   curver:
     serializedVersion: 2
@@ -3168,6 +3170,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Background: {fileID: 0}
   Parent: {fileID: 0}
+  isBackWorking: 1
   loadProgress: {fileID: 6715411609335425087}
   downloadFiles: []
   loader: {fileID: 1312243245}
@@ -3511,6 +3514,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Background: {fileID: 0}
   Parent: {fileID: 0}
+  isBackWorking: 1
   txtTitle: {fileID: 2097438405}
   txtMsg: {fileID: 1213822810}
 --- !u!1 &1316933028
@@ -6993,6 +6997,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Background: {fileID: 0}
   Parent: {fileID: 0}
+  isBackWorking: 1
   txtTitle: {fileID: 3248040235900627979}
   txtMsg: {fileID: 3248040235714113359}
 --- !u!1 &3248040236397733018
