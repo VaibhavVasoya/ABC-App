@@ -56,7 +56,7 @@ public class ScreenPoiDetail : UIScreenView
 
     public async void CheckPoiVisited()
     {
-
+        if (SavedDataHandler.instance._saveData.myTrails.Find(x => x.Num == TrailsHandler.instance.CurrentTrail.num).IsVisited) return;
         foreach (var item in ApiHandler.instance.data.trailPois)
         {
             if (SavedDataHandler.instance._saveData.mySculptures.Exists(x => x.IntroId == TrailsHandler.instance.CurrentTrail.num))
@@ -157,6 +157,7 @@ public class ScreenPoiDetail : UIScreenView
         //Debug.Log("not scrolled" + scrollRect.verticalNormalizedPosition);
         //}
         UIController.instance.ShowNextScreen(ScreenType.Feedback);
+        SavedDataHandler.instance._saveData.myTrails.Find(x => x.Num == TrailsHandler.instance.CurrentTrail.num).IsVisited = true;
     }
 
 
