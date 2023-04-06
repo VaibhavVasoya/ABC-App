@@ -51,61 +51,119 @@ public class ScreenPoiDetail : UIScreenView
         swipeControl = ObjCarousel.GetComponent<SwipeControl>();
     }
 
-    async void CheckPoiVisited()
+
+
+
+    public async void CheckPoiVisited()
     {
-        //return;
-        if (!isCheckFeedBack) return;
-        if (TrailsHandler.instance.CurrentTrail == null)
+
+        foreach (var item in ApiHandler.instance.data.trailPois)
         {
-            await Task.Delay(TimeSpan.FromSeconds(2));
-            CheckPoiVisited();
-            return;
-        }
-        else if (!string.IsNullOrEmpty(TrailsHandler.instance.CurrentTrail.num))
-        {
-            Debug.Log("123 if");
-            bool allVisited = true;
-            //TrailsHandler.instance.isAllPoiVisited();
-            foreach (var item in SavedDataHandler.instance._saveData.mySculptures)
+            if (SavedDataHandler.instance._saveData.mySculptures.Exists(x => x.IntroId == TrailsHandler.instance.CurrentTrail.num))
             {
-                if (item.IntroId == TrailsHandler.instance.CurrentTrail.num)
-                {
-                    if (!item.IsVisited)
-                    {
-                        allVisited = false;
-                        break;
-                    }
-                }
+                SavedDataHandler.instance._saveData.mySculptures.Find(x => x.Num == TrailsHandler.instance.CurrentTrailPoi.num).IsVisited = true;
             }
-            await Task.Delay(TimeSpan.FromSeconds(2));
-            if (allVisited)
+        }
+
+        foreach (var item in ApiHandler.instance.data.trailPois)
+        {
+            if (item.intro_id != TrailsHandler.instance.CurrentTrail.num)
             {
-                if (SavedDataHandler.instance._saveData.myTrails.Exists(x => x.Num == TrailsHandler.instance.CurrentTrail.num))
-                {
-                    Debug.Log("in ");
-                    if (!SavedDataHandler.instance._saveData.myTrails.Find(x => x.Num == TrailsHandler.instance.CurrentTrail.num).IsVisited)
-                    {
-                        SavedDataHandler.instance._saveData.myTrails.Find(x => x.Num == TrailsHandler.instance.CurrentTrail.num).IsVisited = true;
-                        UIController.instance.ShowNextScreen(ScreenType.Feedback);
-                        CheckPoiVisited();
-                        return;
-                    }
-                }
-                await Task.Delay(TimeSpan.FromSeconds(2));
-                CheckPoiVisited();
+                continue;
+            }
+            else
+            {
+                Debug.Log("into the ocean");
+            }
+
+
+            //if (SavedDataHandler.instance._saveData.mySculptures.Exists(x => x.Num == item.intro_id))
+            Debug.Log("Pre exist");
+            //Debug.Log("I Exist: " + SavedDataHandler.instance._saveData.mySculptures.Find(x => x.Num == item.intro_id).Num);
+            if (SavedDataHandler.instance._saveData.mySculptures.Find(x => x.Num == item.num).IsVisited == false)
+            {
+                Debug.Log("return statement pre");
                 return;
+                //Debug.Log("return statement post");
             }
-            await Task.Delay(TimeSpan.FromSeconds(2));
-            CheckPoiVisited();
-            return;
         }
-        else
-        {
-            await Task.Delay(TimeSpan.FromSeconds(2));
-            CheckPoiVisited();
-            return;
-        }
+
+        Debug.Log("feedback screen pre");
+        delayw();
+
+
+
+        Debug.Log("feedback screen post");
+        //isVisited();
+
+
+
+
+        //else if (!string.IsNullOrEmpty(TrailsHandler.instance.CurrentTrail.num))
+        //{
+        //    //Debug.Log("123 if");
+        //    bool allVisited = true;
+        //    //TrailsHandler.instance.isAllPoiVisited();
+        //    foreach (var item in SavedDataHandler.instance._saveData.mySculptures)
+        //    {
+        //        if (item.IntroId == TrailsHandler.instance.CurrentTrail.num)
+        //        {
+        //            if (!item.IsVisited)
+        //            {
+        //                allVisited = false;
+        //                break;
+        //            }
+        //        }
+        //    }
+        //    await Task.Delay(TimeSpan.FromSeconds(2));
+        //    if (allVisited)
+        //    {
+        //        if (SavedDataHandler.instance._saveData.myTrails.Exists(x => x.Num == TrailsHandler.instance.CurrentTrail.num))
+        //        {
+        //            //Debug.Log("in ");
+        //            if (!SavedDataHandler.instance._saveData.myTrails.Find(x => x.Num == TrailsHandler.instance.CurrentTrail.num).IsVisited)
+        //            {
+        //                Debug.Log("pre true condition");
+        //                SavedDataHandler.instance._saveData.myTrails.Find(x => x.Num == TrailsHandler.instance.CurrentTrail.num).IsVisited = true;
+        //                Debug.Log("post true condition");
+        //                UIController.instance.ShowNextScreen(ScreenType.Feedback);
+        //                CheckPoiVisited();
+        //                return;
+        //            }
+        //        }
+        //        await Task.Delay(TimeSpan.FromSeconds(2));
+        //        CheckPoiVisited();
+        //        return;
+        //    }
+        //    await Task.Delay(TimeSpan.FromSeconds(2));
+        //    CheckPoiVisited();
+        //    return;
+        //}
+        //else
+        //{
+        //    await Task.Delay(TimeSpan.FromSeconds(2));
+        //    CheckPoiVisited();
+        //    return;
+        //}
     }
+
+
+    async void delayw()
+    {
+        //while (scrollRect.verticalNormalizedPosition < 0.1f)
+        //{
+
+        await Task.Delay(4000);
+        //Debug.Log("not scrolled" + scrollRect.verticalNormalizedPosition);
+        //}
+        UIController.instance.ShowNextScreen(ScreenType.Feedback);
+    }
+
+
+
+
+
+
     public override void OnScreenShowCalled()
     {
         base.OnScreenShowCalled();
@@ -123,7 +181,7 @@ public class ScreenPoiDetail : UIScreenView
         swipeControl.canSwipe = true;
         ourAudioPlayer.AssignAudioClip();
         ResetNextLocation();
-        isVisited();
+        //isVisited();
         //CheckPoiVisited();
     }
 
@@ -187,6 +245,7 @@ public class ScreenPoiDetail : UIScreenView
             bg.Downloading(poi.num, poi.thumbnail);
             ObjCarousel.SetActive(false);
         }
+        //isVisited();
         CheckPoiVisited();
         Refresh();
     }
