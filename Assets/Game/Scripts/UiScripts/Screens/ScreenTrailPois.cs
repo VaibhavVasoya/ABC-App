@@ -57,7 +57,7 @@ public class ScreenTrailPois : UIScreenView
     public override void OnScreenHideCalled()
     {
         base.OnScreenHideCalled();
-        if(UIController.instance.previousScreen == ScreenType.TrailList)
+        if(UIController.instance.previousScreen == ScreenType.Poi)
         {
             TrailsHandler.instance.isInvokeNearestSculp = false;
         }
