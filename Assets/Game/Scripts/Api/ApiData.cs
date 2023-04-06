@@ -17,6 +17,7 @@ public class ApiData : ScriptableObject
     public List<SculptureEvent> sculptureEvents;
     public List<VillageDiscount> villageDiscounts;
     public List<Feedback> feedBackOptions;
+    public List<AppIcon> appIcons;
 
     public ShareWithOther shareWithOther = null;
 
@@ -269,4 +270,12 @@ public class AboutTheApp
     public string about_app_title;
     public string about_app_text;
     public string about_app_image;
+}
+
+[Serializable]
+public class AppIcon
+{
+    public string num;
+    public string icon_meta;
+    public string icon_value;
 }

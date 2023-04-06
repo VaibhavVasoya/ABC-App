@@ -19,7 +19,8 @@ public static class GameData
     public const string API_ABOUT_US = "master.php?api=about_us&";
     public const string API_ABOUT_THIS_APP = "master.php?api=about_app&";
     public const string API_SHARE_WITH_OTHER = "master.php?api=share_text&";
-    
+    public const string API_APP_ICON = "app_icons.php";
+
     public const string VIDEO_FOLDER = "Video360";
     public const string VIDEO_DOWNLOAD_FOLDER = "TempVideo360";
 
@@ -50,7 +51,8 @@ public enum API_TYPE
     API_MENU,
     API_MULTI_LANGUAGE,
     API_Feedback,
-    API_FEEDBACKPOST
+    API_FEEDBACKPOST,
+    API_APP_ICON
 }
 
 public enum TRAIL_TYPE

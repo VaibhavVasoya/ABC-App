@@ -14,6 +14,7 @@ namespace Master.UIKit
         public Image Background;
         [HideInInspector]
         public RectTransform Parent;
+        public bool isBackWorking = true;
 
         UIAnimator _uiAnimator;
         public override void OnAwake()
@@ -65,7 +66,8 @@ namespace Master.UIKit
             yield return new WaitForSeconds(.5f);
             while (true)
             {
-                if (Input.GetKeyDown(KeyCode.Escape))// if (Keyboard.current.escapeKey.wasPressedThisFrame)
+
+                if (Input.GetKeyDown(KeyCode.Escape) && isBackWorking)// if (Keyboard.current.escapeKey.wasPressedThisFrame)
                 {
                     OnBack();
                     StopCoroutine(BackKeyRoutine);

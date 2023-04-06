@@ -17,7 +17,7 @@ public class ApiHandler : Singleton<ApiHandler>
 
     public MultiLanguage currentLanguage;
 
-    bool isWalkthroughLoaded, isTrailsLoaded, isPoisLoaded, isEventsLoaded, isDiscountLoded , isTrailCatLoaded;
+    bool isWalkthroughLoaded, isTrailsLoaded, isPoisLoaded, isEventsLoaded, isDiscountLoded, isTrailCatLoaded;
 
     public override void OnAwake()
     {
@@ -31,7 +31,7 @@ public class ApiHandler : Singleton<ApiHandler>
         ClearData();
 
         await Task.Delay(TimeSpan.FromSeconds(Time.deltaTime));
-        
+        GetAppIcon();
         GetLanguageList();
         //LoadInitData();
     }
@@ -39,22 +39,22 @@ public class ApiHandler : Singleton<ApiHandler>
     /// <summary>
     /// static data
     /// </summary>
-    //public string GetStaticVariableValue(VariableName variableName, string defaultVal)
-    //{
-    //    StaticLanguageData staticLangData = data.staticData.staticLangData.Find(x => x.lang_id == currentLanguage.num);
-    //    if (staticLangData != null)
-    //    {
-    //        StaticData staticData = staticLangData.data.Find(x => x.meta == variableName.ToString().ToLower());
-    //        if (staticData != null)
-    //            return staticData.value;
-    //        else
-    //            Debug.Log("<color=red> Static variable is not match. </color>");
-    //    }
-    //    else
-    //        Debug.Log("<color=red> Static language data is empty. </color>");
+    public string GetStaticVariableValue(VariableName variableName, string defaultVal)
+    {
+        StaticLanguageData staticLangData = data.staticData.staticLangData.Find(x => x.lang_id == currentLanguage.num);
+        if (staticLangData != null)
+        {
+            StaticData staticData = staticLangData.data.Find(x => x.meta == variableName.ToString().ToLower());
+            if (staticData != null)
+                return staticData.value;
+            else
+                Debug.Log("<color=red> Static variable is not match. </color>");
+        }
+        else
+            Debug.Log("<color=red> Static language data is empty. </color>");
 
-    //    return defaultVal;
-    //}
+        return defaultVal;
+    }
 
 
     public void ClearData()
@@ -67,7 +67,7 @@ public class ApiHandler : Singleton<ApiHandler>
         data.trailPois.Clear();
         data.sculptureEvents.Clear();
         data.villageDiscounts.Clear();
-        data.aboutUs  =null;
+        data.aboutUs = null;
         data.aboutTheApp = null;
         data.shareWithOther = null;
         isWalkthroughLoaded = isTrailsLoaded = isPoisLoaded = isEventsLoaded = isDiscountLoded = isTrailCatLoaded = false;
@@ -111,11 +111,11 @@ public class ApiHandler : Singleton<ApiHandler>
         else
         {
             Debug.Log("File Not Match");
-        }        
+        }
     }
 
     bool ImageExist(string prefix, string url)
-    {       
+    {
         return Services.ImageFileExist(prefix, url);
     }
 
@@ -177,7 +177,7 @@ public class ApiHandler : Singleton<ApiHandler>
         AddFileForDownlod(new ItemType(FileType.IMAGE, "1", data.aboutUs.about_image));
         AddFileForDownlod(new ItemType(FileType.IMAGE, "2", data.aboutTheApp.about_app_image));
         Debug.Log("<color=green>Start Downloding data..</color> " + DownloadFiles.Count + "</color>");
-        
+
         UIController.instance.getScreen(ScreenType.PrepareForLaunch).GetComponent<ScreenPrepareForLaunch>().StartDownloading(DownloadFiles.Count);
         Debug.Log("Start download ");
         if (DownloadFiles.Count > 0)
@@ -447,7 +447,7 @@ public class ApiHandler : Singleton<ApiHandler>
                 trailCat = JsonUtility.FromJson<TrailCat>(res["data"][i].ToString());
                 data.trailCats.Add(trailCat);
             }
-           
+
         }
         Events.OnWebRequestComplete(API_TYPE.API_TRAIL_CAT, obj);
         LoadingUI.instance.OnScreenHide();
@@ -775,13 +775,13 @@ public class ApiHandler : Singleton<ApiHandler>
                 Debug.Log("<color=green>Fetched Events</color>");
                 Events.OnWebRequestComplete(API_TYPE.API_Feedback, obj);
             }
-        } 
+        }
     }
     /// <summary>
     /// Feedback post
     /// Scupture trial details like: name, short description, banner, etc..
     /// </summary>
-    public void PostFeedback(string lang_id,string trail_id , string comment_id)
+    public void PostFeedback(string lang_id, string trail_id, string comment_id)
     {
         KVPList<string, string> list = new KVPList<string, string>();
         list.Add("lang_id", lang_id);
@@ -814,8 +814,59 @@ public class ApiHandler : Singleton<ApiHandler>
     //    LoadingUI.instance.OnScreenHide();
     //    isTrailsLoaded = true;
     //}
+
+    /// <summary>
+    /// App icon
+    /// </summary>
+    public void GetAppIcon()
+    {
+        Services.Get(GameData.API_APP_ICON, AppIconCallBack, false, false);
+    }
+    void AppIconCallBack(string obj)
+    {
+        var res = ParseResponse(obj);
+        if (res != null)
+        {
+            if (data.appIcons == null)
+                data.appIcons = new List<AppIcon>();
+            data.appIcons.Clear();
+            for (int i = 0; i < res["data"].Count; i++)
+            {
+                AppIcon appIcon = new AppIcon();
+                //Debug.LogError(res["data"][i].ToString());
+                appIcon = JsonUtility.FromJson<AppIcon>(res["data"][i].ToString());
+                data.appIcons.Add(appIcon);
+            }
+
+        }
+        Events.OnWebRequestComplete(API_TYPE.API_APP_ICON, obj);
+    }
+
 }
 
 public enum VariableName
 {
+}
+
+public enum IconKey
+{
+    icon_quiz_incorrect = 0,
+    icon_quiz_correct = 1,
+    icon_menu_home = 2,
+    icon_menu_aboutus = 3,
+    icon_menu_aboutapp = 4,
+    icon_menu_events = 5,
+    map_pin = 6,
+    icon_menu_discounts = 7,
+    icon_menu_preferences = 8,
+    share_icon = 9,
+    quiz_icon = 10,
+    map_icon = 11,
+    listen_icon = 12,
+    list_icon = 13,
+    icon_happy = 14,
+    icon_menu_trails = 15,
+    ar_icon = 16,
+    icon_360 = 17
+
 }

@@ -15,6 +15,8 @@ public class NotificationPopup : MonoBehaviour
     }
     public void Show(string str)
     {
+        //UIController.instance.getCurrentScreen().
+        UIController.instance.getScreen(UIController.instance.getCurrentScreen()).isBackWorking = false;
         txtMsg.text = str;
         _canvas.enabled = true;
         movePanelAnimate.ShowAnimation();
@@ -24,6 +26,7 @@ public class NotificationPopup : MonoBehaviour
     void Hide()
     {
         movePanelAnimate.HideAnimation(() => _canvas.enabled = false);
+        UIController.instance.getScreen(UIController.instance.getCurrentScreen()).isBackWorking = true;
     }
 
     public void HideNotification()
