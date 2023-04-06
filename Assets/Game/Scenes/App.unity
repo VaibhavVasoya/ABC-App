@@ -16096,6 +16096,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Background: {fileID: 0}
   Parent: {fileID: 0}
+  isBackWorking: 1
 --- !u!1 &1027890774
 GameObject:
   m_ObjectHideFlags: 0
@@ -16247,6 +16248,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Background: {fileID: 0}
   Parent: {fileID: 0}
+  isBackWorking: 1
   feedbackPanel: {fileID: 726730606}
   img0: {fileID: 1428841594}
   img1: {fileID: 776764844}
@@ -16922,6 +16924,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Background: {fileID: 0}
   Parent: {fileID: 0}
+  isBackWorking: 1
   PoiImg: {fileID: 2045059063}
   txtEventPoiName: {fileID: 683809729}
   txtEventPoiSubDesc: {fileID: 967670805}
@@ -19342,6 +19345,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Background: {fileID: 0}
   Parent: {fileID: 0}
+  isBackWorking: 1
   txtTitle: {fileID: 442354369}
   txtMsg: {fileID: 504467025}
 --- !u!1 &1230713391
@@ -20822,6 +20826,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Background: {fileID: 0}
   Parent: {fileID: 0}
+  isBackWorking: 1
 --- !u!1 &1322734468
 GameObject:
   m_ObjectHideFlags: 0
@@ -21672,6 +21677,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Background: {fileID: 0}
   Parent: {fileID: 0}
+  isBackWorking: 1
 --- !u!114 &1394524516
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22264,6 +22270,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Background: {fileID: 0}
   Parent: {fileID: 0}
+  isBackWorking: 1
   swipeControl: {fileID: 1776165302}
   pagePrefab: {fileID: 8718013369884570944, guid: 532312078a20a479ab618a27ba009737, type: 3}
   dotPrefab: {fileID: 4511673326413396954, guid: b9d3a80f529fa460c97329f4ee5564bb, type: 3}
@@ -23842,6 +23849,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Background: {fileID: 0}
   Parent: {fileID: 0}
+  isBackWorking: 1
   VideoContnetObj: {fileID: 0}
   videoContentParent: {fileID: 0}
 --- !u!1 &1553692228
@@ -23996,6 +24004,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Background: {fileID: 0}
   Parent: {fileID: 0}
+  isBackWorking: 1
 --- !u!1 &1554302644
 GameObject:
   m_ObjectHideFlags: 0
@@ -25014,6 +25023,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Background: {fileID: 0}
   Parent: {fileID: 0}
+  isBackWorking: 1
 --- !u!1 &1661731176
 GameObject:
   m_ObjectHideFlags: 0
@@ -25166,6 +25176,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Background: {fileID: 0}
   Parent: {fileID: 0}
+  isBackWorking: 1
   MenuTexts:
   - {fileID: 216236773}
   - {fileID: 1337681791}
@@ -25476,6 +25487,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Background: {fileID: 0}
   Parent: {fileID: 0}
+  isBackWorking: 1
   trail_Prefab: {fileID: 5109380854357722517, guid: 52d20e47795d541bd9e3bf41840288be, type: 3}
   contentParent: {fileID: 556620907}
   scrollRect: {fileID: 352318920}
@@ -25706,6 +25718,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Background: {fileID: 0}
   Parent: {fileID: 0}
+  isBackWorking: 1
   txtDownalodName: {fileID: 1473404043}
   downlodProgress: {fileID: 568520307}
   DownlodAssetName: 
@@ -26851,6 +26864,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Background: {fileID: 0}
   Parent: {fileID: 0}
+  isBackWorking: 1
   txtTitle: {fileID: 186092325}
   eventCeilPrefab: {fileID: 8710604486079609165, guid: e867c7bff18fd499d9de45d9707188fc, type: 3}
   contentParent: {fileID: 127120082}
@@ -30719,6 +30733,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Background: {fileID: 0}
   Parent: {fileID: 0}
+  isBackWorking: 1
   eventPoiImg: {fileID: 48141425}
   txtEventPoiName: {fileID: 836587635}
   txtEventPoiSubDesc: {fileID: 1396264019}
@@ -32162,7 +32177,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2087363725}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_RenderMode: 1
   m_Camera: {fileID: 74707789}
@@ -37922,6 +37937,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Background: {fileID: 0}
   Parent: {fileID: 0}
+  isBackWorking: 1
 --- !u!223 &98695467024774508
 Canvas:
   m_ObjectHideFlags: 0
@@ -45141,6 +45157,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Background: {fileID: 0}
   Parent: {fileID: 0}
+  isBackWorking: 1
   bg: {fileID: 5315925998352212426}
   txtname: {fileID: 5279419464406535421}
   txtDescription: {fileID: 1650682014060523432}
@@ -45969,7 +45986,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -43603.074, y: 0}
+  m_AnchoredPosition: {x: -45712.867, y: 0}
   m_SizeDelta: {x: 0, y: 500}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1650682014440575114
@@ -69002,6 +69019,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Background: {fileID: 0}
   Parent: {fileID: 0}
+  isBackWorking: 1
   bg: {fileID: 3733702670706475410}
   txtname: {fileID: 3733702672130321309}
   txtStartDate: {fileID: 3733702670801794528}
@@ -70687,6 +70705,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Background: {fileID: 0}
   Parent: {fileID: 0}
+  isBackWorking: 1
   txtTitle: {fileID: 3832336332554354218}
   txtDetails: {fileID: 3832336334476511402}
   img: {fileID: 3832336334366574829}
@@ -75764,6 +75783,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Background: {fileID: 0}
   Parent: {fileID: 0}
+  isBackWorking: 1
   txtTitle: {fileID: 4020529956230767890}
   txtDetails: {fileID: 4020529957022768776}
   img: {fileID: 4020529957452823421}
@@ -95155,6 +95175,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Background: {fileID: 0}
   Parent: {fileID: 0}
+  isBackWorking: 1
   txtQuestionText: {fileID: 4461068063108107574}
   txtQuestionNumber: {fileID: 4461068063978024668}
   answersCeils:
@@ -95754,6 +95775,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Background: {fileID: 0}
   Parent: {fileID: 0}
+  isBackWorking: 1
   txtpoiTitle: {fileID: 7624909547457422273}
   trail_poi_Prefab: {fileID: 5109380854357722517, guid: 5aba3bab0e8f44213b1321c091943f4e, type: 3}
   contentParent: {fileID: 7624909547282700849}
@@ -101193,6 +101215,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Background: {fileID: 0}
   Parent: {fileID: 0}
+  isBackWorking: 1
   trail_Prefab: {fileID: 5109380854357722517, guid: 34fb466c19554481a9388fd42a05e957, type: 3}
   contentParent: {fileID: 1163807660}
   scrollRect: {fileID: 456243639}
@@ -115945,7 +115968,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -13812596, y: 0}
+  m_AnchoredPosition: {x: -13831584, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!1 &6797863417479745053

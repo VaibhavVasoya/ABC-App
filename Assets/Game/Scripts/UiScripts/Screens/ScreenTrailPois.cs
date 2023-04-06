@@ -57,8 +57,10 @@ public class ScreenTrailPois : UIScreenView
     public override void OnScreenHideCalled()
     {
         base.OnScreenHideCalled();
-        //if(UIController.instance.previousScreen == ScreenType.)
-        TrailsHandler.instance.isInvokeNearestSculp = false;
+        if(UIController.instance.previousScreen == ScreenType.TrailList)
+        {
+            TrailsHandler.instance.isInvokeNearestSculp = false;
+        }
         poiPanelAnimate.HideAnimation();
         RemoveMapScean();
     }
