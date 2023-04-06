@@ -23,7 +23,7 @@ public class NotificationPopup : MonoBehaviour
 
     void Hide()
     {
-        movePanelAnimate.HideAnimation(() => _canvas.enabled = false );
+        movePanelAnimate.HideAnimation(() => _canvas.enabled = false);
     }
 
     public void HideNotification()
@@ -34,7 +34,14 @@ public class NotificationPopup : MonoBehaviour
 
     public void OnClickOk()
     {
-        UIController.instance.ShowNextScreen(ScreenType.PoiDetails);
+        if (UIController.instance.getCurrentScreen() == ScreenType.PoiDetails)
+        {
+            UIController.instance.getScreen(ScreenType.PoiDetails).GetComponent<ScreenPoiDetail>().SetPoiDetails();
+        }
+        else
+        {
+            UIController.instance.ShowNextScreen(ScreenType.PoiDetails);
+        }
         Hide();
     }
 }
