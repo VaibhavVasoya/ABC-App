@@ -13,17 +13,17 @@ public class TrailsHandler : Singleton<TrailsHandler>
     public SculptureEvent sculptureEvent = null;
     public VillageDiscount villageDiscount = null;
     int sculptureFindUnderMeters = 20;
-    bool isInvokeNearestSculp;
+    public bool isInvokeNearestSculp;
     [SerializeField] NotificationPopup notificationPopup ;
-    private void OnEnable()
-    {
-        isInvokeNearestSculp = true;
-    }
+    //private void OnEnable()
+    //{
+    //    isInvokeNearestSculp = true;
+    //}
 
-    private void OnDisable()
-    {
-        isInvokeNearestSculp = false;
-    }
+    //private void OnDisable()
+    //{
+    //    isInvokeNearestSculp = false;
+    //}
 
     private void Start()
     {
@@ -58,13 +58,11 @@ public class TrailsHandler : Singleton<TrailsHandler>
     public async void CheckSculpNearestMe()
     {
         Vector2 currentLocation = await MapController.instance.GetCurrentLocation();
+        //foreach (var sculp in ApiHandler.instance.data.trailPois)
         foreach (var sculp in ApiHandler.instance.data.trailPois)
         {
-            Debug.Log("123 current location "+ currentLocation);
-            //Vector2 v = new Vector2(float.Parse(sculp.longitude), float.Parse(sculp.latitude));
+            if (sculp.intro_id != CurrentTrail.num) continue;
             await Task.Delay(TimeSpan.FromSeconds(2));
-            Debug.Log("longitude = " + sculp.longitude +" latitude = "+ sculp.latitude);
-            //Debug.Log("123 poi location = " + v);
             if (string.IsNullOrEmpty(sculp.longitude) || string.IsNullOrEmpty(sculp.latitude)) continue;
             if (GetDistance(new Vector2(float.Parse(sculp.longitude), float.Parse(sculp.latitude)), currentLocation) < sculptureFindUnderMeters)// sculpture find in under 20 meters.
             {
@@ -78,6 +76,7 @@ public class TrailsHandler : Singleton<TrailsHandler>
                     {
                         notificationPopup.Show("You are approaching the " + sculp.Name + " sculpture");
                         SavedDataHandler.instance._saveData.mySculptures.Find(x => x.Num == sculp.num).popUpShow = true;
+                        CurrentTrailPoi = ApiHandler.instance.data.trailPois.Find(x => x.num == sculp.num);
                     }
                 }
                 Events.NearestSculpture(sculp.num, true);

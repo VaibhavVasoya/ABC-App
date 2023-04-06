@@ -49,6 +49,7 @@ public class ScreenTrailPois : UIScreenView
     {
         base.OnScreenShowCalled();
         TrailsHandler.instance.CurrentTrailPoi = null;
+        TrailsHandler.instance.isInvokeNearestSculp = true;
         poiListToggle.isOn = true;
         OpenTab(poiMapToggle.isOn);
         SculptureTrailPoisCallBack(API_TYPE.API_TRAIL_POIS, "");
@@ -56,6 +57,7 @@ public class ScreenTrailPois : UIScreenView
     public override void OnScreenHideCalled()
     {
         base.OnScreenHideCalled();
+        TrailsHandler.instance.isInvokeNearestSculp = false;
         poiPanelAnimate.HideAnimation();
         RemoveMapScean();
     }

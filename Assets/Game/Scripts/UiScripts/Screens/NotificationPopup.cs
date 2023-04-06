@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Master.UIKit;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,7 +18,7 @@ public class NotificationPopup : MonoBehaviour
         txtMsg.text = str;
         _canvas.enabled = true;
         movePanelAnimate.ShowAnimation();
-        Invoke("Hide", 4);
+        //Invoke("Hide", 4);
     }
 
     void Hide()
@@ -31,5 +32,9 @@ public class NotificationPopup : MonoBehaviour
         Hide();
     }
 
-
+    public void OnClickOk()
+    {
+        UIController.instance.ShowNextScreen(ScreenType.PoiDetails);
+        Hide();
+    }
 }
