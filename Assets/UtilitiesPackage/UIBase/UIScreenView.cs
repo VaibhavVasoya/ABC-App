@@ -70,7 +70,11 @@ namespace Master.UIKit
                 if (Input.GetKeyDown(KeyCode.Escape) && isBackWorking)// if (Keyboard.current.escapeKey.wasPressedThisFrame)
                 {
                     OnBack();
-                    StopCoroutine(BackKeyRoutine);
+
+                    if(BackKeyRoutine!=null)
+                    {
+                        StopCoroutine(BackKeyRoutine);
+                    }
                     yield return new WaitForSeconds(1f);
                 }
 

@@ -150,8 +150,8 @@ public class PhysicalTrailAudioPlayer : MonoBehaviour
 
     public void AssignAudioClip()
     {
-        Debug.LogError("num : " + TrailsHandler.instance.CurrentTrailPoi.num + " || File : " + TrailsHandler.instance.CurrentTrailPoi.audio_file);
-        Services.DownloadAudio(TrailsHandler.instance.CurrentTrailPoi.num, TrailsHandler.instance.CurrentTrailPoi.audio_file, (x) => { audioPlayer.clip = x; Debug.LogError(x == null); });
+//        Debug.LogError("num : " + TrailsHandler.instance.CurrentTrailPoi.num + " || File : " + TrailsHandler.instance.CurrentTrailPoi.audio_file);
+        Services.DownloadAudio(TrailsHandler.instance.CurrentTrailPoi.num, TrailsHandler.instance.CurrentTrailPoi.audio_file, (x) => { audioPlayer.clip = x;});
     }
     //public async void SetPlayData(bool isLongAudio)
     //{
