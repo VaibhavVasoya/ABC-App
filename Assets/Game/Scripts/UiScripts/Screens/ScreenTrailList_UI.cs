@@ -32,7 +32,7 @@ namespace Master.UI
             {
                 Debug.Log("trail null");
             }
-            TrailsHandler.instance.CheckSculpNearestMe();
+            
             Refresh();
         }
 

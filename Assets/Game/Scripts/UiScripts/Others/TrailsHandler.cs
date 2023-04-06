@@ -61,12 +61,13 @@ public class TrailsHandler : Singleton<TrailsHandler>
         //foreach (var sculp in ApiHandler.instance.data.trailPois)
         foreach (var sculp in ApiHandler.instance.data.trailPois)
         {
+            Debug.Log("123 foreeach");
             if (sculp.intro_id != CurrentTrail.num) continue;
             await Task.Delay(TimeSpan.FromSeconds(2));
             if (string.IsNullOrEmpty(sculp.longitude) || string.IsNullOrEmpty(sculp.latitude)) continue;
             if (GetDistance(new Vector2(float.Parse(sculp.longitude), float.Parse(sculp.latitude)), currentLocation) < sculptureFindUnderMeters)// sculpture find in under 20 meters.
             {
-
+                Debug.Log("123 if");
                 //Debug.LogError("123"+sculp.Name + " Cheack is neareas me.");
                 // Sculpture is nearest 30 meters.
                 //SculptureVisited();
@@ -83,6 +84,7 @@ public class TrailsHandler : Singleton<TrailsHandler>
             }
             else
             {
+                Debug.Log("123 else");
                 if (SavedDataHandler.instance._saveData.mySculptures.Find(x => x.Num == sculp.num).popUpShow)
                 {
                     SavedDataHandler.instance._saveData.mySculptures.Find(x => x.Num == sculp.num).popUpShow = false;
@@ -92,6 +94,7 @@ public class TrailsHandler : Singleton<TrailsHandler>
         }
         await Task.Delay(TimeSpan.FromSeconds(1));
         //CheckSculpNearestMe();
+        Debug.Log("123 end");
         if (isInvokeNearestSculp) CheckSculpNearestMe();
     }
 

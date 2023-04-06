@@ -48,6 +48,7 @@ public class ScreenTrailPois : UIScreenView
     public override void OnScreenShowCalled()
     {
         base.OnScreenShowCalled();
+        TrailsHandler.instance.CheckSculpNearestMe();
         TrailsHandler.instance.CurrentTrailPoi = null;
         TrailsHandler.instance.isInvokeNearestSculp = true;
         poiListToggle.isOn = true;
@@ -57,10 +58,10 @@ public class ScreenTrailPois : UIScreenView
     public override void OnScreenHideCalled()
     {
         base.OnScreenHideCalled();
-        if(UIController.instance.previousScreen == ScreenType.Poi)
-        {
-            TrailsHandler.instance.isInvokeNearestSculp = false;
-        }
+        //if(UIController.instance.previousScreen == ScreenType.Poi)
+        //{
+        //    TrailsHandler.instance.isInvokeNearestSculp = false;
+        //}
         poiPanelAnimate.HideAnimation();
         RemoveMapScean();
     }
