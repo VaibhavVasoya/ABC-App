@@ -28,7 +28,7 @@ public class NotificationPopup : MonoBehaviour
 
     public void HideNotification()
     {
-        CancelInvoke("Hide");
+        //CancelInvoke("Hide");
         Hide();
     }
 
