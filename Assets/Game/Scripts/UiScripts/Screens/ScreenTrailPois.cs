@@ -86,66 +86,8 @@ public class ScreenTrailPois : UIScreenView
         {
             Destroy(contentParent.GetChild(i).gameObject);
         }
-
-        //CheckPoiVisited();
     }
-    //async void CheckPoiVisited()
-    //{
-    //    //return;
-    //    if (!isCheckFeedBack) return;
-    //    if (TrailsHandler.instance.CurrentTrail == null)
-    //    {
-    //        await Task.Delay(TimeSpan.FromSeconds(2));
-    //        CheckPoiVisited();
-    //        return;
-    //    }
-    //    else if (!string.IsNullOrEmpty(TrailsHandler.instance.CurrentTrail.num))
-    //    {
-    //        Debug.Log("123 if");
-    //        bool allVisited = true;
-    //        //TrailsHandler.instance.isAllPoiVisited();
-    //        foreach (var item in SavedDataHandler.instance._saveData.mySculptures)
-    //        {
-    //            if (item.IntroId == TrailsHandler.instance.CurrentTrail.num)
-    //            {
-    //                if (!item.IsVisited)
-    //                {
-    //                    allVisited = false;
-    //                    break;
-    //                }
-    //            }
-    //        }
-    //        await Task.Delay(TimeSpan.FromSeconds(2));
-    //        //if (!SavedDataHandler.instance._saveData.myTrails.Find(x => x.Num == TrailsHandler.instance.CurrentTrail.num).IsVisited)
-    //        //{
-    //        if (allVisited)
-    //        {
-    //            if (SavedDataHandler.instance._saveData.myTrails.Exists(x => x.Num == TrailsHandler.instance.CurrentTrail.num))
-    //            {
-    //                Debug.Log("in ");
-    //                if (!SavedDataHandler.instance._saveData.myTrails.Find(x => x.Num == TrailsHandler.instance.CurrentTrail.num).IsVisited)
-    //                {
-    //                    SavedDataHandler.instance._saveData.myTrails.Find(x => x.Num == TrailsHandler.instance.CurrentTrail.num).IsVisited = true;
-    //                    UIController.instance.ShowNextScreen(ScreenType.Feedback);
-    //                    CheckPoiVisited();
-    //                    return;
-    //                }
-    //            }
-    //            await Task.Delay(TimeSpan.FromSeconds(2));
-    //            CheckPoiVisited();
-    //            return;
-    //        }
-    //        await Task.Delay(TimeSpan.FromSeconds(2));
-    //        CheckPoiVisited();
-    //        return;
-    //    }
-    //    else
-    //    {
-    //        await Task.Delay(TimeSpan.FromSeconds(2));
-    //        CheckPoiVisited();
-    //        return;
-    //    }
-    //}
+   
     async void SculptureTrailPoisCallBack(API_TYPE aPI_TYPE, string obj)
     {
         if (aPI_TYPE != API_TYPE.API_TRAIL_POIS) return;

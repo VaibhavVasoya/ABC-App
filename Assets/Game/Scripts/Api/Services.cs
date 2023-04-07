@@ -255,7 +255,7 @@ public class Services : Singleton<Services>
             APIRequestScheduler.AddRequest(new APIRequest(METHOD.GET, getURL, OnServiceCallBack, null, null, withTimeOut));
             return;
         }
-        Debug.Log("123url = "+getURL);
+        Debug.Log("123url = " + getURL);
         UnityWebRequest request = UnityWebRequest.Get(getURL);
 
         if (withTimeOut)
@@ -394,13 +394,13 @@ public class Services : Singleton<Services>
     #region Video_Audio_Download
     public static bool isStop;
     public static bool isDownloding;
-    public static async Task DownloadVideoAndAudio(string prefix,string videoURL, string audioURL, bool isShowLoading, Action<string, AudioClip> callback)
+    public static async Task DownloadVideoAndAudio(string prefix, string videoURL, string audioURL, bool isShowLoading, Action<string, AudioClip> callback)
     {
         isStop = false;
         string localURL = null;
         AudioClip clip = null;
         if (isShowLoading) LoadingUI.instance.OnScreenShow();
-        await DownloadVideo(prefix,videoURL, (_localUrl) => { localURL = _localUrl; });
+        await DownloadVideo(prefix, videoURL, (_localUrl) => { localURL = _localUrl; });
         await DownloadAudio(prefix, audioURL, (_clip) => { clip = _clip; });
         if (isShowLoading) LoadingUI.instance.OnScreenHide();
         callback(localURL, clip);
@@ -490,7 +490,7 @@ public class Services : Singleton<Services>
 
         ((DownloadHandlerAudioClip)webRequest.downloadHandler).streamAudio = false;
 
-         webRequest.SendWebRequest();
+        webRequest.SendWebRequest();
         while (!webRequest.isDone && webRequest.error == null && !isStop)
         {
             await Task.Delay(TimeSpan.FromSeconds(Time.deltaTime));
@@ -635,10 +635,13 @@ public class Services : Singleton<Services>
     public static int totalDataSize;
     static int numberOfBundles;
     public static long totalSizeInByte = 0;
-    public static int totalBundle = 5;
+    //static AndroidJavaClass runtimeClass = new AndroidJavaClass("java.lang.Runtime");
+    //static AndroidJavaObject runtime = runtimeClass.CallStatic<AndroidJavaObject>("getRuntime");
+    public static int totalBundle = 3;
 
     public static async Task GetDataSize(List<ItemType> downloadFiles)
     {
+        Debug.Log("123 available thread = "+totalBundle);
         if (downloadFiles.Count == 0)
         {
             numberOfBundles = 0;

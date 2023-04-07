@@ -12,7 +12,7 @@ public class TrailsHandler : Singleton<TrailsHandler>
     public Poi CurrentTrailPoi = null;
     public SculptureEvent sculptureEvent = null;
     public VillageDiscount villageDiscount = null;
-    int sculptureFindUnderMeters = 20;
+    int sculptureFindUnderMeters = 2;
     public bool isInvokeNearestSculp = true;
     [SerializeField] NotificationPopup notificationPopup ;
     //private void OnEnable()
@@ -75,7 +75,7 @@ public class TrailsHandler : Singleton<TrailsHandler>
                 {
                     if (!SavedDataHandler.instance._saveData.mySculptures.Find(x => x.Num == sculp.num).popUpShow)
                     {
-                        notificationPopup.Show("You are approaching the " + sculp.Name + " sculpture");
+                        notificationPopup.Show("You are approaching the " + sculp.Name + " sculpture.");
                         SavedDataHandler.instance._saveData.mySculptures.Find(x => x.Num == sculp.num).popUpShow = true;
                         CurrentTrailPoi = ApiHandler.instance.data.trailPois.Find(x => x.num == sculp.num);
                     }
