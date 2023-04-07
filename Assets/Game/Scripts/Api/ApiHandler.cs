@@ -39,22 +39,34 @@ public class ApiHandler : Singleton<ApiHandler>
     /// <summary>
     /// static data
     /// </summary>
-    //public string GetStaticVariableValue(VariableName variableName, string defaultVal)
-    //{
-    //    StaticLanguageData staticLangData = data.staticData.staticLangData.Find(x => x.lang_id == currentLanguage.num);
-    //    if (staticLangData != null)
-    //    {
-    //        StaticData staticData = staticLangData.data.Find(x => x.meta == variableName.ToString().ToLower());
-    //        if (staticData != null)
-    //            return staticData.value;
-    //        else
-    //            Debug.Log("<color=red> Static variable is not match. </color>");
-    //    }
-    //    else
-    //        Debug.Log("<color=red> Static language data is empty. </color>");
+    public string GetIconUrl(IconKey iconKey, string defaultVal)
+    {
+        AppIcon appIcon = data.appIcons.Find(x=>x.icon_meta == iconKey.ToString());
+        if(appIcon != null)
+        {
+            return appIcon.icon_value;
+        }
+        else
+        {
+            Debug.Log("appIcon was null");
+            return "";
+        }
 
-    //    return defaultVal;
-    //}
+        //StaticLanguageData staticLangData = data.staticData.staticLangData.Find(x => x.lang_id == currentLanguage.num);
+        //staticLangData.Find(x => x.lang_id == currentLanguage.num);
+        //if (staticLangData != null)
+        //{
+        //    StaticData staticData = staticLangData.data.Find(x => x.meta == variableName.ToString().ToLower());
+        //    if (staticData != null)
+        //        return staticData.value;
+        //    else
+        //        Debug.Log("<color=red> Static variable is not match. </color>");
+        //}
+        //else
+        //    Debug.Log("<color=red> Static language data is empty. </color>");
+
+        //return defaultVal;
+    }
 
 
     public void ClearData()
