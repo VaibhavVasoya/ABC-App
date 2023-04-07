@@ -9,6 +9,7 @@ public class NotificationPopup : MonoBehaviour
     [SerializeField] MovePanelAnimate movePanelAnimate;
     [SerializeField] Text txtMsg;
     Canvas _canvas;
+    //bool isReadyToHide;
     private void Awake()
     {
         _canvas = GetComponent<Canvas>();
@@ -16,6 +17,8 @@ public class NotificationPopup : MonoBehaviour
     public void Show(string str)
     {
         //UIController.instance.getCurrentScreen().
+        //isReadyToHide = true;
+        StartCoroutine("BackKeyForNotification");
         UIController.instance.getScreen(UIController.instance.getCurrentScreen()).isBackWorking = false;
         txtMsg.text = str;
         _canvas.enabled = true;
@@ -27,6 +30,8 @@ public class NotificationPopup : MonoBehaviour
     {
         movePanelAnimate.HideAnimation(() => _canvas.enabled = false);
         UIController.instance.getScreen(UIController.instance.getCurrentScreen()).isBackWorking = true;
+        //isReadyToHide = false;
+        StopCoroutine("BackKeyForNotification");
     }
 
     public void HideNotification()
@@ -47,5 +52,20 @@ public class NotificationPopup : MonoBehaviour
             UIController.instance.ShowNextScreen(ScreenType.PoiDetails);
         }
         Hide();
+    }
+
+    IEnumerator BackKeyForNotification()
+    {
+        while (true)
+        {
+
+            if (Input.GetKeyDown(KeyCode.Escape))// if (Keyboard.current.escapeKey.wasPressedThisFrame)
+            {
+                Hide();
+                yield return new WaitForSeconds(1f);
+            }
+
+            yield return null;
+        }
     }
 }

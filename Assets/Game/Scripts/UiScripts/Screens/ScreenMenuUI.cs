@@ -80,6 +80,8 @@ namespace Master.UI
 
         public async void OpenTrailList()
         {
+            //CancelInvoke("CheckSculpNearestMe");
+            TrailsHandler.instance.MethodCancleInvoke();
             await Task.Delay(TimeSpan.FromSeconds(delay));
             CloseMenu();
             if (UIController.instance.getCurrentScreen() == ScreenType.TrailCat) return;
@@ -90,22 +92,30 @@ namespace Master.UI
 
         public async void OpenUpcomingEvents()
         {
+            //CancelInvoke("CheckSculpNearestMe");
+            TrailsHandler.instance.MethodCancleInvoke();
             await Task.Delay(TimeSpan.FromSeconds(delay));
             CloseMenu();
             if (UIController.instance.getCurrentScreen() == ScreenType.UpcomingEvents) return;
             UIController.instance.ShowNextScreen(ScreenType.UpcomingEvents);
             ApiHandler.instance.GetSculptureEvetns();
+            TrailsHandler.instance.isInvokeNearestSculp = false;
         }
         public async void OpenVillageDiscount()
         {
+            //CancelInvoke("CheckSculpNearestMe");
+            TrailsHandler.instance.MethodCancleInvoke();
             await Task.Delay(TimeSpan.FromSeconds(delay));
             CloseMenu();
             if (UIController.instance.getCurrentScreen() == ScreenType.VillageDiscount) return;
             UIController.instance.ShowNextScreen(ScreenType.VillageDiscount);
             ApiHandler.instance.GetVillageDiscount();
+            TrailsHandler.instance.isInvokeNearestSculp = false;
         }
         public async void OpenAboutUsScreen()
         {
+            //CancelInvoke("CheckSculpNearestMe");
+            TrailsHandler.instance.MethodCancleInvoke();
             await Task.Delay(TimeSpan.FromSeconds(delay));
             CloseMenu();
             if (UIController.instance.getCurrentScreen() == ScreenType.AboutUs) return;
@@ -115,9 +125,12 @@ namespace Master.UI
                 ApiHandler.instance.GetAboutUsDetails();
             }
             UIController.instance.ShowNextScreen(ScreenType.AboutUs);
+            TrailsHandler.instance.isInvokeNearestSculp = false;
         }
         public async void OpenAboutThisAppScreen()
         {
+            //CancelInvoke("CheckSculpNearestMe");
+            TrailsHandler.instance.MethodCancleInvoke();
             await Task.Delay(TimeSpan.FromSeconds(delay));
             CloseMenu();
             if (UIController.instance.getCurrentScreen() == ScreenType.AboutThisApp) return;
@@ -127,6 +140,7 @@ namespace Master.UI
                 ApiHandler.instance.GetAboutThisApp();
             }
             UIController.instance.ShowNextScreen(ScreenType.AboutThisApp);
+            TrailsHandler.instance.isInvokeNearestSculp = false;
         }
         //public async void OpenMultiLanguageScreen()
         //{

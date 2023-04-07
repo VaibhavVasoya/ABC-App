@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Master;
+using Master.UIKit;
 using UnityEngine;
 
 public class TrailsHandler : Singleton<TrailsHandler>
@@ -12,7 +13,7 @@ public class TrailsHandler : Singleton<TrailsHandler>
     public Poi CurrentTrailPoi = null;
     public SculptureEvent sculptureEvent = null;
     public VillageDiscount villageDiscount = null;
-    int sculptureFindUnderMeters = 2;
+    int sculptureFindUnderMeters = 1;
     public bool isInvokeNearestSculp = true;
     [SerializeField] NotificationPopup notificationPopup ;
     //private void OnEnable()
@@ -53,49 +54,65 @@ public class TrailsHandler : Singleton<TrailsHandler>
         Debug.Log("All Visited");
     }
 
+    public void MethodInvoke()
+    {
+        CancelInvoke("CheckSculpNearestMe");
+        Invoke("CheckSculpNearestMe", 1);
+    }
 
-
+    public void MethodCancleInvoke()
+    {
+        CancelInvoke("CheckSculpNearestMe");
+    }
     public async void CheckSculpNearestMe()
     {
+        Debug.Log("123 invoke ");
         Vector2 currentLocation = await MapController.instance.GetCurrentLocation();
         //foreach (var sculp in ApiHandler.instance.data.trailPois)
         foreach (var sculp in ApiHandler.instance.data.trailPois)
         {
-            Debug.Log("123 foreeach");
+            //Debug.Log("123 foreeach");
             if (sculp.intro_id != CurrentTrail.num) continue;
-            await Task.Delay(TimeSpan.FromSeconds(2));
             if (string.IsNullOrEmpty(sculp.longitude) || string.IsNullOrEmpty(sculp.latitude)) continue;
             if (GetDistance(new Vector2(float.Parse(sculp.longitude), float.Parse(sculp.latitude)), currentLocation) < sculptureFindUnderMeters)// sculpture find in under 20 meters.
             {
-                Debug.Log("123 if");
-                //Debug.LogError("123"+sculp.Name + " Cheack is neareas me.");
-                // Sculpture is nearest 30 meters.
-                //SculptureVisited();
                 if (SavedDataHandler.instance._saveData.mySculptures.Exists(x => x.Num == sculp.num))
                 {
                     if (!SavedDataHandler.instance._saveData.mySculptures.Find(x => x.Num == sculp.num).popUpShow)
                     {
-                        notificationPopup.Show("You are approaching the " + sculp.Name + " sculpture.");
-                        SavedDataHandler.instance._saveData.mySculptures.Find(x => x.Num == sculp.num).popUpShow = true;
-                        CurrentTrailPoi = ApiHandler.instance.data.trailPois.Find(x => x.num == sculp.num);
+                        if(UIController.instance.getCurrentScreen() == ScreenType.PoiDetails && (CurrentTrailPoi.num == ApiHandler.instance.data.trailPois.Find(x => x.num == sculp.num).num))
+                        {
+                            Debug.Log("already open");
+                        }
+                        else
+                        {
+                            Debug.Log("distance = "+ GetDistance(new Vector2(float.Parse(sculp.longitude), float.Parse(sculp.latitude)), currentLocation));
+                            notificationPopup.Show("You are now approaching " + sculp.Name);
+                            SavedDataHandler.instance._saveData.mySculptures.Find(x => x.Num == sculp.num).popUpShow = true;
+                            CurrentTrailPoi = ApiHandler.instance.data.trailPois.Find(x => x.num == sculp.num);
+                        }
                     }
                 }
-                //Events.NearestSculpture(sculp.num, true);
             }
             else
             {
-                Debug.Log("123 else");
-                if (SavedDataHandler.instance._saveData.mySculptures.Find(x => x.Num == sculp.num).popUpShow)
+                //Debug.Log("123 else");
+                //if (SavedDataHandler.instance._saveData.mySculptures.Find(x => x.Num == sculp.num).popUpShow)
+                //{
+                //    SavedDataHandler.instance._saveData.mySculptures.Find(x => x.Num == sculp.num).popUpShow = false;
+                //}
+                if (SavedDataHandler.instance._saveData.mySculptures.Exists(x => x.Num == sculp.num))
                 {
-                    SavedDataHandler.instance._saveData.mySculptures.Find(x => x.Num == sculp.num).popUpShow = false;
+                    if (SavedDataHandler.instance._saveData.mySculptures.Find(x => x.Num == sculp.num).popUpShow)
+                    {
+                        Debug.Log("again add");
+                        SavedDataHandler.instance._saveData.mySculptures.Find(x => x.Num == sculp.num).popUpShow = false;
+                    }
                 }
             }
-                //Events.NearestSculpture(sculp.num, false);
         }
-        await Task.Delay(TimeSpan.FromSeconds(1));
-        //CheckSculpNearestMe();
         Debug.Log("123 end");
-        if (isInvokeNearestSculp) CheckSculpNearestMe();
+        if (isInvokeNearestSculp) Invoke("CheckSculpNearestMe",1);
     }
 
     float GetDistance(Vector2 lat1, Vector2 lat2)

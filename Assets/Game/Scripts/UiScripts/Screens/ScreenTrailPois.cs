@@ -48,7 +48,9 @@ public class ScreenTrailPois : UIScreenView
     public override void OnScreenShowCalled()
     {
         base.OnScreenShowCalled();
-        TrailsHandler.instance.CheckSculpNearestMe();
+        //Invoke("CheckSculpNearestMe",1);
+        //TrailsHandler.instance.CheckSculpNearestMe();
+        TrailsHandler.instance.MethodInvoke();
         TrailsHandler.instance.CurrentTrailPoi = null;
         TrailsHandler.instance.isInvokeNearestSculp = true;
         poiListToggle.isOn = true;
@@ -73,6 +75,8 @@ public class ScreenTrailPois : UIScreenView
     public void BackToTrailList()
     {
         UIController.instance.ShowNextScreen(ScreenType.TrailList);
+        TrailsHandler.instance.MethodCancleInvoke();
+        //CancelInvoke("CheckSculpNearestMe");
         TrailsHandler.instance.isInvokeNearestSculp = false;
         Helper.Execute(this, () => OpenTab(false), 0.4f);
         currentSelectedPoiPin = 0;
