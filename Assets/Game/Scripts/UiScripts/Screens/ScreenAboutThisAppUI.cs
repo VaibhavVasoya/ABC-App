@@ -22,7 +22,7 @@ namespace Master.UI
         private void Start()
         {
             //Debug.Log("123 about the app start");
-            Debug.Log("About This App: pre ");
+            //Debug.Log("About This App: pre ");
             //Debug.LogError("===>> "+ (scrollRect.transform.GetChild(0).GetChild(0).gameObject.activeInHierarchy));
             contentSizeFitters = transform.GetComponentsInChildren<ContentSizeFitter>();
             Array.Reverse(contentSizeFitters);

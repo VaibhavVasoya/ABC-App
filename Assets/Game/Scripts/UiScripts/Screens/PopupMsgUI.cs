@@ -19,11 +19,11 @@ namespace Master.UI
             base.OnScreenHideAnimationCompleted();
             txtMsg.text = txtTitle.text = "";
         }
-        public override void OnBack()
-        {
-            base.OnBack();
-            ClosePopup();
-        }
+        //public override void OnBack()
+        //{
+        //    base.OnBack();
+        //    ClosePopup();
+        //}
 
         public void SetMsg(string title, string msg, Action callback = null)
         {

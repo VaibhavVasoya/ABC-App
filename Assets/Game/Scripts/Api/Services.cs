@@ -565,13 +565,13 @@ public class Services : Singleton<Services>
         {
             numberOfBundle = 0;
         }
-        else if (downloadFiles.Count < 3)
+        else if (downloadFiles.Count < totalBundle)
         {
             numberOfBundle = 1;
         }
         else
         {
-            numberOfBundle = downloadFiles.Count / 3;
+            numberOfBundle = downloadFiles.Count / totalBundle;
         }
         //Debug.Log("count fhusj;hfjahsfj " + downloadFiles.Count);
         var totalBlocks = downloadFiles.Count / numberOfBundle;
@@ -635,6 +635,7 @@ public class Services : Singleton<Services>
     public static int totalDataSize;
     static int numberOfBundles;
     public static long totalSizeInByte = 0;
+    public static int totalBundle = 5;
 
     public static async Task GetDataSize(List<ItemType> downloadFiles)
     {
@@ -642,13 +643,13 @@ public class Services : Singleton<Services>
         {
             numberOfBundles = 0;
         }
-        else if (downloadFiles.Count < 3)
+        else if (downloadFiles.Count < totalBundle)
         {
             numberOfBundles = 1;
         }
         else
         {
-            numberOfBundles = downloadFiles.Count / 3;
+            numberOfBundles = downloadFiles.Count / totalBundle;
         }
         //Debug.Log("count fhusj;hfjahsfj " + downloadFiles.Count);
         var totalBlocks = downloadFiles.Count / numberOfBundles;
