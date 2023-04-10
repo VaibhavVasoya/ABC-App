@@ -87,17 +87,17 @@ public class OnlineMapsLocationService : OnlineMapsLocationServiceGenericBase<On
     {
         if (!Input.location.isEnabledByUser)
         {
-            if (requestPermissionRuntime && !isPermissionRequested)
-            {
-#if UNITY_2018_3_OR_NEWER && PLATFORM_ANDROID
-                if (!Permission.HasUserAuthorizedPermission(Permission.FineLocation))
-                {
-                    isPermissionRequested = true;
-                    Permission.RequestUserPermission(Permission.FineLocation);
-                    return Permission.HasUserAuthorizedPermission(Permission.FineLocation);
-                }
-#endif
-            }
+            //            if (requestPermissionRuntime && !isPermissionRequested)
+            //            {
+            //#if UNITY_2018_3_OR_NEWER && PLATFORM_ANDROID
+            //                if (!Permission.HasUserAuthorizedPermission(Permission.FineLocation))
+            //                {
+            //                    isPermissionRequested = true;
+            //                    Permission.RequestUserPermission(Permission.FineLocation);
+            //                    return Permission.HasUserAuthorizedPermission(Permission.FineLocation);
+            //                }
+            //#endif
+            //            }
             return false;
         }
         else

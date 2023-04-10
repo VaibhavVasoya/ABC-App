@@ -43,12 +43,32 @@ public class MapController : Singleton<MapController>
         LatLong = new Vector2(-6.3160218f, 54.8566988f);
         return;
 #endif
-        if (!Permission.HasUserAuthorizedPermission(Permission.FineLocation))
-        {
-            Permission.RequestUserPermission(Permission.FineLocation);
-            Permission.RequestUserPermission(Permission.CoarseLocation);
-        }
-        await Task.Delay(TimeSpan.FromSeconds(5f));
+        //if (!Permission.HasUserAuthorizedPermission(Permission.FineLocation))
+        //{
+        //    Permission.RequestUserPermission(Permission.FineLocation);
+        //    Permission.RequestUserPermission(Permission.CoarseLocation);
+        //}
+        //await Task.Delay(TimeSpan.FromSeconds(5f));
+        
+    }
+    /// <summary>
+    /// location permission
+    /// </summary>
+    public void CallLocationService()
+    {
+#if UNITY_ANDROID
+        var androidJC = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
+        var jo = androidJC.GetStatic<AndroidJavaObject>("currentActivity");
+        var jc = new AndroidJavaClass("com.yudiz.locationserviceandroid.NotificationServiceChanger");
+        jc.CallStatic("EnableLocationService", jo);
+#elif UNITY_IOS
+        string url = iOSSettingsBinder.GetAppSettingsURL();
+        Debug.Log("the settings url is:" + url);
+        Application.OpenURL(url);
+#endif
+    }
+    public void CkeckLocationPermission()
+    {
         StartCoroutine("CheackLocationIsEnable");
     }
 
@@ -59,12 +79,25 @@ public class MapController : Singleton<MapController>
     IEnumerator CheackLocationIsEnable()
     {
         IsCheackLocation = true;
+        yield return new WaitForSeconds(1);
+        if (!Permission.HasUserAuthorizedPermission(Permission.FineLocation))
+        {
+            Debug.Log("permissition ");
+            Input.location.Start();
+            Permission.RequestUserPermission(Permission.FineLocation);
+            Permission.RequestUserPermission(Permission.CoarseLocation);
+        }
+        yield return new WaitForSeconds(5);
+        //Application.OpenURL("intent:android.settings.APPLICATION_DETAILS_SETTINGS?package=com.tag.ABC#Intent;end;");
         while (true)
         {
             if (!Input.location.isEnabledByUser && IsCheackLocation)
             {
                 IsCheackLocation = false;
-                UIController.instance.ShowPopupMsg("we can't find you...", "Your Location Services are turned off, Please turn on now.", () => { IsCheackLocation = true; });
+                //UIController.instance.ShowPopupMsg("we can't find you...", "Your Location Services are turned off, Please turn on now.", () => { IsCheackLocation = true; });
+                UIController.instance.ShowPopupMsg("Location", "To Continue, Let your device turn on location, Which uses google’s location service.", () => { IsCheackLocation = true; });
+                //CallLocationService();
+                
             }
             yield return new WaitForSeconds(5);
         }
@@ -296,11 +329,12 @@ public class MapController : Singleton<MapController>
 #if UNITY_EDITOR
         return LatLong;
 #endif
-        if (!Permission.HasUserAuthorizedPermission(Permission.FineLocation))
-        {
-            Permission.RequestUserPermission(Permission.FineLocation);
-            Permission.RequestUserPermission(Permission.CoarseLocation);
-        }
+        //changed
+        //if (!Permission.HasUserAuthorizedPermission(Permission.FineLocation))
+        //{
+        //    Permission.RequestUserPermission(Permission.FineLocation);
+        //    Permission.RequestUserPermission(Permission.CoarseLocation);
+        //}
         // First, check if user has location service enabled
         if (!Input.location.isEnabledByUser)
         {

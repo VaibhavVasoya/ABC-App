@@ -50,6 +50,8 @@ public class ScreenTrailPois : UIScreenView
         base.OnScreenShowCalled();
         //Invoke("CheckSculpNearestMe",1);
         //TrailsHandler.instance.CheckSculpNearestMe();
+        //check location permissiton
+        MapController.instance.CkeckLocationPermission();
         TrailsHandler.instance.MethodInvoke();
         TrailsHandler.instance.CurrentTrailPoi = null;
         TrailsHandler.instance.isInvokeNearestSculp = true;
