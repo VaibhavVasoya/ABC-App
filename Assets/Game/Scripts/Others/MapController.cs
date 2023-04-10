@@ -350,7 +350,14 @@ public class MapController : Singleton<MapController>
 
     public async void OpenMapViaLink(string destinationLong, string destinationLat)
     {
-        LoadingUI.instance.OnScreenShow();
+        if (!Input.location.isEnabledByUser)
+        {
+            Debug.Log("GPS IS DISABLED");
+            UIController.instance.ShowPopupMsg("GPS IS DISABLED", "please turn on GPS");
+            return;
+        }
+
+            LoadingUI.instance.OnScreenShow();
         Vector2 currentLoca = await MapController.instance.GetCurrentLocation();
         string tempLatitude = currentLoca.y.ToString();
         string tempLongitude = currentLoca.x.ToString();
