@@ -341,7 +341,7 @@ public class MapController : Singleton<MapController>
         {
             Vector2 latLong = new Vector2(Input.location.lastData.longitude, Input.location.lastData.latitude);
             // Access granted and location value could be retrieved
-            print("Location: " + Input.location.lastData.latitude + " " + Input.location.lastData.longitude + " " + Input.location.lastData.altitude + " " + Input.location.lastData.horizontalAccuracy + " " + Input.location.lastData.timestamp);
+            //print("Location: " + Input.location.lastData.latitude + " " + Input.location.lastData.longitude + " " + Input.location.lastData.altitude + " " + Input.location.lastData.horizontalAccuracy + " " + Input.location.lastData.timestamp);
             // Stop service if there is no need to query location updates continuously
             Input.location.Stop();
             return latLong;

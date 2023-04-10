@@ -137,12 +137,17 @@ namespace Master.UIKit
             //return currentScreens.Last();
             return currentScreens.First();
         }
-       
+
+        //private void Update()
+        //{
+        //    CurrentScreen();
+        //}
+
         [EasyButtons.Button]
         void CurrentScreen()
         {
-            Debug.LogError("Current Screen : "+ getCurrentScreen());
-            Debug.LogError("Last Screen : " + GetLastOpenScreen());
+            Debug.LogError("123 Current Screen : "+ getCurrentScreen());
+            Debug.LogError("123 Last Screen : " + GetLastOpenScreen());
         }
         public ScreenType GetLastOpenScreen()
         {

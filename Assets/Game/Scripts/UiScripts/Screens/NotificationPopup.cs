@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Master.UIKit;
 using UnityEngine;
 using UnityEngine.UI;
@@ -47,11 +49,22 @@ public class NotificationPopup : MonoBehaviour
         {
             UIController.instance.getScreen(ScreenType.PoiDetails).GetComponent<ScreenPoiDetail>().SetPoiDetails();
         }
+        else if (UIController.instance.GetLastOpenScreen() == ScreenType.Menu)
+        {
+            MenuHide();
+        }
         else
         {
             UIController.instance.ShowNextScreen(ScreenType.PoiDetails);
         }
         Hide();
+    }
+
+    async void MenuHide()
+    {
+        UIController.instance.HideScreen(ScreenType.Menu);
+        await Task.Delay(TimeSpan.FromSeconds(.5f));
+        UIController.instance.ShowNextScreen(ScreenType.PoiDetails);
     }
 
     IEnumerator BackKeyForNotification()
