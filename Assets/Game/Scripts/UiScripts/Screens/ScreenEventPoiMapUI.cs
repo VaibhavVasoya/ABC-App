@@ -43,7 +43,7 @@ public class ScreenEventPoiMapUI : UIScreenView
         eventPoi = TrailsHandler.instance.sculptureEvent;
         if (eventPoi == null)
         {
-            UIController.instance.ShowPopupMsg("Oops!!", "Unable to determine trail location.");
+            UIController.instance.ShowPopupMsg("Oops!!", "Unable to determine trail location.", "Ok");
             return;
         }
         eventPoiImg.Downloading(eventPoi.num, eventPoi.main_image);

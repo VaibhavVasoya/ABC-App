@@ -52,7 +52,7 @@ namespace Master.UI
         {
             if (ApiHandler.instance.data.aboutUs ==null)
             {
-                UIController.instance.ShowPopupMsg("", "Data not found.");
+                UIController.instance.ShowPopupMsg("", "Data not found.", "Ok");
                 return;
             }
             img.Downloading("1",ApiHandler.instance.data.aboutUs.about_image);

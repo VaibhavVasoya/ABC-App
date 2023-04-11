@@ -219,7 +219,7 @@ public class ApiHandler : Singleton<ApiHandler>
                 isEnableMsg = true;
 
                 //UIController.instance.ShowPopupMsg(LocalizationSettings.StringDatabase.GetLocalizedString("UI_Text", "InternetError_title"), LocalizationSettings.StringDatabase.GetLocalizedString("UI_Text", "InternetError"));
-                UIController.instance.ShowPopupMsg("Internet Connection", "Please check your connection and try again!!");
+                UIController.instance.ShowPopupMsg("Internet Connection", "Please check your connection and try again!!","Ok");
             }
             else
                 isEnter = isEnableMsg = (_canvas == null) ? false : _canvas.enabled;
@@ -316,7 +316,7 @@ public class ApiHandler : Singleton<ApiHandler>
             if (res["status"] != "success")
             {
                 Debug.LogError("Invalid API Response.");
-                UIController.instance.ShowPopupMsg("Error", res["message"].ToString());
+                UIController.instance.ShowPopupMsg("Error", res["message"].ToString(),"Ok");
                 LoadingUI.instance.OnScreenHide();
                 return null;
             }
@@ -325,7 +325,7 @@ public class ApiHandler : Singleton<ApiHandler>
         }
         else
         {
-            UIController.instance.ShowPopupMsg("Unknown Error", "We couldn't connect you to the server.\nTry again later.");
+            UIController.instance.ShowPopupMsg("Unknown Error", "We couldn't connect you to the server.\nTry again later.", "Ok");
         }
         LoadingUI.instance.OnScreenHide();
         return null;
@@ -357,7 +357,7 @@ public class ApiHandler : Singleton<ApiHandler>
             if (res["status"] != "success")
             {
                 Debug.LogError("Invalid API Response.");
-                UIController.instance.ShowPopupMsg("Error", res["message"].ToString());
+                UIController.instance.ShowPopupMsg("Error", res["message"].ToString(), "Ok");
             }
             else
             {
@@ -380,7 +380,7 @@ public class ApiHandler : Singleton<ApiHandler>
         }
         else
         {
-            UIController.instance.ShowPopupMsg("Unknown Error", "We couldn't connect you to the server.\nTry again later.");
+            UIController.instance.ShowPopupMsg("Unknown Error", "We couldn't connect you to the server.\nTry again later.", "Ok");
         }
         isWalkthroughLoaded = true;
         LoadingUI.instance.OnScreenHide();
@@ -538,7 +538,7 @@ public class ApiHandler : Singleton<ApiHandler>
             if (res["status"] != "success")
             {
                 Debug.LogError("Invalid API Response.");
-                UIController.instance.ShowPopupMsg("Error", res["message"].ToString());
+                UIController.instance.ShowPopupMsg("Error", res["message"].ToString(), "Ok");
             }
             else
             {
@@ -564,7 +564,7 @@ public class ApiHandler : Singleton<ApiHandler>
         }
         else
         {
-            UIController.instance.ShowPopupMsg("Unknown Error", "We couldn't connect you to the server.\nTry again later.");
+            UIController.instance.ShowPopupMsg("Unknown Error", "We couldn't connect you to the server.\nTry again later.", "Ok");
         }
         LoadingUI.instance.OnScreenHide();
         isEventsLoaded = true;
@@ -598,7 +598,7 @@ public class ApiHandler : Singleton<ApiHandler>
             if (res["status"] != "success")
             {
                 Debug.LogError("Invalid API Response.");
-                UIController.instance.ShowPopupMsg("Error", res["message"].ToString());
+                UIController.instance.ShowPopupMsg("Error", res["message"].ToString(), "Ok");
             }
             else
             {
@@ -621,7 +621,7 @@ public class ApiHandler : Singleton<ApiHandler>
         }
         else
         {
-            UIController.instance.ShowPopupMsg("Unknown Error", "We couldn't connect you to the server.\nTry again later.");
+            UIController.instance.ShowPopupMsg("Unknown Error", "We couldn't connect you to the server.\nTry again later.", "Ok");
         }
         LoadingUI.instance.OnScreenHide();
         isDiscountLoded = true;
@@ -645,12 +645,12 @@ public class ApiHandler : Singleton<ApiHandler>
             if (res["status"] != "success")
             {
                 Debug.LogError("Invalid API Response.");
-                UIController.instance.ShowPopupMsg("Error", res["message"].ToString());
+                UIController.instance.ShowPopupMsg("Error", res["message"].ToString(), "Ok");
                 LoadingUI.instance.OnScreenHide();
                 return;
             }
             if (string.IsNullOrEmpty(res["data"].ToString()) || res["data"].ToString() == "null")
-                UIController.instance.ShowPopupMsg("Opps!", "Something went wrong, Unable to fetch app link.");
+                UIController.instance.ShowPopupMsg("Opps!", "Something went wrong, Unable to fetch app link.", "Ok");
             else
             {
                 data.aboutUs = new AboutUs();
@@ -661,7 +661,7 @@ public class ApiHandler : Singleton<ApiHandler>
         }
         else
         {
-            UIController.instance.ShowPopupMsg("Unknown Error", "We couldn't connect you to the server.\nTry again later.");
+            UIController.instance.ShowPopupMsg("Unknown Error", "We couldn't connect you to the server.\nTry again later.", "Ok");
         }
         LoadingUI.instance.OnScreenHide();
     }
@@ -686,12 +686,12 @@ public class ApiHandler : Singleton<ApiHandler>
             if (res["status"] != "success")
             {
                 Debug.LogError("Invalid API Response.");
-                UIController.instance.ShowPopupMsg("Error", res["message"].ToString());
+                UIController.instance.ShowPopupMsg("Error", res["message"].ToString(), "Ok");
                 LoadingUI.instance.OnScreenHide();
                 return;
             }
             if (string.IsNullOrEmpty(res["data"].ToString()) || res["data"].ToString() == "null")
-                UIController.instance.ShowPopupMsg("Opps!", "Something went wrong, Unable to fetch app link.");
+                UIController.instance.ShowPopupMsg("Opps!", "Something went wrong, Unable to fetch app link.", "Ok");
             else
             {
                 data.aboutTheApp = new AboutTheApp();
@@ -702,7 +702,7 @@ public class ApiHandler : Singleton<ApiHandler>
         }
         else
         {
-            UIController.instance.ShowPopupMsg("Unknown Error", "We couldn't connect you to the server.\nTry again later.");
+            UIController.instance.ShowPopupMsg("Unknown Error", "We couldn't connect you to the server.\nTry again later.", "Ok");
         }
         LoadingUI.instance.OnScreenHide();
     }
@@ -726,12 +726,12 @@ public class ApiHandler : Singleton<ApiHandler>
             if (res["status"] != "success")
             {
                 Debug.LogError("Invalid API Response.");
-                UIController.instance.ShowPopupMsg("Error", res["message"].ToString());
+                UIController.instance.ShowPopupMsg("Error", res["message"].ToString(), "Ok");
                 LoadingUI.instance.OnScreenHide();
                 return;
             }
             if (string.IsNullOrEmpty(res["data"].ToString()) || res["data"].ToString() == "null")
-                UIController.instance.ShowPopupMsg("Opps!", "Something went wrong, Unable to fetch app link.");
+                UIController.instance.ShowPopupMsg("Opps!", "Something went wrong, Unable to fetch app link.", "Ok");
             else
             {
                 data.shareWithOther = new ShareWithOther();
@@ -742,7 +742,7 @@ public class ApiHandler : Singleton<ApiHandler>
         }
         else
         {
-            UIController.instance.ShowPopupMsg("Unknown Error", "We couldn't connect you to the server.\nTry again later.");
+            UIController.instance.ShowPopupMsg("Unknown Error", "We couldn't connect you to the server.\nTry again later.", "Ok");
         }
         LoadingUI.instance.OnScreenHide();
     }
@@ -764,7 +764,7 @@ public class ApiHandler : Singleton<ApiHandler>
             if (res["status"] != "success")
             {
                 Debug.LogError("Invalid API Response.");
-                UIController.instance.ShowPopupMsg("Error", res["message"].ToString());
+                UIController.instance.ShowPopupMsg("Error", res["message"].ToString(), "Ok");
             }
             else
             {

@@ -67,7 +67,7 @@ public class VideoPlayer360 : MonoBehaviour
     {
         print("Videoplayer Error->" + msg);
         LoadingUI.instance.OnScreenHide();
-        UIController.instance.ShowPopupMsg("Videoplayer Error","Something went wrong.",()=> { if (!videoPlayer.isPrepared) LoadingUI.instance.OnScreenShow(); });
+        UIController.instance.ShowPopupMsg("Videoplayer Error","Something went wrong.","Ok",()=> { if (!videoPlayer.isPrepared) LoadingUI.instance.OnScreenShow(); });
         videoPlayer.url = videoServerUrl.Replace("http:","https:");
         videoPlayer.Prepare();
     }

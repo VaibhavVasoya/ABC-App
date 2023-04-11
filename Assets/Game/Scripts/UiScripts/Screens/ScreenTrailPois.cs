@@ -145,7 +145,7 @@ public class ScreenTrailPois : UIScreenView
     {
         if (TrailsHandler.instance.CurrentTrail == null)// (string.IsNullOrEmpty(TrailsHandler.instance.CurrentTrailPoi.num))
         {
-            UIController.instance.ShowPopupMsg("Oops!!", "Unable to determine trail location.");
+            UIController.instance.ShowPopupMsg("Oops!!", "Unable to determine trail location.", "Ok");
             return;
         }
         List<Vector2> markers = new List<Vector2>();

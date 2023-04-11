@@ -54,22 +54,36 @@ public class MapController : Singleton<MapController>
     /// <summary>
     /// location permission
     /// </summary>
-    public void OpenSettings()
+    public void OpenAppInfo()
     {
-#if UNITY_ANDROID //&& !UNITY_EDITOR
-        string packageName = Application.identifier;
-        AndroidJavaObject activity = new AndroidJavaClass("com.unity3d.player.UnityPlayer").GetStatic<AndroidJavaObject>("currentActivity");
-        AndroidJavaObject context = activity.Call<AndroidJavaObject>("getApplicationContext");
-        AndroidJavaObject appSettingsIntent = new AndroidJavaObject("android.content.Intent", "android.settings.APPLICATION_DETAILS_SETTINGS");
-        appSettingsIntent.Call<AndroidJavaObject>("setData", appSettingsIntent.CallStatic<AndroidJavaObject>("fromParts", "package", packageName, null));
-        appSettingsIntent.Call<AndroidJavaObject>("addFlags", 0x10000000);
-        context.Call("startActivity", appSettingsIntent);
+        try
+        {
+#if UNITY_ANDROID
+            using (var unityClass = new AndroidJavaClass("com.unity3d.player.UnityPlayer"))
+            using (AndroidJavaObject currentActivityObject = unityClass.GetStatic<AndroidJavaObject>("currentActivity"))
+            {
+                string packageName = currentActivityObject.Call<string>("getPackageName");
+
+                using (var uriClass = new AndroidJavaClass("android.net.Uri"))
+                using (AndroidJavaObject uriObject = uriClass.CallStatic<AndroidJavaObject>("fromParts", "package", packageName, null))
+                using (var intentObject = new AndroidJavaObject("android.content.Intent", "android.settings.APPLICATION_DETAILS_SETTINGS", uriObject))
+                {
+                    intentObject.Call<AndroidJavaObject>("addCategory", "android.intent.category.DEFAULT");
+                    intentObject.Call<AndroidJavaObject>("setFlags", 0x10000000);
+                    currentActivityObject.Call("startActivity", intentObject);
+                }
+            }
 #endif
+        }
+        catch (Exception ex)
+        {
+            Debug.LogException(ex);
+        }
     }
     /// <summary>
     /// gps on 
     /// </summary>
-    public void CallLocationService()
+    public void OpenLocationEnable()
     {
 #if UNITY_ANDROID && !UNITY_EDITOR
         AndroidJavaObject activity = new AndroidJavaClass("com.unity3d.player.UnityPlayer").GetStatic<AndroidJavaObject>("currentActivity");
@@ -94,7 +108,6 @@ public class MapController : Singleton<MapController>
     }
     IEnumerator CheackLocationIsEnable()
     {
-        IsCheackLocation = true;
         yield return new WaitForSeconds(1);
         if (!Permission.HasUserAuthorizedPermission(Permission.FineLocation))
         {
@@ -103,7 +116,8 @@ public class MapController : Singleton<MapController>
             Permission.RequestUserPermission(Permission.FineLocation);
             Permission.RequestUserPermission(Permission.CoarseLocation);
         }
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(1);
+        IsCheackLocation = true;
         //Application.OpenURL("intent:android.settings.APPLICATION_DETAILS_SETTINGS?package=com.tag.ABC#Intent;end;");
         while (true)
         {
@@ -111,7 +125,7 @@ public class MapController : Singleton<MapController>
             {
                 IsCheackLocation = false;
                 //UIController.instance.ShowPopupMsg("we can't find you...", "Your Location Services are turned off, Please turn on now.", () => { IsCheackLocation = true; });
-                UIController.instance.ShowPopupMsg("Location", "To Continue, Let your device turn on location, Which uses google’s location service.", () => { IsCheackLocation = true; CallLocationService(); });
+                UIController.instance.ShowPopupMsg("Location", "By clicking on enable button , please turn on your location.","Enable",() => { IsCheackLocation = true;OpenAppInfo(); });
                 //CallLocationService();
                 
             }
@@ -373,7 +387,7 @@ public class MapController : Singleton<MapController>
         // Service didn't initialize in 20 seconds
         if (maxWait < 1)
         {
-            UIController.instance.ShowPopupMsg("Oops!!", "Timed out");
+            UIController.instance.ShowPopupMsg("Oops!!", "Timed out", "Ok");
             print("Timed out");
             return Vector2.zero;
         }
@@ -381,7 +395,7 @@ public class MapController : Singleton<MapController>
         // Connection has failed
         if (Input.location.status == LocationServiceStatus.Failed)
         {
-            UIController.instance.ShowPopupMsg("Oops!!", "Unable to determine device location");
+            UIController.instance.ShowPopupMsg("Oops!!", "Unable to determine device location", "Ok");
             print("Unable to determine device location");
             // Stop service if there is no need to query location updates continuously
             Input.location.Stop();
@@ -403,7 +417,7 @@ public class MapController : Singleton<MapController>
         if (!Input.location.isEnabledByUser)
         {
             Debug.Log("GPS IS DISABLED");
-            UIController.instance.ShowPopupMsg("Location", "To Continue, Let your device turn on location, Which uses google’s location service");
+            UIController.instance.ShowPopupMsg("Location", "By clicking on enable button , please turn on your location.","Enable", () => { IsCheackLocation = true; OpenLocationEnable(); });
             return;
         }
 

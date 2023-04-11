@@ -57,7 +57,7 @@ namespace Master.UI
         {
             if (ApiHandler.instance.data.aboutTheApp == null)
             {
-                UIController.instance.ShowPopupMsg("", "Data not found.");
+                UIController.instance.ShowPopupMsg("", "Data not found.", "Ok");
                 return;
             }
             img.Downloading("2", ApiHandler.instance.data.aboutTheApp.about_app_image);

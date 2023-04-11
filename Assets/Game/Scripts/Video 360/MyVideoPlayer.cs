@@ -85,7 +85,7 @@ public class MyVideoPlayer : MonoBehaviour
         {
             LoadingUI.instance.OnScreenHide();
             //if (UIController.instance.getCurrentScreen() == ScreenType.PopupMSG) return;
-            UIController.instance.ShowPopupMsg("Videoplayer Error", "Something went wrong.");
+            UIController.instance.ShowPopupMsg("Videoplayer Error", "Something went wrong.", "Ok");
         }
 
         //LoadingUI.instance.OnScreenHide();

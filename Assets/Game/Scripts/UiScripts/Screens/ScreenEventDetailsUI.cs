@@ -146,7 +146,7 @@ namespace Master.UI
         public void OpneBookingUrl()
         {
             if (string.IsNullOrEmpty(_sculpEvent.booking_url) || _sculpEvent.booking_url.ToLower() == "na")
-                UIController.instance.ShowPopupMsg("Oops!", "More info URL is Empty.");
+                UIController.instance.ShowPopupMsg("Oops!", "More info URL is Empty.", "Ok");
             else
                 Application.OpenURL(_sculpEvent.booking_url);
 
@@ -154,7 +154,7 @@ namespace Master.UI
         public void Play360Video()
         {
             if (string.IsNullOrEmpty(_sculpEvent.video_360_url))
-                UIController.instance.ShowPopupMsg("Oops!", "360 video not available.");
+                UIController.instance.ShowPopupMsg("Oops!", "360 video not available.", "Ok");
             else
             {
                 UIController.instance.ShowNextScreen(ScreenType.Video360);
@@ -176,7 +176,7 @@ namespace Master.UI
         {
             if (string.IsNullOrEmpty(_sculpEvent.logitude) || string.IsNullOrEmpty(_sculpEvent.latitude))
             {
-                UIController.instance.ShowPopupMsg("Oops!!", "Unable to determine event location.");
+                UIController.instance.ShowPopupMsg("Oops!!", "Unable to determine event location.", "Ok");
                 return;
             }
             UIController.instance.ShowNextScreen(ScreenType.EventPoiMap);

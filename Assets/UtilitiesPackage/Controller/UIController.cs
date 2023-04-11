@@ -160,14 +160,14 @@ namespace Master.UIKit
             CallbackAction();
         }
 
-        public void ShowPopupMsg(string title,string msg)
+        public void ShowPopupMsg(string title,string msg,string btnName)
         {
-            getScreen(ScreenType.PopupMSG).GetComponent<PopupMsgUI>().SetMsg(title,msg);
+            getScreen(ScreenType.PopupMSG).GetComponent<PopupMsgUI>().SetMsg(title,msg,btnName);
             ShowScreen(ScreenType.PopupMSG);
         }
-        public void ShowPopupMsg(string title, string msg, Action callback)
+        public void ShowPopupMsg(string title, string msg, string btnName, Action callback)
         {
-            getScreen(ScreenType.PopupMSG).GetComponent<PopupMsgUI>().SetMsg(title, msg, callback);
+            getScreen(ScreenType.PopupMSG).GetComponent<PopupMsgUI>().SetMsg(title, msg,btnName, callback);
             ShowScreen(ScreenType.PopupMSG);
         }
         public void OpenMenuScreen()

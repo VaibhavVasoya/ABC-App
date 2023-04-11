@@ -311,7 +311,7 @@ public class ScreenPoiDetail : UIScreenView
     public void OpenMapScreen()
     {
         if (string.IsNullOrEmpty(TrailsHandler.instance.CurrentTrailPoi.latitude) || string.IsNullOrEmpty(TrailsHandler.instance.CurrentTrailPoi.longitude))
-            UIController.instance.ShowPopupMsg("Oops!", "Unable to determine trail location.");
+            UIController.instance.ShowPopupMsg("Oops!", "Unable to determine trail location.", "Ok");
         else
             UIController.instance.ShowNextScreen(ScreenType.PoiMap);
     }
@@ -327,7 +327,7 @@ public class ScreenPoiDetail : UIScreenView
             Application.OpenURL(TrailsHandler.instance.CurrentTrailPoi.video_360_url);
         }
         else
-            UIController.instance.ShowPopupMsg("Oops!", "360 video not available.");
+            UIController.instance.ShowPopupMsg("Oops!", "360 video not available.", "Ok");
     }
 
     public void Play360Image()
@@ -346,7 +346,7 @@ public class ScreenPoiDetail : UIScreenView
         else
         {
             Debug.Log("PlayImage called 1:3");
-            UIController.instance.ShowPopupMsg("Oops!", "360 image not available.");
+            UIController.instance.ShowPopupMsg("Oops!", "360 image not available.", "Ok");
 
         }
     }

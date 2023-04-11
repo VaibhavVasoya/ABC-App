@@ -11,9 +11,14 @@ namespace Master.UI
     {
         [SerializeField] Text txtTitle;
         [SerializeField] Text txtMsg;
+        [SerializeField] Text btnText;
 
         Action callBack = null;
+        public override void OnScreenShowCalled()
+        {
+            base.OnScreenShowCalled();
 
+        }
         public override void OnScreenHideAnimationCompleted()
         {
             base.OnScreenHideAnimationCompleted();
@@ -25,10 +30,11 @@ namespace Master.UI
         //    ClosePopup();
         //}
 
-        public void SetMsg(string title, string msg, Action callback = null)
+        public void SetMsg(string title, string msg,string buttonText, Action callback = null)
         {
             txtTitle.text = title;
             txtMsg.text = msg;
+            btnText.text = buttonText;
             callBack = callback;
         }
 
