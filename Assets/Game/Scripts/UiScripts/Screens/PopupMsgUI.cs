@@ -17,12 +17,13 @@ namespace Master.UI
         public override void OnScreenShowCalled()
         {
             base.OnScreenShowCalled();
-
+            UIController.instance.getScreen(UIController.instance.getCurrentScreen()).isBackWorking = false;
         }
         public override void OnScreenHideAnimationCompleted()
         {
             base.OnScreenHideAnimationCompleted();
             txtMsg.text = txtTitle.text = "";
+            UIController.instance.getScreen(UIController.instance.getCurrentScreen()).isBackWorking = true;
         }
         //public override void OnBack()
         //{

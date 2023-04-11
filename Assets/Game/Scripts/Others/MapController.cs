@@ -125,7 +125,7 @@ public class MapController : Singleton<MapController>
             {
                 IsCheackLocation = false;
                 //UIController.instance.ShowPopupMsg("we can't find you...", "Your Location Services are turned off, Please turn on now.", () => { IsCheackLocation = true; });
-                UIController.instance.ShowPopupMsg("Location", "By clicking on enable button , please turn on your location.","Enable",() => { IsCheackLocation = true;OpenAppInfo(); });
+                UIController.instance.ShowPopupMsg("Location", "By clicking on enable button , you can turn on device location.","Enable",() => { IsCheackLocation = true;OpenAppInfo(); });
                 //CallLocationService();
                 
             }
@@ -417,7 +417,7 @@ public class MapController : Singleton<MapController>
         if (!Input.location.isEnabledByUser)
         {
             Debug.Log("GPS IS DISABLED");
-            UIController.instance.ShowPopupMsg("Location", "By clicking on enable button , please turn on your location.","Enable", () => { IsCheackLocation = true; OpenLocationEnable(); });
+            UIController.instance.ShowPopupMsg("Location", "By clicking on enable button , you can turn on device location.","Enable", () => { IsCheackLocation = true; OpenLocationEnable(); });
             return;
         }
 
