@@ -50,6 +50,9 @@ namespace Master.UI
         [SerializeField] Sprite winSprite;
         [SerializeField] Sprite loseSprite;
 
+
+        [SerializeField] AudioSource quizAudioSource;
+
         Questions currentQa;
         int qaCount = 0;
         int totalNumberOfQa = 0;
@@ -124,6 +127,9 @@ namespace Master.UI
 
 
                 answersCeils[index].SetResult(true);
+
+                quizAudioSource.Play();
+
                 //answersCeils[index].SelectAnswer(Color.green);
                 //yield return new WaitForSeconds(2);
                 //txtResultMsg.text = LocalizationSettings.StringDatabase.GetLocalizedString("UI_Text", "Correct");// winMsg;
