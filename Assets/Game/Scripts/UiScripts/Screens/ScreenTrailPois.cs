@@ -180,7 +180,7 @@ public class ScreenTrailPois : UIScreenView
             markers.Add(new Vector2(float.Parse(poi.longitude), float.Parse(poi.latitude)));
         }
         await MapController.instance.LoadMapScean(onlineMapsRawImageTouchForwarder, markers.ToArray(), Zoom_offset, currentSelectedPoiPin);
-        OnClickMarkerSetPoiDetails(currentSelectedPoiPin);
+        OnClickMarkerSetPoiDetails(currentSelectedPoiPin,true);
         poiPanelAnimate.ShowAnimation();
     }
     void RemoveMapScean()
@@ -191,12 +191,14 @@ public class ScreenTrailPois : UIScreenView
     {
         MapController.instance.ResetZoom(Zoom_offset);
     }
-    public void OnClickMarkerSetPoiDetails(int index)
+    public void OnClickMarkerSetPoiDetails(int index , bool forceUpdateChange)
     {
         Debug.Log("marker click");
-        if (currentSelectedPoiPin == index) return;
+        if(!forceUpdateChange)
+        {
+            if (currentSelectedPoiPin == index) return;
+        }
         currentSelectedPoiPin = index;
-
         poiImg.Downloading(pois[index].num, pois[index].thumbnail);
         txtpoiName.text = pois[index].Name;
         txtpoiSubDesc.text = pois[index].short_desc;

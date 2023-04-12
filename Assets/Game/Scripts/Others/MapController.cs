@@ -112,22 +112,27 @@ public class MapController : Singleton<MapController>
     {
         StopCoroutine("CheackLocationIsEnable");
     }
+    //bool isCheckPopUp = true;
     IEnumerator CheackLocationIsEnable()
     {
         yield return new WaitForSeconds(1);
         if (!Permission.HasUserAuthorizedPermission(Permission.FineLocation))
         {
             Debug.Log("permissition ");
-            //Input.location.Start();
             Permission.RequestUserPermission(Permission.FineLocation);
             Permission.RequestUserPermission(Permission.CoarseLocation);
+            //isCheckPopUp = true;
         }
-        yield return new WaitForSeconds(1);
+        //else
+        //{
+            //isCheckPopUp = false;
+        //}
+        //yield return new WaitForSeconds(1);
         IsCheackLocation = true;
         //Application.OpenURL("intent:android.settings.APPLICATION_DETAILS_SETTINGS?package=com.tag.ABC#Intent;end;");
         while (true)
         {
-            if (!Input.location.isEnabledByUser && IsCheackLocation)
+            if (!Permission.HasUserAuthorizedPermission(Permission.FineLocation) && IsCheackLocation)
             {
                 UIController.instance.getScreen(UIController.instance.getCurrentScreen()).isBackWorking = false;
                 IsCheackLocation = false;
@@ -263,7 +268,7 @@ public class MapController : Singleton<MapController>
             {
                 Marker.scale = 1;
                 SelectedMarker = Marker;
-                UIController.instance.getScreen(ScreenType.Poi).GetComponent<ScreenTrailPois>().OnClickMarkerSetPoiDetails(i);
+                UIController.instance.getScreen(ScreenType.Poi).GetComponent<ScreenTrailPois>().OnClickMarkerSetPoiDetails(i,false);
                 break;
             }
         }

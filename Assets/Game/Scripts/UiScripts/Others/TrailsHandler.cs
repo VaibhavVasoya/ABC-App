@@ -75,6 +75,10 @@ public class TrailsHandler : Singleton<TrailsHandler>
                         {
                             Debug.Log("already poi map open");
                         }
+                        else if (UIController.instance.getCurrentScreen() == ScreenType.Quiz && (CurrentTrailPoi.num == ApiHandler.instance.data.trailPois.Find(x => x.num == sculp.num).num))
+                        {
+                            Debug.Log("already poi map open");
+                        }
                         else
                         {
                                 notificationPopup.Show("You are now approaching " + sculp.Name);

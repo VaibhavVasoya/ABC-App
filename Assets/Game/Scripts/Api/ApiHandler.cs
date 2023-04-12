@@ -42,7 +42,7 @@ public class ApiHandler : Singleton<ApiHandler>
         isReadyToStartSplash = true;
         //Debug.Log("fff");
         //UIController.instance.HideScreen(ScreenType.PopupMSG);
-        GetAppIcon();
+        //GetAppIcon();
         GetLanguageList();
     }
 
