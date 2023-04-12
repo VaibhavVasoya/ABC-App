@@ -33,10 +33,12 @@ namespace Master.UI
 
         public void SetMsg(string title, string msg,string buttonText, Action callback = null)
         {
+            Debug.LogError("====>>>> Popup Msg Set" + transform.localScale);
             txtTitle.text = title;
             txtMsg.text = msg;
             btnText.text = buttonText;
             callBack = callback;
+            Debug.LogError("====>>>> Popup Msg set completed");
         }
 
         public void ClosePopup()

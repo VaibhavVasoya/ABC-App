@@ -18,7 +18,7 @@ public class ApiHandler : Singleton<ApiHandler>
     public MultiLanguage currentLanguage;
 
     bool isWalkthroughLoaded, isTrailsLoaded, isPoisLoaded, isEventsLoaded, isDiscountLoded, isTrailCatLoaded;
-
+    public bool isReadyToStartSplash = false;
     public override void OnAwake()
     {
         base.OnAwake();
@@ -26,23 +26,43 @@ public class ApiHandler : Singleton<ApiHandler>
         //Application.targetFrameRate = 60;
     }
 
-    async void Start()
+    IEnumerator Start()
     {
+        Screen.sleepTimeout = SleepTimeout.NeverSleep;
         ClearData();
-
-        await Task.Delay(TimeSpan.FromSeconds(Time.deltaTime));
+        Debug.Log("start");
+        //yield return new WaitForSeconds(2);
+        while (Application.internetReachability == NetworkReachability.NotReachable)
+        {
+            //Debug.Log("in while");
+            //ShowInternetMessage();
+            UIController.instance.ShowPopupMsg("Internet Connection", "Please check your connection and try again!!", "Ok");
+            yield return new WaitForSeconds(2);
+        }
+        isReadyToStartSplash = true;
+        //Debug.Log("fff");
+        //UIController.instance.HideScreen(ScreenType.PopupMSG);
         GetAppIcon();
         GetLanguageList();
-        //LoadInitData();
     }
+
+    //async void Start()
+    //{
+    //    ClearData();
+
+    //    await Task.Delay(TimeSpan.FromSeconds(Time.deltaTime));
+    //    GetAppIcon();
+    //    GetLanguageList();
+    //    //LoadInitData();
+    //}
 
     /// <summary>
     /// static data
     /// </summary>
     public string GetIconUrl(IconKey iconKey, string defaultVal)
     {
-        AppIcon appIcon = data.appIcons.Find(x=>x.icon_meta == iconKey.ToString());
-        if(appIcon != null)
+        AppIcon appIcon = data.appIcons.Find(x => x.icon_meta == iconKey.ToString());
+        if (appIcon != null)
         {
             return appIcon.icon_value;
         }
@@ -211,15 +231,22 @@ public class ApiHandler : Singleton<ApiHandler>
     {
         if (isEnter) return;
         isEnter = true;
+        Debug.Log("in show popup message");
         Canvas _canvas = UIController.instance.getScreen(ScreenType.PopupMSG).GetComponent<Canvas>();
+        Debug.Log("name "+_canvas.name);
         while (isEnter)
         {
+            Debug.Log("in while enter");  
             if (!isEnableMsg)
             {
+                Debug.Log("in while enter if ");
                 isEnableMsg = true;
 
                 //UIController.instance.ShowPopupMsg(LocalizationSettings.StringDatabase.GetLocalizedString("UI_Text", "InternetError_title"), LocalizationSettings.StringDatabase.GetLocalizedString("UI_Text", "InternetError"));
-                UIController.instance.ShowPopupMsg("Internet Connection", "Please check your connection and try again!!","Ok");
+                Debug.Log("pre");
+                UIController.instance.ShowPopupMsg("Internet Connection", "Please check your connection and try again!!", "Ok");
+                Debug.Log("post");
+
             }
             else
                 isEnter = isEnableMsg = (_canvas == null) ? false : _canvas.enabled;
@@ -233,11 +260,11 @@ public class ApiHandler : Singleton<ApiHandler>
     /// </summary>
     public async void GetLanguageList()
     {
-        while (Application.internetReachability == NetworkReachability.NotReachable)
-        {
-            ShowInternetMessage();
-            await Task.Delay(TimeSpan.FromSeconds(1));
-        }
+        //while (Application.internetReachability == NetworkReachability.NotReachable)
+        //{
+        //    ShowInternetMessage();
+        //    await Task.Delay(TimeSpan.FromSeconds(1));
+        //}
         if (data.multiLanguages.Count > 0)
         {
             foreach (var item in data.multiLanguages)
@@ -316,7 +343,7 @@ public class ApiHandler : Singleton<ApiHandler>
             if (res["status"] != "success")
             {
                 Debug.LogError("Invalid API Response.");
-                UIController.instance.ShowPopupMsg("Error", res["message"].ToString(),"Ok");
+                UIController.instance.ShowPopupMsg("Error", res["message"].ToString(), "Ok");
                 LoadingUI.instance.OnScreenHide();
                 return null;
             }

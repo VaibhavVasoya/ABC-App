@@ -12,10 +12,15 @@ namespace Master.UI
 {
     public class ScreenSplashUI : UIScreenView
     {
+        
 
         float splashTime = 4;
         async void Start()
         {
+            while(!ApiHandler.instance.isReadyToStartSplash)
+            {
+                await Task.Delay(TimeSpan.FromSeconds(1));
+            }
             Debug.Log("splashtime = " + splashTime);
             await Task.Delay(TimeSpan.FromSeconds(splashTime));
             splashTime = 0;

@@ -162,8 +162,10 @@ namespace Master.UIKit
 
         public void ShowPopupMsg(string title,string msg,string btnName)
         {
+            Debug.LogError("=======>>>>> PopupEnable");
             getScreen(ScreenType.PopupMSG).GetComponent<PopupMsgUI>().SetMsg(title,msg,btnName);
             ShowScreen(ScreenType.PopupMSG);
+            Debug.LogError("=======>>>>> PopupEnable completed");
         }
         public void ShowPopupMsg(string title, string msg, string btnName, Action callback)
         {
