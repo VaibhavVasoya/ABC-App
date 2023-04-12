@@ -414,7 +414,16 @@ public class MapController : Singleton<MapController>
 
     public async void OpenMapViaLink(string destinationLong, string destinationLat)
     {
-        if (!Input.location.isEnabledByUser)
+
+        if (!Permission.HasUserAuthorizedPermission(Permission.FineLocation))
+        {
+            //Debug.Log("permissition ");
+            UIController.instance.ShowPopupMsg("Location", "By clicking on enable button , you can turn on device location.", "Enable", () => { IsCheackLocation = true; OpenAppInfo(); });
+            //Input.location.Start();
+            //Permission.RequestUserPermission(Permission.FineLocation);
+            //Permission.RequestUserPermission(Permission.CoarseLocation);
+        }
+        else if (!Input.location.isEnabledByUser)
         {
             Debug.Log("GPS IS DISABLED");
             UIController.instance.ShowPopupMsg("Location", "By clicking on enable button , you can turn on device location.","Enable", () => { IsCheackLocation = true; OpenLocationEnable(); });
