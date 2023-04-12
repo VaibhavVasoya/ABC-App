@@ -33,7 +33,7 @@ public class ScreenTrailPois : UIScreenView
     int currentSelectedPoiPin = 0;
     [SerializeField] List<Poi> pois;
 
-    
+
 
     private void OnEnable()
     {
@@ -51,17 +51,28 @@ public class ScreenTrailPois : UIScreenView
         //Invoke("CheckSculpNearestMe",1);
         //TrailsHandler.instance.CheckSculpNearestMe();
         //check location permissiton
-        MapController.instance.CkeckLocationPermission();
-        TrailsHandler.instance.MethodInvoke();
+        //MapController.instance.CkeckLocationPermission();
+        //TrailsHandler.instance.MethodInvoke();
         TrailsHandler.instance.CurrentTrailPoi = null;
-        TrailsHandler.instance.isInvokeNearestSculp = true;
+        //TrailsHandler.instance.isInvokeNearestSculp = true;
         poiListToggle.isOn = true;
         OpenTab(poiMapToggle.isOn);
         SculptureTrailPoisCallBack(API_TYPE.API_TRAIL_POIS, "");
     }
+
+    public override void OnScreenShowAnimationCompleted()
+    {
+        base.OnScreenShowAnimationCompleted();
+        MapController.instance.CkeckLocationPermission();
+        TrailsHandler.instance.MethodInvoke();
+        TrailsHandler.instance.isInvokeNearestSculp = true;
+
+    }
+
     public override void OnScreenHideCalled()
     {
         base.OnScreenHideCalled();
+        MapController.instance.StopPermissionCheck();
         //if(UIController.instance.previousScreen == ScreenType.Poi)
         //{
         //    TrailsHandler.instance.isInvokeNearestSculp = false;
@@ -93,7 +104,7 @@ public class ScreenTrailPois : UIScreenView
             Destroy(contentParent.GetChild(i).gameObject);
         }
     }
-   
+
     async void SculptureTrailPoisCallBack(API_TYPE aPI_TYPE, string obj)
     {
         if (aPI_TYPE != API_TYPE.API_TRAIL_POIS) return;
@@ -114,8 +125,20 @@ public class ScreenTrailPois : UIScreenView
         await Task.Delay(TimeSpan.FromSeconds(Time.deltaTime));
         Refresh();
     }
+    public void OnClickMap()
+    {
+        //Debug.Log("mapopen");
+        if (!Services.CheckInternetConnection())
+        {
+            OpenTab(false);
+            return;
+        }
+        Debug.Log("open map");
+        OpenTab(true);
+    }
     public void OpenTab(bool IsMap)
     {
+        if (IsMap && !Services.CheckInternetConnection()) return;
         poiListContentObj.SetActive(!IsMap);
         poiMapContentObj.SetActive(IsMap);
         poiListToggle.isOn = !IsMap;
@@ -171,6 +194,7 @@ public class ScreenTrailPois : UIScreenView
     public void OnClickMarkerSetPoiDetails(int index)
     {
         Debug.Log("marker click");
+        if (currentSelectedPoiPin == index) return;
         currentSelectedPoiPin = index;
 
         poiImg.Downloading(pois[index].num, pois[index].thumbnail);

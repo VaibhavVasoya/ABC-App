@@ -69,7 +69,11 @@ public class TrailsHandler : Singleton<TrailsHandler>
                     {
                         if (UIController.instance.getCurrentScreen() == ScreenType.PoiDetails && (CurrentTrailPoi.num == ApiHandler.instance.data.trailPois.Find(x => x.num == sculp.num).num))
                         {
-                            Debug.Log("already open");
+                            Debug.Log("already poi detail open");
+                        }
+                        else if (UIController.instance.getCurrentScreen() == ScreenType.PoiMap && (CurrentTrailPoi.num == ApiHandler.instance.data.trailPois.Find(x => x.num == sculp.num).num))
+                        {
+                            Debug.Log("already poi map open");
                         }
                         else
                         {
@@ -91,7 +95,7 @@ public class TrailsHandler : Singleton<TrailsHandler>
                     }
                 }
             }
-            Debug.Log("distance = " + GetDistance(new Vector2(float.Parse(sculp.longitude), float.Parse(sculp.latitude)), currentLocation));
+            //Debug.Log("distance = " + GetDistance(new Vector2(float.Parse(sculp.longitude), float.Parse(sculp.latitude)), currentLocation));
         }
         if (isInvokeNearestSculp) Invoke("CheckSculpNearestMe", 1);
     }

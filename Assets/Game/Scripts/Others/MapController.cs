@@ -99,7 +99,13 @@ public class MapController : Singleton<MapController>
     }
     public void CkeckLocationPermission()
     {
+        //StopCoroutine("CheackLocationIsEnable");
         StartCoroutine("CheackLocationIsEnable");
+    }
+
+    public void StopPermissionCheck()
+    {
+        StopCoroutine("CheackLocationIsEnable");
     }
 
     private void OnDisable()
@@ -123,6 +129,7 @@ public class MapController : Singleton<MapController>
         {
             if (!Input.location.isEnabledByUser && IsCheackLocation)
             {
+                UIController.instance.getScreen(UIController.instance.getCurrentScreen()).isBackWorking = false;
                 IsCheackLocation = false;
                 //UIController.instance.ShowPopupMsg("we can't find you...", "Your Location Services are turned off, Please turn on now.", () => { IsCheackLocation = true; });
                 UIController.instance.ShowPopupMsg("Location", "By clicking on enable button , you can turn on device location.","Enable",() => { IsCheackLocation = true;OpenAppInfo(); });
@@ -419,6 +426,7 @@ public class MapController : Singleton<MapController>
         {
             //Debug.Log("permissition ");
             UIController.instance.ShowPopupMsg("Location", "By clicking on enable button , you can turn on device location.", "Enable", () => { IsCheackLocation = true; OpenAppInfo(); });
+            return;
             //Input.location.Start();
             //Permission.RequestUserPermission(Permission.FineLocation);
             //Permission.RequestUserPermission(Permission.CoarseLocation);

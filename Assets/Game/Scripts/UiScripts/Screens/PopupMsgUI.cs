@@ -4,6 +4,7 @@ using UnityEngine;
 using Master.UIKit;
 using UnityEngine.UI;
 using System;
+using System.Threading.Tasks;
 
 namespace Master.UI
 {
@@ -24,6 +25,7 @@ namespace Master.UI
             base.OnScreenHideAnimationCompleted();
             txtMsg.text = txtTitle.text = "";
             UIController.instance.getScreen(UIController.instance.getCurrentScreen()).isBackWorking = true;
+            callBack?.Invoke();
         }
         //public override void OnBack()
         //{
@@ -33,18 +35,26 @@ namespace Master.UI
 
         public void SetMsg(string title, string msg,string buttonText, Action callback = null)
         {
-            Debug.LogError("====>>>> Popup Msg Set" + transform.localScale);
+            //Debug.LogError("====>>>> Popup Msg Set" + transform.localScale);
             txtTitle.text = title;
             txtMsg.text = msg;
             btnText.text = buttonText;
             callBack = callback;
-            Debug.LogError("====>>>> Popup Msg set completed");
+            //Debug.LogError("====>>>> Popup Msg set completed");
         }
 
         public void ClosePopup()
         {
-            callBack?.Invoke();
+            //ClosePopUpWait();
+            //callBack?.Invoke();
             UIController.instance.HideScreen(ScreenType.PopupMSG);
         }
+
+        async void ClosePopUpWait()
+        {
+            UIController.instance.HideScreen(ScreenType.PopupMSG);
+            await Task.Delay(TimeSpan.FromSeconds(1f));
+            //callBack?.Invoke();
+        }
     }
-}
+    }

@@ -174,6 +174,7 @@ namespace Master.UI
         //Map Content
         public void ShowGoogleMap()
         {
+            if (!Services.CheckInternetConnection()) return;
             if (string.IsNullOrEmpty(_sculpEvent.logitude) || string.IsNullOrEmpty(_sculpEvent.latitude))
             {
                 UIController.instance.ShowPopupMsg("Oops!!", "Unable to determine event location.", "Ok");

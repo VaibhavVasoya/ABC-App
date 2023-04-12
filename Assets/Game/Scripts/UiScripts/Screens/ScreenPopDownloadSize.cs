@@ -20,7 +20,7 @@ public class ScreenPopDownloadSize : UIScreenView
     public override void OnBack()
     {
         base.OnBack();
-        ClosePopup();
+        //ClosePopup();
     }
 
     public void SetMsg(string title, string msg, Action callback = null)

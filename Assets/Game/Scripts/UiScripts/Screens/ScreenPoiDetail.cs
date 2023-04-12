@@ -310,6 +310,7 @@ public class ScreenPoiDetail : UIScreenView
     //}
     public void OpenMapScreen()
     {
+        if (!Services.CheckInternetConnection()) return;
         if (string.IsNullOrEmpty(TrailsHandler.instance.CurrentTrailPoi.latitude) || string.IsNullOrEmpty(TrailsHandler.instance.CurrentTrailPoi.longitude))
             UIController.instance.ShowPopupMsg("Oops!", "Unable to determine trail location.", "Ok");
         else
