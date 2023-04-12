@@ -710,5 +710,14 @@ public class Services : Singleton<Services>
     }
 
     #endregion
+
+    public static bool CheckInternetConnection()
+    {
+        if (Application.internetReachability != NetworkReachability.NotReachable) return true;
+        UIController.instance.ShowPopupMsg("Internet Connection", "Please check your connection and try again!!", "Ok");
+        return false;
+    }
 }
+
 #endregion
+

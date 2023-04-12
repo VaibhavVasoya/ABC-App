@@ -35,8 +35,8 @@ public class ApiHandler : Singleton<ApiHandler>
         while (Application.internetReachability == NetworkReachability.NotReachable)
         {
             //Debug.Log("in while");
-            //ShowInternetMessage();
-            UIController.instance.ShowPopupMsg("Internet Connection", "Please check your connection and try again!!", "Ok");
+            ShowInternetMessage();
+            //UIController.instance.ShowPopupMsg("Internet Connection", "Please check your connection and try again!!", "Ok");
             yield return new WaitForSeconds(2);
         }
         isReadyToStartSplash = true;
@@ -231,22 +231,13 @@ public class ApiHandler : Singleton<ApiHandler>
     {
         if (isEnter) return;
         isEnter = true;
-        Debug.Log("in show popup message");
         Canvas _canvas = UIController.instance.getScreen(ScreenType.PopupMSG).GetComponent<Canvas>();
-        Debug.Log("name "+_canvas.name);
         while (isEnter)
         {
-            Debug.Log("in while enter");  
             if (!isEnableMsg)
             {
-                Debug.Log("in while enter if ");
                 isEnableMsg = true;
-
-                //UIController.instance.ShowPopupMsg(LocalizationSettings.StringDatabase.GetLocalizedString("UI_Text", "InternetError_title"), LocalizationSettings.StringDatabase.GetLocalizedString("UI_Text", "InternetError"));
-                Debug.Log("pre");
-                UIController.instance.ShowPopupMsg("Internet Connection", "Please check your connection and try again!!", "Ok");
-                Debug.Log("post");
-
+                Services.CheckInternetConnection();
             }
             else
                 isEnter = isEnableMsg = (_canvas == null) ? false : _canvas.enabled;
