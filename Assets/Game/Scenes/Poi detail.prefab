@@ -1001,7 +1001,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -6490391.5, y: 0}
+  m_AnchoredPosition: {x: -6492312.5, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &7440329459091131311
@@ -3890,9 +3890,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Background: {fileID: 0}
   Parent: {fileID: 0}
+  isBackWorking: 1
   bg: {fileID: 2116482748922193504}
   txtname: {fileID: 2152425228570970967}
-  txtDescription: {fileID: 4788120065189341235}
+  txtDescription: {fileID: 0}
   otherPoisParent: {fileID: 4788120064549754659}
   otherPoi: {fileID: 5441972472551226200, guid: c0b64751fdae848a399a3b486001a190, type: 3}
   scrollRect: {fileID: 7613944439120705109}
