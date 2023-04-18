@@ -115,7 +115,7 @@ public class MapController : Singleton<MapController>
     //bool isCheckPopUp = true;
     IEnumerator CheackLocationIsEnable()
     {
-        yield return new WaitForSeconds(1);
+        //yield return new WaitForSeconds(1);
         if (!Permission.HasUserAuthorizedPermission(Permission.FineLocation))
         {
             Debug.Log("permissition ");
@@ -123,11 +123,12 @@ public class MapController : Singleton<MapController>
             Permission.RequestUserPermission(Permission.CoarseLocation);
             //isCheckPopUp = true;
         }
-        //else
-        //{
+        else
+        {
+            StopCoroutine("CheackLocationIsEnable");
             //isCheckPopUp = false;
-        //}
-        //yield return new WaitForSeconds(1);
+        }
+        yield return new WaitForSeconds(2);
         IsCheackLocation = true;
         //Application.OpenURL("intent:android.settings.APPLICATION_DETAILS_SETTINGS?package=com.tag.ABC#Intent;end;");
         while (true)

@@ -79,6 +79,11 @@ public class TrailsHandler : Singleton<TrailsHandler>
                         {
                             Debug.Log("already poi map open");
                         }
+                        else if(UIController.instance.getCurrentScreen() == ScreenType.UpcomingEvents || UIController.instance.getCurrentScreen() == ScreenType.EventPoiMap || UIController.instance.getCurrentScreen() == ScreenType.EventsDetails
+                            || UIController.instance.getCurrentScreen() == ScreenType.AboutThisApp || UIController.instance.getCurrentScreen() == ScreenType.AboutUs)
+                        {
+                            Debug.Log("not open pop up in this screen");
+                        }
                         else
                         {
                                 notificationPopup.Show("You are now approaching " + sculp.Name);
