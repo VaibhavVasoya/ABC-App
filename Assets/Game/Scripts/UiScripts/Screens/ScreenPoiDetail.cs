@@ -73,27 +73,27 @@ public class ScreenPoiDetail : UIScreenView
             }
             else
             {
-                Debug.Log("into the ocean");
+                //Debug.Log("into the ocean");
             }
 
 
             //if (SavedDataHandler.instance._saveData.mySculptures.Exists(x => x.Num == item.intro_id))
-            Debug.Log("Pre exist");
+            //Debug.Log("Pre exist");
             //Debug.Log("I Exist: " + SavedDataHandler.instance._saveData.mySculptures.Find(x => x.Num == item.intro_id).Num);
             if (SavedDataHandler.instance._saveData.mySculptures.Find(x => x.Num == item.num).IsVisited == false)
             {
-                Debug.Log("return statement pre");
+                //Debug.Log("return statement pre");
                 return;
                 //Debug.Log("return statement post");
             }
         }
 
-        Debug.Log("feedback screen pre");
+        //Debug.Log("feedback screen pre");
         delayw();
 
 
 
-        Debug.Log("feedback screen post");
+        //Debug.Log("feedback screen post");
         //isVisited();
 
 
