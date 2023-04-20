@@ -46,7 +46,7 @@ namespace Master.UIKit
         PopUpDownloadSize = 26
     }
 
-    
+
 
     public class UIController : Singleton<UIController>
     {
@@ -84,12 +84,12 @@ namespace Master.UIKit
 
             SavedDataHandler.instance.SetFirstLaunch();
         }
-        
+
         public void ShowNextScreen(ScreenType screenType, float Delay = 0.2f)
         {
             if (currentScreens.Count > 0)
             {
-                if(screenType != ScreenType.PopupMSG)
+                if (screenType != ScreenType.PopupMSG)
                     previousScreen = currentScreens.Last();
                 HideScreen(currentScreens.Last());
             }
@@ -107,7 +107,8 @@ namespace Master.UIKit
         public bool isUpdatingUI;
         public void ShowScreen(ScreenType screenType)
         {
-            currentScreens.Add(screenType);
+            if (screenType != ScreenType.Menu  && currentScreens.Count==0)
+                currentScreens.Add(screenType);
 
             getScreen(screenType).Show();
 
@@ -117,7 +118,7 @@ namespace Master.UIKit
              }*/
 
         }
-       
+
         public void HideScreen(ScreenType screenType)
         {
 
@@ -138,20 +139,28 @@ namespace Master.UIKit
             return currentScreens.First();
         }
 
-        //private void Update()
-        //{
-        //    CurrentScreen();
-        //}
+        private void Update()
+        {
+            CurrentScreen();
+        }
 
         [EasyButtons.Button]
-        void CurrentScreen()
+        async void CurrentScreen()
         {
-            Debug.LogError("123 Current Screen : "+ getCurrentScreen());
-            Debug.LogError("123 Last Screen : " + GetLastOpenScreen());
+            await Task.Delay(1000);
+            Debug.Log("----->>>>>>>>");
+            string st="";
+            foreach (var item in currentScreens)
+            {
+                st += " "+item.ToString();
+            }
+            Debug.Log("     "+st);
+            //Debug.LogError("123 Current Screen : " + getCurrentScreen());
+            //Debug.LogError("123 Last Screen : " + GetLastOpenScreen());
         }
         public ScreenType GetLastOpenScreen()
         {
-            return currentScreens[currentScreens.Count-1];
+            return currentScreens[currentScreens.Count - 1];
         }
         IEnumerator ExecuteAfterDelay(float Delay, Action CallbackAction)
         {
@@ -160,16 +169,16 @@ namespace Master.UIKit
             CallbackAction();
         }
 
-        public void ShowPopupMsg(string title,string msg,string btnName)
+        public void ShowPopupMsg(string title, string msg, string btnName)
         {
             //Debug.LogError("=======>>>>> PopupEnable");
-            getScreen(ScreenType.PopupMSG).GetComponent<PopupMsgUI>().SetMsg(title,msg,btnName);
+            getScreen(ScreenType.PopupMSG).GetComponent<PopupMsgUI>().SetMsg(title, msg, btnName);
             ShowScreen(ScreenType.PopupMSG);
             //Debug.LogError("=======>>>>> PopupEnable completed");
         }
         public void ShowPopupMsg(string title, string msg, string btnName, Action callback)
         {
-            getScreen(ScreenType.PopupMSG).GetComponent<PopupMsgUI>().SetMsg(title, msg,btnName, callback);
+            getScreen(ScreenType.PopupMSG).GetComponent<PopupMsgUI>().SetMsg(title, msg, btnName, callback);
             ShowScreen(ScreenType.PopupMSG);
         }
         public void OpenMenuScreen()
@@ -193,7 +202,7 @@ namespace Master.UIKit
         }
         public void ChangeOrientation(ScreenOrientation screenOrientation)
         {
-            if(ScreenOrientation.Portrait == screenOrientation)
+            if (ScreenOrientation.Portrait == screenOrientation)
             {
                 Screen.autorotateToPortrait = true;
                 Screen.autorotateToPortraitUpsideDown = true;
@@ -209,12 +218,12 @@ namespace Master.UIKit
                 Screen.autorotateToLandscapeRight = true;
                 Screen.orientation = ScreenOrientation.LandscapeLeft;
             }
-            Helper.Execute(this,()=> Screen.orientation = ScreenOrientation.AutoRotation, 2f);
+            Helper.Execute(this, () => Screen.orientation = ScreenOrientation.AutoRotation, 2f);
         }
 
         public async Task RefreshContent(ContentSizeFitter[] csf)
         {
-            if(csf == null || csf.Length == 0) return;
+            if (csf == null || csf.Length == 0) return;
             await Task.Delay(TimeSpan.FromSeconds(Time.deltaTime));
             foreach (var item in csf)
             {
