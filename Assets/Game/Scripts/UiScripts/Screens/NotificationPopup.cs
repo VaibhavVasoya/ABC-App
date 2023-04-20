@@ -21,7 +21,7 @@ public class NotificationPopup : MonoBehaviour
         //UIController.instance.getCurrentScreen().
         //isReadyToHide = true;
         StartCoroutine("BackKeyForNotification");
-        UIController.instance.getScreen(UIController.instance.getCurrentScreen()).isBackWorking = false;
+        UIController.instance.getScreen(UIController.instance.getCurrentScreen()).ToggleInteraction(false);
         txtMsg.text = str;
         _canvas.enabled = true;
         movePanelAnimate.ShowAnimation();
@@ -31,7 +31,7 @@ public class NotificationPopup : MonoBehaviour
     void Hide()
     {
         movePanelAnimate.HideAnimation(() => _canvas.enabled = false);
-        UIController.instance.getScreen(UIController.instance.getCurrentScreen()).isBackWorking = true;
+        UIController.instance.getScreen(UIController.instance.getCurrentScreen()).ToggleInteraction(true);
         //isReadyToHide = false;
         StopCoroutine("BackKeyForNotification");
     }
@@ -44,12 +44,12 @@ public class NotificationPopup : MonoBehaviour
 
     public void OnClickOk()
     {
-        UIController.instance.getScreen(UIController.instance.getCurrentScreen()).isBackWorking = true;
+        UIController.instance.getScreen(UIController.instance.getCurrentScreen()).ToggleInteraction(true);
         if (UIController.instance.getCurrentScreen() == ScreenType.PoiDetails)
         {
             UIController.instance.getScreen(ScreenType.PoiDetails).GetComponent<ScreenPoiDetail>().SetPoiDetails();
         }
-        else if (UIController.instance.GetLastOpenScreen() == ScreenType.Menu)
+        else if (UIController.instance.IsPopupEnable(ScreenType.Menu))
         {
             MenuHide();
         }
@@ -62,7 +62,7 @@ public class NotificationPopup : MonoBehaviour
 
     async void MenuHide()
     {
-        UIController.instance.HideScreen(ScreenType.Menu);
+        UIController.instance.HidePopup(ScreenType.Menu);
         await Task.Delay(TimeSpan.FromSeconds(.5f));
         UIController.instance.ShowNextScreen(ScreenType.PoiDetails);
     }

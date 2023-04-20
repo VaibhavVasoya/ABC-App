@@ -33,7 +33,7 @@ public class ScreenPopDownloadSize : UIScreenView
     public void ClosePopup()
     {
         callBack?.Invoke();
-        UIController.instance.HideScreen(ScreenType.PopUpDownloadSize);
+        UIController.instance.HidePopup(ScreenType.PopUpDownloadSize);
     }
 
     public void OnClickOk()

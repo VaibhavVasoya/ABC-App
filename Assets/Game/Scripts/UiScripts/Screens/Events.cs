@@ -14,6 +14,8 @@ public class Events : MonoBehaviour
 
     public static event Action OnLanguageChanged;
 
+    public static event Action<bool> OnScreenChange;
+
     public static void OnWebRequestComplete(API_TYPE aPI_TYPE,string obj)
     {
         if (WebRequestCompleted != null)
@@ -42,5 +44,10 @@ public class Events : MonoBehaviour
     {
         if (OnLanguageChanged != null)
             OnLanguageChanged();
+    }
+
+    public static void ScreenChange(bool val)
+    {
+        OnScreenChange?.Invoke(val);
     }
 }

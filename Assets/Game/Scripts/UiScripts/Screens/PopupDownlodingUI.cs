@@ -28,7 +28,7 @@ namespace Master.UI
 
         public void ClosePopup()
         {
-            UIController.instance.HideScreen(ScreenType.PopupDownloding);
+            UIController.instance.HidePopup(ScreenType.PopupDownloding);
         }
 
         public static float Map(float current1, float current2, float target1, float target2, float val)

@@ -53,6 +53,7 @@ namespace Master.UI
         public override void OnBack()
         {
             base.OnBack();
+            Debug.Log(transform.name + " back call.");
             CloseMenu();
         }
         void InitializeMenuList()
@@ -74,7 +75,7 @@ namespace Master.UI
         [SerializeField] float delay = 0.2f;
         public void CloseMenu()
         {
-            UIController.instance.HideScreen(ScreenType.Menu);
+            UIController.instance.HidePopup(ScreenType.Menu);
         }
 
 

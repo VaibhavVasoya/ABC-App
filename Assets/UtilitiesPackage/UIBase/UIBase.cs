@@ -73,7 +73,7 @@ namespace Master.UIKit
             OnScreenStateChanged?.Invoke(state);
         }
 
-        public virtual void OnBack() { }
+        public virtual void OnBack() { Debug.Log(transform.name + " Base view back call."); }
 
 
         public virtual void Show()

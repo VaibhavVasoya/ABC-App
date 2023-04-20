@@ -29,8 +29,8 @@ public class Screen360VideoUI : UIScreenView
     void StopDownloading()
     {
         Services.isStop = true;
-        if (UIController.instance.getCurrentScreen() == ScreenType.PopupDownloding)
-            UIController.instance.HideScreen(ScreenType.PopupDownloding);
+        if (UIController.instance.IsPopupEnable(ScreenType.PopupDownloding))
+            UIController.instance.HidePopup(ScreenType.PopupDownloding);
     }
 
     public void DownloadAndLoadVideo(string prefix, string _url, string _audioUrl)

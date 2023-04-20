@@ -135,7 +135,7 @@ public class MapController : Singleton<MapController>
         {
             if (!Permission.HasUserAuthorizedPermission(Permission.FineLocation) && IsCheackLocation)
             {
-                UIController.instance.getScreen(UIController.instance.getCurrentScreen()).isBackWorking = false;
+                UIController.instance.getScreen(UIController.instance.getCurrentScreen()).ToggleInteraction(false);
                 IsCheackLocation = false;
                 //UIController.instance.ShowPopupMsg("we can't find you...", "Your Location Services are turned off, Please turn on now.", () => { IsCheackLocation = true; });
                 UIController.instance.ShowPopupMsg("Location", "By clicking on enable button , you can turn on device location.","Enable",() => { IsCheackLocation = true;OpenAppInfo(); });

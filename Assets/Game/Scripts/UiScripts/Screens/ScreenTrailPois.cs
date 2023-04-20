@@ -167,7 +167,7 @@ public class ScreenTrailPois : UIScreenView
     async void LoadMapScean()
     {
         //UIController.instance.getScreen(UIController.instance.getCurrentScreen()).isBackWorking = false;
-        isBackWorking = false;
+        ToggleInteraction(false);
         if (TrailsHandler.instance.CurrentTrail == null)// (string.IsNullOrEmpty(TrailsHandler.instance.CurrentTrailPoi.num))
         {
             UIController.instance.ShowPopupMsg("Oops!!", "Unable to determine trail location.", "Ok");
@@ -185,7 +185,7 @@ public class ScreenTrailPois : UIScreenView
         OnClickMarkerSetPoiDetails(currentSelectedPoiPin,true);
         poiPanelAnimate.ShowAnimation();
         //UIController.instance.getScreen(UIController.instance.getCurrentScreen()).isBackWorking = true;
-        isBackWorking = true;
+        ToggleInteraction(true); 
     }
     void RemoveMapScean()
     {

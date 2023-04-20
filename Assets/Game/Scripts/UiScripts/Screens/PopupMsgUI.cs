@@ -18,13 +18,13 @@ namespace Master.UI
         public override void OnScreenShowCalled()
         {
             base.OnScreenShowCalled();
-            UIController.instance.getScreen(UIController.instance.getCurrentScreen()).isBackWorking = false;
+            UIController.instance.getScreen(UIController.instance.getCurrentScreen()).ToggleInteraction(false);
         }
         public override void OnScreenHideAnimationCompleted()
         {
             base.OnScreenHideAnimationCompleted();
             txtMsg.text = txtTitle.text = "";
-            UIController.instance.getScreen(UIController.instance.getCurrentScreen()).isBackWorking = true;
+            UIController.instance.getScreen(UIController.instance.getCurrentScreen()).ToggleInteraction(true);
             callBack?.Invoke();
         }
         //public override void OnBack()
@@ -47,12 +47,12 @@ namespace Master.UI
         {
             //ClosePopUpWait();
             //callBack?.Invoke();
-            UIController.instance.HideScreen(ScreenType.PopupMSG);
+            UIController.instance.HidePopup(ScreenType.PopupMSG);
         }
 
         async void ClosePopUpWait()
         {
-            UIController.instance.HideScreen(ScreenType.PopupMSG);
+            UIController.instance.HidePopup(ScreenType.PopupMSG);
             await Task.Delay(TimeSpan.FromSeconds(1f));
             //callBack?.Invoke();
         }

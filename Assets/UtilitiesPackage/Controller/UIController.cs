@@ -55,8 +55,8 @@ namespace Master.UIKit
         public List<UIScreen> Screens;
         [SerializeField] Image bottomImage;
 
-        [SerializeField]
-        List<ScreenType> currentScreens;
+        [SerializeField] ScreenType currentScreens;
+        [SerializeField] List<UIScreen> currentPopup;
         //[HideInInspector]
         public ScreenType previousScreen;
         //public static float AspectRatio;
@@ -75,7 +75,7 @@ namespace Master.UIKit
         private IEnumerator Start()
         {
             Application.targetFrameRate = Screen.currentResolution.refreshRate;
-            currentScreens = new List<ScreenType>();
+            currentPopup = new List<UIScreen>();
 
             yield return null;
             ShowScreen(StartScreen);
@@ -85,47 +85,31 @@ namespace Master.UIKit
             SavedDataHandler.instance.SetFirstLaunch();
         }
 
-        public void ShowNextScreen(ScreenType screenType, float Delay = 0.2f)
+        public void ShowNextScreen(ScreenType screenType, float Delay = 0f)
         {
-            if (currentScreens.Count > 0)
+            Events.ScreenChange(false);
+            if (currentScreens != ScreenType.None)
             {
-                if (screenType != ScreenType.PopupMSG)
-                    previousScreen = currentScreens.Last();
-                HideScreen(currentScreens.Last());
+                previousScreen = currentScreens;//.Last();
+                HideScreen(previousScreen);
             }
-            else
-            {
-                Delay = 0;
-            }
-
+            
             StartCoroutine(ExecuteAfterDelay(Delay, () =>
             {
                 ShowScreen(screenType);
             }));
         }
 
-        public bool isUpdatingUI;
-        public void ShowScreen(ScreenType screenType)
+        void ShowScreen(ScreenType screenType)
         {
-            if (screenType != ScreenType.Menu  && currentScreens.Count==0)
-                currentScreens.Add(screenType);
-
-            getScreen(screenType).Show();
-
-            isUpdatingUI = false;
-            /* if(currentScreens.Find(x => x == screenType) != screenType)
-             {
-             }*/
-
+           currentScreens = (screenType);
+           getScreen(screenType).Show();
         }
 
-        public void HideScreen(ScreenType screenType)
+        void HideScreen(ScreenType screenType)
         {
-
             getScreen(screenType).Hide();
-            currentScreens.Remove(screenType);
             previousScreen = screenType;
-
         }
 
         public UIScreenView getScreen(ScreenType screenType)
@@ -136,31 +120,34 @@ namespace Master.UIKit
         public ScreenType getCurrentScreen()
         {
             //return currentScreens.Last();
-            return currentScreens.First();
+            return currentScreens;
         }
-
-        private void Update()
+        UIScreen _popup = null;
+        public void ShowPopup(ScreenType popup)
         {
-            CurrentScreen();
+            Debug.Log("Pop up show : "+popup.ToString());
+            _popup = Screens.Find(x => x.screenType == popup);
+            if (_popup == null) return;
+            Events.ScreenChange(false);
+            _popup.screenView.previousScreen = (currentPopup.Count == 0)? getScreen(getCurrentScreen()) : currentPopup.Last().screenView;
+            currentPopup.Add(_popup);
+            _popup.screenView.Show();
         }
-
-        [EasyButtons.Button]
-        async void CurrentScreen()
+        public void HidePopup(ScreenType popupType)
         {
-            await Task.Delay(1000);
-            Debug.Log("----->>>>>>>>");
-            string st="";
-            foreach (var item in currentScreens)
-            {
-                st += " "+item.ToString();
-            }
-            Debug.Log("     "+st);
-            //Debug.LogError("123 Current Screen : " + getCurrentScreen());
-            //Debug.LogError("123 Last Screen : " + GetLastOpenScreen());
+            Events.ScreenChange(false);
+            GetPopup(popupType).Hide();
+            currentPopup.Remove(currentPopup.Find(pop => pop.screenType == popupType));
+            //if (currentPopup.Count == 0)
+            //    Helper.Execute(this, () => getScreen(getCurrentScreen()).ToggleRaycaster(true), 0.8f);
         }
-        public ScreenType GetLastOpenScreen()
+        public UIScreenView GetPopup(ScreenType popupType)
         {
-            return currentScreens[currentScreens.Count - 1];
+            return Screens.Find(pop => pop.screenType == popupType).screenView;
+        }
+        public bool IsPopupEnable(ScreenType popupType)
+        {
+            return currentPopup.Exists(pop => pop.screenType == popupType);
         }
         IEnumerator ExecuteAfterDelay(float Delay, Action CallbackAction)
         {
@@ -173,33 +160,25 @@ namespace Master.UIKit
         {
             //Debug.LogError("=======>>>>> PopupEnable");
             getScreen(ScreenType.PopupMSG).GetComponent<PopupMsgUI>().SetMsg(title, msg, btnName);
-            ShowScreen(ScreenType.PopupMSG);
+            ShowPopup(ScreenType.PopupMSG);
             //Debug.LogError("=======>>>>> PopupEnable completed");
         }
         public void ShowPopupMsg(string title, string msg, string btnName, Action callback)
         {
             getScreen(ScreenType.PopupMSG).GetComponent<PopupMsgUI>().SetMsg(title, msg, btnName, callback);
-            ShowScreen(ScreenType.PopupMSG);
+            ShowPopup(ScreenType.PopupMSG);
         }
         public void OpenMenuScreen()
         {
-            ShowScreen(ScreenType.Menu);
+            ShowPopup(ScreenType.Menu);
         }
 
         public void ShowDownlodingPopup(string downloadAssetName)
         {
             getScreen(ScreenType.PopupDownloding).GetComponent<PopupDownlodingUI>().DownlodAssetName = downloadAssetName;
-            ShowScreen(ScreenType.PopupDownloding);
+            ShowPopup(ScreenType.PopupDownloding);
         }
-        public void OpenScreens()
-        {
-            string s = "";
-            foreach (var item in currentScreens)
-            {
-                s += item.ToString() + " || ";
-            }
-            Debug.LogError("Opne screens : " + s);
-        }
+        
         public void ChangeOrientation(ScreenOrientation screenOrientation)
         {
             if (ScreenOrientation.Portrait == screenOrientation)
@@ -247,12 +226,12 @@ namespace Master.UIKit
         public void ShowPopUpDownloadSize(string title, string msg)
         {
             getScreen(ScreenType.PopUpDownloadSize).GetComponent<ScreenPopDownloadSize>().SetMsg(title, msg);
-            ShowScreen(ScreenType.PopUpDownloadSize);
+            ShowPopup(ScreenType.PopUpDownloadSize);
         }
         public void ShowPopUpDownloadSize(string title, string msg, Action callback)
         {
             getScreen(ScreenType.PopUpDownloadSize).GetComponent<ScreenPopDownloadSize>().SetMsg(title, msg, callback);
-            ShowScreen(ScreenType.PopUpDownloadSize);
+            ShowPopup(ScreenType.PopUpDownloadSize);
         }
     }
 
