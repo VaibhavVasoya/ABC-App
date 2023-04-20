@@ -31830,7 +31830,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InAnimationEase: 18
-  OutAnimationEase: 18
+  OutAnimationEase: 17
   InTime: 0.7
   OutTime: 0.5
   animatables: []
@@ -45869,7 +45869,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -2117.6194, y: 0}
+  m_AnchoredPosition: {x: -2355.4092, y: 0}
   m_SizeDelta: {x: 0, y: 500}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1650682014440575114
@@ -115949,7 +115949,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -16486482, y: 0}
+  m_AnchoredPosition: {x: -16488622, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!1 &6797863417479745053

@@ -25,15 +25,6 @@ namespace Master.UI
         [SerializeField] CanvasGroup loadQaTilt;
 
         [SerializeField] MovePanelAnimate resultPanel;
-
-        //[SerializeField] Color rightColor;
-        //[SerializeField] Color wrongColor;
-        //[SerializeField] Color normalColor;
-        //[SerializeField] Color rightBgColor;
-        //[SerializeField] Color wrongBgColor;
-        //[SerializeField] Color normalBgColor;
-        //[SerializeField] Color textColor;
-
         [SerializeField] Text txtContinueBtnText;
         
         [SerializeField] ContentSizeFitter[] contentSizeFitters;
@@ -94,6 +85,7 @@ namespace Master.UI
 
         void LoadNextQuestion()
         {
+            resultPanel.HideAnimation();
             if (qaCount < totalNumberOfQa)
             {
                 currentQa = TrailsHandler.instance.CurrentTrailPoi.questions[qaCount];
@@ -112,6 +104,7 @@ namespace Master.UI
 
         public async void OnClickAnswer(int index)
         {
+            BackKeyActive = false;
             SetInteraction(false);
             //txtContinueBtnText.text = (qaCount < totalNumberOfQa) ? LocalizationSettings.StringDatabase.GetLocalizedString("UI_Text", "CONTINUE") : LocalizationSettings.StringDatabase.GetLocalizedString("UI_Text", "COMPLETED_QUIZ");
             StartCoroutine(Result = ShowResult(index));
@@ -130,13 +123,6 @@ namespace Master.UI
 
                 quizAudioSource.Play();
 
-                //answersCeils[index].SelectAnswer(Color.green);
-                //yield return new WaitForSeconds(2);
-                //txtResultMsg.text = LocalizationSettings.StringDatabase.GetLocalizedString("UI_Text", "Correct");// winMsg;
-                //objResult.transform.parent.gameObject.SetActive(true);
-                //objResult.ShowAnimation();
-                //winEffect.Play();
-                //AudioManager.inst.Play(Sounds.QaCorrect);
             }
             else
             {
@@ -154,11 +140,6 @@ namespace Master.UI
                         break;
                     }
                 }
-                //AudioManager.inst.Play(Sounds.QaIncorrect);
-                //yield return new WaitForSeconds(2);
-                //txtResultMsg.text = LocalizationSettings.StringDatabase.GetLocalizedString("UI_Text", "Wrong"); //lossMsg;
-                //objResult.transform.parent.gameObject.SetActive(true);
-                //objResult.ShowAnimation();
             }
             Result = null;
             yield return new WaitForSeconds(2);
@@ -167,8 +148,7 @@ namespace Master.UI
         }
         public void OnClickNextQuesions()
         {
-            //objResult.HideAnimation();
-            //Helper.Execute(this, () => objResult.transform.parent.gameObject.SetActive(false), 0.5f);
+            ToggleInteraction(true);
             LoadNextQuestion();
         }
         void SetInteraction(bool isEnable)

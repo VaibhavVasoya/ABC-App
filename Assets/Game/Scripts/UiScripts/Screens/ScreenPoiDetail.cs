@@ -168,6 +168,27 @@ public class ScreenPoiDetail : UIScreenView
     public override void OnScreenShowCalled()
     {
         base.OnScreenShowCalled();
+        //if (otherPoisParent.childCount == 0 && ApiHandler.instance.data.trailPois.Count != 0)
+        //{
+        //    foreach (var item in ApiHandler.instance.data.trailPois)
+        //    {
+        //        if (item.intro_id != TrailsHandler.instance.CurrentTrail.num) continue;
+        //        GameObject obj = Instantiate(otherPoi, otherPoisParent);
+        //        obj.GetComponent<PoiItemPreview>().SetData(item.num, item.Name, item.thumbnail);
+        //    }
+        //}
+        SetPoiDetails();
+        isCheckFeedBack = true;
+        swipeControl.canSwipe = true;
+        //ourAudioPlayer.AssignAudioClip();
+        //ResetNextLocation();
+        //isVisited();
+        //CheckPoiVisited();
+    }
+
+    public override void OnScreenShowAnimationCompleted()
+    {
+        base.OnScreenShowAnimationCompleted();
         if (otherPoisParent.childCount == 0 && ApiHandler.instance.data.trailPois.Count != 0)
         {
             foreach (var item in ApiHandler.instance.data.trailPois)
@@ -177,19 +198,8 @@ public class ScreenPoiDetail : UIScreenView
                 obj.GetComponent<PoiItemPreview>().SetData(item.num, item.Name, item.thumbnail);
             }
         }
-        SetPoiDetails();
-        isCheckFeedBack = true;
-        swipeControl.canSwipe = true;
-        ourAudioPlayer.AssignAudioClip();
         ResetNextLocation();
-        //isVisited();
-        //CheckPoiVisited();
-    }
-
-    public override void OnScreenShowAnimationCompleted()
-    {
-        base.OnScreenShowAnimationCompleted();
-
+        ourAudioPlayer.AssignAudioClip();
     }
 
     public override void OnScreenHideCalled()
