@@ -43,7 +43,8 @@ namespace Master.UIKit
         Video360 = 23,
         Image360 = 24,
         Feedback = 25,
-        PopUpDownloadSize = 26
+        PopUpDownloadSize = 26,
+        notificationPopUp = 27
     }
 
 
@@ -156,14 +157,14 @@ namespace Master.UIKit
             CallbackAction();
         }
 
-        public void ShowPopupMsg(string title, string msg, string btnName)
-        {
-            //Debug.LogError("=======>>>>> PopupEnable");
-            getScreen(ScreenType.PopupMSG).GetComponent<PopupMsgUI>().SetMsg(title, msg, btnName);
-            ShowPopup(ScreenType.PopupMSG);
-            //Debug.LogError("=======>>>>> PopupEnable completed");
-        }
-        public void ShowPopupMsg(string title, string msg, string btnName, Action callback)
+        //public void ShowPopupMsg(string title, string msg, string btnName)
+        //{
+        //    //Debug.LogError("=======>>>>> PopupEnable");
+        //    getScreen(ScreenType.PopupMSG).GetComponent<PopupMsgUI>().SetMsg(title, msg, btnName);
+        //    ShowPopup(ScreenType.PopupMSG);
+        //    //Debug.LogError("=======>>>>> PopupEnable completed");
+        //}
+        public void ShowPopupMsg(string title, string msg, string btnName, Action callback = null)
         {
             getScreen(ScreenType.PopupMSG).GetComponent<PopupMsgUI>().SetMsg(title, msg, btnName, callback);
             ShowPopup(ScreenType.PopupMSG);
@@ -223,15 +224,21 @@ namespace Master.UIKit
             return mainStr;
         }
 
-        public void ShowPopUpDownloadSize(string title, string msg)
-        {
-            getScreen(ScreenType.PopUpDownloadSize).GetComponent<ScreenPopDownloadSize>().SetMsg(title, msg);
-            ShowPopup(ScreenType.PopUpDownloadSize);
-        }
-        public void ShowPopUpDownloadSize(string title, string msg, Action callback)
+        //public void ShowPopUpDownloadSize(string title, string msg)
+        //{
+        //    getScreen(ScreenType.PopUpDownloadSize).GetComponent<ScreenPopDownloadSize>().SetMsg(title, msg);
+        //    ShowPopup(ScreenType.PopUpDownloadSize);
+        //}
+        public void ShowPopUpDownloadSize(string title, string msg, Action callback = null)
         {
             getScreen(ScreenType.PopUpDownloadSize).GetComponent<ScreenPopDownloadSize>().SetMsg(title, msg, callback);
             ShowPopup(ScreenType.PopUpDownloadSize);
+        }
+
+        public void ShowNotificationPopUp(string title)
+        {
+            getScreen(ScreenType.notificationPopUp).GetComponent<NotificationPopup>().SetMsg(title);
+            ShowPopup(ScreenType.notificationPopUp);
         }
     }
 

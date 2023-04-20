@@ -13,7 +13,7 @@ namespace Master.UIKit
         public Image Background;
         [HideInInspector]
         public RectTransform Parent;
-        public bool BackKeyActive = false;
+        protected bool BackKeyActive = false;
 
         public UIScreenView previousScreen = null;
 

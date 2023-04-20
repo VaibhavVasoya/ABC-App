@@ -21,6 +21,8 @@ public class TrailsHandler : Singleton<TrailsHandler>
     {
         foreach (var item in ApiHandler.instance.data.trailPois)
         {
+            Debug.Log("add");
+            Debug.Log("is exist "+ SavedDataHandler.instance._saveData.mySculptures.Exists(x => x.Num == item.num));
             if (SavedDataHandler.instance._saveData.mySculptures.Exists(x => x.Num == item.num)) continue;
             SavedDataHandler.instance.AddSculp(item.num, item.Name, item.intro_id);
         }
@@ -79,16 +81,17 @@ public class TrailsHandler : Singleton<TrailsHandler>
                         {
                             Debug.Log("already poi map open");
                         }
-                        else if(UIController.instance.getCurrentScreen() == ScreenType.UpcomingEvents || UIController.instance.getCurrentScreen() == ScreenType.EventPoiMap || UIController.instance.getCurrentScreen() == ScreenType.EventsDetails
+                        else if (UIController.instance.getCurrentScreen() == ScreenType.UpcomingEvents || UIController.instance.getCurrentScreen() == ScreenType.EventPoiMap || UIController.instance.getCurrentScreen() == ScreenType.EventsDetails
                             || UIController.instance.getCurrentScreen() == ScreenType.AboutThisApp || UIController.instance.getCurrentScreen() == ScreenType.AboutUs)
                         {
                             Debug.Log("not open pop up in this screen");
                         }
                         else
                         {
-                                notificationPopup.Show("You are now approaching " + sculp.Name);
-                                SavedDataHandler.instance._saveData.mySculptures.Find(x => x.Num == sculp.num).popUpShow = true;
-                                CurrentTrailPoi = ApiHandler.instance.data.trailPois.Find(x => x.num == sculp.num);
+                            UIController.instance.ShowNotificationPopUp("You are now approaching " + sculp.Name);
+                            //notificationPopup.Show("You are now approaching " + sculp.Name);
+                            SavedDataHandler.instance._saveData.mySculptures.Find(x => x.Num == sculp.num).popUpShow = true;
+                            CurrentTrailPoi = ApiHandler.instance.data.trailPois.Find(x => x.num == sculp.num);
                         }
                     }
                 }

@@ -6,40 +6,63 @@ using Master.UIKit;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class NotificationPopup : MonoBehaviour
+public class NotificationPopup : UIScreenView
 {
-    [SerializeField] MovePanelAnimate movePanelAnimate;
+    //[SerializeField] MovePanelAnimate movePanelAnimate;
     [SerializeField] Text txtMsg;
-    Canvas _canvas;
+    //Canvas _canvas;
     //bool isReadyToHide;
-    private void Awake()
+    //private void Awake()
+    //{
+    //    _canvas = GetComponent<Canvas>();
+    //}
+    public void SetMsg(string title)
     {
-        _canvas = GetComponent<Canvas>();
-    }
-    public void Show(string str)
-    {
-        //UIController.instance.getCurrentScreen().
-        //isReadyToHide = true;
-        StartCoroutine("BackKeyForNotification");
-        UIController.instance.getScreen(UIController.instance.getCurrentScreen()).ToggleInteraction(false);
-        txtMsg.text = str;
-        _canvas.enabled = true;
-        movePanelAnimate.ShowAnimation();
-        //Invoke("Hide", 4);
+        txtMsg.text = title;
     }
 
-    void Hide()
+    public override void OnScreenShowCalled()
     {
-        movePanelAnimate.HideAnimation(() => _canvas.enabled = false);
-        UIController.instance.getScreen(UIController.instance.getCurrentScreen()).ToggleInteraction(true);
-        //isReadyToHide = false;
-        StopCoroutine("BackKeyForNotification");
+        base.OnScreenShowCalled();
+        UIController.instance.getScreen(UIController.instance.getCurrentScreen()).ToggleInteraction(false);
     }
+
+    public override void OnScreenHideAnimationCompleted()
+    {
+        base.OnScreenHideAnimationCompleted();
+        txtMsg.text = "";
+        UIController.instance.getScreen(UIController.instance.getCurrentScreen()).ToggleInteraction(true);
+        //callBack?.Invoke();
+    }
+    public override void OnBack()
+    {
+        base.OnBack();
+        HideNotification();
+    }
+    //public void Show(string str)
+    //{
+    //    //UIController.instance.getCurrentScreen().
+    //    //isReadyToHide = true;
+    //    StartCoroutine("BackKeyForNotification");
+    //    UIController.instance.getScreen(UIController.instance.getCurrentScreen()).ToggleInteraction(false);
+    //    txtMsg.text = str;
+    //    //_canvas.enabled = true;
+    //    movePanelAnimate.ShowAnimation();
+    //    //Invoke("Hide", 4);
+    //}
+
+    //void Hide()
+    //{
+    //    //movePanelAnimate.HideAnimation(() => _canvas.enabled = false);
+    //    UIController.instance.getScreen(UIController.instance.getCurrentScreen()).ToggleInteraction(true);
+    //    //isReadyToHide = false;
+    //    StopCoroutine("BackKeyForNotification");
+    //}
 
     public void HideNotification()
     {
         //CancelInvoke("Hide");
-        Hide();
+        UIController.instance.HidePopup(ScreenType.notificationPopUp);
     }
 
     public void OnClickOk()
@@ -57,7 +80,8 @@ public class NotificationPopup : MonoBehaviour
         {
             UIController.instance.ShowNextScreen(ScreenType.PoiDetails);
         }
-        Hide();
+        //Hide();
+        UIController.instance.HidePopup(ScreenType.notificationPopUp);
     }
 
     async void MenuHide()
@@ -67,18 +91,18 @@ public class NotificationPopup : MonoBehaviour
         UIController.instance.ShowNextScreen(ScreenType.PoiDetails);
     }
 
-    IEnumerator BackKeyForNotification()
-    {
-        while (true)
-        {
+    //IEnumerator BackKeyForNotification()
+    //{
+    //    while (true)
+    //    {
 
-            if (Input.GetKeyDown(KeyCode.Escape))// if (Keyboard.current.escapeKey.wasPressedThisFrame)
-            {
-                Hide();
-                yield return new WaitForSeconds(1f);
-            }
+    //        if (Input.GetKeyDown(KeyCode.Escape))// if (Keyboard.current.escapeKey.wasPressedThisFrame)
+    //        {
+    //            Hide();
+    //            yield return new WaitForSeconds(1f);
+    //        }
 
-            yield return null;
-        }
-    }
+    //        yield return null;
+    //    }
+    //}
 }
