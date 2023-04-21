@@ -261,6 +261,7 @@ public class AboutUs
     public string about_title;
     public string about_text;
     public string about_image;
+    public string below_content_image;
 
 }
 
@@ -270,6 +271,7 @@ public class AboutTheApp
     public string about_app_title;
     public string about_app_text;
     public string about_app_image;
+    public string below_content_image;
 }
 
 [Serializable]

@@ -39,9 +39,12 @@ namespace Master.UI
         public override void OnBack()
         {
             base.OnBack();
+            BackToTrailCat();
+        }
+        public void BackToTrailCat()
+        {
             UIController.instance.ShowNextScreen(ScreenType.TrailCat);
         }
-
         void SculptureTrailsCallBack(API_TYPE aPI_TYPE, string obj)
         {
             if (aPI_TYPE != API_TYPE.API_TRAILS) return;

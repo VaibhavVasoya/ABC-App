@@ -25,9 +25,13 @@ public class ScreenTrailsCat : UIScreenView
     {
         base.OnScreenShowCalled();
         TrailsHandler.instance.currentTrailCat = null;
+        
+    }
+    public override void OnScreenShowAnimationCompleted()
+    {
+        base.OnScreenShowAnimationCompleted();
         Refresh();
     }
-   
     // Start is called before the first frame update
     void Start()
     {

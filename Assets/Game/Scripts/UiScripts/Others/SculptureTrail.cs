@@ -24,14 +24,22 @@ public class SculptureTrail : MonoBehaviour
     public void SetTrail(Trail _trail)
     {
         trail = _trail;
-        txtname.text = _trail.title;
-        txtShortDesc.text = _trail.sub_title;
+        if (!string.IsNullOrEmpty(_trail.title))
+            txtname.text = _trail.title;
+        else txtname.gameObject.SetActive(false);
+
+        if (!string.IsNullOrEmpty(_trail.sub_title))
+            txtShortDesc.text = _trail.sub_title;
+        else txtShortDesc.gameObject.SetActive(false);
         poiCount = ApiHandler.instance.data.trailPois.FindAll(x => x.intro_id == trail.num).Count;
-        txtPoiCount.text = poiCount.ToString();
+
+        txtPoiCount.text = poiCount.ToString() +" Stops";
+
         //if (string.IsNullOrEmpty(txtPoiCount.text) || txtPoiCount.text == "0") txtPoiCount.gameObject.SetActive(false);
-        txtPoiTime.gameObject.SetActive(true);
-        //if (string.IsNullOrEmpty(_trail.estimated_duration)) txtPoiTime.gameObject.SetActive(false);
-        txtPoiTime.text = _trail.estimated_duration;// + " " + LocalizationSettings.StringDatabase.GetLocalizedString("UI_Text", "Hours");
+        txtPoiTime.gameObject.SetActive(true);//if (string.IsNullOrEmpty(_trail.estimated_duration)) txtPoiTime.gameObject.SetActive(false);
+
+        txtPoiTime.text = _trail.estimated_duration;// + " Hours"; // + " " + LocalizationSettings.StringDatabase.GetLocalizedString("UI_Text", "Hours");
+
         bg.Downloading(_trail.num, _trail.cover_image);
         //imgStopsPointIcon.sprite = (trail.type == TRAIL_TYPE.PHYSICAL) ? spStops : spPoints;
     }

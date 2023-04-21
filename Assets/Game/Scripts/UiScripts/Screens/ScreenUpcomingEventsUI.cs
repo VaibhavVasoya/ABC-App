@@ -18,10 +18,12 @@ namespace Master.UI
 
         private void Start()
         {
-            for (int i = contentParent.childCount - 1; i >= 0; i--)
-            {
-                Destroy(contentParent.GetChild(i).gameObject);
-            }
+            //for (int i = contentParent.childCount - 1; i >= 0; i--)
+            //{
+            //    Destroy(contentParent.GetChild(i).gameObject);
+            //}
+            ApiHandler.instance.GetSculptureEvetns();
+
         }
         private void OnEnable()
         {
@@ -31,7 +33,7 @@ namespace Master.UI
         {
             Events.WebRequestCompleted -= SculptureEventsCallBack;
         }
-
+      
         public override void OnScreenShowCalled()
         {
 

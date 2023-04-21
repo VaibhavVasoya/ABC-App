@@ -16,7 +16,7 @@ namespace Master.UI
         [SerializeField] Text txtQuestionText;
         [SerializeField] Text txtQuestionNumber;
         [SerializeField] AnswerCeil[] answersCeils;
-
+        ContentSizeFitter[] contentSizeFitters;
         //[SerializeField] ScaleUpDownAnimate objResult;
 
         [SerializeField] Text txtResultTitle;
@@ -27,7 +27,6 @@ namespace Master.UI
         [SerializeField] MovePanelAnimate resultPanel;
         [SerializeField] Text txtContinueBtnText;
         
-        [SerializeField] ContentSizeFitter[] contentSizeFitters;
 
         string winTitle = "Well Done!";
         string loseTitle= "Oh no!";
@@ -58,6 +57,11 @@ namespace Master.UI
             //    answerCeil.SetColors(rightColor, wrongColor, normalColor, rightBgColor, wrongBgColor, normalBgColor, textColor);
             //}
             LoadNextQuestion();
+        }
+        public override void OnScreenShowAnimationCompleted()
+        {
+            base.OnScreenShowAnimationCompleted();
+            Refresh();
         }
         public override void OnScreenHideCalled()
         {

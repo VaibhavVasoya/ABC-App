@@ -71,21 +71,6 @@ public class ApiHandler : Singleton<ApiHandler>
             Debug.Log("appIcon was null");
             return "";
         }
-
-        //StaticLanguageData staticLangData = data.staticData.staticLangData.Find(x => x.lang_id == currentLanguage.num);
-        //staticLangData.Find(x => x.lang_id == currentLanguage.num);
-        //if (staticLangData != null)
-        //{
-        //    StaticData staticData = staticLangData.data.Find(x => x.meta == variableName.ToString().ToLower());
-        //    if (staticData != null)
-        //        return staticData.value;
-        //    else
-        //        Debug.Log("<color=red> Static variable is not match. </color>");
-        //}
-        //else
-        //    Debug.Log("<color=red> Static language data is empty. </color>");
-
-        //return defaultVal;
     }
 
 
@@ -207,7 +192,9 @@ public class ApiHandler : Singleton<ApiHandler>
             AddFileForDownlod(new ItemType(FileType.IMAGE, item.num, item.image));
         }
         AddFileForDownlod(new ItemType(FileType.IMAGE, "1", data.aboutUs.about_image));
+        AddFileForDownlod(new ItemType(FileType.IMAGE, "11", data.aboutUs.below_content_image));
         AddFileForDownlod(new ItemType(FileType.IMAGE, "2", data.aboutTheApp.about_app_image));
+        AddFileForDownlod(new ItemType(FileType.IMAGE, "22", data.aboutTheApp.below_content_image));
         Debug.Log("<color=green>Start Downloding data..</color> " + DownloadFiles.Count + "</color>");
 
         UIController.instance.getScreen(ScreenType.PrepareForLaunch).GetComponent<ScreenPrepareForLaunch>().StartDownloading(DownloadFiles.Count);
@@ -356,14 +343,9 @@ public class ApiHandler : Singleton<ApiHandler>
     {
         if (data.walkThroughs.Count > 0)
         {
-            //foreach (var item in data.walkThroughs)
-            //{
-            //    if(item.texture2D == null)
-            //        item.DonwloadAssets();
-            //}
             Events.OnWebRequestComplete(API_TYPE.API_LOADINGSCREEN, null);
             return;
-        }
+        }   
         Services.Get(GameData.API_LOADINGSCREEN, FetchWalkthroughScreenCallBack, false, true, true);
     }
     void FetchWalkthroughScreenCallBack(string obj)

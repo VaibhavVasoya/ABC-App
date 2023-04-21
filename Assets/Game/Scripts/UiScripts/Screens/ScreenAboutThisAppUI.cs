@@ -14,6 +14,7 @@ namespace Master.UI
         [SerializeField] Text txtTitle;
         [SerializeField] TextMeshProUGUI txtDetails;
         [SerializeField] ImageLoader img;
+        [SerializeField] ImageLoader belowImg;
         //[SerializeField] ContentSizeFitter contentSizeFitter;
         [SerializeField] ScrollRect scrollRect;
 
@@ -61,6 +62,9 @@ namespace Master.UI
                 return;
             }
             img.Downloading("2", ApiHandler.instance.data.aboutTheApp.about_app_image);
+            if (!string.IsNullOrEmpty(ApiHandler.instance.data.aboutTheApp.below_content_image))
+                belowImg.Downloading("22", ApiHandler.instance.data.aboutTheApp.below_content_image);
+            else belowImg.transform.parent.gameObject.SetActive(false);
             txtTitle.text = ApiHandler.instance.data.aboutTheApp.about_app_title;
             txtDetails.text = UIController.instance.HtmlToStringParse(ApiHandler.instance.data.aboutTheApp.about_app_text);
             Refresh();

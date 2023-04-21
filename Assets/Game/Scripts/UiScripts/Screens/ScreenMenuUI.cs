@@ -87,7 +87,7 @@ namespace Master.UI
             CloseMenu();
             if (UIController.instance.getCurrentScreen() == ScreenType.TrailCat) return;
             UIController.instance.ShowNextScreen(ScreenType.TrailCat);
-            ApiHandler.instance.GetTrailCat();
+            //ApiHandler.instance.GetTrailCat();
             TrailsHandler.instance.isInvokeNearestSculp = false;
         }
 
@@ -99,7 +99,7 @@ namespace Master.UI
             CloseMenu();
             if (UIController.instance.getCurrentScreen() == ScreenType.UpcomingEvents) return;
             UIController.instance.ShowNextScreen(ScreenType.UpcomingEvents);
-            ApiHandler.instance.GetSculptureEvetns();
+            //ApiHandler.instance.GetSculptureEvetns();
             TrailsHandler.instance.isInvokeNearestSculp = false;
         }
         public async void OpenVillageDiscount()
@@ -110,7 +110,7 @@ namespace Master.UI
             CloseMenu();
             if (UIController.instance.getCurrentScreen() == ScreenType.VillageDiscount) return;
             UIController.instance.ShowNextScreen(ScreenType.VillageDiscount);
-            ApiHandler.instance.GetVillageDiscount();
+            //ApiHandler.instance.GetVillageDiscount();
             TrailsHandler.instance.isInvokeNearestSculp = false;
         }
         public async void OpenAboutUsScreen()
@@ -164,6 +164,8 @@ namespace Master.UI
                 case ScreenType.UpcomingEvents:
                     upcomingEvetns.isOn = true;
                     break;
+                default:
+                    break;
                 //case ScreenType.SculpPoi:
                 //case ScreenType.SculpPoiDetails:
                 //    digitalTrail.isOn = true;
@@ -188,8 +190,6 @@ namespace Master.UI
                 //    aboutThisApp.isOn = true;
                 //    break;
 
-                default:
-                    break;
             }
         }
         void MenuListCallBack(API_TYPE aPI_TYPE, string obj)
