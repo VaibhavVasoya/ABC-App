@@ -25,7 +25,7 @@ public class OnlineMapsMarkerManager3DEditor : OnlineMapsMarkerManagerBaseEditor
         {
             double lng, lat;
             map.GetPosition(out lng, out lat);
-            manager.Create(lng, lat, manager.defaultPrefab);
+            manager.Create(lng, lat);//, manager.defaultPrefab);
         }
     }
 

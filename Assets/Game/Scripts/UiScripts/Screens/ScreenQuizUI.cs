@@ -26,10 +26,10 @@ namespace Master.UI
 
         [SerializeField] MovePanelAnimate resultPanel;
         [SerializeField] Text txtContinueBtnText;
-        
+
 
         string winTitle = "Well Done!";
-        string loseTitle= "Oh no!";
+        string loseTitle = "Oh no!";
 
         string winMsg = "That is the correct answer. Keep going and see how many more question to can answer correctly.";
         string lossMsg = "You got the answer wrong. But, don’t worry keep going and see how many of the other questions you can get correct.";
@@ -83,8 +83,11 @@ namespace Master.UI
             //    //Helper.Execute(this, () => objResult.transform.parent.gameObject.SetActive(false), 0.5f);
             //    await Task.Delay(TimeSpan.FromSeconds(0.4f));
             //}
-            if (Result != null) StopCoroutine(Result);
-            UIController.instance.ShowNextScreen(ScreenType.PoiDetails);
+            if (BackKeyActive)
+            {
+                if (Result != null) StopCoroutine(Result);
+                UIController.instance.ShowNextScreen(ScreenType.PoiDetails);
+            }
         }
 
         void LoadNextQuestion()
@@ -93,7 +96,7 @@ namespace Master.UI
             if (qaCount < totalNumberOfQa)
             {
                 currentQa = TrailsHandler.instance.CurrentTrailPoi.questions[qaCount];
-                txtQuestionNumber.text = "Question "+(qaCount + 1).ToString();
+                txtQuestionNumber.text = "Question " + (qaCount + 1).ToString();
                 LoadQuestions();
                 qaCount++;
             }
@@ -148,7 +151,7 @@ namespace Master.UI
             Result = null;
             yield return new WaitForSeconds(2);
             resultPanel.ShowAnimation();
-            
+
         }
         public void OnClickNextQuesions()
         {

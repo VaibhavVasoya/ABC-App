@@ -27,6 +27,7 @@ public class OnlineMapsMarker3DInstance : OnlineMapsMarkerInstanceBase
     {
         Collider cl = GetComponent<Collider>();
         if (cl == null) cl  = gameObject.AddComponent<BoxCollider>();
+        //cl.transform.localScale = transform.GetChild(0).lo;
         cl.isTrigger = true;
     }
 

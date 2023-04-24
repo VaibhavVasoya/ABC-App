@@ -41,7 +41,7 @@ public class OnlineMapsMarker3DManager : OnlineMapsMarkerManagerBase<OnlineMapsM
             return _container;
         }
     }
-
+    int index = 2;
     /// <summary>
     /// Create a new 3D marker
     /// </summary>
@@ -49,14 +49,17 @@ public class OnlineMapsMarker3DManager : OnlineMapsMarkerManagerBase<OnlineMapsM
     /// <param name="latitude">Latitude</param>
     /// <param name="prefab">Prefab</param>
     /// <returns>Instance of the marker</returns>
-    public OnlineMapsMarker3D Create(double longitude, double latitude, GameObject prefab)
+    public OnlineMapsMarker3D Create(double longitude, double latitude)//, GameObject prefab)
     {
+        Debug.Log("123 value "+index);
         OnlineMapsMarker3D marker = _CreateItem(longitude, latitude);
-        marker.prefab = prefab;
+        marker.prefab = defaultPrefab;
         marker.manager = this;
         marker.scale = defaultScale;
         marker.Init(container);
         Redraw();
+        marker.prefab.GetComponentInChildren<SetMarkerIndex>().SetIndex(index);
+        index++;
         return marker;
     }
 
@@ -92,7 +95,7 @@ public class OnlineMapsMarker3DManager : OnlineMapsMarkerManagerBase<OnlineMapsM
     /// <returns>Instance of the marker</returns>
     public static OnlineMapsMarker3D CreateItem(Vector2 location, GameObject prefab)
     {
-        if (instance != null) return instance.Create(location.x, location.y, prefab);
+        if (instance != null) return instance.Create(location.x, location.y);//, prefab);
         return null;
     }
 
@@ -105,7 +108,7 @@ public class OnlineMapsMarker3DManager : OnlineMapsMarkerManagerBase<OnlineMapsM
     /// <returns>Instance of the marker</returns>
     public static OnlineMapsMarker3D CreateItem(double lng, double lat, GameObject prefab)
     {
-        if (instance != null) return instance.Create(lng, lat, prefab);
+        if (instance != null) return instance.Create(lng, lat);//, prefab);
         return null;
     }
 
@@ -213,7 +216,7 @@ public class OnlineMapsMarker3DManager : OnlineMapsMarkerManagerBase<OnlineMapsM
             double lng, lat;
             if (map.control.GetCoords(out lng, out lat))
             {
-                OnlineMapsMarker3D marker3D = Create(lng, lat, defaultPrefab);
+                OnlineMapsMarker3D marker3D = Create(lng, lat);//, defaultPrefab);
                 marker3D.scale = defaultScale;
             }
         }

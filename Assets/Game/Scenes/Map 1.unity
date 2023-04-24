@@ -509,7 +509,7 @@ MonoBehaviour:
   _items: []
   defaultScale: 1
   allowAddMarker3DByN: 1
-  defaultPrefab: {fileID: 9197377748188460733, guid: a42f7e982d9084ab4b4a2544ffb508a8, type: 3}
+  defaultPrefab: {fileID: 0}
 --- !u!114 &1960253371
 MonoBehaviour:
   m_ObjectHideFlags: 0

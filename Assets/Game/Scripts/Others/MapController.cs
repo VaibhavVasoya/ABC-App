@@ -8,7 +8,7 @@ using Master.UIKit;
 using Master.UI;
 using Master;
 using UnityEngine.SceneManagement;
-
+using System.Linq;
 
 public class MapController : Singleton<MapController>
 {
@@ -29,15 +29,18 @@ public class MapController : Singleton<MapController>
 
     public bool isAllowToMarkerClick = false;
 
-    List<OnlineMapsMarker> mapsMarkers;
-    List<OnlineMapsMarker> sculpMapsMarkers;
-    OnlineMapsMarker my_marker;
+    //List<OnlineMapsMarker> mapsMarkers;
+    //List<OnlineMapsMarker> sculpMapsMarkers;
+    List<OnlineMapsMarker3D> sculpMapsMarkers;
+    List<OnlineMapsMarker3D> mapsMarkers;
+    //OnlineMapsMarker my_marker;
+    OnlineMapsMarker3D my_marker;
     [SerializeField] float markerScale = 1.6f;
     // Start is called before the first frame update
     async void Start()
     {
-        mapsMarkers = new List<OnlineMapsMarker>();
-        sculpMapsMarkers = new List<OnlineMapsMarker>();
+        mapsMarkers = new List<OnlineMapsMarker3D>();
+        sculpMapsMarkers = new List<OnlineMapsMarker3D>();
 
 #if UNITY_EDITOR
         LatLong = new Vector2(-6.3160218f, 54.8566988f);
@@ -155,7 +158,7 @@ public class MapController : Singleton<MapController>
         }
         return false;
     }
-
+   public SetMarkerIndex[] markerArray;
     public async Task LoadMapScean(OnlineMapsRawImageTouchForwarder mapRawImg, Vector2 marker, float Zoom_offset = 0)
     {
         if (IsMapActive()) return;
@@ -234,8 +237,10 @@ public class MapController : Singleton<MapController>
     }
     public void AddMarker(float _lang, float _lat)
     {
-        if (OnlineMapsMarkerManager.instance == null) return;
-        my_marker = OnlineMapsMarkerManager.instance.Create(_lang, _lat);
+        //if (OnlineMapsMarkerManager.instance == null) return;
+        //my_marker = OnlineMapsMarkerManager.instance.Create(_lang, _lat);
+        if (OnlineMapsMarker3DManager.instance == null) return;
+        my_marker = OnlineMapsMarker3DManager.instance.Create(_lang, _lat);
         //if (UIController.instance.getCurrentScreen() == ScreenType.PhysicalPoiMap)
             my_marker.scale = my_marker.scale / markerScale;
         markers.Add(new Vector2(_lang, _lat));
@@ -243,8 +248,10 @@ public class MapController : Singleton<MapController>
     }
     public void AddMarkerWithClickEvent(float _lang, float _lat)
     {
-        if (OnlineMapsMarkerManager.instance == null) return;
-        my_marker = OnlineMapsMarkerManager.instance.Create(_lang, _lat);
+        //if (OnlineMapsMarkerManager.instance == null) return;
+        //my_marker = OnlineMapsMarkerManager.instance.Create(_lang, _lat);
+        if (OnlineMapsMarker3DManager.instance == null) return;
+        my_marker = OnlineMapsMarker3DManager.instance.Create(_lang, _lat);
         if (UIController.instance.getCurrentScreen() == ScreenType.Poi)
             my_marker.scale = my_marker.scale / markerScale;
         my_marker.OnClick += OnMarkerClick;
@@ -286,7 +293,7 @@ public class MapController : Singleton<MapController>
 
         if (OnlineMapsMarkerManager.instance == null) return;
 
-        my_marker = OnlineMapsMarkerManager.instance.Create(LatLong.x, LatLong.y, currentLocationTexture);
+        my_marker = OnlineMapsMarker3DManager.instance.Create(LatLong.x, LatLong.y);//, currentLocationTexture);
 
         //if (UIController.instance.getCurrentScreen() == ScreenType.PhysicalPoiMap)
             my_marker.scale = my_marker.scale / markerScale;

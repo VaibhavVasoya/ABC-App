@@ -326,41 +326,41 @@ public class ScreenPoiDetail : UIScreenView
         else
             UIController.instance.ShowNextScreen(ScreenType.PoiMap);
     }
-    public void Play360Video()
-    {
-        if (!string.IsNullOrEmpty(TrailsHandler.instance.CurrentTrailPoi.video_360_file))
-        {
-            UIController.instance.ShowNextScreen(ScreenType.Video360);
-            UIController.instance.getScreen(ScreenType.Video360).GetComponent<Screen360VideoUI>().DownloadAndLoadVideo(TrailsHandler.instance.CurrentTrailPoi.num, TrailsHandler.instance.CurrentTrailPoi.video_360_file, TrailsHandler.instance.CurrentTrailPoi.audio_file);
-        }
-        else if (!string.IsNullOrEmpty(TrailsHandler.instance.CurrentTrailPoi.video_360_url))
-        {
-            Application.OpenURL(TrailsHandler.instance.CurrentTrailPoi.video_360_url);
-        }
-        else
-            UIController.instance.ShowPopupMsg("Oops!", "360 video not available.", "Ok");
-    }
+    //public void Play360Video()
+    //{
+    //    if (!string.IsNullOrEmpty(TrailsHandler.instance.CurrentTrailPoi.video_360_file))
+    //    {
+    //        UIController.instance.ShowNextScreen(ScreenType.Video360);
+    //        UIController.instance.getScreen(ScreenType.Video360).GetComponent<Screen360VideoUI>().DownloadAndLoadVideo(TrailsHandler.instance.CurrentTrailPoi.num, TrailsHandler.instance.CurrentTrailPoi.video_360_file, TrailsHandler.instance.CurrentTrailPoi.audio_file);
+    //    }
+    //    else if (!string.IsNullOrEmpty(TrailsHandler.instance.CurrentTrailPoi.video_360_url))
+    //    {
+    //        Application.OpenURL(TrailsHandler.instance.CurrentTrailPoi.video_360_url);
+    //    }
+    //    else
+    //        UIController.instance.ShowPopupMsg("Oops!", "360 video not available.", "Ok");
+    //}
 
-    public void Play360Image()
-    {
-        Debug.Log("PlayImage called 1");
-        if (!string.IsNullOrEmpty(TrailsHandler.instance.CurrentTrailPoi.image_360_file))
-        {
-            Debug.Log("PlayImage called 1:1");
-            UIController.instance.ShowNextScreen(ScreenType.Image360);
-        }
-        else if (!string.IsNullOrEmpty(TrailsHandler.instance.CurrentTrailPoi.image_360_url))
-        {
-            Debug.Log("PlayImage called 1:2");
-            Application.OpenURL(TrailsHandler.instance.CurrentTrailPoi.image_360_url);
-        }
-        else
-        {
-            Debug.Log("PlayImage called 1:3");
-            UIController.instance.ShowPopupMsg("Oops!", "360 image not available.", "Ok");
+    //public void Play360Image()
+    //{
+    //    Debug.Log("PlayImage called 1");
+    //    if (!string.IsNullOrEmpty(TrailsHandler.instance.CurrentTrailPoi.image_360_file))
+    //    {
+    //        Debug.Log("PlayImage called 1:1");
+    //        UIController.instance.ShowNextScreen(ScreenType.Image360);
+    //    }
+    //    else if (!string.IsNullOrEmpty(TrailsHandler.instance.CurrentTrailPoi.image_360_url))
+    //    {
+    //        Debug.Log("PlayImage called 1:2");
+    //        Application.OpenURL(TrailsHandler.instance.CurrentTrailPoi.image_360_url);
+    //    }
+    //    else
+    //    {
+    //        Debug.Log("PlayImage called 1:3");
+    //        UIController.instance.ShowPopupMsg("Oops!", "360 image not available.", "Ok");
 
-        }
-    }
+    //    }
+    //}
 
 
 

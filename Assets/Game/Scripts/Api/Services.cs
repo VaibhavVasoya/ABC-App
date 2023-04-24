@@ -255,7 +255,7 @@ public class Services : Singleton<Services>
             APIRequestScheduler.AddRequest(new APIRequest(METHOD.GET, getURL, OnServiceCallBack, null, null, withTimeOut));
             return;
         }
-        Debug.Log("123url = " + getURL);
+        //Debug.Log("123url = " + getURL);
         UnityWebRequest request = UnityWebRequest.Get(getURL);
 
         if (withTimeOut)

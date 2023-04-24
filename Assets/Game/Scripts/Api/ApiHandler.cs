@@ -30,7 +30,7 @@ public class ApiHandler : Singleton<ApiHandler>
     {
         Screen.sleepTimeout = SleepTimeout.NeverSleep;
         ClearData();
-        Debug.Log("start");
+        //Debug.Log("start");
         //yield return new WaitForSeconds(2);
         while (Application.internetReachability == NetworkReachability.NotReachable)
         {
