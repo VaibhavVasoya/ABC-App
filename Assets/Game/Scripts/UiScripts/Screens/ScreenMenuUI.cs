@@ -82,6 +82,7 @@ namespace Master.UI
         public async void OpenTrailList()
         {
             //CancelInvoke("CheckSculpNearestMe");
+            ToggleRaycaster(false);
             TrailsHandler.instance.MethodCancleInvoke();
             await Task.Delay(TimeSpan.FromSeconds(delay));
             CloseMenu();
@@ -94,6 +95,7 @@ namespace Master.UI
         public async void OpenUpcomingEvents()
         {
             //CancelInvoke("CheckSculpNearestMe");
+            ToggleRaycaster(false);
             TrailsHandler.instance.MethodCancleInvoke();
             await Task.Delay(TimeSpan.FromSeconds(delay));
             CloseMenu();
@@ -105,6 +107,7 @@ namespace Master.UI
         public async void OpenVillageDiscount()
         {
             //CancelInvoke("CheckSculpNearestMe");
+            ToggleRaycaster(false);
             TrailsHandler.instance.MethodCancleInvoke();
             await Task.Delay(TimeSpan.FromSeconds(delay));
             CloseMenu();
@@ -116,6 +119,7 @@ namespace Master.UI
         public async void OpenAboutUsScreen()
         {
             //CancelInvoke("CheckSculpNearestMe");
+            ToggleRaycaster(false);
             TrailsHandler.instance.MethodCancleInvoke();
             await Task.Delay(TimeSpan.FromSeconds(delay));
             CloseMenu();
@@ -131,6 +135,7 @@ namespace Master.UI
         public async void OpenAboutThisAppScreen()
         {
             //CancelInvoke("CheckSculpNearestMe");
+            ToggleRaycaster(false);
             TrailsHandler.instance.MethodCancleInvoke();
             await Task.Delay(TimeSpan.FromSeconds(delay));
             CloseMenu();

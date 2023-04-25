@@ -216,6 +216,10 @@ public class MapController : Singleton<MapController>
             SelectedMarker = mapsMarkers[selectedPoi];
         }
         await Task.Delay(TimeSpan.FromSeconds(0.5f));
+        //for (int i = 0; i < mapsMarkers.Count; i++)
+        //{
+        //    mapsMarkers[i]
+        //}
         LoadingUI.instance.OnScreenHide();
         ResetZoom(Zoom_offset);
     }

@@ -191,6 +191,10 @@ public class ApiHandler : Singleton<ApiHandler>
         {
             AddFileForDownlod(new ItemType(FileType.IMAGE, item.num, item.image));
         }
+        foreach (var item in data.feedBackOptions)
+        {
+            AddFileForDownlod(new ItemType(FileType.IMAGE, item.num, item.icons));
+        }
         AddFileForDownlod(new ItemType(FileType.IMAGE, "1", data.aboutUs.about_image));
         AddFileForDownlod(new ItemType(FileType.IMAGE, "11", data.aboutUs.below_content_image));
         AddFileForDownlod(new ItemType(FileType.IMAGE, "2", data.aboutTheApp.about_app_image));
