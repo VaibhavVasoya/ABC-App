@@ -38,6 +38,9 @@ namespace Master.UI
         bool isShareInit = false;
         string shareStr;
 
+        [SerializeField] GameObject map;
+        [SerializeField] GameObject findMore;
+
         public override void OnAwake()
         {
             base.OnAwake();
@@ -45,6 +48,12 @@ namespace Master.UI
             dots = new List<Toggle>();
             contentSizeFitters = transform.GetComponentsInChildren<ContentSizeFitter>();
             Array.Reverse(contentSizeFitters);
+        }
+        void ButtonDisable()
+        {
+            findMore.SetActive(!string.IsNullOrEmpty(_sculpEvent.booking_url));
+            map.SetActive(!(string.IsNullOrEmpty(_sculpEvent.latitude) || string.IsNullOrEmpty(_sculpEvent.logitude)));
+
         }
         public override void OnScreenShowCalled()
         {
@@ -100,13 +109,19 @@ namespace Master.UI
                 LoadImages();
 
             }
+            else if (_sculpEvent.multiple_images.Count == 1)
+            {
+                bg.gameObject.SetActive(true);
+                bg.Downloading(_sculpEvent.num, _sculpEvent.multiple_images[0].image);
+                ObjCarousel.SetActive(false);
+            }
             else
             {
                 bg.gameObject.SetActive(true);
                 bg.Downloading(_sculpEvent.num, _sculpEvent.main_image);
                 ObjCarousel.SetActive(false);
             }
-
+            ButtonDisable();
             Refresh();
         }
         public void OnClickShare()

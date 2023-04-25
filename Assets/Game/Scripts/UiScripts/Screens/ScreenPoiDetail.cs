@@ -29,8 +29,11 @@ public class ScreenPoiDetail : UIScreenView
     SwipeControl swipeControl;
 
     [SerializeField] Button listenHereBtn;
-    [SerializeField] GameObject AudioPlayerParent;
 
+    [SerializeField] GameObject AudioPlayerParent;
+    [SerializeField] GameObject quiz;
+    [SerializeField] GameObject map;
+    
     //[SerializeField] UnityVideoController unityVideoController;
 
     public ContentSizeFitter[] contentSizeFitters;
@@ -51,7 +54,13 @@ public class ScreenPoiDetail : UIScreenView
         swipeControl = ObjCarousel.GetComponent<SwipeControl>();
     }
 
+    void ButtonDisable()
+    {
+        AudioPlayerParent.transform.parent.gameObject.SetActive(!string.IsNullOrEmpty(poi.audio_file));
+        quiz.SetActive(poi.questions.Count !=0);
+        map.SetActive(!(string.IsNullOrEmpty(poi.latitude) || string.IsNullOrEmpty(poi.longitude)));
 
+    }
 
 
     public async void CheckPoiVisited()
@@ -250,6 +259,12 @@ public class ScreenPoiDetail : UIScreenView
             LoadImages();
 
         }
+        else if (poi.poi_images.Count == 1)
+        {
+            bg.gameObject.SetActive(true);
+            bg.Downloading(poi.num, poi.poi_images[0].images);
+            ObjCarousel.SetActive(false);
+        }
         else
         {
             bg.gameObject.SetActive(true);
@@ -257,6 +272,7 @@ public class ScreenPoiDetail : UIScreenView
             ObjCarousel.SetActive(false);
         }
         //isVisited();
+        ButtonDisable();
         CheckPoiVisited();
         Refresh();
     }

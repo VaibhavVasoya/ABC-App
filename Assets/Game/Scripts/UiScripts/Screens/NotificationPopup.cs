@@ -10,6 +10,7 @@ public class NotificationPopup : UIScreenView
 {
     //[SerializeField] MovePanelAnimate movePanelAnimate;
     [SerializeField] Text txtMsg;
+    [SerializeField] AudioSource audioSource;
     //Canvas _canvas;
     //bool isReadyToHide;
     //private void Awake()
@@ -21,9 +22,11 @@ public class NotificationPopup : UIScreenView
         txtMsg.text = title;
     }
 
+    [EasyButtons.Button]
     public override void OnScreenShowCalled()
     {
         base.OnScreenShowCalled();
+        audioSource.Play();
         UIController.instance.getScreen(UIController.instance.getCurrentScreen()).ToggleInteraction(false);
     }
 
