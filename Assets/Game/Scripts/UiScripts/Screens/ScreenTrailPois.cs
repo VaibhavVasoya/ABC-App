@@ -57,7 +57,11 @@ public class ScreenTrailPois : UIScreenView
         //TrailsHandler.instance.isInvokeNearestSculp = true;
         poiListToggle.isOn = true;
         OpenTab(poiMapToggle.isOn);
-        SculptureTrailPoisCallBack(API_TYPE.API_TRAIL_POIS, "");
+        if (UIController.instance.previousScreen == ScreenType.TrailList)
+        {
+            Debug.Log("instiate");
+            SculptureTrailPoisCallBack(API_TYPE.API_TRAIL_POIS, "");
+        }
     }
 
     public override void OnScreenShowAnimationCompleted()
@@ -182,10 +186,10 @@ public class ScreenTrailPois : UIScreenView
             markers.Add(new Vector2(float.Parse(poi.longitude), float.Parse(poi.latitude)));
         }
         await MapController.instance.LoadMapScean(onlineMapsRawImageTouchForwarder, markers.ToArray(), Zoom_offset, currentSelectedPoiPin);
-        OnClickMarkerSetPoiDetails(currentSelectedPoiPin,true);
+        OnClickMarkerSetPoiDetails(currentSelectedPoiPin, true);
         poiPanelAnimate.ShowAnimation();
         //UIController.instance.getScreen(UIController.instance.getCurrentScreen()).isBackWorking = true;
-        ToggleInteraction(true); 
+        ToggleInteraction(true);
     }
     void RemoveMapScean()
     {
@@ -195,10 +199,10 @@ public class ScreenTrailPois : UIScreenView
     {
         MapController.instance.ResetZoom(Zoom_offset);
     }
-    public void OnClickMarkerSetPoiDetails(int index , bool forceUpdateChange)
+    public void OnClickMarkerSetPoiDetails(int index, bool forceUpdateChange)
     {
         Debug.Log("marker click");
-        if(!forceUpdateChange)
+        if (!forceUpdateChange)
         {
             if (currentSelectedPoiPin == index) return;
         }

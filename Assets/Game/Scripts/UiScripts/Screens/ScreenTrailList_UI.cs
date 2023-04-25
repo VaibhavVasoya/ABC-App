@@ -27,13 +27,16 @@ namespace Master.UI
         {
             base.OnScreenShowCalled();
             //TrailsHandler.instance.CurrentTrail = null;
-            SculptureTrailsCallBack(API_TYPE.API_TRAILS, "");
-            while(TrailsHandler.instance.CurrentTrail == null)
+            if (UIController.instance.previousScreen == ScreenType.TrailCat)
             {
-                Debug.Log("trail null");
+                SculptureTrailsCallBack(API_TYPE.API_TRAILS, "");
+                Refresh();
             }
-            
-            Refresh();
+            //while(TrailsHandler.instance.CurrentTrail == null)
+            //{
+            //    Debug.Log("trail null");
+            //}
+
         }
 
         public override void OnBack()
@@ -55,7 +58,7 @@ namespace Master.UI
 
             foreach (var trail in ApiHandler.instance.data.trails)
             {
-                if(TrailsHandler.instance.currentTrailCat.num == trail.category_id)
+                if (TrailsHandler.instance.currentTrailCat.num == trail.category_id)
                 {
                     GameObject go = Instantiate(trail_Prefab, contentParent);
                     SculptureTrail sculpTrail = go.GetComponent<SculptureTrail>();
