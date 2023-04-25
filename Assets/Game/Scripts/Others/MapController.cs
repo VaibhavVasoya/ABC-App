@@ -9,6 +9,7 @@ using Master.UI;
 using Master;
 using UnityEngine.SceneManagement;
 using System.Linq;
+using TMPro;
 
 public class MapController : Singleton<MapController>
 {
@@ -161,6 +162,7 @@ public class MapController : Singleton<MapController>
    public SetMarkerIndex[] markerArray;
     public async Task LoadMapScean(OnlineMapsRawImageTouchForwarder mapRawImg, Vector2 marker, float Zoom_offset = 0)
     {
+        prefab.GetComponentInChildren<TextMeshPro>().text = "";
         if (IsMapActive()) return;
         LoadingUI.instance.OnScreenShow();
         AsyncOperation asyncOperation = SceneManager.LoadSceneAsync("Map", LoadSceneMode.Additive);
@@ -185,6 +187,7 @@ public class MapController : Singleton<MapController>
         LoadingUI.instance.OnScreenHide();
         ResetZoom(Zoom_offset);
     }
+    [SerializeField] GameObject prefab;
     public async Task LoadMapScean(OnlineMapsRawImageTouchForwarder mapRawImg, Vector2[] _markers, float Zoom_offset = 0,int selectedPoi=0)
     {
         if (IsMapActive()) return;
@@ -205,20 +208,24 @@ public class MapController : Singleton<MapController>
         if (mapsMarkers != null)
             ClearMarker();
         await Task.Delay(TimeSpan.FromSeconds(0.5f));
+        int i = 1;
         foreach (var marker in _markers)
         {
+            prefab.GetComponentInChildren<SetMarkerIndex>().SetIndex(i);
+            await Task.Delay(TimeSpan.FromSeconds(0.1f));
             AddMarkerWithClickEvent(marker.x, marker.y);
-            await Task.Delay(TimeSpan.FromSeconds(0.5f));
+            await Task.Delay(TimeSpan.FromSeconds(0.2f));
+            i++;
         }
         if (mapsMarkers.Count > 0)
         {
             mapsMarkers[selectedPoi].scale = 1;
             SelectedMarker = mapsMarkers[selectedPoi];
         }
-        await Task.Delay(TimeSpan.FromSeconds(0.5f));
+        await Task.Delay(TimeSpan.FromSeconds(0.2f));
         //for (int i = 0; i < mapsMarkers.Count; i++)
         //{
-        //    mapsMarkers[i]
+        //    mapsMarkers[i].prefab.GetComponentInChildren<SetMarkerIndex>().SetIndex(i);
         //}
         LoadingUI.instance.OnScreenHide();
         ResetZoom(Zoom_offset);

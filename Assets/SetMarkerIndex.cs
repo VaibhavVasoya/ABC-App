@@ -9,7 +9,7 @@ public class SetMarkerIndex : MonoBehaviour
 
     public void SetIndex(int index)
     {
-        Debug.Log("123prefavdhsvsdj " + index);
+        //Debug.Log("123prefavdhsvsdj " + index);
         markerIndexTxt.text = index.ToString();
     }
 }

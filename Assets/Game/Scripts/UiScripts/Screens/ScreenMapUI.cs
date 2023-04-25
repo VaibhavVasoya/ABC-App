@@ -13,7 +13,7 @@ public class ScreenMapUI : UIScreenView
     [SerializeField] OnlineMapsRawImageTouchForwarder onlineMapsRawImageTouchForwarder;
     [SerializeField] float Zoom_offset = 0;
 
-    Poi eventPoi;
+    Poi trailPoi;
     
     public override void OnScreenShowCalled()
     {
@@ -37,17 +37,17 @@ public class ScreenMapUI : UIScreenView
 
     public async void LoadMapScean()
     {
-        eventPoi = TrailsHandler.instance.CurrentTrailPoi;
-        if (eventPoi == null)
+        trailPoi = TrailsHandler.instance.CurrentTrailPoi;
+        if (trailPoi == null)
         {
             UIController.instance.ShowPopupMsg("Oops!!", "Unable to determine trail location.", "Ok");
             return;
         }
-        PoiImg.Downloading(eventPoi.num, eventPoi.thumbnail);
-        txtEventPoiName.text = eventPoi.Name;
-        txtEventPoiSubDesc.text = eventPoi.short_desc;
+        PoiImg.Downloading(trailPoi.num, trailPoi.thumbnail);
+        txtEventPoiName.text = trailPoi.Name;
+        txtEventPoiSubDesc.text = trailPoi.short_desc;
 
-        await MapController.instance.LoadMapScean(onlineMapsRawImageTouchForwarder, new Vector2(float.Parse(eventPoi.longitude), float.Parse(eventPoi.latitude)), Zoom_offset);
+        await MapController.instance.LoadMapScean(onlineMapsRawImageTouchForwarder, new Vector2(float.Parse(trailPoi.longitude), float.Parse(trailPoi.latitude)), Zoom_offset);
     }
     void RemoveMapScean()
     {
@@ -60,7 +60,7 @@ public class ScreenMapUI : UIScreenView
 
     public void OpenMapViaLink()
     {
-        MapController.instance.OpenMapViaLink(eventPoi.longitude, eventPoi.latitude);
+        MapController.instance.OpenMapViaLink(trailPoi.longitude, trailPoi.latitude);
     }
 
 

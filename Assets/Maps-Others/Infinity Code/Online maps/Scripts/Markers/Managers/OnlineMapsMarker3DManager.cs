@@ -41,7 +41,7 @@ public class OnlineMapsMarker3DManager : OnlineMapsMarkerManagerBase<OnlineMapsM
             return _container;
         }
     }
-    int index = 2;
+    //int index = 2;
     /// <summary>
     /// Create a new 3D marker
     /// </summary>
@@ -51,15 +51,15 @@ public class OnlineMapsMarker3DManager : OnlineMapsMarkerManagerBase<OnlineMapsM
     /// <returns>Instance of the marker</returns>
     public OnlineMapsMarker3D Create(double longitude, double latitude)//, GameObject prefab)
     {
-        Debug.Log("123 value "+index);
+        //Debug.Log("123 value "+index);
         OnlineMapsMarker3D marker = _CreateItem(longitude, latitude);
         marker.prefab = defaultPrefab;
         marker.manager = this;
         marker.scale = defaultScale;
         marker.Init(container);
         Redraw();
-        marker.prefab.GetComponentInChildren<SetMarkerIndex>().SetIndex(index);
-        index++;
+        //marker.prefab.GetComponentInChildren<SetMarkerIndex>().SetIndex(index);
+        //index++;
         return marker;
     }
 
