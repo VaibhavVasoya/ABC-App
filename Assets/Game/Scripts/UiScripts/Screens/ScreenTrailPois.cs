@@ -174,6 +174,7 @@ public class ScreenTrailPois : UIScreenView
         ToggleInteraction(false);
         if (TrailsHandler.instance.CurrentTrail == null)// (string.IsNullOrEmpty(TrailsHandler.instance.CurrentTrailPoi.num))
         {
+            Debug.Log("123456789 trail screen popup");
             UIController.instance.ShowPopupMsg("Oops!!", "Unable to determine trail location.", "Ok");
             return;
         }

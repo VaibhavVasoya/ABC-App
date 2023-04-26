@@ -192,6 +192,7 @@ namespace Master.UI
             if (!Services.CheckInternetConnection()) return;
             if (string.IsNullOrEmpty(_sculpEvent.logitude) || string.IsNullOrEmpty(_sculpEvent.latitude))
             {
+                Debug.Log("123456789 on click popup");
                 UIController.instance.ShowPopupMsg("Oops!!", "Unable to determine event location.", "Ok");
                 return;
             }

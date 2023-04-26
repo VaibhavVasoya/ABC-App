@@ -803,7 +803,8 @@ public class ApiHandler : Singleton<ApiHandler>
         list.Add("lang_id", lang_id);
         list.Add("trail_id", trail_id);
         list.Add("comment_id", comment_id);
-        Services.Post("https://abc.touristwise.co.uk/webservices/comments.php?lang_id=1", list, (var) => { Debug.Log("Feedback submit : " + var); }, false, false);
+        //Services.Post("https://abc.touristwise.co.uk/webservices/comments.php?lang_id=1", list, (var) => { Debug.Log("Feedback submit : " + var); }, false, false);
+        Services.Post("https://abc.touristwise.co.uk/webservices/trail_feedback.php?lang_id=1", list, (var) => { Debug.Log("Feedback submit : " + var); }, false, false);
     }
     //void TrailsListCallBack(string obj)
     //{

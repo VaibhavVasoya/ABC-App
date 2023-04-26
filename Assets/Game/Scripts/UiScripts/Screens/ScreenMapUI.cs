@@ -40,6 +40,7 @@ public class ScreenMapUI : UIScreenView
         trailPoi = TrailsHandler.instance.CurrentTrailPoi;
         if (trailPoi == null)
         {
+            Debug.Log("123456789 onscreen show popup");
             UIController.instance.ShowPopupMsg("Oops!!", "Unable to determine trail location.", "Ok");
             return;
         }

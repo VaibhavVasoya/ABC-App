@@ -37,7 +37,6 @@ public class ScreenPreferences : UIScreenView
     {
         if (tYPE == API_TYPE.API_MULTI_LANGUAGE)
         {
-            //Debug.Log("123456789");
             SetLanguage(true);
             LoadingUI.instance.OnScreenHide();
         }

@@ -10,6 +10,7 @@ using Master;
 using UnityEngine.SceneManagement;
 using System.Linq;
 using TMPro;
+using System.Runtime.InteropServices;
 
 public class MapController : Singleton<MapController>
 {
@@ -56,13 +57,34 @@ public class MapController : Singleton<MapController>
         
     }
     /// <summary>
+    /// For IOS 
+    /// </summary>
+    public void OpenIOSSettings()
+    {
+        Debug.Log("open setting");
+        StartCoroutine(OpenSettingsCoroutine());
+    }
+
+    private IEnumerator OpenSettingsCoroutine()
+    {
+        yield return new WaitForEndOfFrame();
+        Application.OpenURL("app-settings:");
+    }
+    //[DllImport("__Internal")]
+    //private static extern void OpenLocationSettings();
+
+    //public void OpenSettings()
+    //{
+    //    OpenLocationSettings();
+    //}
+    /// <summary>
     /// location permission
     /// </summary>
     public void OpenAppInfo()
     {
+#if UNITY_ANDROID
         try
         {
-#if UNITY_ANDROID
             using (var unityClass = new AndroidJavaClass("com.unity3d.player.UnityPlayer"))
             using (AndroidJavaObject currentActivityObject = unityClass.GetStatic<AndroidJavaObject>("currentActivity"))
             {
@@ -77,12 +99,17 @@ public class MapController : Singleton<MapController>
                     currentActivityObject.Call("startActivity", intentObject);
                 }
             }
-#endif
         }
         catch (Exception ex)
         {
             Debug.LogException(ex);
         }
+#endif
+#if UNITY_IOS
+            {
+                OpenIOSSettings();
+            }
+#endif
     }
     /// <summary>
     /// gps on 
@@ -96,14 +123,14 @@ public class MapController : Singleton<MapController>
         locationSettingsIntent.Call<AndroidJavaObject>("addFlags", 0x10000000);
         context.Call("startActivity", locationSettingsIntent);
 #elif UNITY_IOS
-        string url = iOSSettingsBinder.GetAppSettingsURL();
-        Debug.Log("the settings url is:" + url);
-        Application.OpenURL(url);
+        //OpenSettings();
+        //string url = iOSSettingsBinder.GetAppSettingsURL();
+        //Debug.Log("the settings url is:" + url);
+        //Application.OpenURL(url);
 #endif
     }
     public void CkeckLocationPermission()
     {
-        //StopCoroutine("CheackLocationIsEnable");
         StartCoroutine("CheackLocationIsEnable");
     }
 
@@ -120,6 +147,7 @@ public class MapController : Singleton<MapController>
     IEnumerator CheackLocationIsEnable()
     {
         //yield return new WaitForSeconds(1);
+        Debug.Log("checklocation permissition");
         if (!Permission.HasUserAuthorizedPermission(Permission.FineLocation))
         {
             Debug.Log("permissition ");
@@ -397,12 +425,12 @@ public class MapController : Singleton<MapController>
         //    Permission.RequestUserPermission(Permission.CoarseLocation);
         //}
         // First, check if user has location service enabled
-        if (!Input.location.isEnabledByUser)
-        {
-            //UIController.instance.ShowPopupMsg("we can't find you...", "Your Location Services are turned off, Please turn on now.");
-            while (!Input.location.isEnabledByUser)
-                await Task.Delay(TimeSpan.FromSeconds(1f));
-        }
+        //if (!Input.location.isEnabledByUser)
+        //{
+        //    //UIController.instance.ShowPopupMsg("we can't find you...", "Your Location Services are turned off, Please turn on now.");
+        //    while (!Input.location.isEnabledByUser)
+        //        await Task.Delay(TimeSpan.FromSeconds(1f));
+        //}
 
         // Start service before querying location
         Input.location.Start();
@@ -426,8 +454,9 @@ public class MapController : Singleton<MapController>
         // Connection has failed
         if (Input.location.status == LocationServiceStatus.Failed)
         {
+            Debug.Log("123456789 unable to determine");
             UIController.instance.ShowPopupMsg("Oops!!", "Unable to determine device location", "Ok");
-            print("Unable to determine device location");
+            //print("Unable to determine device location");
             // Stop service if there is no need to query location updates continuously
             Input.location.Stop();
             return Vector2.zero;

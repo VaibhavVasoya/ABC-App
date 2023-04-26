@@ -39,9 +39,6 @@ public class ScreenPoiDetail : UIScreenView
     public ContentSizeFitter[] contentSizeFitters;
     bool isCheckFeedBack;
     [SerializeField] PhysicalTrailAudioPlayer ourAudioPlayer;
-
-    //string details = "";
-
     List<Transform> imgs;
     List<Toggle> dots;
 
@@ -65,6 +62,7 @@ public class ScreenPoiDetail : UIScreenView
 
     public async void CheckPoiVisited()
     {
+        Debug.Log("poi visit check "+ SavedDataHandler.instance._saveData.myTrails.Find(x => x.Num == TrailsHandler.instance.CurrentTrail.num).IsVisited);
         if (SavedDataHandler.instance._saveData.myTrails.Find(x => x.Num == TrailsHandler.instance.CurrentTrail.num).IsVisited) return;
         foreach (var item in ApiHandler.instance.data.trailPois)
         {
@@ -82,117 +80,33 @@ public class ScreenPoiDetail : UIScreenView
             }
             else
             {
-                //Debug.Log("into the ocean");
             }
 
-
-            //if (SavedDataHandler.instance._saveData.mySculptures.Exists(x => x.Num == item.intro_id))
-            //Debug.Log("Pre exist");
-            //Debug.Log("I Exist: " + SavedDataHandler.instance._saveData.mySculptures.Find(x => x.Num == item.intro_id).Num);
             if (SavedDataHandler.instance._saveData.mySculptures.Find(x => x.Num == item.num).IsVisited == false)
             {
-                //Debug.Log("return statement pre");
                 return;
-                //Debug.Log("return statement post");
             }
         }
 
-        //Debug.Log("feedback screen pre");
         delayw();
 
-
-
-        //Debug.Log("feedback screen post");
-        //isVisited();
-
-
-
-
-        //else if (!string.IsNullOrEmpty(TrailsHandler.instance.CurrentTrail.num))
-        //{
-        //    //Debug.Log("123 if");
-        //    bool allVisited = true;
-        //    //TrailsHandler.instance.isAllPoiVisited();
-        //    foreach (var item in SavedDataHandler.instance._saveData.mySculptures)
-        //    {
-        //        if (item.IntroId == TrailsHandler.instance.CurrentTrail.num)
-        //        {
-        //            if (!item.IsVisited)
-        //            {
-        //                allVisited = false;
-        //                break;
-        //            }
-        //        }
-        //    }
-        //    await Task.Delay(TimeSpan.FromSeconds(2));
-        //    if (allVisited)
-        //    {
-        //        if (SavedDataHandler.instance._saveData.myTrails.Exists(x => x.Num == TrailsHandler.instance.CurrentTrail.num))
-        //        {
-        //            //Debug.Log("in ");
-        //            if (!SavedDataHandler.instance._saveData.myTrails.Find(x => x.Num == TrailsHandler.instance.CurrentTrail.num).IsVisited)
-        //            {
-        //                Debug.Log("pre true condition");
-        //                SavedDataHandler.instance._saveData.myTrails.Find(x => x.Num == TrailsHandler.instance.CurrentTrail.num).IsVisited = true;
-        //                Debug.Log("post true condition");
-        //                UIController.instance.ShowNextScreen(ScreenType.Feedback);
-        //                CheckPoiVisited();
-        //                return;
-        //            }
-        //        }
-        //        await Task.Delay(TimeSpan.FromSeconds(2));
-        //        CheckPoiVisited();
-        //        return;
-        //    }
-        //    await Task.Delay(TimeSpan.FromSeconds(2));
-        //    CheckPoiVisited();
-        //    return;
-        //}
-        //else
-        //{
-        //    await Task.Delay(TimeSpan.FromSeconds(2));
-        //    CheckPoiVisited();
-        //    return;
-        //}
     }
 
 
     async void delayw()
     {
-        //while (scrollRect.verticalNormalizedPosition < 0.1f)
-        //{
-
         await Task.Delay(4000);
-        //Debug.Log("not scrolled" + scrollRect.verticalNormalizedPosition);
-        //}
         UIController.instance.ShowNextScreen(ScreenType.Feedback);
         SavedDataHandler.instance._saveData.myTrails.Find(x => x.Num == TrailsHandler.instance.CurrentTrail.num).IsVisited = true;
     }
 
 
-
-
-
-
     public override void OnScreenShowCalled()
     {
         base.OnScreenShowCalled();
-        //if (otherPoisParent.childCount == 0 && ApiHandler.instance.data.trailPois.Count != 0)
-        //{
-        //    foreach (var item in ApiHandler.instance.data.trailPois)
-        //    {
-        //        if (item.intro_id != TrailsHandler.instance.CurrentTrail.num) continue;
-        //        GameObject obj = Instantiate(otherPoi, otherPoisParent);
-        //        obj.GetComponent<PoiItemPreview>().SetData(item.num, item.Name, item.thumbnail);
-        //    }
-        //}
         SetPoiDetails();
         isCheckFeedBack = true;
         swipeControl.canSwipe = true;
-        //ourAudioPlayer.AssignAudioClip();
-        //ResetNextLocation();
-        //isVisited();
-        //CheckPoiVisited();
     }
 
     public override void OnScreenShowAnimationCompleted()
@@ -227,7 +141,6 @@ public class ScreenPoiDetail : UIScreenView
         base.OnScreenHideAnimationCompleted();
         StopCoroutine("AutoScrollImages");
         Clear();
-        //unityVideoController.RemovePlayer();
         scrollRect.verticalNormalizedPosition = 1f;
     }
     public override void OnBack()
@@ -251,7 +164,6 @@ public class ScreenPoiDetail : UIScreenView
         bg.Downloading(poi.num, poi.thumbnail);
         txtname.text = poi.Name;
         txtDescription.text = poi.description;
-        //bookingUrl = poi.booking_url;
         if (poi.poi_images.Count > 1)
         {
             bg.gameObject.SetActive(false);
@@ -271,7 +183,6 @@ public class ScreenPoiDetail : UIScreenView
             bg.Downloading(poi.num, poi.thumbnail);
             ObjCarousel.SetActive(false);
         }
-        //isVisited();
         ButtonDisable();
         CheckPoiVisited();
         Refresh();
@@ -284,20 +195,15 @@ public class ScreenPoiDetail : UIScreenView
 
     void isVisited()
     {
-        //foreach (var item in SavedDataHandler.instance._saveData.mySculptures)
-        //{
         if (SavedDataHandler.instance._saveData.mySculptures.Exists(x => x.Num == TrailsHandler.instance.CurrentTrailPoi.num))
         {
             Debug.Log("in ");
             if (!SavedDataHandler.instance._saveData.mySculptures.Find(x => x.Num == TrailsHandler.instance.CurrentTrailPoi.num).IsVisited)
             {
-                //notificationPopup.Show("You are approaching the " + sculp.title + " sculpture");
                 SavedDataHandler.instance._saveData.mySculptures.Find(x => x.Num == TrailsHandler.instance.CurrentTrailPoi.num).IsVisited = true;
             }
 
         }
-        //}
-
     }
 
     public void OnListenHereClick()
@@ -312,81 +218,19 @@ public class ScreenPoiDetail : UIScreenView
         AudioPlayerParent.SetActive(false);
         listenHereBtn.interactable = true;
     }
-    //public void OnClickMoreInfo()
-    //{
-    //    if (!string.IsNullOrEmpty(webSite) && bookingUrl.ToLower() != "na")
-    //        Application.OpenURL(webSite);
-    //    else
-    //    {
-    //        UIController.instance.ShowPopupMsg("Oops!", "More info URL is Empty.");
-    //    }
-    //}
-    //public void OpenMobilenumber()
-    //{
-    //    Application.OpenURL("tel:" + mobileNumber);
-
-    //}
-    //public void OpneMail()
-    //{
-    //    Application.OpenURL("mailto:" + email);
-    //}
-    //public void OpneBookingUrl()
-    //{
-    //    Application.OpenURL(bookingUrl);
-    //}
+   
     public void OpenMapScreen()
     {
         if (!Services.CheckInternetConnection()) return;
         if (string.IsNullOrEmpty(TrailsHandler.instance.CurrentTrailPoi.latitude) || string.IsNullOrEmpty(TrailsHandler.instance.CurrentTrailPoi.longitude))
+        {
+            Debug.Log("123456897 poidetail open map popup");
             UIController.instance.ShowPopupMsg("Oops!", "Unable to determine trail location.", "Ok");
+        }
         else
             UIController.instance.ShowNextScreen(ScreenType.PoiMap);
     }
-    //public void Play360Video()
-    //{
-    //    if (!string.IsNullOrEmpty(TrailsHandler.instance.CurrentTrailPoi.video_360_file))
-    //    {
-    //        UIController.instance.ShowNextScreen(ScreenType.Video360);
-    //        UIController.instance.getScreen(ScreenType.Video360).GetComponent<Screen360VideoUI>().DownloadAndLoadVideo(TrailsHandler.instance.CurrentTrailPoi.num, TrailsHandler.instance.CurrentTrailPoi.video_360_file, TrailsHandler.instance.CurrentTrailPoi.audio_file);
-    //    }
-    //    else if (!string.IsNullOrEmpty(TrailsHandler.instance.CurrentTrailPoi.video_360_url))
-    //    {
-    //        Application.OpenURL(TrailsHandler.instance.CurrentTrailPoi.video_360_url);
-    //    }
-    //    else
-    //        UIController.instance.ShowPopupMsg("Oops!", "360 video not available.", "Ok");
-    //}
-
-    //public void Play360Image()
-    //{
-    //    Debug.Log("PlayImage called 1");
-    //    if (!string.IsNullOrEmpty(TrailsHandler.instance.CurrentTrailPoi.image_360_file))
-    //    {
-    //        Debug.Log("PlayImage called 1:1");
-    //        UIController.instance.ShowNextScreen(ScreenType.Image360);
-    //    }
-    //    else if (!string.IsNullOrEmpty(TrailsHandler.instance.CurrentTrailPoi.image_360_url))
-    //    {
-    //        Debug.Log("PlayImage called 1:2");
-    //        Application.OpenURL(TrailsHandler.instance.CurrentTrailPoi.image_360_url);
-    //    }
-    //    else
-    //    {
-    //        Debug.Log("PlayImage called 1:3");
-    //        UIController.instance.ShowPopupMsg("Oops!", "360 image not available.", "Ok");
-
-    //    }
-    //}
-
-
-
-    //public void PlayGuidence()
-    //{
-    //    if (string.IsNullOrEmpty(TrailsHandler.instance.CurrentTrailPoi.transparent_video))
-    //        UIController.instance.ShowPopupMsg("Oops!", "Guidance not available.");
-    //    else
-    //        UIController.instance.ShowNextScreen(ScreenType.VideoPlayerCamera);
-    //}
+    
     [SerializeField] ScrollRect nextLocationScrollRect;
     void ResetNextLocation()
     {
@@ -399,19 +243,6 @@ public class ScreenPoiDetail : UIScreenView
         await UIController.instance.RefreshContent(contentSizeFitters);
         scrollRect.verticalNormalizedPosition = 1f;
     }
-
-    //public void ReadMoreToggle()
-    //{
-    //    if (txtReadMore.text == "ReadMore")
-    //    {
-    //        txtReadMore.text = "ReadLess";
-
-    //    }
-    //    else
-    //    {
-    //        txtReadMore.text = "ReadMore";
-    //    }
-    //}
 
     public async void LoadImages()
     {

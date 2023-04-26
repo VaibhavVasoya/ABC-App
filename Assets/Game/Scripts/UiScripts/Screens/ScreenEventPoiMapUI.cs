@@ -43,6 +43,7 @@ public class ScreenEventPoiMapUI : UIScreenView
         eventPoi = TrailsHandler.instance.sculptureEvent;
         if (eventPoi == null)
         {
+            Debug.Log("123456789 loadmap popup");
             UIController.instance.ShowPopupMsg("Oops!!", "Unable to determine trail location.", "Ok");
             return;
         }

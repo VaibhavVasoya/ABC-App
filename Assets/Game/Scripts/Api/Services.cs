@@ -670,7 +670,7 @@ public class Services : Singleton<Services>
             {
                 bundlesInThisBlock = bundlesInLastBlock;
             }
-            allBlockTasks.Add(GetSize(downloadFiles.GetRange(index * numberOfBundle, bundlesInThisBlock), (value) =>
+            allBlockTasks.Add(GetSize(downloadFiles.GetRange(index * numberOfBundles, bundlesInThisBlock), (value) =>
             {
                 totalSizeInByte += value;
             }));
