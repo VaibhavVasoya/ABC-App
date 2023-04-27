@@ -57,7 +57,7 @@ namespace Master.UIKit
         [SerializeField] Image bottomImage;
 
         [SerializeField] ScreenType currentScreens;
-        [SerializeField] List<UIScreen> currentPopup;
+        [SerializeField] public List<UIScreen> currentPopup;
         //[HideInInspector]
         public ScreenType previousScreen;
         //public static float AspectRatio;

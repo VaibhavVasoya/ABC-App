@@ -27,14 +27,14 @@ public class NotificationPopup : UIScreenView
     {
         base.OnScreenShowCalled();
         audioSource.Play();
-        UIController.instance.getScreen(UIController.instance.getCurrentScreen()).ToggleInteraction(false);
+        //UIController.instance.getScreen(UIController.instance.getCurrentScreen()).ToggleInteraction(false);
     }
 
     public override void OnScreenHideAnimationCompleted()
     {
         base.OnScreenHideAnimationCompleted();
         txtMsg.text = "";
-        UIController.instance.getScreen(UIController.instance.getCurrentScreen()).ToggleInteraction(true);
+        //UIController.instance.getScreen(UIController.instance.getCurrentScreen()).ToggleInteraction(true);
         //callBack?.Invoke();
     }
     public override void OnBack()
@@ -70,7 +70,7 @@ public class NotificationPopup : UIScreenView
 
     public void OnClickOk()
     {
-        UIController.instance.getScreen(UIController.instance.getCurrentScreen()).ToggleInteraction(true);
+        //UIController.instance.getScreen(UIController.instance.getCurrentScreen()).ToggleInteraction(true);
         if (UIController.instance.getCurrentScreen() == ScreenType.PoiDetails)
         {
             UIController.instance.getScreen(ScreenType.PoiDetails).GetComponent<ScreenPoiDetail>().SetPoiDetails();

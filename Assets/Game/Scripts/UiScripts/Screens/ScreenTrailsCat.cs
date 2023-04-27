@@ -24,6 +24,7 @@ public class ScreenTrailsCat : UIScreenView
     public override void OnScreenShowCalled()
     {
         base.OnScreenShowCalled();
+        TrailCatsCallBack(API_TYPE.API_TRAIL_CAT,null);
         TrailsHandler.instance.currentTrailCat = null;
         
     }
