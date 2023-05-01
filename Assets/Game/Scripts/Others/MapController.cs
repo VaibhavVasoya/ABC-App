@@ -70,8 +70,11 @@ public class MapController : Singleton<MapController>
         yield return new WaitForEndOfFrame();
         //Application.OpenURL("app-settings:");
         //string appSettingsURL = "app-settings:root=Privacy&path=LOCATION/com.brillianttrails.exploreabc";
-        string appSettingsURL = "app-settings:location";//com.brillianttrails.exploreabc";
-        Application.OpenURL(appSettingsURL);
+        //string appSettingsURL = "app-settings:location";//com.brillianttrails.exploreabc";
+        //Application.OpenURL(appSettingsURL);
+
+        string url = "App-Prefs:root=LOCATION_SERVICES";
+        Application.OpenURL(url);
     }
     //[DllImport("__Internal")]
     //private static extern void OpenLocationSettings();
